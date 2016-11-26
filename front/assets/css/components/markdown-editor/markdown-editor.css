@@ -1,0 +1,222 @@
+/* Markdown Editor */
+/* line 2, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-header {
+  margin-top: -30px;
+  margin-left: 9px;
+}
+
+/* line 6, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-header .btn {
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #FFF !important;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  border-width: 1px !important;
+  padding-top: 2px;
+  padding-bottom: 4px;
+}
+
+/* line 17, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-header .btn > [class*="icon-"] {
+  font-size: 14px;
+  width: 25px;
+  max-width: 25px;
+  display: inline-block;
+}
+
+/* line 23, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-header .btn-inverse {
+  background: rgba(0, 0, 0, 0.25) !important;
+  padding-right: 5px;
+  margin-left: 4px;
+}
+
+/* line 28, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-preview {
+  padding: 8px;
+  min-height: 200px;
+}
+
+/* line 32, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-input {
+  border: none !important;
+  box-shadow: none !important;
+  display: block;
+  margin-bottom: 0;
+  background-color: rgba(48, 126, 204, 0.07);
+  padding: 8px;
+  width: 100%;
+}
+
+/* line 41, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.widget-body .md-input:focus {
+  background-color: #FFF;
+  box-shadow: none !important;
+}
+
+/* line 45, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-container .popover-title {
+  color: #438EB9;
+}
+
+/* line 48, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-click {
+  border-bottom: 1px dashed #BBB;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+/* line 53, ../../../scss/components/markdown-editor/markdown-editor.scss */
+img.editable-click {
+  border: 1px dotted #BBB;
+}
+
+/* line 56, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-click:hover {
+  border-color: #0088CC;
+  color: #0088CC;
+}
+
+/* line 60, ../../../scss/components/markdown-editor/markdown-editor.scss */
+img.editable-click:hover {
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+
+/* line 64, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-buttons,
+.editable-input {
+  display: inline-block;
+}
+
+/* line 68, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-buttons {
+  margin-left: 1px;
+}
+
+/* line 71, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-buttons .btn {
+  padding: 0;
+  width: 28px;
+  line-height: 24px;
+  border-width: 3px;
+  font-size: 12px;
+  margin: 0 1px 0 0;
+}
+
+/* line 79, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-buttons .btn > [class*="icon-"] {
+  margin: 0;
+}
+
+/* line 82, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-clear-x {
+  cursor: pointer;
+  color: #888;
+  background: none;
+}
+
+/* line 87, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-clear-x:hover {
+  color: #D15B47;
+}
+
+/* line 90, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-clear-x:before {
+  display: inline-block;
+  content: "\f057";
+  font-family: FontAwesome;
+  font-size: 15px;
+  position: absolute;
+  margin-top: -9px;
+  width: 16px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+/* line 102, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-input .ace-spinner {
+  margin-right: 8px;
+}
+
+/* line 105, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-inline .editable-slider {
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+/* line 109, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-popup .editable-slider {
+  display: block;
+  margin-bottom: 16px;
+  margin-top: 4px;
+}
+
+/* line 114, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-slider input {
+  display: none;
+}
+
+/* line 117, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-input .ace-file-input {
+  display: block;
+}
+
+/* line 120, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-image .ace-file-multiple label.selected {
+  border-color: transparent;
+}
+
+/* line 123, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-image + .editable-buttons,
+.editable-wysiwyg + .editable-buttons {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* line 129, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-wysiwyg {
+  width: 95%;
+}
+
+/* line 132, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-wysiwyg .wysiwyg-editor {
+  height: auto;
+  overflow-y: hidden;
+}
+
+/* line 136, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editableform .input-append.dropdown-menu {
+  display: none;
+}
+
+/* line 139, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editableform .open .input-append.dropdown-menu {
+  display: block;
+}
+
+/* line 142, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-container .editableform {
+  margin-bottom: 10px;
+}
+
+/* line 145, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editable-inline .editableform {
+  margin-bottom: 0;
+}
+
+/* line 148, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editableform-loading {
+  background: none;
+}
+
+/* line 151, ../../../scss/components/markdown-editor/markdown-editor.scss */
+.editableform-loading [class*="icon-"],
+.editableform-loading .progress {
+  position: relative;
+  top: 35%;
+}

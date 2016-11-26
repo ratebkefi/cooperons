@@ -1,0 +1,134 @@
+<!-- Send invitation for new collaborator -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="collaborator.invitation">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Nouvel utilisateur</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <invitation-plus token="tokenPlus" invitation-type="collaborator"
+                         collaborator-id="dlgCtr.collaborator.id"
+                         on-success="dlgCtr.successCollaboratorInvitation()"
+                         before-submit="dlgCtr.beforeSubmitInvitation()">
+        </invitation-plus>
+    </md-dialog-content>
+</script>
+
+<!-- Make out user from corporate -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="user.leave">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Suppression de compte utilisateur</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>
+            Attention: vous êtes sur le point de supprimer le compte utilisateur de
+                <span ng-if="dlgCtr.leavingCollaborator.invitation">
+                    {{ dlgCtr.leavingCollaborator.invitation.firstName }} {{ dlgCtr.leavingCollaborator.invitation.lastName }}
+                </span>
+                <span ng-if="!dlgCtr.leavingCollaborator.invitation">
+                        {{ dlgCtr.leavingCollaborator.member.firstName }} {{dlgCtr.leavingCollaborator.member.lastName }}
+                </span>.
+        </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+            <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+            Annuler
+        </md-button>
+        <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+            <ng-md-icon icon="done" size="16"></ng-md-icon>
+            Confirmer
+        </md-button>
+    </md-dialog-actions>
+</script>
+
+<!-- Go out from corporate and select new administrator -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="administrator.leave">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Suppression de compte administrateur</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p ng-if="dlgCtr.confirmedCollaborators.length > 1">Vous êtes sur le point de supprimer votre compte
+            Administrateur.</p>
+
+        <div ng-if="dlgCtr.confirmedCollaborators.length == 1">
+            <p ng-if="dlgCtr.canTerminateParty">Attention: vous êtes sur le point de procéder à la résiliation du
+                Contrat Cadre de {{dlgCtr.corporate.raisonSocial}}.</p>
+
+            <p ng-if="!dlgCtr.canTerminateParty">Opération impossible: votre compte Entreprise est encore
+                actif.</p>
+        </div>
+        <div ng-if="dlgCtr.confirmedCollaborators.length > 1">
+            <p>Sélectionnez le nouvel Administrateur du compte Entreprise de {{ dlgCtr.corporate.raisonSocial }}.</p>
+            <md-input-container class="md-block">
+                <md-select aria-label="newAdministrator" ng-model="dlgCtr.newAdministrator">
+                    <md-option ng-repeat="collaboratorOption in dlgCtr.transferToCollaborators" ng-value="collaboratorOption">
+                        {{collaboratorOption.member.firstName + ' ' + collaboratorOption.member.lastName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+            <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+            Annuler
+        </md-button>
+        <md-button ng-click="dlgCtr.confirm()" ng-if="dlgCtr.canTerminate || dlgCtr.confirmedCollaborators.length > 1"
+                   type="button" class="md-raised md-primary mr-md">
+            <ng-md-icon icon="done" size="16"></ng-md-icon>
+            Confirmer
+        </md-button>
+    </md-dialog-actions>
+</script>
+
+<!-- Change program manager -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="collaborator.transfer.contract">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Changement de gestionnaire</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>Sélectionnez l'utilisateur à qui vous souhaiter transférer la gestion du contrat Auto-Entrepreneur
+            {{dlgCtr.contract.ownerLabel}}.</p>
+        <md-input-container class="md-block" flex-gt-sm>
+            <md-select aria-label="Programme" ng-model="dlgCtr.transferTo">
+                <md-option ng-repeat="collaboratorOption in dlgCtr.collaborators" ng-value="collaboratorOption">
+                    {{collaboratorOption.member.firstName + ' ' + collaboratorOption.member.lastName}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+            <md-icon md-font-icon="fa fa-times"></md-icon>
+            Annuler
+        </md-button>
+        <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+            <md-icon md-font-icon="fa fa-sign-out"></md-icon>
+            Confirmer
+        </md-button>
+    </md-dialog-actions>
+</script>
+

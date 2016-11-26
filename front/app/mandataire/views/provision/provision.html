@@ -1,0 +1,49 @@
+<header class="page-header"><h2>Approvisionnement du {{ mandataire.shortLabel }}</h2></header>
+
+<div ng-if="mandataire.contract && mandataire.contract.program" ng-include="'app/program/views/header/header.html'"
+     ng-data-program="program"></div>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" ng-if="mandataire && amount != undefined" ng-controller="mandataire:paymentController">
+    <div ng-if="payment">
+        <div ng-include="'app/mandataire/views/payment/paymentVirement.html'"></div>
+    </div>
+
+    <div ng-if="!payment">
+        <div ng-include="'app/mandataire/views/provision/order.html'"></div>
+
+        <div class="hr hr-24 hr-dotted"></div>
+        <h3 class="title-header">Saisissez le montant de votre réglement
+            <md-icon class="red-color" md-font-icon="fa fa-info-circle">
+                <md-tooltip md-direction="top">Montant minimum {{total|displayPrice}} €</md-tooltip>
+            </md-icon>
+        </h3>
+
+        <p class="mt-md">
+            <label for="total_amount">Montant</label>
+            <span class="form-field input-icon input-icon-right">
+                <input type="text" id="total_amount" ng-model="amountData.provision"/><i
+                    class="ace-icon fa fa-euro"></i>
+            </span>
+        </p>
+
+
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="info" class="green-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <div class="md-subhead" ng-include="'app/mandataire/views/provision/footer.html'"></div>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+
+        <div class="mt-md" ng-include="'app/mandataire/views/payment/paymentMode.html'"></div>
+
+    </div>
+</md-content>
+

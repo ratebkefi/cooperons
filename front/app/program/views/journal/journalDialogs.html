@@ -1,0 +1,27 @@
+<!-- Confirm reinitialization of program journal -->
+<script type="text/ng-template" id="journal.reset">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmer la réinitialisation</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+       <div class="content">
+            Confirmer la réinitialisation du journal du programme {{program.label}}?
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+         <md-button ng-click="closeThisDialog()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>
+</script>

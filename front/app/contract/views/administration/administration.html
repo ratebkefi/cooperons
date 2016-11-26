@@ -1,0 +1,11 @@
+<div ng-if="mandataire" ng-controller="mandataire:administrationController">
+    <header class="page-header"><h2 ng-if="adminCtr.authorizedParty.id == client.id" ng-bind="owner.label"></h2></header>
+    <header class="page-header"><h2 ng-if="adminCtr.authorizedParty.id == owner.id" ng-bind="client.label"></h2></header>
+
+    <div class="layout-content">
+        <infos-mandataire></infos-mandataire>
+        <div class="docs-content">
+            <div ng-include="'app/mandataire/views/administration/administration.html'"></div>
+        </div>
+    </div>
+</div>

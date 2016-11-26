@@ -1,0 +1,9 @@
+<header class="page-header"><h2 ng-if="party.type == 'corporate'">{{ party.label }}</h2></header>
+<div class="layout-content">
+    <infos-mandataire></infos-mandataire>
+    <div class="docs-content">
+        <div ng-if="mandataire" ng-controller="mandataire:administrationController">
+            <div ng-include="'app/mandataire/views/administration/administration.html'"></div>
+        </div>
+    </div>
+</div>

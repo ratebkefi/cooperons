@@ -1,0 +1,66 @@
+//colors
+$white: #fff;
+$color_steel_blue_approx: #337ab7;
+$black_30: rgba(0, 0, 0, .3);
+$white_30: rgba(255, 255, 255, .3);
+$color_casablanca_approx: #f0ad4e;
+$color_chestnut_rose_approx: #d9534f;
+$color_fern_approx: #5cb85c;
+$color_viking_approx: #5bc0de;
+
+.ui-notification {
+	position: fixed;
+	z-index: 9999;
+	width: 300px;
+	cursor: pointer;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all ease .5s;
+	color: $white;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+	background: $color_steel_blue_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 5px 5px 10px $black_30;
+	&.killed {
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: opacity ease 1s;
+		opacity: 0;
+	}
+	> h3 {
+		font-size: 14px;
+		font-weight: bold;
+		display: block;
+		margin: 10px 10px 0 10px;
+		padding: 0 0 5px 0;
+		text-align: left;
+		border-bottom: 1px solid $white_30;
+	}
+	a {
+		color: $white;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	&.warning {
+		color: $white;
+		background: $color_casablanca_approx;
+	}
+	&.error {
+		color: $white;
+		background: $color_chestnut_rose_approx;
+	}
+	&.success {
+		color: $white;
+		background: $color_fern_approx;
+	}
+	&.info {
+		color: $white;
+		background: $color_viking_approx;
+	}
+	&:hover {
+		opacity: .7;
+	}
+	> .message {
+		margin: 10px;
+	}
+}

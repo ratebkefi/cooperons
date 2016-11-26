@@ -1,0 +1,29 @@
+user:
+    resend_activation_email:
+        op: resend
+        path: /email
+    connect_token:
+        op: connect
+        path: /token
+        params: [token]
+public_user:
+    check_email:
+        op: check
+        path: /email
+        params: [value]
+    check_confirmation_token:
+        op: check
+        path: /confirmationToken
+        params: [value]
+    activate_account:
+        op: activate
+        path: /
+        params: [token]
+    forget_password:
+        op: forget
+        path: /password
+        params: [email]
+    rest_password:
+        op: reset
+        path: /password
+        params: [value, token]

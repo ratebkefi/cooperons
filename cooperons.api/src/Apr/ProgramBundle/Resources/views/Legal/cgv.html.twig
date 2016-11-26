@@ -1,0 +1,190 @@
+{% extends "AprProgramBundle:Default:baseWithoutMenu.html.twig"  %}
+{% block content %}
+    <link  href={{ asset('bundles/Edtapp/css/program.css')}} rel='stylesheet' type='text/css' />
+    <h1>Conditions Générales de Vente - Coopérons Plus</h1>
+    <div class="separateur_haut"></div>
+    <div class="span12">
+        <p>Le site Internet <a href="http://www.cooperons.com/" target="_blank">www.cooperons.com</a>, ci-après dénommé «<strong>Coopérons !</strong>» propose un service de gestion de programmes de stimulation et promotion des ventes à destination des professionnels.</p>
+        <p>Ce service est fourni par la SARL COOPERONS !, société à responsabilité limitée au capital de 50'000 € immatriculée au Registre du Commerce et des Sociétés sous le numéro RCS 792 896 359 dont le siège social est situé 34, rue de la Tombe Issoire 75014 Paris (« <strong>L'Opérateur</strong> »).</p>
+        <p>Les présentes conditions générales de vente (ci-après dénommées le « <strong>Contrat</strong> ») ont pour objet de déterminer les conditions d'utilisation du Service Coopérons Plus, ainsi que vos droits et obligations en tant Promoteur (« <strong>Vous</strong> »).</p>
+        <p>Vous déclarez en souscrivant au Service Coopérons Plus avoir pris connaissance des présentes conditions générales de vente et les accepter expressément sans réserve et/ou modification de quelque nature que ce soit.</p>
+        <h3>1. Définitions</h3>
+        <p><strong>Abonnement API</strong> : Abonnement au Service Coopérons Plus permettant l'animation d'un (1) Programme, conformément aux stipulations de l'article 3.3 du présent Contrat.</p>
+        <p><strong>Abonnement Classique</strong> : Abonnement au Service Coopérons Plus permettant l'animation d'un (1) Programme, conformément aux stipulations de l'article 3.2 du présent Contrat.</p>
+        <p><strong>Affaire</strong> : Opportunité identifiée par un Participant à l'un de Vos Programmes géré dans le cadre d'un Abonnement Classique.</p>
+        <p><strong>Chaîne de Parrainage Aboutissant au Participant</strong> : Liste de Participants à un Programme obtenue par un algorithme récursif, à partir d'un Participant donné « P(0) » (inclus donc) audit Programme, de chaque Participant successif « P(n+1) » audit Programme ayant pour Filleul dans le cadre dudit Programme, le Participant précédent « P(n) » audit Programme - l'indice (n) variant de 0 jusqu'à ce qu'aucun Participant audit Programme n'ait pour Filleul dans le cadre dudit Programme le dernier Participant successif audit Programme.</p>
+        <p><strong>Compte Bancaire de l'Opérateur</strong> : Compte ouvert par l'Opérateur auprès de Crédit Agricole Ile de France.</p>
+        <p><strong>Compte de Points</strong> : Compte de Points tel que défini à l'article 1 des Conditions Générales Réseau.</p>
+        <p><strong>Compte Programme</strong> : Compte en Euros ouvert auprès de l'Opérateur, approvisionné par le Promoteur de sorte à ce que le solde dudit compte soit à tout instant supérieur au Dépôt Minimum, et débité dans le cadre de Commandes de Points conformément aux stipulations de l'article 4.3 du présent Contrat.</p>
+        <p><strong>Commande de Points</strong> : Commande effectuée par Vous à l'Opérateur d'un certain montant de Points (incluant éventuellement des MultiPoints) conformément aux stipulations de l'article 3.4 du présent Contrat.</p>
+        <p><strong>Conditions Générales d'un Programmes</strong> : les conditions générales régissant les droits et obligations des Participants dans le cadre des Programmes, créés par Vous à partir d'un modèle standard disponible sur Votre Espace Promoteur.</p>
+        <p><strong>Conditions Générales Réseau</strong> : les conditions générales d'utilisation du service Coopérons !, accessibles sur <a href="http://www.cooperons.com/" target="_blank">www.cooperons.com</a> régissant les droits et obligations des Membres dans le cadre de leur utilisation du Service Coopérons.</p>
+        <p><strong>Dépôt Minimum</strong> : Montant minimum du Compte Programme, initialement fixé à 500 €, et révisable par l'Opérateur conformément aux stipulations de l'article 4.2 du présent Contrat.</p>
+        <p><strong>Espace Membre</strong> : l'Espace Membre tel que défini à l'article 1 des Conditions Générales Réseau.</p>
+        <p><strong>Espace Promoteur</strong> : Espace dédié à un professionnel sur son Espace Membre permettant notamment (i) de créer et animer des Programmes, (ii) effectuer une Commande de Points et MultiPoints.</p>
+        <p><strong>Filleul</strong> : tout Participant à un Programme, parrainé par un autre Participant conformément aux stipulations de l'article 3.2 des Conditions Générales Réseau.</p>
+        <p><strong>Membre</strong> : toute personne physique inscrite au service Coopérons conformément aux stipulations de l'article 2 des Conditions Générales Réseau.</p>
+        <p><strong>Module d'Invitation d'un Programme</strong> : Module d'Invitation d'un Programme tel que défini à l'article 1 des Conditions Générales Réseau.</p>
+        <p><strong>MultiPoints</strong> : catégorie particulière de Points qui, lorsqu'ils sont offerts aux Filleuls d'un Participant, donne droit à des MultiPoints audit Participant, pour un montant égal aux deux tiers (2/3) arrondi à l'entier inférieur des MultiPoints gagnés par ledit Filleul.</p>
+        <p><strong>Opportunités d'un Programme</strong> : Circonstances d'un Programme, définies par le Promoteur, dans lesquelles Vous vous engagez à offrir un certain nombre de Points et MultiPoints à un Participant à Vos Programmes, conformément aux stipulations de l'article 3.1 du présent Contrat.</p>
+        <p><strong>Participant à un Programme</strong> : tout Membre participant à un Programme.</p>
+        <p><strong>Plafond Coopérons</strong> : montant maximum de chèques cadeau distribuables par l'Opérateur à un Participant sur une période donnée conformément à l'article 4 des Conditions Générales Réseau. Par défaut, le Plafond Coopérons est de 140 € par an.</p>
+        <p><strong>Points</strong> : l'unité de compte que Vous achetez à l'Opérateur dans le cadre d'une Commande de Points, afin d'être convertie par l'Opérateur en avantage pour Vos Participants, au taux de 20 € pour 100 Points, dans le cadre des stipulations de l'article 4 des Conditions Générales Réseau.</p>
+        <p><strong>Programme</strong> : programme de stimulation et promotion des ventes créé et géré par Vous, permettant à des Membres de  gagner des Points et MultiPoints dans le cadre d'Opportunités.</p>
+        <p><strong>Promoteur</strong> : Tout professionnel ayant la qualité de Membre et ayant créé un Espace Promoteur afin de bénéficier du Service Coopérons Plus.</p>
+        <p><strong>Règlement</strong> : Paiement effectué par l'un de vos clients dans le cadre d'une Affaire ayant été conclue avec succès.</p>
+        <p><strong>Service Coopérons Plus</strong> : désigne les services mis à la disposition des Promoteurs sur leur Espace Promoteur par l'Opérateur dans le cadre des présentes conditions générales de vente.</p>
+        <h3>2. Inscription au Service Coopérons Plus</h3>
+        <p>Tout Membre dispose de la faculté, sur son Espace Membre de créer son Espace Promoteur en tant que professionnel pour devenir Promoteur.</p>
+        <p>La création par l'Opérateur de l'Espace Promoteur nécessite la communication par le professionnel de son numéro SIREN, ainsi que de ses éléments d'identification usuels (forme et dénomination sociale, capital, adresse du siège social).</p>
+        <h3>3. Utilisation du Service Coopérons Plus</h3>
+        <h4>3.1. Création d'un Programme</h4>
+        <p>Vous pouvez créer un Programme sur votre Espace Promoteur selon 2 procédures :</p>
+        <ul>
+            <li>L'Abonnement Classique</li>
+            <li>L'Abonnement API.</li>
+        </ul>
+        <p>Chaque Programme est défini par :</p>
+        <ul>
+            <li>Un intitulé utilisé pour référencer ledit Programme sur l'Espace Membre des Participants ou l'Espace Promoteur</li>
+            <li>Un lien URL pointant sur une page Web du Promoteur décrivant le produit ou les services promus dans le cadre du Programme</li>
+            <li>La clause de description du Programme figurant à l'article 2 des Vos Conditions Générales des Programmes.</li>
+            <li>Dans le cadre d'un Abonnement API, différents courriels type (adresse expéditrice, sujet, contenu) destinés à être envoyés suite à une invitation par un Participant à des proches</li>
+        </ul>
+        <p>Quelle que soit la procédure choisie vous devez saisir pour chaque Programme la liste d'Opportunités dudit Programme. Chaque Opportunité est définie par :</p>
+        <ul>
+            <li>Un intitulé utilisé pour référencer ladite Opportunité sur l'Espace Membre des Participants ou l'Espace Promoteur</li>
+            <li>Un montant de Points que Vous vous engagez à offrir à un Participant, suite à Votre confirmation de ladite Opportunité, conformément aux stipulations des articles 3.2 et 3.3 du présent Contrat</li>
+            <li>La catégorie desdits Points à distribuer. S'il s'agit de MultiPoints, les stipulations de l'article 3.4 seront applicables.</li>
+            <li>La clause de description de l'Opportunité figurant à l'article 3 des Vos Conditions Générales des Programmes et décrivant précisément les circonstances et les conditions à remplir par un Participant pour que Vous lui offriez ledit montant de Points ou MultiPoints.</li>
+        </ul>
+        <p>Enfin, chaque Programme dispose d'un Module d'Invitation dudit Programme.</p>
+        <h4>3.2. Abonnement Classique : Animation d'un Programme</h4>
+        <p>Dans le cadre d'un Abonnement Classique, vous animez un Programme sur votre Espace Promoteur : vous pouvez notamment inscrire les Participants à vos Programmes et leur attribuer une ou plusieurs Affaires lorsqu'ils vous communiquent une opportunité commerciale.</p>
+        <p>Tout Programme géré dans le cadre d'un Abonnement Classique comporte deux Opportunités :</p>
+        <ul>
+            <li>Commission Directe : dans le cadre de cette Opportunité, vos Participants au Programme gagnent un montant de Points dont la valeur correspond à un pourcentage (défini par Vous lors de la création du Programme) de chaque Règlement effectué dans le cadre d'une Affaire</li>
+            <li>Commission Multi-Niveau : dans le cadre de cette Opportunité, vos Participants au Programme gagnent un montant de MultiPoints dont la valeur correspond à un pourcentage (défini par Vous lors de la création du Programme) de chaque Règlement effectué dans le cadre d'une Affaire.</li>
+        </ul>
+        <p>Vous Vous engagez à informer régulièrement les Participants à Vos Programmes de l'avancement des Affaires le concernant – au moyen de l'interface prévue à cet effet dans votre Espace Promoteur – et notamment de chaque Règlement effectué.</p>
+        <h4>3.3. Abonnement API: Animation d'un Programme</h4>
+        <p>Dans le cadre d'un Abonnement API, vous animez un Programme de façon automatisée, au moyen de l'accès par un logiciel développé par Vous et avec des identifiants spécifiques fournis par l'Opérateur, à l'API Coopérons (<i>Application Programming Interface</i>) conformément aux stipulations de l'article 3.3 du présent Contrat.</p>
+        <p>Vous pouvez notamment :</p>
+        <ul>
+            <li>Attribuer à un Participant un ou plusieurs Filleuls de façon automatisée</li>
+            <li>Confirmer une Opportunité pour un Participant, ceci déclenchant la création d'une Commande de Points à attribuer audit Participant (éventuellement avec un montant de Points différent du montant défini dans le cadre des stipulations de l'article 3.1)</li>
+        </ul>
+        <h4>3.4. Confirmation d'une Opportunité portant sur des MultiPoints – Commande de MultiPoints</h4>
+        <p>Toute confirmation par Vous, d'une Opportunité pour un Participant portant sur des MultiPoints - effectuée soit par Vous ou l'un de vos préposés dans le cadre d'un Abonnement Classique, soit de façon automatisée dans le cadre d'un Abonnement API – donne lieu à la création d'une Commande de Points pour chacun des Participants successifs (les « <strong>Participant Successifs</strong> ») dans la Chaîne de Parrainage Aboutissant audit Participant (le « <strong>Participant Initial</strong> »).</p>
+        <p>Pour le Participant Initial et chaque Participant Successif, chaque Commande de Points est définie par :</p>
+        <ul>
+            <li>S'agissant du Participant Initial, l'identifiant dudit Participant Initial. Cet identifiant est fourni :</li>
+            <ul>
+                <li>Automatiquement dans le cadre de l'Abonnement Classique</li>
+                <li>à travers une requête vers l'API Coopérons dans le cadre de l'Abonnement Classique.</li>
+            </ul>
+            <li>S'agissant de chaque Participant Successif, l'identifiant dudit Participant Successif, fourni automatiquement par l'Opérateur</li>
+            <li>Le montant de MultiPoints que l'Opérateur s'engage à créditer sur le Compte de Points de chacun desdits Participant Initial et Participants Successifs, au titre de ladite Commande de Points sous réserve que :</li>
+            <ul>
+                <li>Ladite Commande de Points ait été réglée par Vous conformément aux stipulations de l'article 4.2 du présent Contrat</li>
+                <li>Le Plafond Coopérons dudit Participant n'ait pas été atteint sur la période concernée, conformément aux stipulations de l'article 4 des Conditions Générales Réseau.</li>
+            </ul>
+            <li>Le montant de MultiPoints de chaque Commande de Points sera calculé :</li>
+            <ul>
+                <li>Pour le Participant Initial (P(n)), égal au montant de MultiPoints défini par Vous lors de la confirmation de ladite Opportunité</li>
+                <li>Par un algorithme récursif, pour chaque Participant Successif P(n+1), le montant de MultiPoints applicable sera égal aux 2/3 du Montant des MultiPoints applicables au Participant Succesif P(n), arrondi à l'entier inférieur.</li>
+            </ul>
+        </ul>
+        <h4>3.5. Confirmation d'une Opportunité ne portant pas sur des MultiPoints – Commande simple de Points</h4>
+        <p>Toute confirmation par Vous, d'une Opportunité pour un Participant ne portant pas sur des MultiPoints - effectuée soit par Vous ou l'un de vos préposés dans le cadre d'un Abonnement Classique, soit de façon automatisée dans le cadre d'un Abonnement API – donne lieu à la création d'une Commande de Points.</p>
+        <p>Cette Commande de Points est définie par :</p>
+        <ul>
+            <li>L'identifiant dudit Participant. Cet identifiant est fourni :</li>
+            <ul>
+                <li>Automatiquement dans le cadre de l'Abonnement Classique</li>
+                <li>à travers une requête vers l'API Coopérons dans le cadre de l'Abonnement Classique.</li>
+            </ul>
+            <li>Le montant de Points que l'Opérateur s'engage à créditer sur le Compte de Points dudit Participant au titre de ladite Commande de Points sous réserve que :</li>
+            <ul>
+                <li>Ladite Commande de Points ait été réglée par Vous conformément aux stipulations de l'article 4.2 du présent Contrat</li>
+                <li>Ledit Participant ait gagné des MultiPoints dans le cadre d'un Programme – ou dans le cadre d'un programme de tout autre Promoteur, conformément aux stipulations de l'article 4 des Conditions Générales Réseau</li>
+                <li>Le Plafond Coopérons dudit Participant n'ait pas été atteint sur la période concernée, conformément aux stipulations de l'article 4 des Conditions Générales Réseau.</li>
+            </ul>
+        </ul>
+        <h4>3.6. Annulation d'un Programme</h4>
+        Vous pouvez à tout moment annuler un Programme, en suivant la procédure indiquée sur votre Espace Promoteur.
+
+        Dans un tel cas l'Opérateur informera les Participants de l'arrêt dudit Programme, conformément aux stipulations de l'article 6 (Modifications) de Vos Conditions Générales des Programmes. 
+
+        <h3>4. Dispositions financières</h3>
+        <h4>4.1. Abonnement au Service Coopérons Plus</h4>
+        <p>Le montant de l'abonnement annuel au Service Coopérons Plus s'élève à :</p>
+        <ul>
+            <li>468 € Hors Taxes pour chaque Programme animé dans le cadre d'un Abonnement Classique</li>
+            <li>948 € Hors Taxes pour chaque Programme animé dans le cadre d'un Abonnement API.</li>
+        </ul>
+        <p>Ce montant sera réglé par Vous :</p>
+        <ul>
+            <li>Lors de la création de chaque Programme, par carte bancaire sur votre Espace Promoteur ou par virement bancaire sur le Compte Bancaire de l'Opérateur</li>
+            <li>Lors des renouvellements ultérieurs, par prélèvement sur votre Compte Programme.</li>
+        </ul>
+        <h4>4.2. Compte Programme – Dépôt Minimum</h4>
+        <p>Dans le cadre de Votre inscription au Service Coopérons Plus, l'Opérateur ouvrira un Compte Programme initialement approvisionné par Vous d'un montant égal au double du Dépôt Minimum (soit 1'000 €).</p>
+        <p>Le Dépôt Minimum pourra être révisé par l'Opérateur, en cas d'augmentation ou baisse de Votre activité, et le nouveau Dépôt Minimum Vous sera alors notifié par email ainsi que sur Votre Espace Promoteur.</p>
+        <p>L'Opérateur Vous notifiera par email lorsque le solde de Votre Compte Programme sera inférieur au Dépôt Minimum. Vous Vous engagez, dans un tel cas, à approvisionner Votre Compte Programme d'un montant minimum égal au double du Dépôt Minimum, dans un délai de 15 jours de ladite notification, dans le cadre de la procédure accessible sur Votre Espace Promoteur.</p>
+        <p>Vous pouvez approvisionner Votre Compte Programme au moyen d'un paiement par carte bancaire sur votre Espace Promoteur ou par virement bancaire sur le Compte Bancaire de l'Opérateur.</p>
+        <h4>4.3. Commande de Points - Commission de Portage</h4>
+        <p>Le montant Hors Taxes de chaque Commande de Points est égal à la somme :</p>
+        <ul>
+            <li>Du montant équivalent en Euros des Points ou MultiPoints à créditer sur le Compte de Points du Participant, au taux de 20 € pour 100 Points</li>
+            <li>Augmenté de 25 % dudit montant équivalent en Euros (« <strong>Commission de Portage</strong> »).</li>
+        </ul>
+        <p>En cas de solde créditeur de Votre Compte Programme inférieur au montant d'une Commande de Points, Vous Vous engagez à approvisionner Votre Compte Programme d'un montant au moins égal au montant de ladite Commande de Points dans un délai de 15 jours calendaires après la création de ladite Commande.</p>
+        <p>Sous réserve d'un solde créditeur suffisant de Votre Compte Programme, chaque Commande de Points sera réglée par prélèvement automatique sur Votre Compte Programme.</p>
+        <p>A défaut de règlement d'une Commande de Points dans un délai de 15 jours calendaires après la création de ladite Commande, l'Opérateur procédera à l'annulation de ladite Commande de Points sans autre notification ni aucune indemnité d'aucune sorte.</p>
+        <p>Le règlement de toute Commande de Points engage irrévocablement l'Opérateur à procéder à la conversion des Points ou MultiPoints ainsi crédités dans le cadre des stipulations de l'article 4 des Conditions Générales Réseau.</p>
+        <p>L'Opérateur émettra, au plus tard le 5 de chaque mois, une facture récapitulative détaillant :</p>
+        <ul>
+            <li>Toutes les Commandes de Points réglées le mois précédent par prélèvement automatique sur Votre Compte Programme</li>
+            <li>Tous les approvisionnements effectués le mois précédent sur Votre Compte Programme.</li>
+        </ul>
+        <h3>5. Clause limitative de responsabilité</h3>
+        <p>L'Opérateur s'engage à mettre en œuvre tous les moyens nécessaires afin d'assurer au mieux la fourniture du Service Coopérons Plus au Promoteur.</p>
+        <p>Toutefois, l'Opérateur décline toute responsabilité en cas de :</p>
+        <ul>
+            <li>Interruptions, pannes, modifications et dysfonctionnement des Services Coopérons et Coopérons Plus quelles qu'en soient l'origine et la provenance</li>
+            <li>Retard, perte ou mauvaise distribution d'un courrier, ni de son envoi à une adresse électronique, erronée ou non</li>
+            <li>La perte de données ou d'informations stockées par l'Opérateur</li>
+            <li>Impossibilité momentanée d'accès aux Services Coopérons et Coopérons Plus en raison de problèmes techniques et ce quelles qu'en soient l'origine et la provenance</li>
+            <li>Utilisation anormale ou d'une exploitation illicite des Services Coopérons et Coopérons Plus par tout Membre ou Promoteur</li>
+            <li>Attaque ou piratage informatique, privation, suppression ou interdiction, temporaire ou définitive, et pour quelque cause que ce soit, de l'accès au réseau internet.</li>
+        </ul>
+        <p>Vous reconnaissez que la mise à disposition par l'Opérateur sur votre Espace Promoteur des Conditions Générales des Programmes constitue un modèle standard, sans adaptation ou individualisation par l'Opérateur et ne constitue pas une consultation juridique au sens de la Loi n° 71-1130 du 31 décembre 1971.</p>
+        <p>Vous reconnaissez notamment que (i) la communication des éléments d'identification professionnels du Promoteur et (ii) la personnalisation des Conditions Générales des Programmes concernant notamment le montant de Points offerts, la définition des opportunités de gain -  est effectuée sous Votre seule responsabilité.</p>
+        <p>Vous vous engagez, le cas échéant, à respecter et à maintenir la confidentialité des identifiants de connexion à votre Espace Membre et reconnaissez expressément que toute connexion à votre Espace Membre, ainsi que toute transmission de données depuis votre Espace Membre sera réputée avoir été effectuée par Vous. Toute perte, détournement ou utilisation des identifiants de connexion et leurs éventuelles conséquences relèvent de Votre seule et entière responsabilité.</p>
+        <p>En outre l'Opérateur s'engage et Vous vous engagez à ce qu'aucune des parties ne soit jamais tenue pour responsable de tout dommage indirect tel que, sans que cette liste ne soit limitative : manque à gagner, perte de chance, etc...</p>
+        <h3>6. Durée du contrat - Résiliation</h3>
+        <p>Le présent Contrat entre en vigueur à compter de Votre inscription au Service Coopérons Plus et il se poursuivra pour une durée indéterminée sauf en cas de résiliation comme stipulé ci-dessous.</p>
+        <p>Le Contrat pourra être résilié par Vous par courrier électronique ou par simple courrier postal adressé au siège social de l'Opérateur. Pour des raisons de traitement, votre résiliation sera prise en compte dans un délai maximum de 7 jours.</p>
+        <p>En cas d'application d'un ou plusieurs cas énoncés ci-dessous, le Promoteur se réserve le droit de résilier de plein droit, sans préavis et sans formalité judiciaire, le Contrat par courrier électronique ou par simple courrier postal en cas de :</p>
+        <ul>
+            <li>Manquement substantiel de Votre part à vos obligations au titre du Contrat – notamment en cas de double inscription au Service Coopérons et de fausse déclaration relative à votre statut salarié</li>
+            <li>Changement législatif ou réglementaire ou toute décision d'une autorité administrative affectant de manière substantielle la fourniture d'un Programme</li>
+        </ul>
+        <p>Suite à la résiliation du présent Contrat, l'Opérateur procédera à la suppression de votre Espace Promoteur.</p>
+        <p>L'engagement irrévocable pris par l'Opérateur de procéder à la conversion</p>
+        <h3>7. Modifications</h3>
+        <p>L'Opérateur se réserve le droit, à tout moment, de modifier temporairement ou définitivement tout ou partie du Contrat.</p>
+        <p>Le Promoteur Vous en informera préalablement dans la mesure du possible. </p>
+        <p>Les Membres sont invités à consulter régulièrement les présentes conditions générales d'utilisation afin de prendre connaissance de changements éventuels effectués. L'utilisation du Service Coopérons par les Membres constitue l'acceptation par ces derniers des modifications apportées aux présentes conditions générales d'utilisation.</p>
+        <h3>8. Données collectées – Données à caractère personnel</h3>
+        <p>Le Promoteur reconnaît que l'Opérateur est et reste le titulaire exclusif des droits de propriété intellectuelle relatifs aux logiciels constituant les Services Coopérons et Coopérons Plus, ainsi que de tous les droits relatifs tant à la structure qu'au contenu des données collectées dans le cadre du présent Contrat (la « <strong>Base de Données</strong> »). L'Opérateur est le producteur de la Base de Données au sens des articles 341-1 et suivants du Code de la propriété intellectuelle et détient tous les droits d'exploitation qui y sont attachés.</p>
+        <p>L'Opérateur s'engage à conserver la confidentialité des données à caractère personnel présentes dans la Base de Données, le tout conformément à la loi n°78-17 du 6 Janvier 1978 dite « <i>Informatique et Libertés</i> ».</p>
+        <p>L'Opérateur s'engage, en outre, à n'utiliser les données à caractère personnel des membres à des fins de prospection commerciale qu'en stricte conformité avec les dispositions de l'article 121-20-5 du Code de la Consommation issues de la loi du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
+        <h3>9. Divers</h3>
+        <p>Le Contrat exprime l'intégralité de l'accord passé entre L'Opérateur et Vous et se substitue à tout accord éventuellement intervenu antérieurement entre L'Opérateur et Vous pour ce qui concerne le Service Coopérons Plus.</p>
+        <p>Si une ou plusieurs dispositions du Contrat étaient tenues pour nulles ou non valides ou déclarées telles en application d'une loi, d'un règlement ou à la suite d'une décision d'une juridiction compétente, les autres clauses garderont leur force et leur portée.</p>
+        <p>Le fait par l'une des parties de ne pas se prévaloir d'un manquement par l'autre partie à l'une quelconque de ses obligations visée dans le Contrat, ou de tarder à exercer l'un quelconque des droits qu'elle tient du Contrat, ne saurait valoir renonciation définitive à l'exécution de cette disposition ou de toute autre disposition, ou à l'exercice de ce droit ou de tout autre droit.</p>
+        <p>Le Contrat est soumis au droit français. Tous litiges nés de l'interprétation, l'exécution ou la résiliation du Contrat seront soumis aux tribunaux compétents.</p>
+    </div>
+{% endblock %}

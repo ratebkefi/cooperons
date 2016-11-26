@@ -1,0 +1,75 @@
+<md-toolbar class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+        <span class="mr-xs">Utilisateurs</span>
+        <md-button ng-click="collaboratorCtr.showUserDialog()" class="md-icon-button launch">
+            <md-tooltip md-direction="top">Nouvel Utilisateur</md-tooltip>
+            <ng-md-icon class="red-color" icon="person_add"></ng-md-icon>
+        </md-button>
+    </h2>
+</md-toolbar>
+
+
+<ul class="collection with-header" ng-repeat="collaboratorIterator in collaboratorCtr.collaborators">
+    <li class="collection-header">
+        <div class="first-content">
+            <h4> {{ collaboratorIterator | name }}</h4>
+        </div>
+
+        <div class="secondary-content">
+            <md-button ng-click="collaboratorCtr.deleteUser(collaboratorIterator)"
+                       class="md-icon-button launch right actions-delete">
+                <md-tooltip md-direction="top">Supprimer</md-tooltip>
+                <ng-md-icon icon="delete" size="24"></ng-md-icon>
+            </md-button>
+
+            <md-button ng-if="!collaboratorIterator.member"
+                       ng-click="collaboratorCtr.resendCollaboratorInvitation(collaboratorIterator)"
+                       class="md-icon-button launch right actions-admin">
+                <md-tooltip md-direction="top">Renvoyer l'invitation</md-tooltip>
+                <md-icon md-font-icon="fa fa-mail-forward"></md-icon>
+            </md-button>
+        </div>
+    </li>
+
+    <li class="collection-item" layout="row" layout-wrap ng-repeat="contract in collaboratorIterator.contracts"
+        ng-if="!contract.invitation && contract.status!=='standby' && !contract.oldContract">
+        <div flex="nogrow" class="ml-xs mr-md">
+            <ng-md-icon icon="subdirectory_arrow_right"></ng-md-icon>
+        </div>
+        <div flex class="first-content">
+            {{ contract.ownerLabel }}
+        </div>
+        <div flex="nogrow" class="secondary-content">
+            <md-button ng-if="contract.status != 'standby' && contract.status != 'cancel'"
+                       ng-click="collaboratorCtr.transferContract(collaboratorIterator, contract)"
+                       class="md-icon-button launch right actions-program">
+                <md-tooltip md-direction="top">Transférer</md-tooltip>
+                <ng-md-icon icon="forward" size="24"></ng-md-icon>
+            </md-button>
+            <md-button ui-sref="contract.administration({id: contract.id})"
+                       class="md-icon-button launch right actions-admin">
+                <md-tooltip md-direction="top">Administration</md-tooltip>
+                <ng-md-icon icon="dashboard" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </li>
+
+    <li class="collection-item" layout="row" layout-wrap ng-repeat="program in collaboratorIterator.programs"
+        ng-if="program.status!=='standby' && !program.oldProgram">
+        <div flex="nogrow" class="ml-xs mr-md">
+            <ng-md-icon icon="subdirectory_arrow_right"></ng-md-icon>
+        </div>
+        <div flex class="first-content">
+            <span class="avatar">
+                <img ng-if="program.image && program.image.filename != ''"
+                     ng-src="{{uploadedFile(program.image.filename)}}"
+                     alt="{{program.label}}" class="md-avatar"/>
+                <md-tooltip md-direction="top">{{program.label}}</md-tooltip>
+                <span class="title" ng-if="!program.image || program.image.filename == ''">{{program.label}}</span>
+            </span>
+            <span class="title label-status  {{ contract.program.status }}">{{ program.statusLabel }}</span>
+        </div>
+    </li>
+</ul>
+
+<div ng-include="'app/party/views/collaborator/collaboratorsDialogs.html'"></div>

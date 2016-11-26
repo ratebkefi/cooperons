@@ -1,0 +1,59 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: cooperons
+    database_user: root
+    database_password: root
+
+    mailer_transport: smtp
+    mailer_host: smtp.tunisie.edatis.net
+    mailer_auth_mode: null
+    mailer_encryption: null
+    mailer_user: null
+    mailer_password: null
+    mailer_port: null
+
+    locale: fr
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    senderMail: service@cooperons.com
+    senderName: Coopérons !
+    testCcMail: null
+
+    delivery_address: bn@fondative.com
+
+    SMIC: 1457.52
+
+    idProgramPlus: 1
+    idProgramAE: 4
+    idCorporateCooperons: 1
+    idPartyCooperons: 1
+
+    api.coopPlus: http://cooperons.api/api/
+    code.operation.points.premier_program_filleul: Premier Programme
+    uploadsPath: /Users/emmanuelifergan/Sites/github/cooperons/cooperons.api/web/Uploads/
+    baseUrl: http://cooperons.api
+
+    jwt_private_key_path: %kernel.root_dir%/var/jwt/private.pem
+    jwt_public_key_path: %kernel.root_dir%/var/jwt/public.pem
+    jwt_key_pass_phrase: cooperons
+    jwt_token_ttl: 86400
+
+    knp_snappy_pdf_binary:  %kernel.root_dir%/var/wkhtmltox/bin/wkhtmltopdf
+
+    frontend.base.uri:      http://cooperons.front
+    front.activate.account: %frontend.base.uri%/public/account/activate
+    front.forget.password:  %frontend.base.uri%/password/reset
+    front.user.connect:     %frontend.base.uri%/public/member/connect
+    front.user.create:      %frontend.base.uri%/public/user/create
+
+    apr.mandatairebundle.after_payment_redirect: %frontend.base.uri%/member/programs
+
+    paybox:
+        site: 1
+        rang: 1
+        identifiant: 1
+        keyHMAC: 1
+        preprod: 1
+        keyfile: 1

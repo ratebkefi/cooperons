@@ -1,0 +1,32 @@
+<div class="width-100 text-right mt-md" >
+    <iframe ng-if="action !== 'new'" src="{{selectedLegalDocument.file.content}}"
+            style="border: 1px solid black; border-radius: 5px;height: 500px; width: 100%"
+            webkitallowfullscreen="true" mozallowfullscreen="true">
+
+    </iframe>
+    <div class="mt-md md-padding" ng-if="action !== 'view'">
+        <div class="control-group">
+                <label class="ace-file-input">
+                    <input type="file" name="file" file-model="newLegalDocument.file" ng-model="newLegalDocument.file" ngf-select=""
+                           ngf-pattern="'application/pdf'"
+                           ngf-accept="'application/pdf'" required="required"/>
+
+                            <span class="ace-file-container" data-title="Nouveau document">
+                                <span class="ace-file-name"
+                                      data-title="{{newLegalDocument.file.name|| 'Choisir un document ...'}}">
+                                    <i class=" ace-icon fa fa-cloud-upload"></i>
+                                </span>
+                            </span>
+                </label>
+
+                <div ng-if="legalDocumentForm.$submitted">
+                    <div class="erreurform" ng-if="!selectedLegalDocument.file">Fichier requis</div>
+                    <div class="erreurform"
+                         ng-if="selectedLegalDocument.file && selectedLegalDocument.file.type != 'application/pdf'">
+                        Le document doit
+                        être de format PDF
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

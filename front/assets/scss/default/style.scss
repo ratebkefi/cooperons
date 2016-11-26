@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+// COMMON IMPORTS
+// -----------------------------------------------------------------------------
+@import "../config/imports";
+
+// Reset
+@import "base/normalize";
+
+// components
+@import "base/typography";
+@import "base/global";
+@import "base/list";
+@import "base/footer";

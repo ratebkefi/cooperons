@@ -1,0 +1,46 @@
+<!-- List certificates -->
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="yearlyAttestations.length">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md" flex="grow">Attestations Annuelles</span>
+
+                    <div flex="noshrink">
+                        <md-button ng-click="validateAttestations()" class="md-raised md-primary">Valider</md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Member</span></th>
+                        <th md-column><span>Employeur</span></th>
+                        <th md-column><span>Montant</span></th>
+                        <th md-column><span>Cotisations</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="yearlyAttestation in yearlyAttestations">
+                        <td md-cell>{{yearlyAttestation.member}}</td>
+                        <td md-cell>{{yearlyAttestation.corporate}}</td>
+                        <td md-cell>{{yearlyAttestation.amount| displayPrice}} €</td>
+                        <td md-cell>{{yearlyAttestation.cotisation| displayPrice}} €</td>
+                    </tr>
+
+                    <tr md-row>
+                        <td md-cell></td>
+                        <td md-cell><strong>Total</strong></td>
+                        <td md-cell>{{ totalAmount | displayPrice }} €</td>
+                        <td md-cell>{{ totalCotisation | displayPrice }} €</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+

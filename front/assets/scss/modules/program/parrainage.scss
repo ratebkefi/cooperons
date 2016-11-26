@@ -1,0 +1,550 @@
+//colors
+$color_pastel_green_approx: #76d17f;
+$white: #ffffff;
+$color_violet_red_approx: #ee4399;
+$color_hibiscus_approx: #b72c72;
+$color_jacarta_approx: #2f2463;
+$color_selective_yellow_approx: #ffb400;
+$black: #000000;
+$color_bay_of_many_approx: #31328a;
+$color_alto_approx: #d9d9d9;
+$color_silver_chalice_approx: #aaa;
+$color_romance_approx: #fdfdfd;
+$color_alizarin_crimson_approx: #ea2a36;
+$concrete: #f2f2f2;
+$color_mountain_mist_approx: #909090;
+
+//fonts
+$font_0: latoregular;
+$font_1: FontAwesome;
+$font_2: latobold;
+$font_3: latoblack;
+$font_4: robotoregular;
+$font_5: Arial;
+$font_6: Helvetica;
+$font_7: sans-serif;
+
+//urls
+$url_0: url(images/cs_title.png);
+$url_1: url(images/visualiser.jpg);
+$url_2: url(images/supprimer.jpg);
+$url_3: url(images/valider.jpg);
+$url_4: url(images/notification.png);
+$url_5: url(images/rappel.png);
+$url_6: url(images/avantage.png);
+$url_7: url(images/cheques.png);
+$url_8: url(images/info_vert.png);
+
+//@extend-elements
+//original selectors
+//.parrainage .parrainage_content .parrainage_btn a, .parrainage .parrainage_content p.parrainage_btn a
+%extend_1 {
+	background-color: $color_violet_red_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 2px 0 $color_hibiscus_approx;
+	font-family: $font_0;
+	font-size: 16px;
+	color: $white;
+	padding: 10px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 10%;
+}
+
+//original selectors
+//.avantage h4, .cheque h4
+%extend_2 {
+	font-size: 18px;
+	color: $color_jacarta_approx;
+	font-family: $font_2;
+	margin: 10px 0;
+}
+
+//original selectors
+//.loyalty .btn_cta, .parrainage_container .btn_cta
+%extend_3 {
+	background: $color_violet_red_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 2px 0 $color_hibiscus_approx;
+	padding: 10px;
+	float: right;
+	margin-top: 1em;
+}
+
+//original selectors
+//.parrainage .filleul_ppites_box, .parrainage .ppites_box, .parrainage .filleul_box, .parrainage .search_ae_box, .parrainage .with_ae_box
+%extend_4 {
+	background: none;
+	padding-left: 0;
+	min-height: inherit;
+}
+
+//original selectors
+//#re-send-activation, .consulter
+%extend_5 {
+	background-color: $color_bay_of_many_approx;
+	float: right;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 10px;
+	display: inline-block;
+	color: $white;
+	font-size: 0.857em;
+	padding: 0 10px;
+	border-bottom: solid 2px $color_jacarta_approx;
+	margin-top: 10px;
+}
+
+//original selectors
+//#re-send-activation:hover, .consulter:hover, .consulter:focus
+%extend_6 {
+	background-color: $color_jacarta_approx;
+	text-decoration: none;
+	color: $white;
+}
+
+
+.parrainage {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	border: 1px solid $color_pastel_green_approx;
+	padding: 0;
+	font-size: 14px;
+	margin-bottom: 10px;
+	span {
+		text-align: center;
+		width: 100%;
+		display: inline-block;
+	}
+	.parrainage_content {
+		background-color: $color_pastel_green_approx;
+		color: $white;
+		padding: 3%;
+		h5 {
+			margin-top: 0;
+			font-size: 16px;
+			text-align: left;
+		}
+		td {
+			width: 50%;
+			text-align: justify;
+			line-height: normal;
+		}
+		.parrainage_btn {
+			text-align: right;
+			a {
+				@extend %extend_1;
+				&:hover {
+					background-color: $color_hibiscus_approx;
+					text-decoration: none;
+				}
+				&:focus {
+					background-color: $color_hibiscus_approx;
+					text-decoration: none;
+				}
+			}
+		}
+		p.parrainage_btn {
+			display: none;
+			margin-top: 1em;
+			a {
+				@extend %extend_1;
+				&:hover {
+					background-color: $color_hibiscus_approx;
+					text-decoration: none;
+				}
+				&:focus {
+					background-color: $color_hibiscus_approx;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+.parrainage_container {
+	background: $url_0 repeat-x left bottom;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	&:last-child {
+		background: transparent;
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+	.btn_cta {
+		@extend %extend_3;
+		&:hover {
+			background: $color_hibiscus_approx;
+		}
+		&:focus {
+			background: $color_hibiscus_approx;
+		}
+	}
+	.calltoaction {
+		text-align: right;
+		margin-top: 1em;
+		.btn_cta {
+			float: none;
+			margin: 0;
+			display: inline-block;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 10px;
+		}
+	}
+}
+@media(max-width:479px) {
+	.parrainage {
+		.parrainage_content {
+			p.parrainage_btn {
+				display: block;
+				float: right;
+			}
+			td.parrainage_btn {
+				display: none;
+			}
+		}
+		span {
+			display: none;
+		}
+	}
+}
+.information {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			margin: 0;
+			padding-left: 20px;
+			list-style: none;
+			&.visualiser {
+				background: $url_1 no-repeat;
+			}
+			&.refuser {
+				background: $url_2 no-repeat;
+			}
+			&.accepter {
+				background: $url_3 no-repeat;
+			}
+		}
+		&.puce {
+			margin-left: 1em;
+			li {
+				padding: 0;
+				list-style: none;
+				text-indent: -10px;
+				margin-bottom: 10px;
+				&:before {
+					content: "\F0DA";
+					font-family: $font_1;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+	img {
+		vertical-align: bottom;
+	}
+}
+.avantage {
+	h4 {
+		@extend %extend_2;
+	}
+	h5 {
+		color: $color_selective_yellow_approx;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	table tr td:first-child {
+		background: $url_6 no-repeat center center;
+	}
+}
+.cheque {
+	h4 {
+		@extend %extend_2;
+	}
+	table tr td:first-child {
+		background: $url_7 no-repeat center center;
+	}
+}
+.loyalty {
+	background: $color_pastel_green_approx;
+	color: $white;
+	.loyalty_txt {
+		font-size: 22px;
+		line-height: normal;
+	}
+	.btn_cta {
+		@extend %extend_3;
+		&:hover {
+			background: $color_hibiscus_approx;
+		}
+		&:focus {
+			background: $color_hibiscus_approx;
+		}
+	}
+	.txt_important {
+		color: $black;
+		font-family: $font_3;
+		font-size: 1.2em;
+	}
+	img {
+		vertical-align: bottom;
+		margin-right: 10px;
+	}
+	p {
+		font-size: 16px !important;
+	}
+}
+@media(min-width:320px) and(max-width:639px) {
+	.parrainage {
+		.filleul_ppites_box {
+			background-size: 20% auto;
+			padding-left: 23%;
+		}
+		.ppites_box {
+			background-size: 20% auto;
+			padding-left: 23%;
+		}
+		.filleul_box {
+			background-size: 20% auto;
+			padding-left: 23%;
+		}
+		.search_ae_box {
+			background-size: 20% auto;
+			padding-left: 23%;
+		}
+		.with_ae_box {
+			background-size: 20% auto;
+			padding-left: 23%;
+		}
+	}
+	.information table tr td:first-child {
+		width: 18%;
+		background-size: 67% auto;
+	}
+	.notification table tr td:first-child {
+		width: 18%;
+		background-size: 67% auto;
+	}
+	.loyalty table tr td:first-child {
+		width: 18%;
+		background-size: 67% auto;
+	}
+	.rappel table tr td:first-child {
+		width: 18%;
+		background-size: 67% auto;
+	}
+}
+@media(max-width:319px) {
+	.parrainage {
+		.filleul_ppites_box {
+			background: none;
+                        padding-left: 0;
+                        min-height: inherit;
+                }
+                .ppites_box {
+                    background: none;
+                    padding-left: 0;
+                    min-height: inherit;
+                }
+                .filleul_box {
+                    background: none;
+                    padding-left: 0;
+                    min-height: inherit;
+                }
+                .search_ae_box {
+                    background: none;
+                    padding-left: 0;
+                    min-height: inherit;
+                }
+                .with_ae_box {
+                    background: none;
+                    padding-left: 0;
+                    min-height: inherit;
+		}
+	}
+	#re-send-activation {
+		display: block;
+		float: none;
+		text-align: center;
+	}
+	.information table tr td {
+		&:first-child {
+			display: none;
+		}
+		&:last-child {
+			padding: 0 10px !important;
+		}
+	}
+	.notification table tr td {
+		&:first-child {
+			display: none;
+		}
+		&:last-child {
+			padding: 0 10px !important;
+		}
+	}
+	.loyalty table tr td {
+		&:first-child {
+			display: none;
+		}
+		&:last-child {
+			padding: 0 10px !important;
+		}
+	}
+	.rappel table tr td {
+		&:first-child {
+			display: none;
+		}
+		&:last-child {
+			padding: 0 10px !important;
+		}
+	}
+	.parrainage_container .calltoaction .btn_cta {
+		padding: 0;
+		text-align: center;
+		width: 100%;
+	}
+}
+#re-send-activation {
+	@extend %extend_5;
+	&:hover {
+		@extend %extend_6;
+	}
+}
+.consulter {
+	@extend %extend_5;
+	&:hover {
+		@extend %extend_6;
+	}
+	&:focus {
+		@extend %extend_6;
+	}
+}
+.logo_login {
+	text-align: center;
+	margin: 20px;
+}
+#ForgetPassword_Valider {
+	width: 100%;
+}
+.connecter {
+	width: 100%;
+	&:hover {
+		background: $color_bay_of_many_approx;
+		color: $white;
+	}
+	&:focus {
+		background: $color_bay_of_many_approx;
+		color: $white;
+	}
+	&:active {
+		background: $color_bay_of_many_approx;
+		color: $white;
+	}
+	&.active {
+		background: $color_bay_of_many_approx;
+		color: $white;
+	}
+	&.disabled {
+		background: $color_bay_of_many_approx;
+		color: $white;
+	}
+}
+.connecter[disabled] {
+	background: $color_bay_of_many_approx;
+	color: $white;
+}
+.aucun_parrain {
+	border: 1px solid $color_alto_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	padding: 1.36986301369863%;
+	padding-left: 100px;
+	margin-right: 5%;
+	margin-left: 1%;
+	background: $url_8 no-repeat 2.465753424657534% 50%;
+	min-height: 70px;
+	> span {
+		border-left: 1px solid $color_alto_approx;
+		padding: 0 2.73972602739726%;
+		display: inline-block;
+		min-height: 65px;
+	}
+}
+
+.txt_notification {
+	width: 85%;
+	padding-left: 30px;
+}
+.bloc_notif_ae {
+	width: 97%;
+	padding-left: 3%;
+}
+.fromwebsite {
+	background-color: $color_romance_approx;
+	.content_wrapper_full {
+		background-color: $color_romance_approx;
+	}
+	.separateur_haut {
+		display: none;
+	}
+}
+.form_subtilte {
+	color: $color_alizarin_crimson_approx;
+	font-size: 16px;
+	font-family: $font_4, $font_5, $font_6, $font_7;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid $concrete;
+}
+.input-icon {
+	> .ace-icon {
+		bottom: 1px;
+		color: $color_mountain_mist_approx;
+		display: inline-block;
+		font-size: 16px;
+		left: 3px;
+		line-height: 30px;
+		padding: 0 3px;
+		position: absolute;
+		top: 1px;
+		z-index: 2;
+	}
+	&.input-icon-right > .ace-icon {
+		left: auto;
+		right: 3px;
+	}
+}
+.content .information ul li {
+	list-style: disc;
+	margin-left: 15px;
+	padding: 0;
+}
+.notification table tr td:first-child {
+	background: $url_4 no-repeat center center;
+}
+.rappel table tr td:first-child {
+	background: $url_5 no-repeat center center;
+}
+.form .form-heading {
+	text-align: center;
+	margin-top: 0;
+}
+a#forget {
+	display: inline-block;
+	margin-top: 20px;
+	text-align: center;
+	width: 100%;
+}
+.bootstrap-datetimepicker-widget table td.disabled {
+	color: $color_silver_chalice_approx;
+}
+.select_right span.input-search-members {
+	margin-right: 0;
+}
+span.input-search-members .icon-search {
+	top: 8px;
+	left: 6px;
+}

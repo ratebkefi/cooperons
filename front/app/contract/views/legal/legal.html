@@ -1,0 +1,24 @@
+<div class="contract" ng-bind-html="legalCtr.contractHtml"></div>
+<md-input-container class="md-block">
+    <md-button ng-if="legalCtr.displayPublishButton" ng-click="legalCtr.publishContract()" class="md-raised md-primary right">
+        <md-icon md-font-icon="fa fa-check-circle-o"></md-icon>
+        J'accepte le Contrat
+    </md-button>
+
+    <md-button ng-if="legalCtr.displayAgreeButton" ng-click="legalCtr.agreeContract()" class="md-raised md-primary right">
+        <md-icon md-font-icon="fa fa-check-circle-o"></md-icon>
+        J'accepte le Contrat
+    </md-button>
+
+    <md-button ng-if="legalCtr.displayAgreeCgvButton" ng-click="legalCtr.agreeCgvContract()" class="md-raised md-primary right">
+        <md-icon md-font-icon="fa fa-check-circle-o"></md-icon>
+        J'accepte le Contrat
+    </md-button>
+
+    <md-button ng-if="legalCtr.displayWarningAccord" ng-click="legalCtr.agreeWarningContract()" class="md-raised md-primary right">
+        <md-icon md-font-icon="fa fa-check-circle-o"></md-icon>
+        J'accepte le Contrat
+    </md-button>
+</md-input-container>
+
+<div ng-include="'app/contract/views/legal/legalDialogs.html'"></div>

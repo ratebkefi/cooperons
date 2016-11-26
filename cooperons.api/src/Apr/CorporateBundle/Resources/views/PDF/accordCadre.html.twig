@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body style="margin: 0;">
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <td style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%; height: 20px">
+            </div>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <img src="{{ baseurl }}/bundles/Edtapp/img/logo_final_white.svg" width="150" height="80"
+                     border="0"/><br>
+                34 rue de la Tombe Issoire<br>
+                75014<br>
+                Paris<br>
+                <strong>SIRET</strong><br>79289635900017
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                <h3 style="color:#31328a;font-size:14pt;font-weight:bold;">CONTRAT DE STIMULATION ET PROMOTION
+                    DES VENTES
+                </h3>
+                ENTRE : <strong>COOPERONS !</strong>, dont le siège social est situé au 34 rue de la Tombe
+                Issoire à Paris (75014), immatriculée au RCS de Paris 792 896 359 au capital de <strong>50
+                    000 Euros</strong>,
+                représentée par Emmanuel IFERGAN, en sa qualité de gérant, ayant tous pouvoirs à l'effet des
+                présentes.
+                <br/><br/>
+                Ci-après désignée <strong>« L'Opérateur »</strong>, D'une part,
+                <br/><br/>
+                ET <strong>{{ corporate.raisonSocial }}</strong> dont le siège social est situé
+                {{ corporate.address }} à {{ corporate.city }} ({{ corporate.postalCode }}), immatriculée au
+                RCS {{ corporate.siren }}, représentée par
+                ..............................., en sa qualité de ..........................., ayant tous
+                pouvoirs à l'effet des présentes.
+                <br/><br/>
+                Ci-après désignée <strong>« L'Employeur »</strong> D'autre part,
+                <br/><br/>
+                Ci-après dénommées individuellement <strong>« Partie »</strong> et collectivement <strong>«
+                    Parties »</strong>.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>PREAMBULE</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                L'Opérateur a conçu un service de gestion de programmes de stimulation et promotion des
+                ventes (les <strong>« Programmes »</strong>),
+                permettant notamment la création par des entreprises clientes de l'Opérateur (les
+                <strong>« Promoteurs »</strong>),
+                d'opportunités permettant d'offrir des avantages à des personnes physiques (les
+                <strong>« Membres »</strong>).
+                <br/>
+                Ces avantages sont matérialisés au moyen de l'achat, par les Promoteurs,
+                d'unité de compte (les <strong>« Points »</strong>) auprès de l'Opérateur,
+                au bénéfice desdits Membres. Ces Points sont convertibles en chèques cadeau Amazon chaque
+                trimestre au taux de 100 Points pour 20 €,
+                dans la limite, pour chaque Membre, d'un plafond de 140 € par an (le <strong>« Plafond
+                    Coopérons »</strong>).
+                Ce Plafond Coopérons peut être augmenté s'agissant des salariés de l'Employeur à 140 € ou
+                1'000 € par trimestre.
+                <br/>
+                Chaque Membre dispose d'un espace dédié sur le site www.cooperons.com permettant de suivre
+                sa participation aux Programmes des Promoteurs (l'<strong>« Espace Membre»</strong>).
+                <br/>
+                L'Employeur souhaitant permettre à ses salariés de participer aux Programmes des Promoteurs
+                –
+                et notamment d'augmenter leur Plafond Coopérons - les Parties ont décidé de se rapprocher
+                afin de déterminer les conditions dans lesquelles les salariés de l'Employeur participeront
+                aux Programmes des Promoteurs.
+                En conséquence de ce qui précède, les Parties conviennent de ce qui suit :
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 1 – OBJET</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                L'objet du présent contrat (l'<strong>« Accord Employeur »</strong>) est de définir les
+                modalités de participation des salariés de l'Employeur aux Programmes des Promoteurs, ainsi
+                que les droits et obligations des Parties.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 2 – COLLEGE COOPERONS – NOTIFICATIONS</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                À la signature des présentes, le groupe constitué des Membres faisant partie de l'effectif
+                de l'Employeur (le <strong>« Collège Coopérons »</strong>) est constitué de :
+                <br/><br/>
+                <strong>{{ corporate.administrator.member.firstName }} {{
+                    corporate.administrator.member.lastName }}
+                    ({{ corporate.administrator.member.email }})</strong>
+                <br/><br/>
+                L'entrée d'un nouveau Membre au Collège Coopérons de l'Employeur devra être confirmée par
+                cooptation, au moyen d'une validation effectuée par au moins un Membre existant du Collège
+                Coopérons de l'Employeur sur son Espace Membre, et prendra effet le 1er jour du mois
+                suivant.
+                <br/><br/>
+                Durant le dernier mois de chaque trimestre civil, chaque Membre existant du Collège
+                Coopérons devra confirmer ou annuler sa qualité de salarié de l'Employeur sur son Espace
+                Membre. Par ailleurs, le Membre le plus ancien du Collège Coopérons de l'Employeur (le
+                <strong>« Délégué Coopérons »</strong>) pourra aussi exclure tout membre n'ayant plus la
+                qualité de salarié. En cas d'annulation de la qualité de salarié d'un Membre, la sortie
+                dudit Membre prendra effet au terme dudit trimestre civil. A défaut de confirmation, ou
+                annulation, le Plafond Coopérons dudit Membre sera automatiquement rétabli à 140 € par an.
+                <br/><br/>
+                Les entrées et sorties du Collège Coopérons de l'Employeur seront notifiées par email
+                à l'Employeur.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 3 – OBLIGATIONS DE L'OPERATEUR</strong>
+            </div>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin-right: 5%">
+                <strong>3.1 Disponibilité du service</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin-left: 2%">
+                L'Opérateur s'engage à assurer le bon fonctionnement de son site internet. Il notifiera
+                l'Employeur par email, au minimum une semaine avant sa réalisation, de toute opération de
+                maintenance ponctuelle qui aurait pour conséquence une interruption momentanée du service.
+                <br/><br/>
+                L'Opérateur s'engage, par ailleurs, à notifier, dès qu'il en aura connaissance, l'Employeur
+                de tout dysfonctionnement technique susceptible d'entraîner une interruption de plus de 24
+                heures.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 40px 5% 20px 5%">
+                <strong>3.2 Loi Informatique et Liberté</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 40px 2% 20px 2%">
+                L'Opérateur s'engage à conserver la confidentialité des données à caractère personnel
+                présentes dans la Base de Données, le tout conformément à la loi n°78-17 du 6 Janvier 1978
+                dite « Informatique et Libertés ».
+                <br/><br/>
+                L'Opérateur s'engage, en outre, à n'utiliser les données à caractère personnel des Membres à
+                des fins de prospection commerciale qu'en stricte conformité avec les dispositions de
+                l'article 121-20-5 du Code de la Consommation issues de la loi du 21 juin 2004 pour la
+                confiance dans l'économie numérique.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>3.3 Cotisations sociales</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Au plus tard le 31 janvier de chaque année, conformément aux dispositions de l'article L.
+                242-1-4 du code de la sécurité́ sociale, l'Opérateur réglera les cotisations de sécurité
+                sociale et contributions relatives aux chèques cadeau versés aux Membres du Collège
+                Coopérons de l'Employeur.
+                <br/><br/>
+                Au plus tard le 31 janvier de chaque année, l'Opérateur communiquera à chaque Membre du
+                Collège Coopérons de l'Employeur un décompte annuel des chèques cadeau versés et des
+                cotisations sociales réglées par l'Opérateur (les <strong>« Décomptes Annuels »</strong>).
+                Conformément à l'article D. 242-2-2 du code de la sécurité́ sociale, l'Opérateur adressera
+                par email à l'Employeur une copie de ces Décomptes Annuels.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 4 – DISPOSITIONS FINANCIERES</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Le présent Accord Employeur est conclu à titre gratuit, tant pour l'Opérateur que
+                l'Employeur.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 5 – DUREE – RESILIATION</strong>
+            </div>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin-right: 5%">
+                <strong>5.1 Durée</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin-left: 2%">
+                Le présent Accord Employeur est conclu pour une durée indéterminée à compter de ce jour.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>5.2 Résiliation anticipée</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Le présent Accord Employeur pourra être résilié par l'une ou l'autre des Parties moyennant
+                un préavis écrit, sans paiement d'indemnité d'aucune sorte. De plus, en cas de Collège
+                Coopérons vide, le présent Accord Employeur sera automatiquement résilié, sans paiement
+                d'indemnité d'aucune sorte.
+                <br/><br/>
+                Suite à cette résiliation, l'Opérateur communiquera à l'Employeur les Décomptes Annuels pour
+                l'année en cours au plus tard le 31 janvier de l'année suivante.
+            </div>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 6 – CONVENTION SUR LA PREUVE</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Les Parties pourront se prévaloir, notamment aux fins de preuve de tout acte, fait ou
+                omission, des programmes, données, fichiers, enregistrements, opérations et autres éléments
+                (tel que des rapports de suivi ou autres états) de nature ou sous format électronique.
+                <br/><br/>
+                Sauf preuve contraire, ces éléments seront valables et opposables entre les Parties de la
+                même manière, dans les mêmes conditions et avec la même force probante que tout document qui
+                serait établi, reçu ou conservé par écrit.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 7 – CONFIDENTIALITE</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Le présent Accord Employeur est strictement confidentiel et ne doit être communiqué à aucun
+                tiers sans l'accord écrit préalable des Parties à l'exception de toute communication qui
+                serait imposée par la loi ou par toute autorité dont les décisions s'imposent à leurs
+                établissements respectifs.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin: 20px 5%">
+                <strong>ARTICLE 8 – DISPOSITIONS GENERALES</strong>
+            </div>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;">
+            <div style="margin-right: 5%">
+                <strong>8.1 – Notifications</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin-left: 2%">
+                Toutes les notifications par email adressées à l'Employeur dans le cadre du présent Accord
+                Employeur - seront adressées à :
+                <br/><br/>
+                <strong>{{ corporate.administrator.member.email }}</strong>
+                <br/><br/>
+                Cette adresse email ne sera modifiable par l'Employeur que par courrier postal signé et
+                cacheté.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>8.2 – Cession</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Aucune des Parties ne pourra céder à un tiers tout ou partie de ses droits et obligations
+                sans l'accord préalable et écrit de l'autre Partie.
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top" style="background-color:#31328a;color:#ffffff;font-size:9pt;text-align:right;width: 24%;">
+            <div style="margin: 20px 5%">
+                <strong>8.3 – Règlement des Litiges</strong>
+            </div>
+        </td>
+        <td style="font-size:10pt;color:#515151;">
+            <div style="margin: 20px 2%">
+                Toute difficulté relative à l'interprétation, à l'exécution ou à la résiliation du présent
+                contrat, qui n'aurait pu être résolue à l'amiable, relèvera de la compétence exclusive des
+                Tribunaux compétents de France, tribunaux auxquels les Parties attribuent compétence, quels
+                que soient le lieu d'exécution du contrat concerné, le domicile du défendeur, même dans le
+                cas d'un appel en garantie ou d'une procédure en référé.
+                <br/>
+
+                <p style="text-align:right;">Fait à Paris, le ... / ... / ...</p>
+                <br/><br/>
+                En double exemplaire
+                <br/><br/>
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:50%">Pour L'Opérateur<br/></td>
+                        <td style="text-align:right;width:50%">Pour l'Employeur<br/></td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%">Emmanuel Ifergan, Gérant</td>
+                        <td style="text-align:right;width:50%">........................</td>
+                    </tr>
+                </table>
+                <br/><br/>
+                <br/><br/>
+                <strong>[TAMPON OFFICIEL ET SIGNATURE DU REPRESENTANT LEGAL + PARAPHES SUR CHAQUE
+                    PAGE]</strong>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

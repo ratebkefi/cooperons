@@ -1,0 +1,6 @@
+default:
+    resource: "@AprUserBundle/Controller"
+    type:     annotation
+
+
+

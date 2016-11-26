@@ -1,0 +1,18 @@
+parameters:
+    apr_contract.contract.class: Apr\ContractBundle\Manager\ContractManager
+    apr_contract.collaborator.class: Apr\ContractBundle\Manager\CollaboratorManager
+    apr_contract.legal_document.class: Apr\ContractBundle\Manager\CollaboratorManager
+
+services:
+    apr_contract.contract_manager:
+        class: "%apr_contract.contract.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']    
+    apr_contract.collaborator_manager:
+        class: "%apr_contract.collaborator.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+    apr_contract.legal_document_manager:
+        class: "%apr_contract.legal_document.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+
+        

@@ -1,0 +1,165 @@
+// Grid Variables
+$num-cols: 12 !default;
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+
+$secondary-color: #31328a !default;
+
+/*** Collections ***/
+$collection-border-color: #e0e0e0 !default;
+$collection-bg-color: #fff !default;
+$collection-active-bg-color: $secondary-color !default;
+$collection-active-color: lighten($secondary-color, 55%) !default;
+$collection-hover-bg-color: #ddd !default;
+$collection-link-color: $secondary-color !default;
+
+md-list-item ._md-list-item-inner ._md-secondary-container,
+md-list-item ._md-list-item-inner .md-secondary,
+md-list-item ._md-secondary-container,
+md-list-item .md-secondary {
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    right: 16px;
+    -webkit-transform: translate3d(0,-50%,0);
+    transform: translate3d(0,-50%,0);
+}
+
+// Collections
+.collection {
+  margin: $element-top-margin 0 $element-bottom-margin 0;
+  border: 1px solid $collection-border-color;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+
+  .collection-item {
+    background-color: $collection-bg-color;
+    line-height: 2.5rem;
+    padding: 10px 20px;
+    margin: 0;
+    border-bottom: 1px solid $collection-border-color;
+    overflow: hidden;
+
+    // Avatar Collection
+     .avatar {
+      padding-left: 10px;
+      position: relative;
+      display:inline-block;
+      float:left;
+      img{
+            max-width: 75px;
+      }
+      .title{
+          display:inline-block;
+          font-size: 16px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .secondary-content {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+      }
+
+    }
+    
+    
+
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &.active {
+      background-color: $collection-active-bg-color;
+      color: $collection-active-color;
+
+      .secondary-content {
+        color: #fff;
+      }
+    }
+  }
+  a.collection-item{
+    display: block;
+    transition: .25s;
+    color: $collection-link-color;
+    &:not(.active) {
+      &:hover {
+        background-color: $collection-hover-bg-color;
+      }
+    }
+  }
+
+  &.with-header {
+    .collection-header {
+      background-color: #fafafa;
+      border-bottom: 1px solid #cccccc;
+      padding: 10px 20px;
+        overflow: hidden;
+    }
+    .collection-item {
+      padding-left: 10px;
+      
+    }
+    .collection-item.avatar {
+      padding-left: 5px;
+      border-bottom: 1px dashed $collection-border-color;
+            &:last-child {
+            border-bottom: none;
+            }
+    }
+  }
+
+}
+// Made less specific to allow easier overriding
+.collection .collection-item .avatar > span{
+    display: inline-block;
+    width: auto; 
+    float:left;
+    margin-top: 0;
+}
+.first-content {
+  float: left;
+}
+.secondary-content {
+  float: right;
+}
+.collapsible .collection {
+  margin: 0;
+  border: none;
+}
+.collection.with-header .collection-item{padding: 10px;}
+.collection .collection-item .avatar{min-width: 75px;text-align: center;}
+
+@media only screen and(max-width:767px) {
+    .commissions{
+        .txt_commission {
+            padding: 0 10px;
+            margin-left: 5px;
+            margin-bottom: 40px;
+            font-size: 12px;          
+        }
+        .titre_commission{
+            span.title{
+                width: 125px;
+                font-size: 11px;
+            } 
+        }
+        .total_commission{
+            span.title{
+                width: 170px;
+                font-size: 12px;
+            }   
+        }
+        p{
+            font-size: 12px;
+        }
+        
+    }
+    
+}

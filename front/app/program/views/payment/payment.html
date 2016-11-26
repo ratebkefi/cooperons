@@ -1,0 +1,88 @@
+<header class="page-header"><h2>Paiement</h2></header>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="steps-content">
+
+            <wizard-steps ng-if="program" class="m-md" program="program" step="4"></wizard-steps>
+
+            <div class="steps-wrapper m-md">
+                <h3 class="title-header">Récapitulatif de votre Commande</h3>
+
+                <div class="info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">Entreprise</div>
+                        <div class="profile-info-value">{{collaborator.corporate.raisonSocial}}</div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">Adresse</div>
+                        <div class="profile-info-value">{{collaborator.corporate.address}}</div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">Code postal / Ville</div>
+                        <div class="profile-info-value">{{collaborator.corporate.postalCode}}
+                            {{collaborator.corporate.city}}
+                        </div>
+                    </div>
+                </div>
+                <h3 class="title-header">Fonctionnement du Programme {{program.label}}</h3>
+
+                <md-content class="md-padding" layout-xs="column" layout="row">
+                    <div flex-xs flex-gt-xs="100" layout="column">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-media>
+                                    <div class="md-card-image">
+                                        <ng-md-icon icon="thumb_up" class="blue-color md-card-icon"
+                                                    size="48"></ng-md-icon>
+                                    </div>
+                                </md-card-title-media>
+                                <md-card-title-text class="md-card-left">
+                                    <p class="md-subhead">Vous gagnez :</p>
+
+                                    <div class="md-subhead" ng-bind-html="htmlOperations"></div>
+                                </md-card-title-text>
+                            </md-card-title>
+                        </md-card>
+                    </div>
+                </md-content>
+
+                <div ng-include="'app/program/views/payment/order.html'"></div>
+                <div class="hr-24"></div>
+                <span ng-if="program.status != 'preprod'"> 
+                    <div ng-if="mandataire && subscriptionOrder" ng-controller="mandataire:paymentController">
+
+                        <div ng-if="payment" ng-include="'app/mandataire/views/payment/paymentVirement.html'"></div>
+                        <div ng-if="!payment">
+                            <p ng-if="!collaborator.corporate.accordSigned">
+                                <span class="red-color text-xs">
+                                    La création du compte Entreprise de {{ collaborator.corporate.raisonSocial}} n'est
+                                    pas finalisée.</br>
+                                    Pour finaliser votre inscription, vous devrez nous adresser par courrier 2
+                                    exemplaires
+                                    du Contrat Cadre <i>Coopérons !</i> Entreprise.</br>
+                                    Ceci sera nécessaire pour activer votre programme en production.</br>
+                                </span>
+                            </p>
+
+                            <p class=" m-md">
+                                <md-checkbox ng-model="checkboxModel.cgv" name="cgv" id="cgv" aria-label="cgv">
+                                    En cochant cette case, je reconnais avoir pris connaissance des <a
+                                        ng-href="{{backRoute('cgv_cooperons', {token: _token})}}"
+                                        target="blank">Conditions
+                                    Générales de Vente</a> du service Coopérons Plus et je les accepte.
+                                </md-checkbox>
+                            </p>
+
+                            <div ng-include="'app/mandataire/views/payment/paymentMode.html'"></div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+
+            <div class="steps-footer">
+                <div class="steps-info">Étape 4 <span class="steps-glow step5"></span></div>
+            </div>
+        </md-card>
+    </div>
+</md-content>

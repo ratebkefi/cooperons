@@ -1,0 +1,132 @@
+.margin_image{
+    display:inline-block; 
+    width:100%;
+    height:100%;
+    min-height:141px;
+    border-bottom:1px solid #F1F1F1;
+}
+
+.right-btn{
+    display:inline-block; 
+    float:right; 
+    margin:2% 0px;
+}
+
+/*.checkbox-invitation{top:0px; float:left; margin:1% 2px 0px 0px;}*/
+
+.acheterpack .acheterpackheader .customer_img{
+	background-color:#424644;
+}
+.acheterpack .service_ae{
+	box-shadow:0 0 10px rgba(0,0,0,0.2);
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-bottom:2em;
+	width:100%;
+	float:left;
+}
+
+.service_ae a.btn_cta{float:none;}
+
+.form-horizontal div.erreurform{
+	background:url(images/erreurbg.png) no-repeat top left;
+	width:auto;
+	height:20px;
+	padding-left:5%;
+	padding-top:2px;
+	color:#FFF;
+	font-size:11px;
+	border-radius:0px 10px 3px 0px;
+	-moz-border-radius:0px 10px 3px 0px;
+	-webkit-border-radius:0px 10px 3px 0px;
+	border:0px solid #000000;
+	margin-left:25%;
+}
+
+.input-horizontal div.erreurform{border:1px solid #FF0000;}
+
+.form-prestation7 div.erreurform{
+	background:url(images/erreurbg.png) no-repeat top left;
+	width:160px;
+	height:20px;
+	padding-top:6px;
+	color:#FFF;
+	font-size:11px;
+	border-radius:0px 10px 3px 0px;
+	-moz-border-radius:0px 5px 3px 0px;
+	-webkit-border-radius:0px 10px 3px 0px;
+	border:0px solid #000000;
+	padding-left:30px;
+}
+
+.divinput div[for=duration]{
+	margin-left:0px;
+	float:left;
+	border:none;
+	padding-left:30px;
+	border:none;
+	padding-right:10px;
+}
+.margin_left_right{
+	margin-left:20px;
+	margin-right:20px;
+}
+
+@media (min-width:768px) and (max-width:979px){
+    .span2{
+        margin-left:0px !important;
+        width:38%;
+    }
+    .content_wrapper{
+		width:100%;
+    }
+    .sidebar_menu{
+        display:none!important;
+    }
+}
+
+@media (max-width:767px){
+	.content_wrapper{width:100%;}
+	.client_header h4 a{display:inline;}
+}
+
+.historique_commande .titre_pack{
+    font-size:1.2em; 
+    padding-bottom:10px; 
+    font-weight:bold;
+}
+
+/*Pack Bonus client*/
+
+.pack_bonus legend{
+	display:block;
+	width:100%;
+	padding:0;
+	margin-bottom:10px;
+	padding-left:5px;
+	margin-top:20px;
+	font-size:24px;
+	line-height:40px;
+	color:#424644;
+	border:none;
+	font-family:'robotoregular', Arial, Helvetica, sans-serif;
+}
+
+.pack_bonus h4 .customer_img{
+    margin-right:5px;
+}
+
+.pack_bonus .blockbonus_ae .table_packbonus{
+    font-size:14px; 
+    height:140px;
+    width:100%; 
+    vertical-align:middle;
+    color:#FFF;
+    font-family:'latoregular';
+}
+
+.radio input[type="radio"], .checkbox input[type="checkbox"]{margin-left:0px;}
+
+
+.form-horizontal label{cursor:text;}

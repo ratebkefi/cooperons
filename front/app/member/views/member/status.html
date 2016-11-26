@@ -1,0 +1,83 @@
+<div class="display-inline">
+    <div ng-if="member.remainingPoints == 0">
+        Vous ne disposez d'aucun Point sur votre compte.
+    </div>
+    <div ng-if="member.remainingPoints > 0">
+        Vous disposez de {{member.remainingPoints|displayPrice:' ':'':0}} Points sur votre compte - soit l'équivalent de
+        {{member.remainingPoints * member.valuePoint|displayPrice}} €
+     <span ng-if="member.isAutoEntrepreneur">
+        qui seront déduits du montant TTC de vos prochains frais <strong><i>Coopérons !</i></strong>.
+    </span>
+     <span ng-if="!member.isAutoEntrepreneur">
+        en chèques cadeau Amazon.
+     </span>
+    </div>
+    <br/>
+
+    <div ng-if="!member.isAutoEntrepreneur">
+        <span ng-if="member.college && member.college.isUnlocked">
+            <span ng-if="member.college.status == 'wait_for_reconfirm'">
+                Vous êtes membre du Collège <strong><i>Coopérons !</i></strong> de <strong>{{member.college.corporate.raisonSocial}}</strong>:
+                vous devrez confirmer votre statut salarié 
+                <span ng-if="member.college.monthConfirm > 0">
+                    dans le courant du mois de {{ member.college.labelMonthConfirm}}
+                </span> 
+                <span ng-if="member.college.monthConfirm == 0">
+                    avant la fin du mois
+                </span> 
+                pour augmenter votre plafond <strong><i>Coopérons !</i></strong>
+                <br/><br/>
+                Ceci vous permettra de recevoir
+            </span>
+            <span ng-if="member.college.status != 'wait_for_reconfirm'">
+                Grâce à votre inscription au Collège <strong><i>Coopérons !</i></strong> de
+                <strong>{{corporateCollege.raisonSocial}}</strong> vous recevrez
+            </span>
+            un chèque cadeau Amazon d'un montant
+            <span ng-if=" member.maxAvantage < member.remainingPoints * member.valuePoint">
+                de {{member.maxAvantage|displayPrice}} €
+            </span>
+            <span ng-else>
+                correspondant au total de vos points
+            </span>
+            lors de la prochaine distribution trimestrielle.
+            <span ng-if="delegate.id == member.college.id">
+                <br/><br/>
+                Enfin, en tant que Délégué du Collège Coopérons de
+                <strong>{{ corporateCollege.raisonSocial}}</strong>, il vous appartient de controler que
+                l'ensemble des membres de votre Collège sont bien salariés de <strong>
+                {{ corporateCollege.raisonSocial}}</strong>.
+            </span>  
+        </span> 
+        <span ng-if="!member.college || !member.college.isUnlocked">
+            Vous n'êtes pas membre d'un Collège <strong><i>Coopérons !</i></strong>
+            <span ng-if="member.remainingPoints > 0">
+                <span ng-if="member.maxAvantage == 0">
+                    Et avez atteint votre plafond: vous ne pourrez plus convertir de Points en chèques cadeau Amazon cette année.
+                </span>
+                <span ng-if="member.maxAvantage > 0 && member.maxAvantage < member.remainingPoints * member.valuePoint">
+                     . Vous ne pourrez convertir que l'équivalent de
+                    {{member.maxAvantage | displayPrice}} € en chèque cadeau Amazon
+                    lors de la prochaine opération trimestrielle.
+                </span>
+                <span ng-if="member.maxAvantage > 0 && member.maxAvantage >= member.remainingPoints * member.valuePoint">
+                    Mais n'avez pas atteint votre plafond: tous vos points seront convertis en chèque cadeau Amazon
+                    lors de la prochaine opération trimestrielle.
+                </span>
+            </span>
+            <br/><br/>
+            Rapprochez vous vite de votre employeur pour créer le Collège <strong><i>Coopérons !</i></strong> de
+            votre entreprise: c'est totalement gratuit et sans aucune obligation !
+        </span>
+    </div>
+</div>
+<div ng-if="!member.isUser">
+    <br/><br/>
+    <font color="red"><strong>
+        Attention ! Vous n'êtes pas encore inscrit sur <i>Coopérons !</i> - ceci est nécessaire pour pouvoir convertir
+        vos Points.
+    </strong></font>
+    <br/><br/>
+    <a ng-if="member.isPreProd" ui-sref="public.createUser({'token': token})" class="consulter">Je m'inscris !</a>
+    <a ng-if="!member.isPreProd" ui-sref="public.connectMember({'token': token})" class="consulter">Je m'inscris !</a>
+</div>

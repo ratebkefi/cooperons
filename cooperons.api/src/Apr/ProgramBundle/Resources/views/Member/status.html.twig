@@ -1,0 +1,78 @@
+{% if avantage is defined or historyPoints is defined %}
+    Suite à cette opération, vous
+{%  else %}
+    Vous
+{% endif %}
+
+{% if member.remainingPoints > 0 %}
+    disposez de {{member.remainingPoints|number_format(0,',',' ')}} Points sur votre compte - soit l'équivalent de
+    {{(member.valuePoints)|number_format(2,',',' ')}} €
+    {% if member.isAutoEntrepreneur %}
+        qui seront déduits du montant TTC de vos prochains frais <strong><i>Coopérons !</i></strong>.
+        <br/><br/>
+    {% else %}
+        en chèques cadeau Amazon.
+        <br/><br/>
+        {% if member.college and member.college.isUnlocked %}
+            {% if member.college.status == 'wait_for_reconfirm' %}
+                Vous êtes membre du Collège <strong><i>Coopérons !</i></strong> de <strong>{{member.college.corporate.raisonSocial}}</strong>:
+                vous devrez confirmer votre statut salarié
+                {% if member.college.monthConfirm > 0 %}
+                    dans le courant du mois de {{ member.college.labelMonthConfirm }}
+                {% else %}
+                    avant la fin du mois
+                {% endif %}
+                pour augmenter votre plafond <strong><i>Coopérons !</i></strong>
+                <br/><br/>
+                Ceci vous permettra de recevoir
+            {% else %}
+                Grâce à votre inscription au Collège <strong><i>Coopérons !</i></strong> de
+                <strong>{{member.college.corporate.raisonSocial}}</strong> vous recevrez
+            {%  endif %}
+
+            un chèque cadeau Amazon d'un montant
+
+            {%  if member.calculateMaxAvantage < member.valuePoints %}
+                de {{member.calculateMaxAvantage|number_format(2,',',' ')}} €
+            {% else %}
+                correspondant au total de vos points
+            {%  endif %}
+
+            lors de la prochaine distribution trimestrielle.
+
+            {% if member.college.corporate.delegate.id == member.college.id %}
+                <br/><br/>
+                Enfin, en tant que Délégué du Collège Coopérons de
+                <strong>{{ member.college.corporate.raisonSocial }}</strong>, il vous appartient de controler que
+                l'ensemble des membres de votre Collège sont bien salariés de <strong>
+                {{ member.college.corporate.raisonSocial }}</strong>.
+            {% endif %}
+        {% else %}
+            Vous n'êtes pas membre d'un Collège <strong><i>Coopérons !</i></strong>
+            {% if member.calculateMaxAvantage == 0 %}
+                et avez atteint votre plafond: vous ne pourrez plus convertir de Points en chèques cadeau Amazon cette année.
+            {%  elseif member.calculateMaxAvantage < member.valuePoints %}
+                . Vous ne pourrez convertir que l'équivalent de
+                {{member.calculateMaxAvantage|number_format(2,',',' ')}} € en chèque cadeau Amazon
+                lors de la prochaine opération trimestrielle.
+            {% else %}
+                mais n'avez pas atteint votre plafond: tous vos points seront convertis en chèque cadeau Amazon
+                lors de la prochaine opération trimestrielle.
+            {%  endif %}
+            <br/><br/>
+            Rapprochez vous vite de votre employeur pour créer le Collège <strong><i>Coopérons !</i></strong> de
+            votre entreprise: c'est totalement gratuit et sans aucune obligation !
+        {% endif %}
+    {% endif %}
+{% else %}
+    ne disposez d'aucun Point sur votre compte.
+{% endif %}
+
+{% if not member.user %}
+    <br/><br/>
+    <font color="red"><strong>
+            Attention ! Vous n'êtes pas encore inscrit sur <i>Coopérons !</i> - ceci est nécessaire pour pouvoir convertir vos Points.
+        </strong></font>
+    <br/><br/>
+    <a href="{{front_connect_member}}/{{ (member.allParticipatesTo|first).token}}" class="consulter">Je m'inscris !</a>
+{% endif %}

@@ -1,0 +1,46 @@
+<!-- Page: Auto-Entrepreneur -->
+<header class="page-header"><h2>Auto-Entrepreneur</h2></header>
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="md-inline-form">
+            <div layout="row" class="m-lg">
+                <div flex>
+                    <h3 class="title-header">Vos Contrats</h3>
+                </div>
+                <div flex="nogrow" class="text-right">
+                    <md-button ui-sref="mandataire.partyAdministration({'id':autoEntrepreneur.party.id})"
+                               class="md-icon-button launch actions-admin">
+                        <md-tooltip md-direction="top">Administration</md-tooltip>
+                        <ng-md-icon icon="dashboard"></ng-md-icon>
+                    </md-button>
+                </div>
+            </div>
+
+            <md-tabs id="menuProvider" class="m-lg" md-dynamic-height md-border-bottom>
+                <md-tab ng-click="selectPartyTab('clients')" label="Clients">
+                    <md-content class="md-padding" ng-if="autoEntrepreneur && autoEntrepreneur.party && contracts"
+                                ng-controller="contract:contractController">
+                        <div ng-include="'app/contract/views/contract/contract.html'"></div>
+                    </md-content>
+                </md-tab>
+                <md-tab ng-if="autoEntrepreneur.activationDate" ng-click="selectPartyTab('distributeurs')"
+                        label="Distributeurs">
+                    <md-content class="md-padding" ng-if="autoEntrepreneur && autoEntrepreneur.party && contracts"
+                                ng-controller="contract:contractController">
+                        <div ng-include="'app/contract/views/contract/contract.html'"></div>
+                    </md-content>
+                </md-tab>
+                <md-tab ng-if="autoEntrepreneur.activationDate" ng-click="selectPartyTab('prestataires')"
+                        label="Prestataires">
+                    <md-content class="md-padding" ng-if="autoEntrepreneur && autoEntrepreneur.party && contracts"
+                                ng-controller="contract:contractController">
+                        <div ng-include="'app/contract/views/contract/contract.html'"></div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+
+        </md-card>
+    </div>
+</md-content>

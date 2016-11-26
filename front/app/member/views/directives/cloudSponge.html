@@ -1,0 +1,63 @@
+<!-- Invtation cloudSponge view -->
+<div>
+    <div class="widget-deep-link">
+        <h3>Importer mes contacts</h3>
+
+        <p class="title_sub">Importer les contacts de mes amis et connaissances pour gagner des Points</p>
+        <ul class="cs_links">
+            <li>
+                <img src="assets/images/default/cs_google.png"/> Gmail
+                <a ng-click="cloudSpongeLaunch('gmail')" title="Gmail">
+                    Importer
+                </a>
+            </li>
+            <li>
+                <img src="assets/images/default/cs_yahoo.png"/> Yahoo!
+                <a ng-click="cloudSpongeLaunch('yahoo')" title="Yahoo!">
+                    Importer
+                </a>
+            </li>
+            <li>
+                <img src="assets/images/default/cs_outlook.png"/> Outlook
+                <a ng-click="cloudSpongeLaunch('windowslive')" title="Outlook">
+                    Importer
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Send Invitation form -->
+    <form id="form-cloudsponge" name="send_invitation" class="width-50 m-auto"
+          ng-submit="sendInvitation(send_invitation)" ng-class="{'not_submitted' : !send_invitation.$submitted }"
+          novalidate>
+        <div layout="row">
+            <md-input-container class="md-block mt-lg" flex>
+                <label>Emails Filleuls</label>
+                <textarea ng-model="contactList.emails" id="emailsFilleuls" name="contactList" md-maxlength="150"
+                          rows="5" style="height:70px;" md-select-on-focus></textarea>
+
+                <div ng-messages="send_invitation.contactList.$error" ng-if="send_invitation.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Email requis</div>
+                    <div class="erreurform" ng-message="email">Email incorrect</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex="nogrow">
+                <span class="info red-color">
+                    <md-icon md-font-icon="fa fa-info-circle"></md-icon> 
+                    <md-tooltip md-direction="top">Vous pouvez importer plusieurs contacts en les séparant par des
+                        virgules Exemple : dupont@free.fr,seb@sfr.fr
+                    </md-tooltip>
+                </span>
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container class="md-block text-center" flex>
+                <md-button aria-label="bouton" id="submitEmails" name="submitEmails" type="submit"
+                           class="md-raised md-primary width-100">
+                    Envoyer
+                </md-button>
+            </md-input-container>
+        </div>
+    </form>
+</div>   

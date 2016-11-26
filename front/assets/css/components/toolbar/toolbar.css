@@ -1,0 +1,21 @@
+/* line 1, ../../../scss/components/toolbar/toolbar.scss */
+md-toolbar.md-default-theme.md-hue-1:not(.md-menu-toolbar), md-toolbar.md-hue-1:not(.md-menu-toolbar) {
+  background-color: white;
+  color: #2f225f;
+}
+
+/* line 5, ../../../scss/components/toolbar/toolbar.scss */
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+  background-color: white;
+  color: #2f225f;
+}
+
+/* line 9, ../../../scss/components/toolbar/toolbar.scss */
+md-toolbar.md-default-theme.md-hue-1:not(.md-menu-toolbar) .md-button:not(.md-raised), md-toolbar.md-hue-1:not(.md-menu-toolbar) .md-button:not(.md-raised) {
+  color: #2f225f;
+}
+
+/* line 12, ../../../scss/components/toolbar/toolbar.scss */
+md-toolbar.md-default-theme:not(.md-menu-toolbar) .md-button:not(.md-raised), md-toolbar:not(.md-menu-toolbar) .md-button:not(.md-raised) {
+  color: #2f225f;
+}

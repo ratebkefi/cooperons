@@ -1,0 +1,259 @@
+.content_wrapper_full{
+    width:100%;
+    border-left:none;
+    float:left;
+    background-color:#ffffff;
+}
+
+.content_wrapper form,
+.content_wrapper_full form{
+    margin:0 auto 20px;
+    width:90%;
+}
+.form-horizontal label{
+    cursor:text;
+    line-height:30px;
+}
+
+.form-horizontal input{ 
+    height:32px; 
+    width:75%; 
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    font-family:'latoregular';
+    color:#7c8389; 
+    border:1px solid #d9d9d9;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.form-horizontal .control-group{margin-bottom:5px;}
+
+.required:after{
+    content:" *";
+    color:red;
+}
+.form-horizontal .control-label{
+    width:25%;
+    text-align:left;
+    padding-right:30px;
+    padding-top:0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    line-height:30px;
+}
+.form-horizontal .group-button{
+    float:right; 
+    padding:0;
+    margin:2% 0 0 0;
+}
+
+.group-button .controls,
+.form-horizontal .controls{margin:0;}
+
+.help-block{color:red;}
+
+input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;}
+
+.form-horizontal div.erreurform{
+    background:url(images/erreurbg.png) no-repeat top left;
+    width:100%;
+    height:22px;
+    line-height:22px;
+    padding-left:30px;
+    padding-top:3px;
+    color:#FFF;
+    font-size:11px;
+    border-radius:0px 10px 3px 0px;
+    -moz-border-radius:0px 10px 3px 0px;
+    -webkit-border-radius:0px 10px 3px 0px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.form-horizontal input[type="checkbox"]{
+    height:16px;
+    position:relative;
+    width:auto;
+}
+
+#registration_service{
+    margin-bottom:30px;
+    width:75%;
+    float:left;
+}
+
+#registration_service label{
+    padding-top:30px;
+    display:inline-block;
+    position:relative;
+    font-size:0.85em;
+    font-weight:normal;
+    font-style:italic;
+    width:25%;
+    text-align:center;
+}
+
+.form-horizontal #registration_service div.erreurform{
+    margin-left:0;
+    position:absolute;
+    top:70px;
+    text-align:left;
+    line-height:20px;
+    width:400%;
+    font-style:normal;
+}
+
+#registration_service label[for=registration_service_1]{background:url("images/icon_menage.png") no-repeat center top;}
+#registration_service label[for=registration_service_2]{background:url("images/icon_garde.png") no-repeat center top;}
+#registration_service label[for=registration_service_3]{background:url("images/icon_jardinage.png") no-repeat center top;}
+#registration_service label[for=registration_service_4]{background:url("images/icon_repas.png") no-repeat center top;}
+
+#registration_service input{ 
+    left:50%; 
+    margin-left:-5px; 
+    position:absolute; 
+    top:50px;
+}
+
+.btn-primary{
+    font-family:'latoregular';
+    background:#31328a !important;
+    border-bottom: 2px solid #2d2161;
+    box-shadow:none;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    color:#ffffff;
+    font-size:1.15em;
+    line-height:normal;
+    text-shadow:none;
+}
+
+.btn-primary:hover,.btn-primary:focus{background:#2d2161 !important;box-shadow:none !important;border-color: #211847;}
+label[for="registration_contact_secondAddress"]{font-size: 12px;}
+
+.form-horizontal select{
+    width:75%;
+    font-family:'latoregular';
+    color:#7c8389;
+    border:1px solid #d9d9d9;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+.hide-show-password{
+    display:inline-block;
+    margin-left:25%;
+    width:75%;
+}
+
+@media (max-width:767px){
+    .content_wrapper_full{padding-top:20px;}
+    .form-horizontal .control-label{width:100%;text-align:left;margin-right:0;}
+    .form-horizontal input, .form-horizontal select, .form-horizontal div.erreurform{width:100%;}
+    .form-horizontal .group-button{margin-right:0;}
+
+    .form-horizontal div.erreurform{
+        margin-left:0;
+        height:22px;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box; /* Firefox */
+    }
+
+    div#registration_service{float:none;width:auto;}
+    select#registration_service{width:100%;}
+
+    #registration_service label{
+        width:50%;
+        text-align:center;
+        margin:0;
+        margin-bottom:30px;
+    }
+
+    .hide-show-password{
+        margin-left:0px;
+        padding-left:0px;
+    }
+
+    .form-horizontal #registration_service div.erreurform{width:200%;top:170px;}
+}
+
+@media (max-width:479px){
+    #registration_service label{width:100%;margin-bottom:40px;}
+    .form-horizontal #registration_service div.erreurform{width:100%;top:380px;}
+}
+
+@media (min-width: 768px) {
+
+    .fromwebsite input, .fromwebsite select, .fromwebsite div.erreurform{width:75% !important;}
+}
+
+.fromwebsite h3{
+    font-size:16px;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:#ffb400;
+    background:url('images/wpb_adv_title.gif') no-repeat left center;
+    padding-left:30px!important;
+    margin:0px!important;
+}
+.lightybox-wrap{
+    background-color: #ffffff;
+    text-align: center;
+}
+.lightybox-wrap h4{
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: #27368b;
+    border-bottom: 1px solid #f2f2f2;
+}
+.lightybox-wrap p{margin: 10px 0}
+
+
+.create_user-bloc{
+    margin:0;
+}
+.create_user-bloc li{
+    width:24.7%;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    padding:0 15px;
+    margin:10px 0;
+    display:inline-block;
+    text-align:center;
+    padding-top:150px;
+    vertical-align:top;
+}
+#create_user1{background:url('images/create_user_sprites1.png') no-repeat center top;}
+#create_user2{background:url('images/create_user_sprites2.png') no-repeat center top;}
+#create_user3{background:url('images/create_user_sprites3.png') no-repeat center top;}
+#create_user4{background:url('images/create_user_sprites4.png') no-repeat center top;}
+.bloc_connect label.ace_label{
+    width:100%;
+    font-size:13px;
+    cursor:pointer;
+}
+label.ace_label input.ace[type="checkbox"]:checked + .erreurform + .lbl::before{
+    font-family:fontAwesome;
+    content:"\f14a";
+    font-size: 18px;
+}
+label.ace_label input.ace[type="checkbox"] + .erreurform + .lbl::before{
+    font-family:fontAwesome;
+    content:"\f096";
+    font-size: 18px;
+}
+#registration_Valider{white-space:nowrap}
+.bloc_connect .title-header{margin-top:0;}

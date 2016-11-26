@@ -1,0 +1,79 @@
+<div class="steps-wrapper m-lg">
+    <h3 class="title-header">Opportunités de gain de Points et MultiPoints</h3>
+
+    <p>Créez ici la liste des opportunités de gain de Points et MultiPoints de votre programme
+        - ainsi que le montant de Points gagnés par défaut.</p>
+
+    <p>Votre programme doit contenir au moins une opportunité de gain de MultiPoints.</p>
+
+    <div ng-if="operations">
+        <div ng-repeat="operation in operations">
+            <div class="hr hr-24 dotted"></div>
+            <div layout-gt-sm="row">
+                <div flex="50" class="mr-lg">
+                    <input id="idOperation" type="hidden" value="{{operation.id}}"/>
+                      <span id="txtlabelop">
+                        <md-input-container class="md-block">
+                            <input ng-model="operation.label" id="labelOperation" type="text"/>
+                        </md-input-container>
+                      </span>
+                </div>
+                <div flex='nogrow'>
+                    <md-input-container class="md-block mr-lg" flex='nogrow'>
+                        <span ng-if="operation.isMulti"><br>MultiPoints</span>
+                        <span ng-else><br>Points</span>
+                    </md-input-container>
+                </div>
+
+                <div flex>
+                    <md-input-container md-no-float class="md-block mr-lg" flex='nogrow'>
+                        <input ng-model="operation.defaultAmount"
+                               id="amountOperation" type="text" class="amount-form" placeholder="Pas de montant défini par défaut"/>
+                    </md-input-container>
+                </div>
+        </div>
+            <md-input-container class="md-block">
+                <md-button ng-click="deleteOperation(operation)" class="md-raised md-warn right">
+                    <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+                    Supprimer
+                </md-button>
+
+                <md-button ng-click="editOperation(operation)" class="md-raised md-primary right mr-lg">
+                    <md-icon md-font-icon="fa fa-floppy-o"></md-icon>
+                    Valider
+                </md-button>
+            </md-input-container>
+        </div>
+    </div>
+    <div class="hr hr-24 dotted"></div>
+
+    <md-input-container class="md-block">
+        <label>Intitulé de l'opportunité</label>
+        <md-tooltip md-direction="top">250 caractères maximum</md-tooltip>
+        <input ng-model="newOperation.label" type="text" name="intitule" id="intitule"/>
+    </md-input-container>
+
+    <div layout="row">
+        <md-input-container class="md-block mr-lg pt-sm" flex='nogrow'>
+            <span flex class="no-padding-left">Montant</span></md-input-container>
+        <md-input-container class="md-block mr-lg" flex>
+            <md-select aria-label="newOperation" ng-model="newOperation.multi" id="types" class="amount-form">
+                <md-option value="multipoints" selected="selected">MultiPoints</md-option>
+                <md-option ng-if="operations.length" value="points">Points</md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block no-padding-right" flex>
+            <input ng-model="newOperation.defaultAmount" type="text" name="amount" id="amount"
+                   class="amount-form no-margin-top" ng-blur="checkAmount()"
+                   placeholder="Pas de montant défini par défaut"/>
+        </md-input-container>
+    </div>
+
+    <md-input-container class="md-block">
+        <md-button ng-click="postOperations()" id="add-operation" class="md-raised md-primary right">
+            <md-icon md-font-icon="fa fa-plus-circle"></md-icon>
+            Ajouter une opportunité
+        </md-button>
+    </md-input-container>
+</div>

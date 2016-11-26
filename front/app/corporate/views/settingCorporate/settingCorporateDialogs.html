@@ -1,0 +1,69 @@
+<!-- Confirm create corporate -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="create.corporate">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmer la création du compte Entreprise</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>
+            Votre Compte Entreprise n'est pas encore certifié.
+        </p>
+
+        <p>
+            Vous pourrez certifier gratuitement votre Compte en suivant le processus d'habilitation.
+        </p>
+
+        <p>Vous bénéficierez alors des services suivants:</p>
+        <ul>
+            <li>signature, résiliation de vos contrats et devis</li>
+            <li>notification par email des préavis de résiliation / non reconduction</li>
+            <li>verrouillage des documents que vous signez (pas de modification/suppression possible par votre
+                co-contractant)
+            </li>
+            <li>historique des modifications des documents signés</li>
+            <li>gestion multi-utilisateurs illimités</li>
+        </ul>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn mr-md">
+            <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+            Annuler
+        </md-button>
+        <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+            <ng-md-icon icon="done" size="16"></ng-md-icon>
+            Confirmer
+        </md-button>
+    </md-dialog-actions>
+
+</script>
+
+<!-- Confirm edit corporate -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="edit.corporate">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmer la création du compte Entreprise</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>Confirmez-vous les modifications du compte Entreprise de {{dlgCtr.corporate.raisonSocial}} ? </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn mr-md">
+            <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+            Annuler
+        </md-button>
+        <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+            <ng-md-icon icon="done" size="16"></ng-md-icon>
+            Confirmer
+        </md-button>
+    </md-dialog-actions>
+</script>

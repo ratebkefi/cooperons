@@ -1,0 +1,252 @@
+{% extends "AprProgramBundle:Default:baseMarketing.html.twig" %}
+{% block content %}
+<body class="home page page-id-75 page-template page-template-template-demo page-template-template-demo-php logged-in page2-2">
+<!-- header -->
+<header class="header clear" role="banner">
+    <!-- wrapper -->
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <!-- logo -->
+                <div class="logo">
+                    <img src={{ asset('bundles/Edtapp/img/marketing/logo.png')}} alt="Logo" class="logo-img">
+                </div>
+                <!-- /logo -->
+            </div>
+            <div class="col-xs-12 col-sm-2 col-md-2 col-sm-offset-7 col-md-offset-7 col-sm-offset-7">
+                <!-- FAQ -->
+                <div class="faq">
+                    <a href="{{path('faq_corporate', {'token':token, 'isEasy' : 1})}}">
+                        <span>FAQ</span>
+                        <i class="fa fa-question-circle"></i>
+                    </a>
+                </div>
+                <!-- /FAQ -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <!-- logo client -->
+                <!-- /logo client -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+                <!-- Slogan -->
+                <div class="slogan">
+                    Bienvenue sur <i><strong>Coopérons !</strong></i>
+                </div>
+                <!-- /Slogan -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <!-- btn -->
+                <div class="btn-inscription animated zoomInUp">
+                    <a href="{{ front_create_user}}/{{token}}">
+                            <span>Je m'inscris !</span>
+                        </a> 
+                </div>
+                <!-- /btn -->
+            </div>
+        </div>
+    </div>
+    <!-- /wrapper -->
+</header>
+<!-- /header -->
+
+<main role="main">
+    <!-- section -->
+    <section class="home">
+        <!-- article -->
+        <article class="category-fond1">
+            <!-- wrapper -->
+            <div class="wrapper">
+                <!-- content -->
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-7">
+                        <h2>Gagner de nouveaux clients sans investir en marketing ? Pour 39 € / mois, vos clients et
+                            partenaires deviennent vos apporteurs d’affaires grâce à <i><strong>Coopérons !</strong></i></h2>
+                        <p><i><strong>Coopérons !</strong></i> vous permet de
+                            créer simplement votre réseau d’apporteurs d’affaires. Vous définissez
+                            en quelques clics la commission perçue par les membres de votre
+                            programme et maîtrisez complètement les affaires apportées par vos
+                            membres.</p>
+                        <p>L’avantage unique du parrainage, c’est que vous ne dépensez de
+                            l’argent que lorsque vous encaissez effectivement une vente: vous ne
+                            prenez aucun risque commercial.</p>
+                        <p>Enfin, si vous souhaitez encore plus de flexibilité et de
+                            personnalisation de votre programme de parrainage, nous mettons à votre
+                            disposition notre API pour 79 € / mois et vous accompagnons pour
+                            réussir son implémentation dans votre système.</p>
+                        <p><a href="{{path('faq_corporate', {'token':token, 'isEasy' : 1})}}">En savoir plus</a></p>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <!-- post thumbnail -->
+
+                        <img src={{ asset('bundles/Edtapp/img/marketing/img4.png')}} class="attachment-post-thumbnail wp-post-image" alt="img4">
+                        <!-- /post thumbnail -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- /content -->
+
+            <!-- /wrapper -->
+
+        </article>
+        <!-- /article -->
+
+
+
+        <!-- article -->
+        <article class="category-fond2">
+            <!-- wrapper -->
+            <div class="wrapper">
+                <!-- content -->
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-sm-offset-1 col-md-offset-1">
+                        <!-- post thumbnail -->
+
+                        <img src={{ asset('bundles/Edtapp/img/marketing/img3.png')}} class="attachment-post-thumbnail wp-post-image" alt="img3">
+                        <!-- /post thumbnail -->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 txt-right">
+                        <h2>Offrez jusqu’à 1’000 € par
+                            trimestre en chèques cadeau Amazon à chaque membre salarié de votre
+                            réseau, sans aucune formalité fiscale ou sociale pour votre entreprise !</h2>
+                        <p>Saviez-vous que la
+                            législation Française permet à une entreprise de rémunérer en chèques
+                            cadeau des salariés d’un autre employeur – en n’étant soumis qu’à une
+                            cotisation sociale forfaitaire libératoire de 20% ? C’est tout
+                            simplement le taux de cotisation sociale le plus bas parmi toute autre
+                            forme de rémunération !</p>
+                        <p><strong><i>Coopérons !</i></strong> vous permet de bénéficier des avantages de ce mode de
+                            rémunération croisée en toute simplicité, en assumant pour votre
+                            entreprise toutes les obligations sociales et fiscales de ce mode de
+                            rémunération.</p>
+                        <p>Concrètement, lorsque vous décidez de récompenser un des membres de
+                            votre réseau, <i><strong>Coopérons !</strong></i> attribue un certain montant de Points au membre
+                            concerné.</p>
+                        <p>Ces Points sont valables <u><strong>sans aucune limite de durée</strong></u> et sont
+                            convertis chaque trimestre en chèques cadeau, dans la limite de 1’000 €
+                            par trimestre lorsque ce membre est salarié et a obtenu l’accord
+                            (gratuit et sans engagement) de son employeur. Dans tous les cas, vos
+                            membres peuvent toujours convertir leurs Points dans la limite de 140 € /
+                            an – toujours <u><strong>sans aucune limite de durée</strong></u>.</p>
+                        <p><a href="{{path('faq_corporate', {'token':token, 'isEasy' : 1})}}">En savoir plus</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- /content -->
+
+            <!-- /wrapper -->
+
+        </article>
+        <!-- /article -->
+
+
+
+        <!-- article -->
+        <article class="category-fond3">
+            <!-- wrapper -->
+            <div class="wrapper">
+                <!-- content -->
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-7">
+                        <h2>Des charges réduites à 25%
+                            du montant des Points offerts (qui couvrent le paiement de la cotisation
+                            forfaitaire de 20 %) : un ratio rémunération nette / brute imbattable
+                            en France !</h2>
+                        <p>Chaque Point attribué par <i><strong>Coopérons !</strong></i> donne droit à 0,20 € de chèque cadeau Amazon. Lorsque vous
+                            décidez d’attribuer des Points à l’un de vos Membres, <i><strong>Coopérons !</strong></i> vous
+                            facture chaque Point 0,25 € HT – incluant donc une commission de 25%.</p>
+                        <p>Cette commission couvre:<br>
+                            – le paiement de la cotisation sociale forfaitaire libératoire de 20% des montants distribués;<br>
+                            – le paiement et l’expédition des chèques cadeau Amazon;<br>
+                            – la communication à vos membres – et à leurs employeurs le cas échéant – des documents réglementaires.</p>
+                        <p>Il s’agit tout simplement du système de rémunération le moins cher dans le cadre de la législation actuelle !</p>
+                        <p><a href="{{path('faq_corporate', {'token':token, 'isEasy' : 1})}}">En savoir plus</a></p>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <!-- post thumbnail -->
+
+                        <img src={{ asset('bundles/Edtapp/img/marketing/img5.png')}} class="attachment-post-thumbnail wp-post-image" alt="img5">
+                        <!-- /post thumbnail -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- /content -->
+
+            <!-- /wrapper -->
+
+        </article>
+        <!-- /article -->
+
+
+
+        <!-- article -->
+        <article class="category-fond4">
+            <!-- wrapper -->
+            <div class="wrapper">
+                <!-- content -->
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-sm-offset-1 col-md-offset-1">
+                        <!-- post thumbnail -->
+
+                        <img src={{ asset('bundles/Edtapp/img/marketing/img6.png')}} class="attachment-post-thumbnail wp-post-image" alt="img6">
+                        <!-- /post thumbnail -->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 txt-right">
+                        <h2>Les MultiPoints: conçus pour augmenter rapidement la taille de votre réseau d’apporteur d’affaires</h2>
+                        <p>Grâce aux MultiPoints, <i><strong>Coopérons !</strong></i> vous permet aussi de mettre un peu de
+                            «&nbsp;multi-niveau&nbsp;» dans votre programme de parrainage</p>
+                        <p>En effet, lorsque vous offrez des MultiPoints à un de vos membres –
+                            son Parrain gagne automatiquement 2/3 de ces MultiPoints – qui se
+                            transmettent ainsi de Parrain en Parrain. Ce mécanisme multi-niveaux
+                            permet à vos membres d’espérer un gain important lié uniquement au
+                            parrainage de nouveaux membres.</p>
+                        <p>Pour vous, lorsque vous offrez 100 MultiPoints à un Membre – les
+                            Parrains successifs gagnent du fait de la mécanique des MultiPoints, au
+                            total un maximum de 200 MultiPoints supplémentaires: le coût total est
+                            <u><strong>toujours maîtrisé</strong></u> et limité à 3 fois l’avantage offert au premier
+                            Membre de la chaîne des parrains successifs.</p>
+                        <p>Grâce à cette mécanique, vos Membres ont tout intérêt à parrainer un
+                            maximum de Filleuls – et augmenter ainsi la taille de votre réseau
+                            d’apporteurs d’affaires - mais vous gardez évidemment
+                            la totale maîtrise sur l'inscription de nouveaux membres à votre programme.</p>
+                        <p><a href="{{path('faq_corporate', {'token':token, 'isEasy' : 1})}}">En savoir plus</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- /content -->
+
+            <!-- /wrapper -->
+
+        </article>
+        <!-- /article -->
+
+
+
+
+
+
+    </section>
+    <!-- /section -->
+</main>
+{% endblock %}

@@ -1,0 +1,15 @@
+parameters:
+    apr_admin.cooperons_manager.class: Apr\AdminBundle\Manager\CooperonsManager
+    apr_admin.coop_plus_manager.class: Apr\AdminBundle\Manager\CoopPlusManager
+    apr_admin.coop_ae_manager.class: Apr\AdminBundle\Manager\CoopAEManager
+
+services:
+    apr_admin.cooperons_manager:
+        class : "%apr_admin.cooperons_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_admin.coop_plus_manager:
+        class : "%apr_admin.coop_plus_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_admin.coop_ae_manager:
+        class : "%apr_admin.coop_ae_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']

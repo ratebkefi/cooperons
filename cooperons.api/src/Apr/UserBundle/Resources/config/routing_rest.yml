@@ -1,0 +1,53 @@
+apr_user_rest:
+    resource: Apr\UserBundle\ApiController\UserController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_public_user_rest:
+    resource: Apr\UserBundle\ApiController\PublicUserController
+    type:     rest
+    prefix: /rest/public
+    name_prefix: rest_public_
+
+apr_member_rest:
+    resource: Apr\UserBundle\ApiController\MemberController
+    type: rest
+    prefix: rest
+    name_prefix: rest_
+
+apr_invitation_rest:
+    resource: Apr\UserBundle\ApiController\InvitationController
+    type: rest
+    prefix: rest
+    name_prefix: rest_
+
+apr_public_invitation_rest:
+    resource: Apr\UserBundle\ApiController\PublicInvitationController
+    type: rest
+    prefix : /rest/public
+    name_prefix: rest_public_
+
+apr_public_token_rest:
+    resource: Apr\UserBundle\ApiController\PublicTokenController
+    type: rest
+    prefix: rest/public
+    name_prefix: rest_public_
+
+apr_member_rest_api:
+    resource: Apr\UserBundle\ApiController\ApiInvitationController
+    type: rest
+    prefix : /api
+    name_prefix: rest_api_
+
+apr_invitation_rest_api:
+    resource: Apr\UserBundle\ApiController\ApiMemberController
+    type: rest
+    prefix : /api
+    name_prefix: rest_api_
+
+apr_user_rest_api:
+    resource: Apr\UserBundle\Controller\UserRestController
+    type: rest
+#    prefix: /api
+    name_prefix: rest_api_

@@ -1,0 +1,264 @@
+<header class="page-header"><h2>Contrat</h2></header>
+
+<md-content class="mt-lg" layout-xs="column" layout="row" >
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card layout="row" class="md-padding" >
+            <div flex="30">
+                <h3 class="title-header red-color">{{contractCtr.party.label}}</h3>
+            </div>
+            <div flex="60">
+                <strong>{{contractCtr.local.address}}</strong><br>
+                <strong>{{contractCtr.local.secondAddress}}</strong><br>
+                <strong>{{contractCtr.local.city}}</strong><br>
+                <strong>{{contractCtr.local.postalCode}}</strong><br>
+            </div>
+            <div ng-if="!contractCtr.party.status.Contracts.cgu" flex class="text-center">
+                <h3 class="title-header red-color">Non Certifié</h3>
+            </div>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="mt-lg" layout-xs="column" layout="row" >
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card  class="md-padding" >
+            <div layout-xs="column" layout="row">
+                <div flex="40">
+                    <strong>Gestionnaire</strong>
+                </div>
+                <div flex>
+                     <label ng-if="contractCtr.collaborator">{{contractCtr.collaborator.member.label}}</label>
+
+                    <md-button aria-label="Inviter" ng-if="!contractCtr.collaborator" ng-click="contractCtr.inviteCollaborator()" class="md-raised md-primary right">
+                        <span>Inviter</span>
+                    </md-button>
+                </div>
+            </div>
+
+            <div layout-xs="column" layout="row" class="mt-md">
+                <div flex="40">
+                    <strong>Dépôt Contrat</strong>
+                </div>
+                <div flex>
+                    <label>{{contractCtr.contrat.status}}</label>
+                </div>
+            </div>
+
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="mt-lg" layout-xs="column" layout="row" >
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card  class="md-padding" >
+            <form  name="legalDocumentForm" ng-class="{'not_submitted' : !legalDocumentForm.$submitted }" ng-submit="contractCtr.saveLegalDocument(legalDocumentForm)" novalidate
+                   enctype='multipart/form-data'>
+
+
+                <div layout-xs="column" layout="row" class="mt-sm">
+                    <div flex="30" class="pt-md">
+                        <strong ng-if="contractCtr.action !== 'new'">Document </strong>
+                        <strong ng-if="contractCtr.action === 'new'">Nouveau document </strong>
+                    </div>
+                    <div flex="30">
+                        <input id="document-name" name="documentName"
+                               ng-model="contractCtr.selectedLegalDocument.name" required
+                               ng-readonly="contractCtr.action === 'view'" placeholder="Nom du document légal" />
+
+                        <div ng-messages="legalDocumentForm.documentName.$error"
+                             ng-if="legalDocumentForm.$submitted" >
+                            <div class="erreurform" ng-message="required">Nom requis</div>
+                        </div>
+                    </div>
+
+                    <div flex="10" class="ml-md">
+                        <md-select class="mtn-xs no-margin" aria-label="Programme" ng-show="contractCtr.legalDocuments.length > 1 && action === 'view'"
+                                   ng-model="contractCtr.selectedLegalDocument" ng-change="contractCtr.selectLegalDocument()" >
+                            <md-option ng-repeat="documentOption in contractCtr.legalDocuments" ng-value="documentOption">
+                                {{contractCtr.legalDocuments.indexOf(documentOption) + 1 + '/' + contractCtr.legalDocuments.length}}
+                            </md-option>
+                        </md-select>
+                    </div>
+
+                    <div flex>
+                        <div ng-if="contractCtr.action == 'view'" class="text-right">
+                            <md-button aria-label="bouton" ng-click="contractCtr.removeLegalDocument()"
+                                       class="md-icon-button launch actions-delete">
+                                <md-tooltip md-direction="top">Supprimer</md-tooltip>
+                                <ng-md-icon icon="delete" size="24"></ng-md-icon>
+                            </md-button>
+                            <md-button aria-label="bouton" ng-click="contractCtr.editLegalDocument()"
+                                       class="md-icon-button launch actions-edit">
+                                <md-tooltip md-direction="top">Modifier</md-tooltip>
+                                <ng-md-icon icon="mode_edit" size="24"></ng-md-icon>
+                            </md-button>
+                            <md-button aria-label="bouton" ng-click="contractCtr.addLegalDocument()"
+                                       class="md-icon-button launch actions-admin">
+                                <md-tooltip md-direction="top">Ajouter</md-tooltip>
+                                <ng-md-icon icon="add" size="24"></ng-md-icon>
+                            </md-button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div layout-xs="column" layout="row" class="mt-sm">
+                    <div flex="30"  class="pt-md">
+                        <strong>Signé le</strong>
+                    </div>
+                    <div flex="30">
+                        <md-datepicker ng-model="contractCtr.selectedLegalDocument.agreeDate" md-placeholder="Enter date"
+                                       ng-required="required" ng-disabled="contractCtr.action === 'view'"  md-min-date="minDate" md-max-date="maxDate" ></md-datepicker>
+                    </div>
+                    <div flex="20"  class="pt-md" >
+                        <div ng-if="contractCtr.action === 'new'" ><strong>{{contractCtr.selectedLegalDocument.status}}</strong></div>
+                    </div>
+                    <div flex="20" class="pt-sm" ng-if="action === 'view'">
+                        {{contractCtr.selectedLegalDocument.habilitation.collaborator.member.label}}
+                    </div>
+                    <div flex ng-if="contractCtr.action === 'view'">
+                        <md-button aria-label="bouton" type="button" ng-click="contractCtr.downloadHabilitation()"
+                                   class="md-raised md-primary right">
+                            <ng-md-icon icon="file_download" size="24"></ng-md-icon>
+                            <span>Habilitation</span>
+                        </md-button>
+                    </div>
+                </div>
+
+                <div ng-include="'app/contract/views/legalDocument/document.html'"></div>
+
+                <div class="mt-md text-right" ng-if="contractCtr.action === 'view'">
+                    <md-button aria-label="bouton" type="button" ng-click="contractCtr.terminateLegalDocument()"
+                               class="md-raised md-primary mr-xs">
+                        <ng-md-icon icon="close" size="24"></ng-md-icon>
+                        <span>Resilier</span>
+                    </md-button>
+
+                    <md-button aria-label="bouton" type="button" ng-click="contractCtr.shareLegalDocument()"
+                               class="md-raised md-primary mr-xs">
+                        <ng-md-icon icon="share" size="24"></ng-md-icon>
+                        <span>Partager</span>
+                    </md-button>
+
+                    <md-button aria-label="bouton" type="button" ng-click="contractCtr.signLegalDocument()"
+                               class="md-raised md-primary">
+                        <ng-md-icon icon="edit" size="24"></ng-md-icon>
+                        <span>Signer</span>
+                    </md-button>
+                </div>
+
+
+
+
+                <div class="mt-md md-padding" layout-xs="column" layout="row" >
+                    <div flex="30" >
+                        <label class="control-label">Durée</label>
+                    </div>
+                    <div flex >
+                        <md-radio-group name="typeActivation" ng-model="contractCtr.selectedLegalDocument.deadlineType">
+                            <div class="clearfix mb-md">
+                                <md-radio-button value="undetermined" ng-disabled="contractCtr.action === 'view'"  class="md-primary">Indéterminée</md-radio-button>
+                            </div>
+
+                            <div class="clearfix mb-md">
+                                <md-radio-button value="duration" ng-disabled="contractCtr.action === 'view'" class="md-primary display-inline"></md-radio-button>
+
+                                <input type="number" ng-model="selectedLegalDocument.deadlineValue"
+                                       ng-readonly="contractCtr.action === 'view'" min="0" class="width-20 mr-md display-inline mtn-sm" ng-change="contractCtr.updateDeadlineDate('duration')" >
+
+                                <div class="mtn-xs width-40 display-inline" >
+                                    <md-select aria-label="Programme" class="no-margin" ng-model="contractCtr.selectedLegalDocument.deadlineUnit"
+                                               ng-disabled="contractCtr.action === 'view'" ng-change="contractCtr.updateDeadlineDate('duration')" >
+                                        <md-option ng-repeat="unitOption in contractCtr.deadline.units" ng-value="unitOption.value" >
+                                            {{unitOption.label}}
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix mb-md">
+                                <md-radio-button value="date" ng-disabled="contractCtr.action === 'view'"  class="md-primary display-inline">Jusqu'au</md-radio-button>
+
+                                <md-datepicker ng-model="contractCtr.selectedLegalDocument.deadlineDate" class="width-30 display-inline" md-placeholder="Enter date"
+                                               ng-required="required" ng-disabled="contractCtr.action === 'view'"  md-min-date="minDate"  md-max-date="maxDate" ></md-datepicker>
+                            </div>
+                        </md-radio-group>
+                    </div>
+                </div>
+
+
+                <div class="mt-md md-padding" layout-xs="column" layout="row" >
+                    <div flex="30" >
+                        <label class="control-label">Résiliation</label>
+                    </div>
+                    <div flex >
+                        <input type="number" ng-model="contractCtr.selectedLegalDocument.cancellationPeriod" required
+                               name="cancellationPeriod" class="width-30 display-inline mtn-sm" ng-readonly="contractCtr.action === 'view'"
+                               min="0" max="{{contractCtr.selectedLegalDocument.cancellationPeriodUnit ==='day' ? 90 :3}}" >
+
+                        <div class="mtn-xs width-40 display-inline" >
+                            <md-select aria-label="Programme" class="no-margin" ng-model="contractCtr.selectedLegalDocument.cancellationPeriodUnit"
+                                       ng-disabled="contractCtr.action === 'view'" ng-change="contractCtr.updateDeadlineDate('duration')" >
+                                <md-option ng-repeat="unitOption in contractCtr.cancellationPeriod.units" ng-value="unitOption.value" >
+                                    {{unitOption.label}}
+                                </md-option>
+                            </md-select>
+                        </div>
+
+                        <div ng-messages="legalDocumentForm.cancellationPeriod.$error"
+                             ng-if="legalDocumentForm.$submitted" >
+                            <div class="erreurform" ng-message="required">Valeur requise</div>
+                            <div class="erreurform" ng-message="min">La valeur minimale est 0</div>
+                            <div class="erreurform" ng-message="max">La valeur maximale est 90 jours (3 mois)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="mt-md md-padding text-center" ng-if="contractCtr.action === 'new' || contractCtr.action == 'edit'">
+                    <md-button aria-label="reset" type="reset" ng-click="contractCtr.cancelLegalDocument(legalDocumentForm)"
+                               class="md-raised md-warn mr-md">
+                        <ng-md-icon icon="close" size="24"></ng-md-icon>
+                        <span>Annuler</span>
+                    </md-button>
+
+                    <md-button aria-label="submit" type="submit"  class="md-raised md-primary">
+                        <ng-md-icon icon="save" size="24"></ng-md-icon>
+                        <span>Enregistrer</span>
+                    </md-button>
+                </div>
+
+
+                <div ng-if="contractCtr.action == 'view'" class="doc-footer">
+                    <div ng-if="true">
+                        <strong class="red-color display-block text-center mb-md">La signature de ce contrat nécessite l'approvisionnement préalable du Dépot
+                            Contrat</strong>
+
+                        <md-button aria-label="submit" class="md-raised md-primary right">
+                            <ng-md-icon icon="credit_card" size="24"></ng-md-icon>
+                            <span>Approvisionner</span>
+                        </md-button>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+
+                    <div ng-if="false">
+                        <strong class="red-color display-block text-center mb-md">Résilé le {{ contractCtr.selectedLegalDocument.cancelDate | date:'dd/MM/yyyy'}}</strong>
+                        Date d'Effet {{ contractCtr.selectedLegalDocument.effectiveDate | date:'dd/MM/yyyy'}} par
+                        {{contractCtr.collaborator.member.label}}
+
+                        <md-button aria-label="button" ng-click="contractCtr.downloadHabilitation()" type="button"  class="md-raised md-primary right">
+                            <ng-md-icon icon="file_download" size="24"></ng-md-icon>
+                            <span>Habilitation</span>
+                        </md-button>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+
+        </md-card>
+    </div>
+</md-content>

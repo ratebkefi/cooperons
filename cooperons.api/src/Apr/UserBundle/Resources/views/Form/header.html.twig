@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+        <!--Favicon-->
+        <link rel="shortcut icon" href="{{asset('bundles/Edtapp/img/favicon.ico')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Styles -->
+
+        <link  href={{ asset('bundles/Edtapp/css/bootstrap/bootstrap.css')}} rel='stylesheet' type='text/css' />
+        <link  href={{ asset('bundles/Edtapp/css/bootstrap/bootstrap-responsive.css')}} rel='stylesheet' type='text/css' />
+        <link  href={{ asset('bundles/Edtapp/css/font_face.css')}} rel='stylesheet' type='text/css' />
+        <link  href={{ asset('bundles/Edtapp/css/global.css')}} rel='stylesheet' type='text/css' />
+        <link  href={{ asset('bundles/Edtapp/css/font-awesome.min.css')}} rel='stylesheet' type='text/css' />
+
+
+        <!-- jquery Ui -->
+        {#<link  href={{ asset('bundles/Edtapp/css/jqueryUi/jquery-ui.theme.css')}} rel='stylesheet' type='text/css' />#}
+        <!-- jqGrid css -->
+        <link  href={{ asset('bundles/Edtapp/css/jqGrid/ui.jqgrid.css')}} rel='stylesheet' type='text/css' />
+        <link  href={{ asset('bundles/Edtapp/css/jqGrid/ui.multiselect.css')}} rel='stylesheet' type='text/css' />
+        <!-- jquery jquery-ui css -->
+
+        <!-- Scripts -->
+        <script src={{ asset('bundles/Edtapp/js/jquery.js')}} type="text/javascript"></script>
+        <script src={{ asset('bundles/Edtapp/js/jquery.uniform.js')}} type="text/javascript"></script>
+        <script src={{ asset('bundles/Edtapp/js/heartcode-canvasloader.js')}} type="text/javascript"></script>
+        <!-- jqGrid js -->
+        <script src={{ asset('bundles/Edtapp/js/jqGrid/js/jquery.jqGrid.src.js')}} type="text/javascript"></script>
+        <script src={{ asset('bundles/Edtapp/js/jqGrid/plugins/jquery.contextmenu.js')}} type="text/javascript"></script>
+        <script src={{ asset('bundles/Edtapp/js/jqGrid/js/i18n/grid.locale-fr.js')}} type="text/javascript"></script>
+        <!-- jquery jquery-ui js -->
+        <script src={{ asset('bundles/Edtapp/js/jqueryUi/jquery-ui.js')}} type="text/javascript"></script>
+        <!-- jquery serialize js -->
+        <script src={{ asset('bundles/Edtapp/js/serialize.js')}} type='text/javascript'></script>
+        <!-- jquery validate js -->
+        <script src={{ asset('bundles/Edtapp/js/jquery.validate.js')}} type='text/javascript'></script>
+
+
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src={{ asset('bundles/Edtapp/js/html5shiv.js')}} type='text/javascript'></script>
+        <![endif]-->
+
+    </head>
+    <div id='load'>
+        <div id="canvasloader-container" class="modal-loading"></div>
+    </div>
+    <!-- This script creates a new CanvasLoader instance and places it in the wrapper div -->
+    <script>
+        var cl = new CanvasLoader('canvasloader-container');
+        cl.setShape('spiral'); // default is 'oval'
+        cl.setDiameter(35); // default is 40
+        cl.setDensity(58); // default is 40
+        cl.setRange(1.2); // default is 1.3
+        cl.setFPS(30); // default is 24
+        cl.show(); // Hidden by default
+        //calculateCellWidth
+        function calculateCellWidth($wGrid, $perCentCell, $wMinCell) {
+            $wGrid = $wGrid - 50;
+            return (((($wGrid * $perCentCell) / 100) <= $wMinCell) ? $wMinCell : ((($wGrid * $perCentCell) / 100)));
+        }
+
+        //PagerGridVisibility
+       
+        $.fn.pagerGridVisibility = function (pager) {
+           if(this.jqGrid('getGridParam', 'lastpage') > 1){
+                            $(pager).show();
+                        }else{
+                            $(pager).hide();
+                }
+                return true;
+        };
+
+
+
+
+    </script>
+    <script>
+        $(this).on({
+            ajaxStart: function() {
+                $('#load').addClass("loading");
+            },
+            ajaxStop: function() {
+                $('#load').removeClass("loading");
+            }
+        });
+    </script>
+    <body>

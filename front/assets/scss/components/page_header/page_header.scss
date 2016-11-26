@@ -1,0 +1,79 @@
+// CONFIG
+// -----------------------------------------------------------------------------
+
+$page-header-z-index: 1001;
+// height
+$page-header-height: 50px;
+$page-header-color: #C3C3C3;
+
+// PAGE HEADER
+// -----------------------------------------------------------------------------
+/* Page Header */
+.page-header {
+            border-bottom: 1px solid #f2f2f2;
+            box-sizing: border-box;
+            display: block;
+            margin: 0 0 20px;
+            padding: 0;
+            text-align: left;
+            z-index: 0;
+            
+	h2 {		
+                box-sizing: content-box;
+                color: #31328a;
+                display: block;
+                font-size: 2rem;
+                letter-spacing: normal;
+                margin: 0;
+                padding: 0 26px 13px;
+	}
+        h3 {		
+                box-sizing: content-box;
+                color: #31328a;
+                display: block;
+                font-size: 2rem;
+                letter-spacing: normal;
+                margin: 0;
+                padding: 0 26px 13px;
+	}
+
+	.right-wrapper {
+		float: right;
+	}
+}
+
+// SIDEBAR RIGHT OPENED
+// -----------------------------------------------------------------------------
+.page-header {
+	.sidebar-right-toggle {
+		i {
+			&:before {
+				content: "\f054";
+			}
+		}
+	}
+}
+
+// PAGE HEADER - MOBILE
+// -----------------------------------------------------------------------------
+/* Page Header - Mobile */
+@media only screen and (max-width: 767px) {
+	.page-header {
+		padding-right: 20px;
+
+		h2 {
+			font-size: 16px;
+			padding: 0 15px 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 100%;
+		}
+
+		.sidebar-right-toggle {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+}

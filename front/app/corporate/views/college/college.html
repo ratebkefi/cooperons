@@ -1,0 +1,165 @@
+<div ng-if="(collegeCtr.member.isAdministrator) || (collegeCtr.college && collegeCtr.college.status != 'cancel')">
+    <h3 class="title-header">Collège Coopérons de {{collegeCtr.corporate.raisonSocial}}</h3>
+
+    <div ng-if="collegeCtr.college && collegeCtr.college.status == 'wait_for_delegate' && !collegeCtr.member.isAdministrator">
+        <p>
+            Vous avez demandé le rattachement au Collège Coopérons de <strong>{{collegeCtr.corporate.raisonSocial}}</strong>.
+        </p>
+
+        <p ng-if="!collegeCtr.corporate.delegate">
+            Votre demande sera confirmée une fois que <strong>{{collegeCtr.corporate.administrator  | name}}</strong>
+            aura créé le Collège Coopérons de <strong>{{collegeCtr.corporate.raisonSocial}}</strong>.
+        </p>
+
+        <p ng-if="collegeCtr.corporate.delegate">
+            Pour confirmer ce rattachement, il suffit qu'un de ses membres accepte votre demande.
+        </p>
+
+        <div layout="row">
+            <div flex>
+                <button class="md-raised md-primary left mt-md md-button md-ink-ripple" type="button"
+                        ng-click="collegeCtr.cancelRejoinCollegeRequest()">
+                    <md-icon md-font-icon="fa fa-trash-o" class="ng-scope md-font fa fa-trash-o material-icons"
+                             aria-hidden="true"></md-icon>
+                    <span class="ng-scope">Annuler</span>
+
+                    <div class="md-ripple-container"></div>
+                </button>
+            </div>
+            <div flex>
+                <button class="md-raised md-primary right mt-md md-button md-ink-ripple" type="button"
+                        ng-click="collegeCtr.resendRejoinCollegeRequest()">
+                    <md-icon md-font-icon="fa fa-paper-plane-o"
+                             class="ng-scope md-font fa fa-paper-plane-o material-icons" aria-hidden="true"></md-icon>
+                    <span class="ng-scope">Renvoyer</span>
+
+                    <div class="md-ripple-container"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="collegeCtr.member.isAdministrator || (collegeCtr.college && collegeCtr.college.lastConfirmDate)">
+        <div class="separateur_haut"></div>
+        <p>Vos collègues de <strong>{{ collegeCtr.corporate.raisonSocial }}</strong> membres de Coopérons !</p>
+
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column><span>Nom Prénom</span></th>
+                    <th md-column><span>Statut</span></th>
+                    <th md-column><span>Action</span></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="collegeIterator in collegeCtr.corporate.colleges">
+                    <td md-cell><span>{{collegeIterator | name}}</span>
+                    </td>
+                    <td md-cell>
+                        {{collegeIterator | collegeStatus:collegeCtr.college}}
+                        <md-button ng-if="collegeIterator.statusLabel == 'Délégué' && collegeIterator.isDelegate
+                    && collegeCtr.member.isAdministrator && corporate.colleges.length > 1"
+                                   ng-click="collegeCtr.transferCollegeDelegate(collegeIterator)" class="md-raised">
+                            <md-tooltip>Changer le Délégué du Collège Coopérons de {{ collegeCtr.corporate.raisonSocial }}
+                            </md-tooltip>
+                            <md-icon md-font-icon="fa fa-forward"></md-icon>
+                        </md-button>
+                    </td>
+                    <td md-cell>
+                        <md-button ng-if="collegeIterator.canAccept" ng-click="collegeCtr.acceptCollege(collegeIterator)"
+                                   class="md-raised">
+                            <md-tooltip>Inscrire au Collège Coopérons de {{ collegeCtr.corporate.raisonSocial }}</md-tooltip>
+                            Entrée
+                            <md-icon md-font-icon="fa fa-sign-in"></md-icon>
+                        </md-button>
+
+                        <md-button
+                                ng-if="collegeIterator.canCancel"
+                                ng-click="collegeCtr.cancelCollege(collegeIterator)" class="md-raised">
+                            <md-tooltip>Quitter le Collège Coopérons de {{ corporate.raisonSocial }}</md-tooltip>
+                            Sortie
+                            <md-icon md-font-icon="fa fa-sign-out"></md-icon>
+                        </md-button>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <p ng-if="collegeCtr.college && collegeCtr.college.isDelegate">En tant que Délégué du Collège Coopérons de <strong>
+            {{collegeCtr.corporate.raisonSocial }}</strong>,
+            il vous appartient de controler que l'ensemble des membres du Collège Coopérons de
+            <strong>{{ collegeCtr.corporate.raisonSocial }}</strong> sont bien salariés de
+            <strong>{{collegeCtr.corporate.raisonSocial}}</strong>.
+        </p>
+
+        <div ng-if="collegeCtr.college && collegeCtr.college.status == 'wait_for_reconfirm'">
+            <font color='red'>
+                <p>Vous devrez confirmer votre statut salarié avant la fin du mois
+                    <span ng-if="collegeCtr.college.monthConfirm > 0 ">de {{ collegeCtr.college.labelMonthConfirm }}</span>
+                    pour augmenter votre plafond Coopérons.</p>
+            </font>
+
+            <div layout="row" ng-if="collegeCtr.college.monthConfirm == 0">
+                <div flex>
+                    <md-checkbox ng-model="confirmCollegeChecked">
+                        J'atteste sur l'honneur être toujours salarié de <strong>{{corporate.raisonSocial}}</strong>
+                    </md-checkbox>
+                </div>
+
+
+                <div flex="nogrow">
+                    <button id="college_confirm" class="md-raised md-primary right mt-md md-button md-ink-ripple"
+                            type="button" ng-click="collegeCtr.confirmCollege(confirmCollegeChecked)">
+                        Confirmer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p ng-if="collegeCtr.member.isAdministrator && !collegeCtr.corporate.accordSigned">
+        <font color="red"><strong>Pour créer le collège Coopérons de {{ collegeCtr.corporate.raisonSocial }} merci de nous renvoyer
+            le Contrat Cadre signé en 2 exemplaires.</strong></font>
+    </p>
+</div>
+
+<div class="separateur_haut"></div>
+
+<div class="clear">
+    <h3 class="title-header">Vos attestations</h3>
+
+    <p>Retrouvez ici les attestations de versement de chèques cadeau et paiement des cotisations sociales par Coopérons
+        !</p>
+</div>
+
+<md-card class="mt-lg">
+    <md-table-container ng-if="collegeCtr.yearlyAttestations && collegeCtr.yearlyAttestations.length">
+        <table md-table>
+            <thead md-head>
+            <tr md-row>
+                <th md-column ng-if="collegeCtr.member.isAdministrator"><span>Salarié</span></th>
+                <th md-column><span>Année</span></th>
+                <th md-column><span>Action</span></th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="yearlyAttestation in collegeCtr.yearlyAttestations">
+                <td md-cell ng-if="collegeCtr.member.isAdministrator">{{ yearlyAttestation.member}}</td>
+                <td md-cell>{{ yearlyAttestation.year}}</td>
+                <td md-cell>
+                    <md-button ng-click="collegeCtr.downloadAttestation(yearlyAttestation)" class="md-icon-button launch">
+                        <md-icon md-font-icon="fa fa-file-pdf-o"></md-icon>
+                    </md-button>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </md-table-container>
+</md-card>
+
+<div ng-include="'app/corporate/views/college/collegeDialogs.html'"></div>

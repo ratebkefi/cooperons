@@ -1,0 +1,36 @@
+/* line 8, ../../../scss/components/info-striped/info-striped.scss */
+.info-striped {
+  border: 1px solid #dcebf7;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+/* line 12, ../../../scss/components/info-striped/info-striped.scss */
+.info-striped .profile-info-name {
+  background-color: #edf3f4;
+  color: #336199;
+  display: table-cell;
+  font-weight: 400;
+  padding: 6px 10px 6px 4px;
+  text-align: right;
+  vertical-align: middle;
+  width: 130px;
+}
+/* line 22, ../../../scss/components/info-striped/info-striped.scss */
+.info-striped .profile-info-value {
+  padding-left: 18px;
+  color: #393939;
+  padding-left: 18px;
+  display: table-cell;
+  line-height: 31px;
+}
+
+/* line 30, ../../../scss/components/info-striped/info-striped.scss */
+.profile-info-row {
+  position: relative;
+  border-bottom: 1px solid #dcebf7;
+}
+
+/* line 34, ../../../scss/components/info-striped/info-striped.scss */
+.profile-info-row:last-child {
+  border-bottom: none;
+}

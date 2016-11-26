@@ -1,0 +1,112 @@
+program:
+    activate_program:
+        op: activate
+        path: /
+    reactivate_program:
+        op: reactivate
+        path: /
+    renewal_program:
+        op: renewal
+        path: /
+    clear_program:
+        op: clear
+        path: /
+    clear_program_journals:
+        op: clear
+        path: /journals
+    change_landing_url:
+        op: replace
+        path: /landingUrl
+        params: [value]
+        requirements:
+            value: url
+    change_sender_email:
+        op: replace
+        path: /senderEmail
+        params: [value]
+        requirements:
+            value: email
+    change_sender_name:
+        op: replace
+        path: /senderName
+        params: [value]
+    describe_program:
+        op: describe
+        path: /
+        params: [value]
+    describe_operation:
+        op: describe
+        path: /operation
+        params: [operation, value: '']
+        requirements:
+            operation: integer
+    confirm_invitation:
+        op: confirm
+        path: /invitation
+        params: [invitation]
+        requirements:
+            invitation: integer
+easy_setting:
+    change_simplerate:
+        op: replace
+        path: /simplerate
+        params: [value]
+        requirements:
+            value: integer
+    change_multirate:
+        op: replace
+        path: /multirate
+        params: [value]
+        requirements:
+            value: integer
+
+affair:
+    process_affair:
+        op: process
+        path: /
+        params: [amount]
+        requirements:
+            amount: number
+    cancel_affair:
+        op: cancel
+        path: /
+        params: [message]
+
+operation:
+    describe_operation:
+        op: describe
+        path: /
+        params: [value]
+
+participate:
+    add_points:
+        op: add
+        path: /points
+        params: [value, operation]
+        requirements:
+            value: integer
+            operation: integer
+    resend_welcome_email:
+        op: resend
+        path: /welcomeEmail
+    confirm_sponsorship:
+        op: confirm
+        path: /sponsorship
+
+gift_order:
+    confirm_gift_order:
+        op: confirm
+        path: /
+        
+member:
+    update_code_mail:
+        op: replace
+        path: /mailInvitation
+        prams: [codeMail]
+    add_points:
+        op: add
+        path: /points
+        params: [labelOperation, amount: 0, info: '']
+        requirements:
+            amount: integer 
+

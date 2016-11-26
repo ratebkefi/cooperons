@@ -1,0 +1,14 @@
+{% block content %}
+    <ul>
+    {% for operation in program.allOperations %}
+        <li>{{ operation.label }} :
+            {% if operation.defaultAmount %}
+                {{operation.defaultAmount}}
+            {% else %}
+                des
+            {% endif %}
+            {% if operation.isMulti %}MultiPoints{%else%}Points{% endif%},
+            {{ operation.description|raw }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

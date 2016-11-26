@@ -1,0 +1,7 @@
+parameters:
+    apr_affair.recruitment.class: Apr\AffairBundle\Manager\RecruitmentManager
+
+services:
+    apr_affair.recruitment_manager:
+        class: "%apr_affair.recruitment.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']

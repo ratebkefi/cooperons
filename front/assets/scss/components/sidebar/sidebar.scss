@@ -1,0 +1,312 @@
+//colors
+$color_concrete_approx: #f3f3f3;
+$color_alto_approx: #d9d9d9;
+$white: #ffffff;
+$color_wild_sand_approx: whitesmoke;
+$color_cadet_blue_approx: #abb4be;
+$color_gunsmoke_approx: #7c8389;
+$color_bay_of_many_approx: #27368b;
+$alabaster: #fafafa;
+$color_shakespeare_approx: #59b8d3;
+$color_iron_approx: #d7d7d7;
+
+//fonts
+$font_0: robotoregular;
+
+//urls
+$url_0: url(../images/menu_responsive.png);
+
+// Media Query Ranges
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 767px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+//@extend-elements
+//original selectors
+//.sidebar_menu .nav li, .nav-collapse .nav >li
+%extend_1 {
+	font-family: $font_0;
+	font-size: 1.072em;
+	text-transform: uppercase;
+	height: 50px;
+	padding: 0;
+	margin-right: -4px;
+	border-bottom: 1px solid $color_alto_approx;
+        z-index: 20;
+}
+
+//original selectors
+//.sidebar_menu .nav li a, .navbar-inverse .nav li >a
+%extend_2 {
+	color: $color_gunsmoke_approx;
+	height: 50px;
+	line-height: 23px;
+	padding: 12px 13px 12px 10px;
+	font-size: 28px;
+}
+
+//original selectors
+//.navbar-inverse .nav .active >a, .navbar-inverse .nav .active >a:hover, .navbar-inverse .nav .active >a:focus
+%extend_3 {
+	background: none;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+	color: $color_shakespeare_approx;
+}
+
+.sidebar_menu {
+	width: 25%;
+	float: left;
+	min-height: 30px;
+        background: #fafafa;
+	.reduce_menu {
+		
+		a {
+			float: right;
+			margin-right: 26px;
+			margin-top: 28px;
+			cursor: pointer;
+		}
+	}
+	.nav {
+		li {
+			@extend %extend_1;
+			&.active {
+				background-color: $white;
+				a {
+					color: $color_bay_of_many_approx;
+					border-left: 4px solid $color_bay_of_many_approx;
+				}
+			}
+			a {
+				font-size: 28px;
+				color: $color_cadet_blue_approx;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+                                border-bottom: 1px solid #d9d9d9;
+                                border-top: 1px solid #d9d9d9;                                
+                                margin-top: -1px !important;
+                                line-height: 18px;
+				@extend %extend_2;
+				&:hover {
+					color: $color_bay_of_many_approx;
+					background-color: transparent;
+                                        border-right: 1px solid #d9d9d9;
+                                        text-decoration: none;
+				}
+				&:focus {
+					color: $color_bay_of_many_approx;
+					background-color: transparent;
+                                        text-decoration: none;
+				}
+			}
+			i {
+				text-align: center;
+				vertical-align: middle;
+			}
+		}
+		> li {
+			&:hover {
+				width: 260px;
+				background: $color_wild_sand_approx;
+				> a i {
+					margin-right: 0;
+				}
+			}
+			> a span {
+				font-size: 18px;
+				margin-left: 10px;
+				text-transform: capitalize;
+			}
+		}
+	}
+}
+.navbar-inverse {
+	.nav {
+		li {
+			> a {
+				@extend %extend_2;
+				&:hover {
+					color: $color_bay_of_many_approx;
+					background-color: transparent;
+                                        text-decoration: none;
+				}
+				&:focus {
+					color: $color_bay_of_many_approx;
+					background-color: transparent;
+                                        text-decoration: none;
+				}
+			}
+			&.active > a {
+				color: $color_bay_of_many_approx;
+				border-left: 4px solid $color_bay_of_many_approx;
+			}
+		}
+		.active > a {
+			@extend %extend_3;
+			&:hover {
+				@extend %extend_3;
+			}
+			&:focus {
+				@extend %extend_3;
+			}
+		}
+	}
+	.btn-navbar {
+		color: $white;
+		background: $url_0 no-repeat;
+		border: none;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		padding: 0;
+		width: 44px;
+		height: 35px;
+		margin: 5px;
+	}
+	.nav-collapse .nav > li > a {
+		&:hover {
+			background: none;
+		}
+		&:focus {
+			background: none;
+		}
+	}
+}
+
+.nav-collapse .nav > li > a  ng-md-icon {
+                                     padding-left: 5px;   
+                                }
+                
+.navbar {
+	.navbar-inner {
+		padding: 0;
+	}
+	.nav-collapse .nav {
+		margin: 0;
+		background-color: $alabaster;
+		border-top: 4px solid $color_shakespeare_approx;
+		border-bottom: 1px solid $color_iron_approx;
+	}
+	.btn-navbar .icon-bar {
+		display: none;
+	}
+}
+.main_content.reduced .sidebar_menu {
+	width: 5%;
+	.reduce_menu a {
+		margin-right: 11px;
+	}
+	.nav li a {
+		overflow: hidden;
+	}
+}
+.nav-collapse .nav > li {
+	@extend %extend_1;
+	&.active {
+		background-color: $white;
+	}
+	> a {
+		margin: 0;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0;
+		font-weight: normal;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+                display:block;
+	}
+        &:first-child {
+                border-top: 1px solid #d9d9d9;
+        }
+}
+
+.nav > li {
+	position: relative;
+	display: block;
+}
+.reduced .sidebar_menu .nav > li {
+	> a span {
+		visibility: hidden;
+	}
+	&:hover > a span {
+		display: inline;
+		visibility: visible;
+	}
+}
+ul.nav-main li span {
+	vertical-align: middle;
+}
+.reduced .sidebar_menu .md-button.menu_reduce {
+      margin: 0 auto;
+}
+.nav-collapse .nav > li i {
+    z-index: 0;
+}
+.reduce_menu {
+    margin: 10px 5px;
+}
+.reduced .reduce_menu {
+    text-align: center !important;
+}
+.reduce_menu .nav-collapse .nav > li > a ng-md-icon {
+    margin: auto;
+    display: block;   
+}
+.reduce_menu .nav-collapse .nav > li {
+    padding: 12px 13px;
+}
+.overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+    display: none;
+    
+}
+// SIDEBAR LEFT COLLAPSED
+// -----------------------------------------------------------------------------
+@media #{$small-and-down} {
+.sidebar_menu .md-button.menu_reduce {
+    display:none;
+}
+.sidebar_menu , .main_content.reduced .sidebar_menu {
+    width: 13%;
+}
+.sidebar_menu .nav > li > a span{
+    display: none;
+}
+.sidebar_menu .nav > li > a:hover span{
+    display: inline-block;
+}
+.reduced .overlay{
+  background: rgba(0, 0, 0, 0.6);  
+  display: block;
+}
+.sidebar_menu .nav-collapse{
+    
+}
+.reduced .sidebar_menu .nav > li > a span {
+    visibility: visible;
+}
+        
+    
+}
+
+.md-sidenav-left, md-sidenav {
+    left: 0;
+    top: 0;
+    -webkit-transform: inherit;
+    transform: inherit;
+    z-index: 0;
+}

@@ -1,0 +1,257 @@
+.acheterpack .historiqueheader{
+	background:#424644 url(images/info_client.png) no-repeat right center;
+	border-bottom:2px solid #353836;
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	padding:5px 20px;
+	position:relative;
+	overflow:hidden;
+}
+
+.historiqueheader .customer_img{
+	width:30px;
+	padding:5px;
+	border:1px solid rgb(255,255,255);
+	border:1px solid rgba(255,255,255,0.5);
+	-webkit-background-clip:padding-box; /* for Safari */
+	background-clip:padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	display:inline-block;
+}
+
+.historiqueheader .info_name{
+	height:100%;
+    left:70px;
+    position:absolute;
+    top:0;
+}
+
+.historiqueheader .info_name:before{
+	content:'';
+	display:inline-block;
+	height:100%;
+	vertical-align:middle;
+}
+
+.acheterpack .historiqueheader .titreacheterpack{
+	font-family:'latoblack';
+	color:#FFFFFF;
+	text-transform:uppercase;
+	font-size:1.143em;
+	font-weight:normal;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:20px;
+}
+
+.mes_clients table{
+	margin:10px auto;
+    width:95%;
+}
+
+.mes_clients table td{
+	border-bottom:1px solid #e5e5e5;
+	height:19px;
+	padding:3px 0;
+    font-family:'latoregular';
+    font-size:12px;
+}
+
+.mes_clients table td.tdcommande2{
+    width:15%;
+    text-align:right;
+    color:#babfc3;
+}
+
+.mes_clients table td.tdcommande3{
+    width:10%;
+    text-align:center;
+}
+
+.mes_clients table td.tdcommande4{width:75%;}
+
+.mes_clients table tr:last-child td{
+    border:none;
+    padding-bottom:10px;
+}
+
+/* Historique */
+.acheterpack .historiqueheadercom{
+	background:#424644 url(images/ae_service_bg.png) no-repeat right -575px;
+	border-bottom:2px solid #353836;
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	 padding:2% 2% 2% 4%;
+}
+
+.acheterpack .historiqueheadercom .titreacheterpack{
+	font-family:'latoblack';
+	color:#FFFFFF;
+	text-transform:uppercase;
+	font-size:1.143em;
+	font-weight:normal;
+}
+
+.historique_commande{width:96%; padding:2%;}
+
+.historique_solde{
+    background:#EFEFEF;
+    padding:15px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+	margin:0 auto;
+    margin-bottom:20px;
+    width:90%;
+	border:1px solid #EFEFEF;
+}
+
+.solde_pack{
+    font-size:1.15em;
+	font-family:'latobold';
+}
+
+.historique_solde .rest_presta{
+    background-color:#FFFFFF;
+    border-radius:3px;
+    box-shadow:0 1px 0 #BEBEBE;
+    -moz-box-shadow:0 1px 0 #BEBEBE;
+    -webkit-box-shadow:0 1px 0 #BEBEBE;
+    font-size:18px;
+    margin:4px;
+    padding:5px;
+    position:relative;
+    vertical-align:baseline;
+}
+
+.historique_solde .rest_presta span{
+    background:url("images/comptareb.png") no-repeat center center rgba(0, 0, 0, 0);
+    display:block;
+    height:2px;
+    left:0;
+    margin-top:-1px;
+    position:absolute;
+    top:50%;
+    width:100%;
+}
+
+.mes_clients .historique_commande table td,
+.mes_clients .historique_commande table tr:last-child td{
+	background-color:#F1F1F1;
+	border:2px solid #ffffff;
+	padding:3px 3%;
+}
+
+.mes_clients table .td_historique_date{
+	text-align:center;
+	padding:3px 3px;
+}
+
+/* Achat pack */
+
+.acheterpack .acheterpackheader{
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	padding:2% 2% 2% 5%;
+	background:#424644 url(images/ae_service_bg.png) no-repeat right -420px;
+	border-bottom:2px solid #353836;
+}
+
+.acheterpack .acheterpackheader .titreacheterpack{
+	font-family:'latoblack';
+	color:#FFFFFF;
+	text-transform:uppercase;
+	font-size:1.143em;
+}
+
+.acheterpack .form-horizontal .control-group{
+	width:95%;
+	margin:0 auto 20px;
+}
+
+.acheterpack .description{
+	border-bottom:1px solid #e5e5e5;
+	padding:10px 0;
+    font-size:12px;
+}
+
+.acheterpack .description div{
+	float:left;
+	padding-left:1.5%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+}
+
+.acheterpack .designation{width:40%;}
+.acheterpack .prix,.acheterpack .quantite{width:30%;}
+
+.acheterpack .quantite .control-label{
+	font-size:12px;
+    text-align:left;
+	width:auto;
+}
+
+.acheterpack .quantite .controls{
+    margin-left:0;
+	padding-left:10%;
+}
+
+.acheterpack .quantite .help-block{display:none}
+
+.acheterpack .quantite select{
+	max-width:84px;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.boutoncondition{width:100%;text-align:center;}
+.contenu_cgv{text-align:left;}
+
+.carte_bleu,.carte_visa,.carte_mastercard,.carte_cheque,.carte_cesu{
+    height:80px;
+    width:85px;
+    text-indent:-20000px;
+    display:inline-block;
+}
+
+.carte_bleu{background:url("images/cartebleu.png") no-repeat;}
+.carte_visa{background: url("images/visa.png") no-repeat;}
+.carte_mastercard{background: url("images/mastercard.png") no-repeat;}
+.carte_cheque{background: url("images/cheeque.png") no-repeat;}
+.carte_cesu{background: url("images/cesu.png") no-repeat;}
+
+.mes_clients .acheterpack .boutoncondition a.btn_cta{
+	float:none;
+	font-size:1.15em;
+	margin-right:0;
+}
+
+
+@media (max-width:639px){
+	.mes_clients table .tdcommande2{width:80px !important;}
+	.mes_clients table .tdcommande3{width:50px !important;}
+	.mes_clients table .tdcommande4{width:auto !important;}
+	.mes_clients .historique_commande table td, .mes_clients .historique_commande table tr:last-child td{padding:3px 1%;}
+	.mes_clients table .td_historique_date{width:80px;}
+
+}
+
+
+
+@media (max-width:480px){
+	.acheterpack .designation{
+		width:100%;
+		border-bottom:1px solid #E5E5E5;
+		padding-bottom:10px;
+		margin-bottom:10px;
+	}
+
+	.acheterpack .prix{border-right:1px solid #E5E5E5;width:48%;padding-right:2%;}
+	.acheterpack .description .quantite{width:46%;margin-top:5px;float:left;padding-left:2%;}
+	.acheterpack .quantite .control-label{width:40%;margin-bottom:0;line-height:30px;float:left;}
+	.acheterpack .quantite .controls{width:45%;float:left;}
+
+}

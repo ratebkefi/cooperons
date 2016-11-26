@@ -1,0 +1,33 @@
+<md-content class="mt-lg md-padding" layout-xs="column" layout-align="center center" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class=" width-100">
+            <div class="text-center mt-md">
+                <md-tooltip md-direction="top">{{program.label}}</md-tooltip>
+                <img class="program_image" ng-if="program.image && program.image.filename != ''"
+                     ng-src="{{uploadedFile(program.image.filename)}}"
+                     alt="{{program.label}}"/>
+            </div>
+            <br/>
+<span ng-if="program.status == 'preprod'" class="text-center mt-md block">
+    <strong class="red-color">
+        <ng-md-icon icon="warning" class="red-color md-card-icon" size="20"></ng-md-icon>
+        ATTENTION ! PRE-PRODUCTION !<br/>
+        <a ng-if="program.oldProgram" ui-sref="{id: program.oldProgram.id}">
+            <span class="blink_me">Version en production</span>
+        </a>
+    </strong>
+</span>
+            <br/>
+<span ng-if="program.newProgram" class="text-center mt-md block red-color">
+    <strong>CE PROGRAMME EST EN COURS DE
+        MODIFICATION
+        <br/>
+        <a ui-sref="{ id: program.newProgram.id }">
+            <span class="blink_me">Version en pré-production</span>
+        </a>
+    </strong>
+</span>
+
+        </md-card>
+    </div>
+</md-content>

@@ -1,0 +1,70 @@
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row" ng-if="waitingPayments && waitingPayments != ''">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Paiements en attente</span>
+
+                    <div flex></div>
+                    <div ng-show="showPaymentsActions" class="text-right">
+                        <md-button ng-click="validatePayments()" class="md-raised md-warn">
+                            <md-icon md-font-icon="mdi-maps-place"></md-icon>
+                            Valider
+                        </md-button>
+                        <md-button ng-click="cancelPayments()" class="md-raised md-warn">
+                            <md-icon md-font-icon="mdi-maps-pin-drop"></md-icon>
+                            Annuler
+                        </md-button>
+                        <md-button ng-click="exportPayments()" class="md-raised md-warn">
+                            <md-icon md-font-icon="mdi-editor-mode-edit"></md-icon>
+                            Export
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column>
+                            <md-checkbox aria-label="checked" ng-model="allChecked"
+                                         ng-change="selectAllPayments(allChecked)"></md-checkbox>
+                        </th>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Intitulé</span></th>
+                        <th md-column><span>Contrepartie</span></th>
+                        <th md-column><span>Mode de paiement</span></th>
+                        <th md-column><span>Montant</span></th>
+                        <th md-column><span>Frais imputés</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body ng-repeat="payment in waitingPayments">
+                    <tr md-row ng-class="{'selected' : payment.selected}" ng-click="selectPayment(payment)">
+                        <td md-cell>
+                            <md-checkbox aria-label="payement" ng-checked="payment.selected"></md-checkbox>
+                        </td>
+                        <td md-cell>{{payment.createdDate| date:'dd/MM/yyyy' }}</td>
+                        <td md-cell>{{payment.mandataire.label}}</td>
+                        <td md-cell>{{payment.mandataire.clientLabel}}</td>
+                        <td md-cell>
+                            <span ng-if="payment.mode === 'cheque'">Chèque</span>
+                            <span ng-if="payment.mode !== 'cheque'">{{payment.mode}}</span>
+                        </td>
+                        <td md-cell>{{payment.amount| displayPrice}} €</td>
+                        <td md-cell ng-if="payment.showFrais && payment.mode == 'CESU'"><input type="text"
+                                                                                               ng-model="payment.frais"/>
+                        </td>
+                        <td md-cell ng-if="payment.selected && payment.mode != 'CESU'">{{payment.frais}}</td>
+                        <td md-cell ng-if="!payment.selected"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+        </md-card>
+    </div>
+</md-content>
+
+<div ng-include="'app/admin/views/home/paymentsDialogs.html'"></div>

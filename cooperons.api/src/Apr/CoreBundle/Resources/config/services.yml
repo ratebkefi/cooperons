@@ -1,0 +1,28 @@
+parameters:
+    api.validator.class: Apr\CoreBundle\Validator\ApiFormValidator
+    api.patch.data.format.validator.class: Apr\CoreBundle\Validator\ApiPatchDataFormatValidator
+    api.event.jwt_response_listener.class: Apr\CoreBundle\Listener\JWTResponseListener
+    api.event.exception_listener.class: Apr\CoreBundle\Listener\ApiExceptionListener
+
+services:
+    api.form.validator:
+        class: %api.validator.class%
+        arguments: ["@form.factory"]
+
+    api.patch.data.format.validator:
+        class: %api.patch.data.format.validator.class%
+        arguments: ["%patch.format%"]
+
+    api.event.jwt_response_listener:
+        class: %api.event.jwt_response_listener.class%
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    api.kernel.listener:
+        class: %api.event.exception_listener.class%
+        arguments: ["@kernel"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+
+

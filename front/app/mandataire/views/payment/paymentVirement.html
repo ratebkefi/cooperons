@@ -1,0 +1,28 @@
+<md-content class="md-padding">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline red-color ml-md">Virement en attente</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>Nous restons dans l'attente de votre règlement de {{payment.amount|displayPrice}} €.</p>
+
+                <p>Coordonnées bancaires de Coopérons !</p>
+
+                <p>
+                    IBAN : FR76 1820 6004 0765 0080 8365 140
+                    <br/>
+                    BIC : AGRIFRPP882
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="deletePayment()" class="md-raised md-primary right">
+                    <md-icon md-font-icon="fa fa-times"></md-icon>
+                    Annuler
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

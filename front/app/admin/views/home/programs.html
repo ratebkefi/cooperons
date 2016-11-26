@@ -1,0 +1,52 @@
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row" ng-if="allprograms.length">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Programmes</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Programme</span></th>
+                        <th md-column><span>Membre</span></th>
+                        <th md-column><span>Statut</span></th>
+                        <th md-column><span>Dépôt Minimum</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="program in allprograms" ng-if="program.status != 'cancel'">
+                        <td md-cell>
+                            {{program.label}}
+                        </td>
+                        <td md-cell>{{program.member.firstName}} {{program.member.lastName}}</td>
+                        <td md-cell>
+                                <span ng-if="haveWaitingSettlements[program.id]">
+                                    Commande en attente
+                                </span>
+
+                                <span ng-if="haveWaitingSettlements[program.id] == undefined">
+                                    {{program.status}}
+                                    <span ng-if="program.renewal !== undefined">
+                                        <a ng-click="renewalProgram(program.id)">{{program.renewal}}</a>
+                                    </span>
+                                </span>
+                        </td>
+                        <td md-cell>
+                            <input ng-if="program.minDepot !== undefined"
+                                   ng-model="program.minDepot"
+                                   ng-keypress="$event.keyCode == 13 && updateMinDeposit(program.mandataire_id, program.minDepot)">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+        </md-card>
+    </div>
+</md-content>

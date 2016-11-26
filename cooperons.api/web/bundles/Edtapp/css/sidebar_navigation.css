@@ -1,0 +1,138 @@
+@charset "iso-8859-1";
+/* CSS Document */
+
+.sidebar_menu{
+    width:25%;
+    float: left;
+    min-height:30px;
+}
+
+.main_content.reduced .sidebar_menu{width:5%}
+
+.sidebar_menu .reduce_menu{
+    height:76px;
+    /*border-top:4px solid #2dbcf0;*/
+    border-bottom:1px solid #f3f3f3;
+}
+
+.sidebar_menu .reduce_menu a{
+    background:url(images/reduce_menu.png) no-repeat 0 0;
+    height:26px;
+    width:26px;
+    float:right;
+    margin-right:26px;
+    margin-top:28px;
+    cursor:pointer;
+}
+
+.main_content.reduced .sidebar_menu .reduce_menu a{margin-right:11px;}
+
+.sidebar_menu .nav li,
+.nav-collapse .nav > li{
+    font-family: 'robotoregular';
+    font-size:1.072em;
+    text-transform:uppercase;
+    height:50px;
+    padding:0;
+    background:url(images/sidebar_menu_ico.png) no-repeat left center;
+    border-bottom:1px solid #f3f3f3;
+}
+
+.sidebar_menu .nav li.active,
+.nav-collapse .nav > li.active{
+    background-color:#ffffff;
+    margin:0px;
+    margin-right:-4px;
+}
+
+.sidebar_menu .nav li.ACCUEIL,.nav-collapse .nav > li.ACCUEIL{background-position:10px 15px;}
+.sidebar_menu .nav li.AUTO_ENTREPRENEUR,.nav-collapse .nav > li.AUTO_ENTREPRENEUR{background-position:10px -1532px;}
+.sidebar_menu .nav li.MON_ENTREPRISE,.nav-collapse .nav > li.MON_ENTREPRISE{background-position:10px -1666px;}
+.sidebar_menu .nav li.MES_PROGRAMMES,.nav-collapse .nav > li.MES_PROGRAMMES{background-position:10px -1266px;}
+.sidebar_menu .nav li.MES_FILLEULS,.nav-collapse .nav > li.MES_FILLEULS{background-position:10px -612px;}
+.sidebar_menu .nav li.MES_POINTS,.nav-collapse .nav > li.MES_POINTS{background-position:10px -357px;}
+.sidebar_menu .nav li.MON_COMPTE,.nav-collapse .nav > li.MON_COMPTE{background-position:10px -483px;}
+.sidebar_menu .nav li.LOGOUT,.nav-collapse .nav > li.LOGOUT{background-position:10px -111px;}
+
+.sidebar_menu .nav li.ACCUEIL.active,.nav-collapse .nav > li.ACCUEIL.active{background-position:6px -170px;}
+.sidebar_menu .nav li.AUTO_ENTREPRENEUR.active,.nav-collapse .nav > li.AUTO_ENTREPRENEUR.active{background-position:6px -1599px;}
+.sidebar_menu .nav li.MON_ENTREPRISE.active,.nav-collapse .nav > li.MON_ENTREPRISE.active{background-position:6px -1733px;}
+.sidebar_menu .nav li.MES_PROGRAMMES.active,.nav-collapse .nav > li.MES_PROGRAMMES.active{background-position:6px -1333px;}
+.sidebar_menu .nav li.MES_FILLEULS.active,.nav-collapse .nav > li.MES_FILLEULS.active{background-position:6px -677px;}
+.sidebar_menu .nav li.MES_POINTS.active,.nav-collapse .nav > li.MES_POINTS.active{background-position:6px -420px;}
+.sidebar_menu .nav li.MON_COMPTE.active,.nav-collapse .nav > li.MON_COMPTE.active{background-position:6px -548px;}
+
+.sidebar_menu .nav li a,
+.navbar-inverse .nav li > a{
+    color:#7c8389;
+    height:50px;
+    line-height:50px;
+    padding:0;
+    padding-left:54px;
+}
+
+.sidebar_menu .nav li.active a,
+.navbar-inverse .nav li.active > a{
+    color:#27368b;
+    padding-left:50px;
+    border-left:4px solid #27368b;
+}
+
+.sidebar_menu .nav li a:hover,
+.sidebar_menu .nav li a:focus,
+.navbar-inverse .nav li > a:hover,
+.navbar-inverse .nav li > a:focus{
+    color:#000000;
+    background-color:transparent;
+}
+
+.main_content.reduced .sidebar_menu .nav li a{overflow:hidden;}
+
+/* Responsive navigation */
+.navbar .nav-collapse .nav{
+    margin:0;
+    background-color:#fafafa;
+    border-top:4px solid #59B8D3;
+    border-bottom:1px solid #d7d7d7;
+}
+
+.navbar-inverse .nav-collapse .nav > li > a:hover,
+.navbar-inverse .nav-collapse .nav > li > a:focus{
+    background:none;
+}
+
+.nav-collapse .nav > li > a{
+    margin:0;
+    border-radius:0;
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+    font-weight:normal;
+    text-shadow:none;
+}
+
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus{ 
+    background:none;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    color:#59B8D3;
+}
+
+.navbar .navbar-inner{padding:0;}
+
+.navbar-inverse .btn-navbar{
+    color:#ffffff;
+    background:url("images/menu_responsive.png") no-repeat;
+    border:none;
+    box-shadow:none;
+    padding:0;
+    width:44px;
+    height:35px;
+    margin:5px;
+}
+
+.navbar .btn-navbar .icon-bar{
+    display:none
+}

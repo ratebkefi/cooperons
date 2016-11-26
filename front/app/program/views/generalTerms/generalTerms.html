@@ -1,0 +1,98 @@
+<header ng-if="!program.isEasy" class="page-header"><h2>Conditions générales</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="steps-content">
+
+            <wizard-steps ng-if="program" class="m-md" program="program" step="3"></wizard-steps>
+
+            <div class="steps-wrapper">
+                <div class=" m-md">
+                    <h3 class="title-header">Conditions Générales du Programme de Stimulation {{program.label}}</h3>
+
+                    <p>Personnalisez ci-dessous vos conditions générales. La description du programme vous permet de
+                        décrire
+                        le fonctionnement général du programme, et définir éventuellement certains concepts.</p>
+
+                    <p>Les clauses d'attribution de Points et MultiPoints doivent être le plus précises possibles - et
+                        peuvent
+                        utiliser les termes définis à l'Article 1 - Définitions.</p>
+                </div>
+
+                <form ng-submit="editProgram()">
+
+
+                    <div class="accordion">
+                        <dl ng-repeat="clause in clauses" class=" m-md">
+                            <dt>
+                                <a ng-click="clause.show = !clause.show" ng-class="{'is-expanded': clause.show}"
+                                   class="accordion-title accordionTitle is-collapsed">
+                                    <h4 class="legal-title"> {{clause.key}}. {{clause.title}}
+                                        <i class="fa" ng-class="{'fa-minus': clause.show, 'fa-plus': !clause.show}"></i>
+                                    </h4>
+                                </a>
+                            </dt>
+                            <dd class="accordion-content accordionItem"
+                                ng-class="{'animateIn is-expanded': clause.show, 'animateOut is-collapsed': !clause.show}"
+                                ng-if="clause.key != 2 && clause.key != 3 " ng-bind-html="clause.content"></dd>
+
+                            <dd class="accordion-content accordionItem"
+                                ng-class="{'animateIn is-expanded': clause.show, 'animateOut is-collapsed': !clause.show}"
+                                ng-if="clause.key == 2">
+                   <textarea ng-model="program.description" name="description">
+                        {{program.description}}
+                    </textarea>
+                            </dd>
+
+                            <dd class="accordion-content accordionItem"
+                                ng-class="{'animateIn is-expanded': clause.show, 'animateOut is-collapsed': !clause.show}"
+                                ng-if="clause.key == 3">
+                                <p><strong>Vous gagnez : </strong></p>
+
+                                <div ng-repeat="operation in operations">
+                                    <p>{{operation.label}} :
+                                        <span ng-if="operation.defaultAmount">{{operation.defaultAmount}}</span>
+                                        <span ng-if="!operation.defaultAmount">des</span>
+                                        <span ng-if="operation.isMulti">MultiPoints</span>
+                                        <span ng-if="!operation.isMulti">Points</span>
+                                        <textarea ng-model="operation.description">{{operation.description}}</textarea>
+                                    </p>
+                                </div>
+                            </dd>
+
+                        </dl>
+                    </div>
+
+                    <div class="hr-24"></div>
+
+                    <div class=" m-md">
+                        <md-checkbox ng-model="checkboxModel.cgv" aria-label="Checkbox 1">
+                            En cochant cette case, je certifie être autorisé à représenter SAS EDATIS pour la
+                            publication des Conditions Générales du Programme de Stimulation
+                        </md-checkbox>
+                    </div>
+
+                    <p class="text-center m-md">
+                        <md-button id="visualiser" ng-click="editProgrmaCgv()" class="md-raised md-primary">
+                            <md-icon md-font-icon="fa fa-search"></md-icon>
+                            Visualiser les Mentions Légales
+                        </md-button>
+                    </p>
+
+                    <div class="steps-footer">
+                        <div class="steps-info">Étape 3 <span class="steps-glow step4"></span></div>
+
+                        <md-button id="next" type="submit" class="md-raised md-primary right">
+                            Suivant
+                            <md-icon md-font-icon="fa fa-chevron-right"></md-icon>
+                        </md-button>
+                    </div>
+                </form>
+            </div>
+        </md-card>
+    </div>
+</md-content>
+
+

@@ -1,0 +1,74 @@
+
+<h1>Contrat de Prestation de Service</h1>
+<div class="separateur_haut"></div>
+<div class="span12">
+    <p>Entre:</p>
+    <p>{{ contract.owner.description }} (« <strong>le Prestataire</strong> »),</p>
+    <p>Et:</p>
+    <p>{{ contract.client.description }} représenté par {{ contract.clientMember.description }} (« <strong>Le Client</strong> »),</p>
+    <p>Ci-après dénommées <strong>Les Parties</strong> ».</p>
+    <h3>1. Définitions</h3>
+    <p><strong>Auto-Entrepreneur</strong> : Membre ayant signé un Contrat de Gestion Auto-Entrepreneur avec Coopérons !.</p>
+    <p><strong>Collaborateur</strong> : {{ contract.clientMember.description }}</p>
+    {% if contract.minDepot %}
+        <p><strong>Dépôt du Contrat</strong> : avance consentie par le Client au profit du Prestataire, dans les conditions définies à l'article 4.</p>
+    {% endif %}
+    <p><strong>Membre</strong> : membre inscrit sur le Réseau Coopérons.</p>
+    <p><strong>Contrat de Prestation Auto-Entrepreneur</strong> : contrat de prestation de services passé entre tout Auto-Entrepreneur et le Client.</p>
+    <p><strong>Coopérons !</strong> : SARL COOPERONS, immatriculée au RCS de Paris 792 896 359, dont le siège social est situé au 34 rue de la Tombe Issoire à Paris (75014), opérateur du Réseau Coopérons.</p>
+    <p><strong>Entreprise</strong> : entreprise inscrite sur le Réseau Coopérons dans le cadre d'un compte Entreprise, permettant à ses collaborateurs d'être gestionnaires de Contrats de Prestation Auto-Entrepreneur.</p>
+    <p><strong>Espace Coopérons !</strong> : compte utilisateur sur le réseau Coopérons dont dispose le Partenaire Prestataire, le Partenaire Commercial.</p>
+    <p><strong>Prestation</strong> : prestation effectuée par le Prestataire au bénéfice du Client, définies à l'article 2.</p>
+    <p><strong>Prime Recrutement</strong> : prime accordée au Prestataire d'un montant égal à la remise accordée par un autre Auto-Entrepreneur dans le cadre d'un autre Contrat de Prestation Auto-Entrepreneur.</p>
+    <p><strong>Recruteur</strong> : Auto-Entrepreneur ayant signé un Contrat de Prestation Auto-Entrepreneur avec le Client et un contrat de partenariat commercial avec le Prestataire - au titre duquel le Prestataire s'est engagé à consentir à une remise au bénéfice du Client.</p>
+    <p><strong>Remise Recrutement</strong> : remise accordée par le Prestataire sur chaque Prestation facturée au Client dans le cas où le Prestataire a signé un contrat de Partenariat Commercial avec un Auto-Entrepreneur ayant lui-même signé un Contrat de Prestation Auto-Entrepreneur.</p>
+    <p><strong>Réseau Coopérons</strong> : réseau social accessible à partir d'une interface Web ou mobile, permettant à chaque Membre d'accéder à son Espace Coopérons.</p>
+    <h3>2. Objet du contrat - Prestations</h3>
+    <p>Le présent contrat (ci-après dénommé le « <strong>Contrat</strong> ») a pour objet de définir les conditions dans lesquelles le Prestataire assurera les Prestations.</p>
+    <p>Les Prestations fournies par le Prestataire sont les suivantes:</p>
+    <ul>
+        <li>Recrutement: le Prestataire mettra à disposition du Client son réseau de partenaires prestataires;</li>
+            {% for serviceType in contract.allServiceTypes %}
+            <li>{{ serviceType.label }}</li>
+            {% endfor %}
+    </ul>
+    <h3>3. Facturation</h3>
+    <p>Les Prestations seront facturées comme suit, au fur et à mesure de leur exécution par le Prestataire:</p>
+    <ul>
+        <li>Recrutement: le montant facturé au client (Prime Recrutement) sera égal à la remise accordée par un autre Auto-Entrepreneur dans le cadre d'un autre Contrat de Prestation Auto-Entrepreneur ;</li>
+            {% for serviceType in contract.allServiceTypes %}
+            <li>{{ serviceType.label }}:
+                {% if serviceType.unitDefaultAmount %}
+                    {{ serviceType.unitDefaultAmount }} € par {% if serviceType.unitLabel %}{{ serviceType.unitLabel }}{% else %}opération{% endif %}
+                {% else %}
+                    un montant proposé par le Prestataire et accepté par le Client
+                {% endif %};
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Le Prestataire établira chaque fin de mois une facture récapitulative relative aux Prestations facturées durant le mois écoulé</p>
+    <h3>4. Paiement - Dépôt</h3>
+    <p>Les Prestations seront dues et payables dès leur achèvement et notification envoyée par email au Client.</p>
+    {% if contract.minDepot %}
+        <p>Afin de faciliter la gestion du présent Contrat, le Client réglera, dès la signature du présent Contrat, au Prestataire un montant égal à {{ contract.minDepot *2 }} € à titre d'avance (le « <strong>Dépôt du Contrat</strong> »).</p>
+        <p>Le Dépôt du Contrat sera exclusivement utilisé pour le réglement des Prestations, dès leur exigibilité.</p>
+        <p>Le Client instruit dès à présent le Prestataire à procéder au réglement, pour son compte, au moyen d'un remboursement du Dépôt du Contrat:</p>
+        <ul>
+            <li>du montant de la Prime de Recrutement si applicable, au bénéfice du Recruteur;</li>
+            <li>du montant d'éventuels frais dus par le Client à Coopérons si applicable;</li>
+        </ul>
+        <p>Le Client s'engage à maintenir le Dépôt du Contrat à un montant supérieur à {{ contract.minDepot }} €.</p>
+        <p>Lorsque le Dépôt du Contrat sera inférieur à {{ contract.minDepot }} €, le Client procédera à une avance supplémentaire d'un montant égal à {{ contract.minDepot *2 }} €.</p>
+        <p>Les factures récapitulatives mensuelles comprendront un état détaillé des mouvements intervenus sur le Dépôt du Contrat.</p>
+    {% endif %}
+    <h3>6. Durée du contrat - Résiliation</h3>
+    <p>Le présent Contrat entre en vigueur à compter de son Acceptation par le Client et il se poursuivra pour une durée indéterminée sauf en cas de résiliation comme stipulé ci-dessous.</p>
+    <p>Le Contrat pourra être résilié par l'une des Parties en cliquant sur le bouton "Résilier" relatif au présent Contrat sur l'Espace Coopérons de l'une des Parties.</p>
+    <h3>7. Modification</h3>
+    <p>Le Contrat pourra être modifié par le Prestataire en cliquant sur le bouton "Modifier" relatif au présent Contrat sur son Espace Coopérons.</p>
+    <h3>8. Divers</h3>
+    <p>Le Contrat exprime l'intégralité de l'accord passé entre les Parties et se substitue à tout accord éventuellement intervenu antérieurement entre les Parties pour ce qui concerne les conditions relatives à leur partenariat.</p>
+    <p>Si une ou plusieurs dispositions du Contrat étaient tenues pour nulles ou non valides ou déclarées telles en application d'une loi, d'un règlement ou à la suite d'une décision d'une juridiction compétente, les autres clauses garderont leur force et leur portée.</p>
+    <p>Le fait par l'une des parties de ne pas se prévaloir d'un manquement par l'autre partie à l'une quelconque de ses obligations visée dans le Contrat, ou de tarder à exercer l'un quelconque des droits qu'elle tient du Contrat, ne saurait valoir renonciation définitive à l'exécution de cette disposition ou de toute autre disposition, ou à l'exercice de ce droit ou de tout autre droit.</p>
+    <p>Le Contrat est soumis au droit français. Tous litiges nés de l'interprétation, l'exécution ou la résiliation du Contrat seront soumis aux tribunaux compétents.</p>
+</div> 

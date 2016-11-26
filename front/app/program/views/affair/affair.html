@@ -1,0 +1,186 @@
+<header class="page-header ng-scope">
+    <h2 class="ng-binding">{{affair.label}}
+        <ng-md-icon icon="fast_forward"></ng-md-icon>
+        {{affair.labelStatus}}
+    </h2>
+</header>
+
+<infos-mandataire></infos-mandataire>
+
+<div ng-include="'app/program/views/header/header.html'" ng-data-program="program"></div>
+
+<md-content class="md-padding" layout-xs="column" layout="row"
+            ng-if="affair.status != 'paid' && affair.status != 'cancel'">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <form name="affairForm" class="md-padding" ng-submit="submitAffair(affairForm)" novalidate>
+                <p ng-if="affair.status == 'approach'">
+                    Saisissez ci-dessous le montant total de l'offre envoyée - qui sera communiqué pour information à
+                    <b>{{participate.member.firstName}} {{participate.member.lastName}}</b>.
+                </p>
+
+                <p ng-if="affair.status == 'negotiation'">
+                    Saisissez ci-dessous le montant définitif du contrat <b>{{affair.label}}</b> - servant de base
+                    au calcul des commissions d'apport d'affaire de
+                    <b>{{participate.member.firstName}} {{participate.member.lastName}}</b>.
+                </p>
+
+                <p ng-if="affair.status == 'payable'">
+                    Saisissez ci-dessous le montant d'un réglement intervenu dans le cadre du contrat
+                    <b>{{affair.label}}</b> (montant maximum: {{affair.remains|displayPrice}} €).
+                </p>
+
+                <md-input-container class="md-block">
+                    <label>Montant € (HT)</label>
+                    <input ng-keyup="checkAmounConditions(affairForm)" id="amount" ng-model="amount.value" name="amount"
+                           type="text" value="{{affair.amount}}"
+                           ng-pattern="amount.pattern" required/>
+
+                    <div class="errorInput" ng-messages="affairForm.amount.$error">
+                        <div class="erreurform" ng-message="required">Montant Requis</div>
+                        <div class="erreurform" ng-message="pattern">
+                            Montant doit être numérique (Format : XX[,|.]XX)
+                            <span ng-if="affair.status == 'payable'"> et inférieur à {{ affair.remains | displayPrice}}€</span>
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-button aria-label="Créer" name="test" type="submit" class="md-raised md-primary right">
+                        <span ng-if="affair.status == 'approach'">Négociation</span>
+                        <span ng-if="affair.status == 'negotiation'">Closing</span>
+                        <span ng-if="affair.status != 'approach' && affair.status != 'negotiation'">Réglement</span>
+                        <md-icon md-font-icon="fa fa-chevron-right"></md-icon>
+                    </md-button>
+                </md-input-container>
+
+            </form>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="commissions.length">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <h3 class="title-header">Règlements</h3>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Montant HT</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="commission in commissions">
+                        <td md-cell>{{commission.createdDate|date:"dd/MM/yyyy"}}</td>
+                        <td md-cell>{{commission.base|displayPrice}} €</td>
+                    </tr>
+                    </tbody>
+                    <tfoot md-foot>
+                    <tr md-row>
+                        <td md-cell><span class="right"><b>Total</b></span></td>
+                        <td md-cell>{{totalCommission|displayPrice}} €</td>
+                    </tr>
+                    <tr md-row>
+                        <td md-cell><span class="right"><b>Solde</b></span></td>
+                        <td md-cell>{{affair.remains|displayPrice}} €</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="upline.length">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <h3 class="title-header">Commissions
+                        <span ng-if="commissions.length">Versées</span>
+                        <span ng-if="!commissions.length">Prévisionnelles</span>
+                    </h3>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Prénom Nom</span></th>
+                        <th md-column><span>Point(*Multi)</span></th>
+                        <th md-column><span>Coût HT</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="my in upline">
+                        <td md-cell>{{my.participatesTo.member.firstName}} {{my.participatesTo.member.lastName}}</td>
+                        <td md-cell>
+                        <span ng-if="my.participatesTo.id == participate.id">
+                            {{(my.points + my.multiPoints)|displayPrice:' ':'':0}}   ({{ my.multiPoints|displayPrice:' ':'':0}}*)
+                        </span>
+                        <span ng-if="my.participatesTo.id != participate.id">
+                            {{my.points}} *
+                        </span>
+                        </td>
+                        <td md-cell>{{my.calc.amountHt|displayPrice}} €</td>
+                    </tr>
+                    </tbody>
+                    <tfoot md-foot>
+                    <tr md-row>
+                        <td md-cell><span class="right"><b>Total</b></span></td>
+                        <td md-cell>{{totalPoints|displayPrice:' ':'':0}}</td>
+                        <td md-cell>{{total|displayPrice}} €</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row"
+            ng-if="affair.status != 'paid' && affair.status != 'cancel'">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <p class="m-md">
+                Si vous désirez abandonner cette affaire en cours, merci d'en indiquer ci-dessous les raisons,
+                qui seront communiquées à {{participate.member.firstName}} {{participate.member.lastName}}.
+            </p>
+
+            <form id="formAbandon" class="m-md" name="cancelAffairForm" ng-submit="cancelAffair(cancelAffairForm)"
+                  ng-class="{'not_submitted' : !cancelAffairForm.$submitted }" novalidate>
+                <md-input-container class="md-block">
+                    <label>Message d'annulation</label>
+                    <textarea rows="5" cols="50" ng-model="affair.cancelMsg" name="cancelMsg" id="cancelMsg"
+                              ng-minlength="10" ng-maxlength="200" md-select-on-focus required
+                              style='height:100px'></textarea>
+
+                    <div ng-messages="cancelAffairForm.cancelMsg.$error" ng-if="cancelAffairForm.$submitted"
+                         ng-messages-multiple>
+                        <div class="erreurform" ng-message="required">Message requis</div>
+                        <div class="erreurform" ng-message="minlength">10 caractères au minimum</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-button aria-label="Abandonner" name="test" type="submit"
+                               class="md-raised md-primary right actions-delete">
+                        <ng-md-icon icon="delete" size="24"></ng-md-icon>
+                        <span>Abandonner</span>
+                    </md-button>
+                </md-input-container>
+            </form>
+
+        </md-card>
+    </div>
+</md-content>
+
+<div ng-include="'app/program/views/affair/affairDialogs.html'"></div>

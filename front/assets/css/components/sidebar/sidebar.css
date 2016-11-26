@@ -1,0 +1,288 @@
+/* line 36, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li, .nav-collapse .nav > li {
+  font-family: robotoregular;
+  font-size: 1.072em;
+  text-transform: uppercase;
+  height: 50px;
+  padding: 0;
+  margin-right: -4px;
+  border-bottom: 1px solid #d9d9d9;
+  z-index: 20;
+}
+
+/* line 49, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li a, .navbar-inverse .nav li > a {
+  color: #7c8389;
+  height: 50px;
+  line-height: 23px;
+  padding: 12px 13px 12px 10px;
+  font-size: 28px;
+}
+
+/* line 59, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+  background: none;
+  box-shadow: none;
+  color: #59b8d3;
+}
+
+/* line 66, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu {
+  width: 25%;
+  float: left;
+  min-height: 30px;
+  background: #fafafa;
+}
+/* line 73, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .reduce_menu a {
+  float: right;
+  margin-right: 26px;
+  margin-top: 28px;
+  cursor: pointer;
+}
+/* line 83, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li.active {
+  background-color: #ffffff;
+}
+/* line 85, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li.active a {
+  color: #27368b;
+  border-left: 4px solid #27368b;
+}
+/* line 90, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li a {
+  font-size: 28px;
+  color: #abb4be;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+  margin-top: -1px !important;
+  line-height: 18px;
+}
+/* line 100, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li a:hover {
+  color: #27368b;
+  background-color: transparent;
+  border-right: 1px solid #d9d9d9;
+  text-decoration: none;
+}
+/* line 106, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li a:focus {
+  color: #27368b;
+  background-color: transparent;
+  text-decoration: none;
+}
+/* line 112, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav li i {
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 118, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav > li:hover {
+  width: 260px;
+  background: whitesmoke;
+}
+/* line 121, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav > li:hover > a i {
+  margin-right: 0;
+}
+/* line 125, ../../../scss/components/sidebar/sidebar.scss */
+.sidebar_menu .nav > li > a span {
+  font-size: 18px;
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+
+/* line 138, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .nav li > a:hover {
+  color: #27368b;
+  background-color: transparent;
+  text-decoration: none;
+}
+/* line 143, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .nav li > a:focus {
+  color: #27368b;
+  background-color: transparent;
+  text-decoration: none;
+}
+/* line 149, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .nav li.active > a {
+  color: #27368b;
+  border-left: 4px solid #27368b;
+}
+/* line 164, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .btn-navbar {
+  color: #ffffff;
+  background: url(../images/menu_responsive.png) no-repeat;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  width: 44px;
+  height: 35px;
+  margin: 5px;
+}
+/* line 176, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .nav-collapse .nav > li > a:hover {
+  background: none;
+}
+/* line 179, ../../../scss/components/sidebar/sidebar.scss */
+.navbar-inverse .nav-collapse .nav > li > a:focus {
+  background: none;
+}
+
+/* line 185, ../../../scss/components/sidebar/sidebar.scss */
+.nav-collapse .nav > li > a ng-md-icon {
+  padding-left: 5px;
+}
+
+/* line 190, ../../../scss/components/sidebar/sidebar.scss */
+.navbar .navbar-inner {
+  padding: 0;
+}
+/* line 193, ../../../scss/components/sidebar/sidebar.scss */
+.navbar .nav-collapse .nav {
+  margin: 0;
+  background-color: #fafafa;
+  border-top: 4px solid #59b8d3;
+  border-bottom: 1px solid #d7d7d7;
+}
+/* line 199, ../../../scss/components/sidebar/sidebar.scss */
+.navbar .btn-navbar .icon-bar {
+  display: none;
+}
+
+/* line 203, ../../../scss/components/sidebar/sidebar.scss */
+.main_content.reduced .sidebar_menu {
+  width: 5%;
+}
+/* line 205, ../../../scss/components/sidebar/sidebar.scss */
+.main_content.reduced .sidebar_menu .reduce_menu a {
+  margin-right: 11px;
+}
+/* line 208, ../../../scss/components/sidebar/sidebar.scss */
+.main_content.reduced .sidebar_menu .nav li a {
+  overflow: hidden;
+}
+
+/* line 214, ../../../scss/components/sidebar/sidebar.scss */
+.nav-collapse .nav > li.active {
+  background-color: #ffffff;
+}
+/* line 217, ../../../scss/components/sidebar/sidebar.scss */
+.nav-collapse .nav > li > a {
+  margin: 0;
+  border-radius: 0;
+  font-weight: normal;
+  text-shadow: none;
+  display: block;
+}
+/* line 226, ../../../scss/components/sidebar/sidebar.scss */
+.nav-collapse .nav > li:first-child {
+  border-top: 1px solid #d9d9d9;
+}
+
+/* line 231, ../../../scss/components/sidebar/sidebar.scss */
+.nav > li {
+  position: relative;
+  display: block;
+}
+
+/* line 236, ../../../scss/components/sidebar/sidebar.scss */
+.reduced .sidebar_menu .nav > li > a span {
+  visibility: hidden;
+}
+/* line 239, ../../../scss/components/sidebar/sidebar.scss */
+.reduced .sidebar_menu .nav > li:hover > a span {
+  display: inline;
+  visibility: visible;
+}
+
+/* line 244, ../../../scss/components/sidebar/sidebar.scss */
+ul.nav-main li span {
+  vertical-align: middle;
+}
+
+/* line 247, ../../../scss/components/sidebar/sidebar.scss */
+.reduced .sidebar_menu .md-button.menu_reduce {
+  margin: 0 auto;
+}
+
+/* line 250, ../../../scss/components/sidebar/sidebar.scss */
+.nav-collapse .nav > li i {
+  z-index: 0;
+}
+
+/* line 253, ../../../scss/components/sidebar/sidebar.scss */
+.reduce_menu {
+  margin: 10px 5px;
+}
+
+/* line 256, ../../../scss/components/sidebar/sidebar.scss */
+.reduced .reduce_menu {
+  text-align: center !important;
+}
+
+/* line 259, ../../../scss/components/sidebar/sidebar.scss */
+.reduce_menu .nav-collapse .nav > li > a ng-md-icon {
+  margin: auto;
+  display: block;
+}
+
+/* line 263, ../../../scss/components/sidebar/sidebar.scss */
+.reduce_menu .nav-collapse .nav > li {
+  padding: 12px 13px;
+}
+
+/* line 266, ../../../scss/components/sidebar/sidebar.scss */
+.overlay {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 280, ../../../scss/components/sidebar/sidebar.scss */
+  .sidebar_menu .md-button.menu_reduce {
+    display: none;
+  }
+
+  /* line 283, ../../../scss/components/sidebar/sidebar.scss */
+  .sidebar_menu, .main_content.reduced .sidebar_menu {
+    width: 13%;
+  }
+
+  /* line 286, ../../../scss/components/sidebar/sidebar.scss */
+  .sidebar_menu .nav > li > a span {
+    display: none;
+  }
+
+  /* line 289, ../../../scss/components/sidebar/sidebar.scss */
+  .sidebar_menu .nav > li > a:hover span {
+    display: inline-block;
+  }
+
+  /* line 292, ../../../scss/components/sidebar/sidebar.scss */
+  .reduced .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    display: block;
+  }
+
+  /* line 299, ../../../scss/components/sidebar/sidebar.scss */
+  .reduced .sidebar_menu .nav > li > a span {
+    visibility: visible;
+  }
+}
+/* line 306, ../../../scss/components/sidebar/sidebar.scss */
+.md-sidenav-left, md-sidenav {
+  left: 0;
+  top: 0;
+  -webkit-transform: inherit;
+  transform: inherit;
+  z-index: 0;
+}

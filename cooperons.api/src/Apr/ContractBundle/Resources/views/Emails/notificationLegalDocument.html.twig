@@ -1,0 +1,14 @@
+{% extends "AprContractBundle:Emails:baseEmailContract.html.twig" %}
+{% block content %}
+    {% if type == 'publish' %}
+        {{ otherMember.label }} a finalisé la {% if contract.oldContract %}modification{% else %}création{% endif %}
+        de votre contrat{% if contract.client.corporate %}
+        avec {{ contract.client.label }}{% endif %}.
+        <br/><br/>
+        Vous pouvez à présent le visualiser sur votre compte.
+    {% elseif type == 'agree' %}
+        Votre contrat avec {{ contract.client.label }} a été accepté {% if contract.client.corporate %}par {{ otherMember.label }}{% endif %}.
+    {% elseif type == 'cancel' %}
+        Votre contrat avec {{ contract.client.label }} a été résilié.
+    {% endif %}
+{% endblock %}

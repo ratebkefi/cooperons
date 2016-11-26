@@ -1,0 +1,285 @@
+/* line 24, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-group .btn, .wysiwyg-toolbar .btn-group .inline .btn {
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  border-width: 2px;
+  margin-left: 1px;
+}
+
+/* line 35, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-group .btn [class*="icon-"]:first-child, .wysiwyg-toolbar .btn-group .inline .btn [class*="icon-"]:first-child {
+  font-size: 14px;
+  width: 25px;
+  max-width: 25px;
+  display: inline-block;
+  border-width: 1px !important;
+}
+
+/* line 45, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-group .btn.active:after, .wysiwyg-toolbar .btn-group .inline .btn.active:after {
+  border-color: transparent;
+  border-style: solid;
+  border-top-color: inherit;
+  border-width: 6px 14px;
+  bottom: -13px;
+  left: 0;
+  right: 0;
+}
+
+/* line 57, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group .btn, .wysiwyg-style1 .btn-group .inline .btn, .wysiwyg-style2 .btn-group .btn, .wysiwyg-style2 .btn-group .inline .btn {
+  margin: 0 !important;
+  background: #fff !important;
+  border: none !important;
+  color: #adb3be !important;
+  text-shadow: none !important;
+}
+
+/* line 68, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group:after, .wysiwyg-style2 .btn-group:after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: -2px;
+  width: 0;
+  max-width: 0;
+  top: 6px;
+  bottom: 6px;
+  border-left: 1px solid #e1e6ea;
+}
+
+/* line 82, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group .btn, .wysiwyg-style2 .btn-group .inline .btn {
+  margin: 0 1px 0 0 !important;
+  background: #fff !important;
+  border: none !important;
+  color: #8d939e !important;
+  text-shadow: none !important;
+}
+
+/* line 93, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.widget-header .wysiwyg-toolbar .btn-group .btn, .widget-header .wysiwyg-toolbar .btn-group .inline .btn {
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+  border-width: 1px;
+}
+
+/* line 101, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-editor {
+  max-height: 250px;
+  height: 250px;
+  background-color: #f7f8fa;
+  border-collapse: separate;
+  border: 1px solid #bbc0ca;
+  padding: 4px;
+  box-sizing: content-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  outline: none;
+}
+/* line 113, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-editor:focus {
+  background-color: #fff;
+}
+
+/* line 117, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar {
+  line-height: 32px;
+  margin: 0 !important;
+}
+/* line 120, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .dropdown-menu {
+  text-align: left;
+}
+/* line 122, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .dropdown-menu input[type=text] {
+  margin-left: 8px;
+  margin-bottom: 0;
+}
+/* line 125, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .dropdown-menu input[type=text].form-control {
+  min-width: 150px;
+}
+/* line 129, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .dropdown-menu .btn {
+  margin-right: 8px;
+  margin-left: 1px;
+}
+/* line 134, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-group {
+  float: none;
+  font-size: 0;
+}
+/* line 142, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-group .btn.dropdown-toggle [class*="icon-"]:last-child {
+  margin-right: 4px;
+}
+/* line 154, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-group .inline .btn.dropdown-toggle [class*="icon-"]:last-child {
+  margin-right: 4px;
+}
+/* line 162, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .btn-colorpicker {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background: #87b87f;
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$color_cabaret_approx', endcolorstr='$color_texas_rose_approx', gradienttype=0);
+  background: linear-gradient(top, #cf3e73 10%, #fff 20%, #2283c5 30%, #fff 40%, #87b87f 50%, #fff 60%, #ffb752 70%, #fff 80%, #d15b47 90%, #fff 100%);
+}
+/* line 170, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar input[type=file] {
+  position: fixed;
+  z-index: -10;
+  opacity: 0;
+  max-width: 0;
+  max-height: 0;
+  display: block;
+}
+/* line 178, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .wysiwyg-choose-file {
+  display: inline-block;
+  width: auto;
+  margin: 4px auto 0;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* line 185, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-toolbar .dropdown-colorpicker .dropdown-menu {
+  top: inherit;
+}
+
+/* line 190, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group {
+  position: relative;
+}
+/* line 194, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group .btn.active {
+  color: #5b80ce !important;
+}
+/* line 196, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group .btn.active:after {
+  display: none;
+}
+/* line 206, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group .inline .btn.active {
+  color: #5b80ce !important;
+}
+/* line 208, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group .inline .btn.active:after {
+  display: none;
+}
+/* line 213, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-group:first-child:after {
+  display: none;
+}
+/* line 217, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style1 .btn-colorpicker {
+  width: 20px;
+  height: 20px;
+}
+
+/* line 222, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 {
+  background-color: #e5e5e5;
+}
+/* line 224, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group {
+  position: relative;
+}
+/* line 229, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group .btn.active {
+  color: #5b80ce !important;
+  color: #fff !important;
+  background: #6aaedf !important;
+}
+/* line 233, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group .btn.active:after {
+  display: none;
+}
+/* line 238, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group:after {
+  display: none;
+}
+/* line 245, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group .inline .btn.active {
+  color: #5b80ce !important;
+  color: #fff !important;
+  background: #6aaedf !important;
+}
+/* line 249, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group .inline .btn.active:after {
+  display: none;
+}
+/* line 254, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 .btn-group:first-child:after {
+  display: none;
+}
+/* line 258, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-style2 + .wysiwyg-editor {
+  border-color: #ddd;
+  background-color: #fff;
+  border-top: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* line 266, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+  .wysiwyg-editor img {
+    display: inline !important;
+  }
+  /* line 269, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+  .wysiwyg-editor .ui-wrapper {
+    border: 1px dotted #d00;
+    overflow: visible !important;
+    display: inline-block !important;
+    vertical-align: middle;
+  }
+  /* line 274, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+  .wysiwyg-editor .ui-wrapper:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 7px;
+    height: 7px;
+    border: 1px solid #d00;
+    background-color: #fff;
+    z-index: 1;
+  }
+}
+/* line 289, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-speech-input {
+  width: 20px !important;
+  color: transparent !important;
+  background: transparent none !important;
+  border: none !important;
+  transform: scale(2, 2);
+  box-shadow: none !important;
+  cursor: pointer;
+}
+/* line 299, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.wysiwyg-speech-input:focus {
+  box-shadow: none !important;
+}
+
+/* line 304, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.widget-header .wysiwyg-toolbar {
+  background-color: transparent;
+}
+/* line 309, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.widget-header .wysiwyg-toolbar .btn-group .btn.active {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+/* line 315, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.widget-header .wysiwyg-toolbar .btn-group .inline .btn.active {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* line 321, ../../../scss/components/wysiwyg-editor/wysiwyg-editor.scss */
+.widget-body .wysiwyg-editor {
+  border: none;
+}

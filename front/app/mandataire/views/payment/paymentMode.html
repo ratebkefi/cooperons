@@ -1,0 +1,27 @@
+<h3 class="title-header">Sélectionnez votre mode de paiement</h3>
+<md-content layout="row" class="boutoncondition width-55 m-auto" layout-align="center">
+    <div flex="25">
+        <a class="carte_bleu" name="paiementMode" ng-click="postVirement('CB')">
+            <md-tooltip md-direction="top">Carte Bleu</md-tooltip>
+            <img src="assets/images/modules/program/payment_cb.png" alt="payment cb"/>
+        </a>
+    </div>
+    <div flex="25">
+        <a class="carte_visa" name="paiementMode" ng-click="postVirement('VISA')">
+            <md-tooltip md-direction="top">Carte Visa</md-tooltip>
+            <img src="assets/images/modules/program/payment_vs.png" alt="payment cb"/>
+        </a>
+    </div>
+    <div flex="25">
+        <a class="carte_mastercard" name="paiementMode" ng-click="postVirement('EUROCARD_MASTERCARD')">
+            <md-tooltip md-direction="top">Carte Mastercard</md-tooltip>
+            <img src="assets/images/modules/program/payment_mc.png" alt="payment cb"/>
+        </a>
+    </div>
+    <div flex="25">
+        <a class="carte_cheque" name="paiementMode" ng-click="postVirement('VIREMENT')">
+            <md-tooltip md-direction="top">Virement</md-tooltip>
+            <img src="assets/images/modules/program/payment_cq.png" alt="payment cb"/>
+        </a>
+    </div>
+</md-content>

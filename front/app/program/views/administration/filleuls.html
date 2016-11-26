@@ -1,0 +1,85 @@
+<md-card class="mt-lg">
+    <md-content layout-padding>
+
+        <h3 class="title-header">Gestion des participants</h3>
+
+        <p>
+            Saisissez les informations relatives au membre (opération crédit, post-parrainage …)
+            <span ng-if="program.isEasy">ou à un parrainage en attente de confirmation d'inscription.</span>
+        </p>
+
+        <md-toolbar class="md-hue-1" >
+            <div class="md-toolbar-tools">
+                <md-input-container md-theme="input" flex>
+                    <label>&nbsp;</label>
+                    <input ng-model="searchFilleul.label" ng-keypress="$event.keyCode == 13 && searchFilleuls()"
+                           type="text" class="search-query nav-search-input" placeholder="Recherche ...">
+                </md-input-container>
+                <md-button aria-label="Recherche ..." ng-click="showSearch = !showSearch">
+                    <ng-md-icon icon="search"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-table-container ng-if="filleuls">
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column><span>Nom-Prénom <br> Email</span></th>
+                    <th md-column><span>Points</span></th>
+                    <th md-column><span>Filleuls</span></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="filleul in filleuls">
+                    <td md-cell>
+                        <div ng-if="filleul.totalPoints !== undefined" layout="row" layout-align="start center" flex>
+                            <span flex>{{filleul.member.lastName}} {{filleul.member.firstName}} {{filleul.member.email}}</span>
+                            <md-button
+                                    aria-label="{{filleul.member.lastName}} {{filleul.member.firstName}} {{filleul.member.email}}"
+                                    ui-sref="program.sponsorship({programId: program.id, participatesId: filleul.id})"
+                                    class="md-icon-button md-warn">
+                                <ng-md-icon icon="insert_link" size="16"></ng-md-icon>
+                                <md-tooltip md-direction="top">Voir</md-tooltip>
+                            </md-button>
+                            <md-button aria-label="resendInvitation" ng-if="program.isEasy && !filleul.member.isUser"
+                                       ng-click="resendInvitation(program.id, filleul.id)"
+                                       class="md-icon-button md-primary">
+                                <md-icon md-font-icon="fa fa-mail-forward small-fa-icon"></md-icon>
+                                <md-tooltip md-direction="top">Renvoyer l'invitation</md-tooltip>
+                            </md-button>
+                        </div>
+                        <div ng-if="filleul.totalPoints === undefined" layout-padding layout="row"
+                             layout-align="start center" flex class="no-padding-left no-padding-right">
+                    <span flex class="no-padding-left no-padding-right">{{filleul.lastName}} {{filleul.firstName}}
+                    <br>{{filleul.email}} <span class="label-status title preprod">Invitation</span>
+                    </span>
+                            <md-button aria-label="Valider" ng-if="program.isEasy"
+                                       ng-click="confirmInvitation(program.id, filleul.id)"
+                                       class="md-icon-button md-warn">
+                                <ng-md-icon icon="check_circle" size="16"></ng-md-icon>
+                                <md-tooltip md-direction="top">Valider</md-tooltip>
+                            </md-button>
+                        </div>
+                    </td>
+                    <td md-cell>
+                        <span ng-if="filleul.totalPoints !== undefined">{{filleul.totalPoints}}</span>
+                <span ng-if="filleul.totalPoints === undefined">
+                    <ng-md-icon icon="priority_high" size="16"></ng-md-icon>
+                    <md-tooltip md-direction="top">#N/A</md-tooltip>
+                </span>
+                    </td>
+                    <td md-cell>
+                        <span ng-if="filleul.totalPoints !== undefined">{{filleul.countAffiliates}}</span>
+                <span ng-if="filleul.totalPoints === undefined">
+                    <ng-md-icon icon="priority_high" size="16"></ng-md-icon>
+                    <md-tooltip md-direction="top">#N/A</md-tooltip>
+                </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+    </md-content>
+</md-card>

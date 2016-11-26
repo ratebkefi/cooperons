@@ -1,0 +1,263 @@
+{% extends "AprProgramBundle:Default:baseMarketing.html.twig" %}
+{% block content %}
+    <!-- header -->
+    <header class="header clear " role="banner">
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#">
+                            <img src={{ asset('bundles/Edtapp/img/marketing/logo.png') }} alt="Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <!-- /logo -->
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 col-sm-offset-7 col-md-offset-7 col-sm-offset-7">
+                    <!-- FAQ -->
+                    <div class="faq">
+                        <a href="{{ path('faq_corporate', {'token':token, 'isEasy' : 1}) }}">
+                            <span>FAQ</span>
+                            <i class="fa fa-question-circle"></i>
+                        </a>
+                    </div>
+                    <!-- /FAQ -->
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <!-- logo client -->
+                    <div class="logo-client">
+                        <img src="{{ app.request.scheme }}://{{ app.request.host }}{{ asset('Uploads/') ~ program.image.filename }}"
+                             data-toggle="tooltip" alt="{{ program.label }}" title="{{ program.label }}"/>
+                    </div>
+                    <!-- /logo client -->
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+                    <!-- Slogan -->
+                    <div class="slogan">
+                        Bienvenue sur <span>{{ program.label }}</span>
+                    </div>
+                    <div class="btn-inscription animated zoomInUp">
+                        {% if member is defined %}
+                            {% if program.status == 'preprod' %}
+                                <a href="{{ front_create_user }}/{{ token }}">
+                                    <span>Je m'inscris !</span>
+                                </a>
+                            {% else %}
+                                <a href="{{ front_connect_member }}/{{ token }}">
+                                    <span>Je m'inscris !</span>
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <a href="mailto:{{ program.senderEmail }}?Subject=Je souhaite rejoindre le programme d'apport d'affaires {{ program.label }}">Confirmer
+                                mon inscription</a>
+                        {% endif %}
+                    </div>
+                    <!-- /btn -->
+                </div>
+            </div>
+        </div>
+        <!-- /wrapper -->
+    </header>
+    <!-- /header -->
+
+    <main role="main">
+        <!-- section -->
+        <section class="home">
+
+            <!-- article -->
+            <article id="post-37"
+                     class="post-37 post type-post status-publish format-standard hentry category-page1 category-video">
+                <!-- wrapper -->
+                <div class="wrapper">
+                    <!-- content -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2 txt-center">
+                            {% if program.status == 'preprod' %}
+                                <br/>
+                                <font color="red"><strong>ATTENTION ! PRE-PRODUCTION !</strong></font>
+                            {% endif %}
+                            <p>Grace au programme<strong> {{ program.label }}</strong>, gagnez jusqu’à
+                                <strong>1.000 € &nbsp;de&nbsp;chèques cadeau Amazon chaque trimestre !</strong></p>
+
+                            <p>&nbsp;</p>
+                            {% if program.easySetting.document %}
+                                <iframe src="{{ asset('bundles/Edtapp/ViewerJS/index.html') }}#../../../Uploads/{{ program.easySetting.document.fileName }}"
+                                        style="border: 1px solid black; border-radius: 5px;"
+                                        webkitallowfullscreen="true"
+                                        mozallowfullscreen="true" height="620px" width="620"></iframe>
+                            {% else %}
+                                <strong><font color="red">ATTENTION ! DOCUMENT DE PRESENTATION MANQUANT
+                                        !</font></strong>
+                            {% endif %}
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- /content -->
+
+                <!-- /wrapper -->
+
+            </article>
+            <!-- /article -->
+
+
+            <!-- article -->
+            <article id="post-28"
+                     class="post-28 post type-post status-publish format-standard has-post-thumbnail hentry category-fond1 category-page1">
+                <!-- wrapper -->
+                <div class="wrapper">
+                    <!-- content -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-7 col-md-7">
+                            <h2>Gagnez {{ program.easySetting.simpleRate + program.easySetting.multiRate }} % du montant
+                                de chaque affaire apportée à
+                                <strong>{{ program.collaborator.corporate.raisonSocial }}</strong>
+                                – en points convertibles en chèques cadeau Amazon</h2>
+
+                            <p>Lorsque vous identifiez une opportunité pouvant intéresser
+                                <strong>{{ program.collaborator.corporate.raisonSocial }}</strong>,
+                                il vous suffit d’en informer un de ses responsables commerciaux.</p>
+
+                            <p>Vous pourrez suivre l’avancement de cette opportunité directement sur votre <strong>compte
+                                    Coopérons !</strong>
+                                – et une fois que cette opportunité aura été concrétisée et payée, vous
+                                recevrez un montant de Points d’une valeur correspondant
+                                à {{ program.easySetting.simpleRate + program.easySetting.multiRate }} % du
+                                montant (HT) effectivement encaissé par
+                                <strong>{{ program.collaborator.corporate.raisonSocial }}</strong>.</p>
+
+                            <p>Ces Points sont convertibles chaque trimestre en <strong>chèques cadeau Amazon</strong>,
+                                au
+                                taux de <strong>20 € pour 100 Points</strong>.</p>
+
+                            <p><a href="#">En savoir plus</a></p>
+
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <!-- post thumbnail -->
+
+                            <img src={{ asset('bundles/Edtapp/img/marketing/img1.png') }} class="attachment-post-thumbnail
+                                 wp-post-image" alt="img1">
+                            <!-- /post thumbnail -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- /content -->
+
+                <!-- /wrapper -->
+
+            </article>
+            <!-- /article -->
+
+
+            <!-- article -->
+            <article id="post-26"
+                     class="post-26 post type-post status-publish format-standard has-post-thumbnail hentry category-fond2 category-page1">
+                <!-- wrapper -->
+                <div class="wrapper">
+                    <!-- content -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5 col-sm-offset-1 col-md-offset-1">
+                            <!-- post thumbnail -->
+
+                            <img src={{ asset('bundles/Edtapp/img/marketing/parrainage.gif') }} class="attachment-post-thumbnail
+                                 wp-post-image" alt="parrainage">
+                            <!-- /post thumbnail -->
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 txt-right">
+                            <h2>Gagnez non seulement {{ (program.easySetting.multiRate*2/3)|round(2, 'floor') }} % de
+                                TOUTES les affaires apportées par vos filleuls, mais aussi les 2/3 de
+                                TOUTES les commissions perçues par vos filleuls suite à leurs propres
+                                parrainages !</h2>
+
+                            <p>La commission de {{ program.easySetting.simpleRate + program.easySetting.multiRate }} %
+                                qu’offre <strong>{{ program.collaborator.corporate.raisonSocial }}</strong> à ses
+                                apporteurs
+                                d’affaires
+                                comprend un montant de <strong>MultiPoints</strong> correspondant à
+                                <strong>{{ program.easySetting.multiRate }} %</strong>
+                                du montant (HT) effectivement encaissé.</p>
+
+                            <p>L’avantage des MultiPoints, c’est que vous gagnez les <strong>2/3 de TOUS les MultiPoints
+                                    gagnés</strong>
+                                par vos filleuls – et que ceci est bien sûr aussi valable pour leurs
+                                propres filleuls, et ainsi de suite dans l’ensemble de votre réseau de
+                                filleuls.</p>
+
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- /content -->
+
+                <!-- /wrapper -->
+
+            </article>
+            <!-- /article -->
+
+
+            <!-- article -->
+            <article id="post-24"
+                     class="post-24 post type-post status-publish format-standard has-post-thumbnail hentry category-fond3 category-page1">
+                <!-- wrapper -->
+                <div class="wrapper">
+                    <!-- content -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-7 col-md-7">
+                            <h2>Comment transformer mes points en chèques cadeau Amazon ?</h2>
+
+                            <p>Vos Points sont convertis <strong>chaque trimestre</strong> en <strong>chèques cadeau
+                                    Amazon</strong>
+                                dans la limite de <strong>140 €</strong> par an si vous n’êtes pas
+                                <strong>salarié</strong>.
+                            </p>
+
+                            <p>Si vous êtes <strong>salarié</strong>, vous pouvez <strong>convertir</strong> vos Points
+                                jusqu’à <strong>1’000 €</strong>
+                                par trimestre. Il vous suffit pour celà que votre employeur s’inscrive sur
+                                <strong>Coopérons</strong>,
+                                formalité totalement <strong>gratuite</strong> et <strong>sans engagement</strong> pour
+                                lui.
+                            </p>
+
+                            <p>Bien sûr, lorsque vous atteignez <strong>votre plafond</strong>, tous vos <strong>Points
+                                    non
+                                    convertis</strong>
+                                restent valables sans <strong>aucune limite de durée</strong>.</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-5">
+                            <!-- post thumbnail -->
+
+                            <img src={{ asset('bundles/Edtapp/img/marketing/img3.png') }} class="attachment-post-thumbnail
+                                 wp-post-image" alt="img3">
+                            <!-- /post thumbnail -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- /content -->
+
+                <!-- /wrapper -->
+
+            </article>
+            <!-- /article -->
+
+
+        </section>
+        <!-- /section -->
+    </main>
+
+{% endblock %}

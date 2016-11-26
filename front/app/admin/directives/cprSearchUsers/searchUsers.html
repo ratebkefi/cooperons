@@ -1,0 +1,12 @@
+<md-toolbar class="md-hue-1" >
+    <div class="md-toolbar-tools">
+        <md-input-container md-theme="input" flex>
+            <label>&nbsp;</label>
+            <input ng-keyup="$event.keyCode == 13 && searchUsers()" id="search-users" ng-model="search"
+                   type="text" class="search-query nav-search-input" placeholder="Recherche ...">
+        </md-input-container>
+        <md-button aria-label="Recherche ..." ng-click="showSearch = !showSearch">
+            <ng-md-icon icon="search"></ng-md-icon>
+        </md-button>
+    </div>
+</md-toolbar>

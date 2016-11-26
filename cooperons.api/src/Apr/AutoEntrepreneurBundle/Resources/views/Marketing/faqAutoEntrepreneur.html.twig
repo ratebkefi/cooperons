@@ -1,0 +1,195 @@
+{% extends "AprProgramBundle:Default:baseMarketingNew.html.twig" %}
+{% block content %}
+
+     <!-- FAQ -->
+    <div class="faq ico-faq">
+        <div class="widget widget_text">
+            <div class="textwidget">
+                <a class="btn_contact" href="{{path('landing_auto_entrepreneur', {'tkn':token, 'isMember' : isMember})}}">
+                    <i class="fa fa-home"></i>
+                    <span>Accueil</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /FAQ -->
+
+    <div class="wrapper white">
+
+        <header class="header clear " role="banner">
+            <!-- wrapper -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#">
+                            <img src="{{ asset('bundles/Edtapp/img/marketing_new/logo.png')}}" alt="Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <!-- /logo -->
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </header>
+        <!-- /header -->
+
+
+        <main role="main">
+            <div class="wrapper page-faq">
+
+                <h1>Vous avez des interrogations concernant le fonctionnement de la plate-forme Coopérons! ? Voici les réponses aux questions les plus fréquemment posées :</h1>
+
+
+
+                <article class="post-48 page type-page status-publish hentry">
+
+                    <div class="qa-faqs qa-category cf animation-fade accordion collapsible">
+                        <div class="qa-category">
+                            <div class="ancre">
+                                <div id="qa-faq0" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Quelles sont les conditions pour pouvoir m’inscrire à l’offre Auto-Entrepreneur de Coopérons ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>Pour rejoindre notre réseau et pouvoir bénéficier de tous les avantages de l’offre Auto-Entrepreneur de Coopérons, vous devez avoir préalablement créé votre auto-entreprise et signé le Mandat de Gestion Coopérons, après transmission de vos coordonnées bancaires.</p>
+                                        <p>Dans le cadre de cet accord, vous mandatez <strong>Coopérons! :</strong></p>
+                                        <ul class="list">
+                                            <li>pour la facturation de vos prestations</li>
+                                            <li>pour l’encaissement de vos factures</li>
+                                            <li>pour la déclaration et le règlement par <strong>Coopérons</strong> de vos cotisations sociales auto-entrepreneur. </li>
+                                        </ul>
+                                        <p>Ce mandat est régi par les dispositions de l’article 1984 du Code Civil: toutes les sommes encaissées par <strong>Coopérons</strong> pour votre compte sont ainsi juridiquement votre propriété (enregistrées au sein d’un Compte Mandataire). <strong>Coopérons</strong> établit chaque mois un décompte des sommes encaissées et décaissées - et une régularisation est effectuée chaque trimestre (après le paiement de vos cotisations sociales trimestrielles).</p>
+                                        <p>Une fois le Mandat de Gestion signé, votre compte sera activé dès sa signature si vous n’avez pas émis de facture depuis le début du trimestre civil en cours, ou, dans le cas contraire, le premier jour du trimestre suivant (après que vous ayez réglé les cotisations sociales du trimestre en cours).</p>
+                                        <p>Enfin, vos codes d’accès au portail de déclaration de vos cotisations devront être transmis à <strong>Coopérons !</strong>. Ces derniers seront modifiés - seul <strong>Coopérons</strong> étant désormais habilité à accéder à ce service, le compte bancaire de <strong>Coopérons</strong> étant en effet utilisé pour le règlement de vos cotisations.</p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+                            <div  class="ancre">
+                                <div id="qa-faq1" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Quelles sont les conditions pour pouvoir créer un contrat avec une entreprise ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p>Vous souhaitez créer un contrat avec une entreprise, rien de plus simple.</p>
+                                        <p>L’entreprise cliente doit au préalable, disposer d’un Compte Entreprise sur <strong>Coopérons!</strong> (l’inscription est gratuite) et avoir accepté les conditions générales de vente spécifique à l’offre Auto-Entrepreneur.</p>
+                                        <p>Pour créer un contrat, il vous suffit de saisir l’adresse email sous laquelle est enregistré votre client. Vous pouvez ensuite définir les types de prestation offerts, les coûts unitaires et unités applicables (heure / jour / action …). Ces paramètres servent à la génération des factures automatiques.</p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+
+                            <div  class="ancre">
+                                <div id="qa-faq2" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment sont réglées mes prestations par mon client ? Qu’est-ce-qu’un Dépôt Contrat ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p>Une fois que vous avez rempli et validé le type et le tarif de votre prestation de votre contrat, votre client effectue un premier virement sur le compte de <strong>Coopérons</strong> (ou par paiement CB) pour constituer son <strong>“Dépôt Contrat”.</strong></p>
+                                        <p>Ce Dépôt Contrat est utilisé exclusivement pour assurer le paiement de vos prestations dans le cadre de ce contrat.</p>
+                                        <p>Une fois le Dépôt Contrat approvisionné, vous pouvez commencer à créer vos prestations, en indiquant les quantités et les taris éventuellement applicables.</p>
+                                        <p>Le Dépôt Contrat est automatiquement débité au fur et à mesure de vos prestations - et votre Compte Mandataire est automatiquement crédité des sommes correspondantes.</p>
+                                        <p>Enfin, <strong>Coopérons</strong> établit chaque mois une facture récapitulative mensuelle des prestations réalisées pour votre client - ainsi que les mouvements enregistrées sur le Dépôt Contrat (versement / règlements).</p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+
+                            <div  class="ancre">
+                                <div id="qa-faq3" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Combien coûte l’offre Auto-Entrepreneur pour mon client ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p>Dans le cadre de l’offre Auto-Entrepreneur, <strong>Coopérons !</strong> facture à l’entreprise cliente des frais de gestion de 3,75% HT. </p>
+                                        <p>En contrepartie de ces frais, l’entreprise bénéficie de la Garantie Sociale <strong>Coopérons</strong> assurant que tous ses auto-entrepreneurs respectent bien leurs obligations de déclaration et paiement de leurs cotisations sociales - ainsi qu’une certaine visibilité sur votre activité globale (lui permettant de s’assurer qu’il n’est pas votre seul client …).</p>
+                                        <p>Par ailleurs, le cadre juridique global proposé par <strong>Coopérons !</strong> permet à votre client de travailler en toute sérénité avec vous - notamment au regard des risques liés à une requalification ultérieure en contrat de travail.</p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+
+                            <div  class="ancre">
+                                <div id="qa-faq4" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment - et quand - vais-je recevoir le paiement de mes prestations sur mon compte bancaire ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p><strong>Coopérons !</strong> vous reverse chaque semaine un montant correspondant à 70% du montant des prestations réalisées la semaine précédente.</p>
+                                        <p>Les 30% restants sont conservés jusqu’à la fin du trimestre en cours par <strong>Coopérons!</strong> pour le règlement trimestriel de vos frais et de vos cotisations sociales</p>
+                                        <p>Au plus tard à la fin du mois suivant la fin du trimestre en cours, <strong>Coopérons!</strong> procède au règlement de vos cotisations sociales (généralement 22,90%) et prélève le montant des frais <strong>Coopérons !</strong> (généralement 3,30% - voir frais).</p>
+                                        <p>Le solde restant en votre faveur, (soit environ 3,80 %), vous est alors reversé.</p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+
+                            <div  class="ancre">
+                                <div id="qa-faq5" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment fonctionne l’apport d’affaires entre deux Auto-Entrepreneurs ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p>Vous pouvez simplement ajouter un nouvel apporteur d’affaires en cliquant sur l’onglet Distributeurs et en saisissant l’addresse email de votre apporteur d’affaires.</p>
+                                        <p>De même, si vous souhaitez apporter une affaire à un autre Auto-Entrepreneur, il vous suffit de cliquer sur l’onglet Partenaires - en suivant la même procédure.</p>
+                                        <p>Si vous êtes l’apporteur d’affaires, vous devez ensuite créer le contrat de partenariat avec votre partenaire.</p>
+                                        <p>Pour créer ce contrat de partenariat, il vous suffit de :</p>
+                                        <ul class="list">
+                                            <li><strong>Fixer le taux de commission attribué à l’AE Commercial en fonction du chiffre d’affaire réalisé</strong> et l’inscrire sur votre contrat. </li>
+                                            <li>Par exemple, vous pouvez convenir d’un versement de 15 % en prévision d’un chiffre d’affaire inférieur à 1 000 €, l’établir à 10 % dans le cas où il atteindrait jusqu’à 2 000 €, et vous mettre d’accord sur 5 % si le chiffre d’affaire s’avérait supérieur à ce montant.</li>
+                                            <li><strong>Définir la durée maximale du commissionnement</strong> et convenir, par exemple, qu’au-delà de 12 mois, vous ne percevrez plus de commission.</li>
+                                        </ul>
+                                        <p>Une fois ce contrat accepté par votre partenaire, vous pouvez facilement apporter de nouveaux clients à votre partenaire - qui seront soumis aux règles de commissionnement ainsi définies.</p>
+                                        <p>Pour chaque prestation effectuée par l’Auto-Entrepreneur prestataire pour le client ainsi apporté, <strong>Coopérons!</strong> calculera automatiquement le montant de la commission due à l’apporteur d’affaires. Celle-ci sera alors directement facturée par l’apporteur d’affaires au client. Le montant total de la facture de l’Auto-Entrepreneur sera de son côté, réduit d’un montant correspondant à la commission ainsi facturée par l’apporteur d’affaires. </p>
+                                        <p>Ce processus de facturation simplifiée est géré automatiquement par <strong>Coopérons!</strong></p>
+                                        <p>
+                                            Nadia souhaite que Michel l’aide à développer son activité de services administratifs aux entreprises. Ils conviennent que Michel percevra 15% de commission sur le CA apporté.
+                                            Michel propose alors à l’entreprise Acme Corp. de bénéficier des services de Nadia. Celle-ci effectue une première prestation pour Acme Corp s’élevant à 300 €. Michel facture automatiquement 45 € à Acme Corp, et Nadia facturera 255 € à Acme Corp.
+
+                                        </p>
+                                        <p>
+                                            A noter que lorsque vous apportez une affaire à un autre Auto-Entrepreneur, <strong>Coopérons !</strong> vous facture une commission d’Apporteur d’Affaire d’un montant égal à 5% du montant de votre commission (soit une commission totale de 7,75% HT).
+                                        </p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+                            <div  class="ancre">
+                                <div id="qa-faq6" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment réduire mes frais Coopérons ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p><strong>Coopérons!</strong> vous permet de gagner des Points et MultiPoints dans le cadre de programmes de parrainage <a class="red" href="{{path('landing_invitation_plus', {'tkn':token, 'isMember' : isMember})}}"> (Voir notre Offre Coopérons Plus)</a>. Chaque trimestre, vous pouvez choisir de convertir vos Points en réduction de Frais de Gestion <strong>Coopérons!</strong> (sur la base de 5 Points pour 1 €).</p>
+                                        <p>Suite de l’exemple précédent</p>
+                                        <p>A la fin du trimestre, Michel devra s’acquitter, auprès de <strong>Coopérons !</strong>, des Frais de Gestion suivants : 3 x 1 € (contrat avec Acme Corp) + (2,75 % + 5 % de Commission Apporteur d’Affaires) x 45 € (montant de sa commission) = 6,48 € HT soit 7,77 € TTC.</p>
+                                        <p>Michel dispose par ailleurs de 20 Points sur son compte, acquis par le biais des programmes de parrainage, qu’il a converti en réduction de Frais de Gestion Coopérons. Cela équivaut à 4 €. En déduisant cette somme, Michel ne paiera plus que 3,77 € TTC de Frais de Gestion Coopérons.</p>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+                            <div  class="ancre">
+                                <div id="qa-faq7" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment puis-je gagner des Points en parrainant de nouveaux Auto-Entrepreneurs ?</a></h3>
+                                    <div class="qa-faq-answer">
+                                        <p>Lorsque vous parrainez un nouvel Auto­-Entrepreneur dans le cadre du programme de parrainage <strong>Coopérons Auto-Entrepreneurs</strong> vous percevez automatiquement :</p>
+                                        <ul class="list">
+                                            <li>U­n montant de MultiPoints égal à 1% du CA facturé (limité à 30'000 €) par vos filleuls Auto-Entrepreneur sans l’aide d’apporteurs d’affaires éventuels</li>
+                                            <li>U­n montant de MultiPoints égal à 1% du CA facturé par n’importe quel Auto-Entrepreneur Prestataire (limité à 30'000 € par Auto-Entrepreneur prestataire) aux clients apportés par vos filleul Auto-Entrepreneur dans le cadre d’apports d’affaires </li>
+                                            <li>Et, bien sûr, vous gagnez les 2/3 de tous les MultiPoints gagnés par vos filleuls</li>
+                                            <li>Enfin, vos clients (s’ils ne font pas déjà partie du programme <strong>Coopérons Auto-Entrepreneurs</strong>) sont aussi ajoutés à vos filleuls dans le cadre du programme Coopérons AE. Vous remportez donc aussi les 2/3 des MultiPoints qu’ils ont gagné via le programme <strong>Coopérons Auto-Entrepreneurs</strong></li>
+                                        </ul>
+                                    </div><!--.qa-faq-answer-->
+                                </div><!--.qa-faq-->
+                            </div><!--.ancre-->
+
+
+
+                        </div><!--.qa-category-->
+                    </div><!--.qa-faqs -->
+
+                    <br class="clear">
+
+                </article>
+                <!-- /article -->
+
+            </div>
+        </main>
+
+    </div>
+{% endblock %}

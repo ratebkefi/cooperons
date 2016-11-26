@@ -1,0 +1,58 @@
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row" ng-if="corporates.length">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Entreprises</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Entreprise</span></th>
+                        <th md-column><span>Administrateur</span></th>
+                        <th md-column><span>Délégué</span></th>
+                        <th md-column><span>Infos</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="corporate in corporates">
+                        <td md-cell>{{corporate.raisonSocial}}</td>
+                        <td md-cell>{{corporate.party.administrator.member.firstName}}
+                            {{corporate.party.administrator.member.lastName}}
+                        </td>
+                        <td md-cell>
+                                <span ng-if="corporate.delegate">
+                                    {{corporate.delegate.member.firstName}} {{corporate.delegate.member.lastName}}
+                                    <span ng-if="corporate.accordSigned">({{ corporate.countColleges}})</span>
+                                </span>
+                        </td>
+                        <td md-cell>
+                                <span ng-if="!corporate.accordSigned">
+                                    <span class="label label-warning">En attente</span>
+                                    <md-button ng-click="validateCorporate(corporate)"
+                                               class="md-icon-button launch md-button md-ink-ripple">
+                                        <md-tooltip md-direction="top">Valider</md-tooltip>
+                                        <ng-md-icon icon="playlist_add_check" size="24"></ng-md-icon>
+                                    </md-button>
+                                </span>
+                            <md-button ng-click="cancelCorporate(corporate)"
+                                       class="md-icon-button launch actions-delete">
+                                <md-tooltip md-direction="top">Fermer</md-tooltip>
+                                <ng-md-icon icon="close" size="24"></ng-md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+
+

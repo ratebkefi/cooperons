@@ -1,0 +1,63 @@
+/* Page Header */
+/* line 12, ../../../scss/components/page_header/page_header.scss */
+.page-header {
+  border-bottom: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 0 20px;
+  padding: 0;
+  text-align: left;
+  z-index: 0;
+}
+/* line 21, ../../../scss/components/page_header/page_header.scss */
+.page-header h2 {
+  box-sizing: content-box;
+  color: #31328a;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: normal;
+  margin: 0;
+  padding: 0 26px 13px;
+}
+/* line 30, ../../../scss/components/page_header/page_header.scss */
+.page-header h3 {
+  box-sizing: content-box;
+  color: #31328a;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: normal;
+  margin: 0;
+  padding: 0 26px 13px;
+}
+/* line 40, ../../../scss/components/page_header/page_header.scss */
+.page-header .right-wrapper {
+  float: right;
+}
+
+/* line 50, ../../../scss/components/page_header/page_header.scss */
+.page-header .sidebar-right-toggle i:before {
+  content: "\f054";
+}
+
+/* Page Header - Mobile */
+@media only screen and (max-width: 767px) {
+  /* line 61, ../../../scss/components/page_header/page_header.scss */
+  .page-header {
+    padding-right: 20px;
+  }
+  /* line 64, ../../../scss/components/page_header/page_header.scss */
+  .page-header h2 {
+    font-size: 16px;
+    padding: 0 15px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  /* line 73, ../../../scss/components/page_header/page_header.scss */
+  .page-header .sidebar-right-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

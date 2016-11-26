@@ -1,0 +1,51 @@
+<div class="sidebar_menu sidebar-left">
+    <div class="reduce_menu text-right">
+        <md-button class="menu_reduce md-fab md-minus md-primary md-button md-ink-ripple" ng-click="reduceMenu()"
+                   aria-label="Cliquez pour réduir le menu">
+            <ng-md-icon icon="menu" size="16"></ng-md-icon>
+            <md-tooltip>Cliquez pour réduir le menu</md-tooltip>
+        </md-button>
+    </div>
+    <div class="nav-collapse collapse">
+        <ul class="nav">
+            <li ng-class="{active:  menuTab == 'home'}">
+                <a ui-sref="member.home" class="waves-effect waves-cyan" ui-sref-opts="{reload: true}" title="Accueil">
+                    <ng-md-icon icon="home" size="24"></ng-md-icon>
+                    <span>Accueil</span></a>
+            </li>
+            <li ng-if="parties && parties.length > 0" ng-class="{active: menuTab == 'party'}">
+                <a class="waves-effect waves-cyan" ui-sref="party.home" ui-sref-opts="{reload: true}"
+                   title="Mon Entreprise">
+                    <ng-md-icon icon="domain" size="24"></ng-md-icon>
+                    <span> Mon Entreprise</span></a>
+            </li>
+            <li ng-if="member.hasAcceptedCGUMember" ng-class="{active:  menuTab == 'programmes'}">
+                <a class="waves-effect waves-cyan" ui-sref="member.programs" ui-sref-opts="{reload: true}"
+                   title="Mes Programmes">
+                    <ng-md-icon icon="business_center" size="24"></ng-md-icon>
+                    <span>Mes Programmes</span></a>
+            </li>
+            <li ng-if="member.hasAcceptedCGUMember" ng-class="{active: menuTab == 'filleuls'}">
+                <a class="waves-effect waves-cyan" ui-sref="member.filleuls" ui-sref-opts="{reload: true}"
+                   title="Mes Filleuls">
+                    <i class="mdi-notification-vpn-lock"></i><span>Mes Filleuls</span></a>
+            </li>
+            <li ng-if="member.hasAcceptedCGUMember" ng-class="{active: menuTab == 'points'}">
+                <a class="waves-effect waves-cyan" ui-sref="member.points" ui-sref-opts="{reload: true}"
+                   title="Mes Points">
+                    <ng-md-icon icon="local_offer" size="24"></ng-md-icon>
+                    <span>Mes Points</span></a>
+            </li>
+            <li ng-class="{active: menuTab == 'account'}">
+                <a class="waves-effect waves-cyan" ui-sref="member.account" ui-sref-opts="{reload: true}"
+                   title="Mon account">
+                    <i class="mdi-image-remove-red-eye"></i><span>Mon compte</span></a>
+            </li>
+            <li>
+                <a class="waves-effect waves-cyan" ui-sref="logout" title="Déconnexion">
+                    <ng-md-icon icon="power_settings_new" size="24"></ng-md-icon>
+                    <span>Déconnexion</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

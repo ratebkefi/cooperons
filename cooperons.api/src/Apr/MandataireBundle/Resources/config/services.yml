@@ -1,0 +1,24 @@
+parameters:
+    apr_mandataire.mandataire_manager.class: Apr\MandataireBundle\Manager\MandataireManager
+    apr_mandataire.invoices_manager.class: Apr\MandataireBundle\Manager\InvoicesManager
+    apr_mandataire.record_manager.class: Apr\MandataireBundle\Manager\RecordManager
+    apr_mandataire.settlements_manager.class: Apr\MandataireBundle\Manager\SettlementsManager
+    apr_mandataire.payments_manager.class: Apr\MandataireBundle\Manager\PaymentsManager
+
+services:
+    apr_mandataire.mandataire_manager:
+        class : "%apr_mandataire.mandataire_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_mandataire.invoices_manager:
+        class : "%apr_mandataire.invoices_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_mandataire.record_manager:
+        class : "%apr_mandataire.record_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_mandataire.settlements_manager:
+        class : "%apr_mandataire.settlements_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_mandataire.payments_manager:
+        class : "%apr_mandataire.payments_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container', @request, @router, %paybox%, %apr.mandatairebundle.after_payment_redirect%]
+        scope: request

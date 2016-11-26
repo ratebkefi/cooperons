@@ -1,0 +1,53 @@
+<!-- Confirm validate payments -->
+<!-- Confirm validate payments -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="payments.validate">
+        <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmer la validation des paiements</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p ng-show="theme">Confirmer les paiements sélectionnés</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+       <md-button ng-click="closeThisDialog()" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="confirm()" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- Confirm cancel payments -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="payments.cancel">
+      <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmer l'annulation des paiements</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p ng-show="theme"> Annuler les paiements sélectionnés en attente</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="closeThisDialog()" class="md-raised md-warn">
+            <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+        </md-button>
+        <md-button ng-click="confirm()" class="md-raised md-primary mr-md">
+            <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+        </md-button>
+    </md-dialog-actions> 
+</script>
+

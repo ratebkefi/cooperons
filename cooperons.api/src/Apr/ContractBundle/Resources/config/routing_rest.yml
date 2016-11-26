@@ -1,0 +1,18 @@
+apr_contract_rest:
+    resource: Apr\ContractBundle\ApiController\ContractController
+    type: rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_party_rest:
+    resource: Apr\ContractBundle\ApiController\PartyController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+
+apr_collaborator_rest:
+    resource: Apr\ContractBundle\ApiController\CollaboratorController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest

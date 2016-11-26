@@ -1,0 +1,79 @@
+<!-- Corporate page-->
+<header class="page-header"><h2>Mon Entreprise</h2></header>
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout="row" layout-sm="column" layout-align="center center" layout-wrap
+            ng-if="partyCtr.party">
+    <div flex-xs flex-gt-xs="100" layout="column">
+
+        <md-card class="md-inline-form">
+            <div layout="row" class=" m-md">
+                <div flex-gt-sm="60" flex="40">
+                    <md-select class="no-margin" aria-label="Entreprise" ng-model="partyCtr.party"
+                               ng-change="partyCtr.selectParty(partyCtr.party)">
+                        <md-option ng-repeat="partyOption in partyCtr.parties" ng-value="partyOption">
+                            {{partyOption.label}}
+                        </md-option>
+                    </md-select>
+                </div>
+                <div flex-gt-sm="40" flex="60" ng-if="partyCtr.collaborator" class="text-right">
+                    <md-button aria-label="bouton" ng-if="partyCtr.party.corporate"
+                               ui-sref="mandataire.partyAdministration({id: partyCtr.party.id})"
+                               class="md-icon-button launch actions-admin">
+                        <md-tooltip md-direction="top">Habilitation</md-tooltip>
+                        <ng-md-icon icon="dashboard" size="24"></ng-md-icon>
+                    </md-button>
+
+                    <md-button aria-label="bouton"
+                               ng-if="partyCtr.collaborator.isAdministrator && partyCtr.party.corporate"
+                               ui-sref="corporate.edit({idCorporate : partyCtr.party.corporate.id })"
+                               class="md-icon-button launch actions-edit">
+                        <md-tooltip md-direction="top">Modifier</md-tooltip>
+                        <ng-md-icon icon="mode_edit" size="24"></ng-md-icon>
+                    </md-button>
+
+                    <md-button aria-label="bouton" ui-sref="corporate.edit({idCorporate : 0})"
+                               class="md-icon-button launch actions-admin">
+                        <md-tooltip md-direction="top">Nouveau Compte Entreprise</md-tooltip>
+                        <ng-md-icon icon="add" size="24"></ng-md-icon>
+                    </md-button>
+
+                </div>
+            </div>
+
+        </md-card>
+
+        <md-card class="md-inline-form mt-lg">
+            <md-tabs md-dynamic-height md-border-bottom md-selected="partyCtr.selectedTabIndex">
+
+                <md-tab ng-repeat="tab in partyCtr.partyTabs"
+                        ng-click="partyCtr.selectPartyTab(tab)" label="{{ partyCtr.listLabelTab[tab] }}">
+
+                    <md-content class="md-padding" ng-if="tab == 'users'">
+                        <div ng-controller="party:CollaboratorController as collaboratorCtr"
+                             ng-init="collaboratorCtr.init(partyCtr)">
+                            <div ng-include="'app/party/views/collaborator/collaborators.html'"></div>
+                        </div>
+                    </md-content>
+
+                    <md-content class="md-padding" ng-if="tab == 'college'">
+                        <div ng-controller="corporate:CollegeController as collegeCtr"
+                             ng-init="collegeCtr.init(partyCtr)"
+                             ng-include="'app/corporate/views/college/college.html'">
+                        </div>
+                    </md-content>
+
+                    <md-content class="md-padding" ng-if="tab != 'users' && tab != 'college'">
+                        <div ng-controller="contract:ContractListController as contractListCtr"
+                             ng-init="contractListCtr.init(partyCtr, tab)"
+                             ng-include="'app/contract/views/contractList/contractList.html'">
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-card>
+
+    </div>
+</md-content>
+<div ng-controller="corporate:CollegeInvitationController as collegeInvitationCtr"
+     ng-include="'app/corporate/views/collegeInvitation/collegeInvitation.html'"></div>

@@ -1,0 +1,20 @@
+<div class="container" ng-class="{'inner-wrapper md-whiteframe-z2 bg-grey' : space !== 'user'}">
+    <div class="row">
+        <div ng-if="space !== 'user'" ng-include="'app/layout/views/shell/header.html'"></div>
+
+        <div ng-class="{'reduced' : menuReduced, 'main_content': space !== 'user'}">
+            <div ng-if="space === 'member'" ng-include="'app/layout/views/shell/memberMenu.html'"></div>
+            <div ng-if="space === 'admin'" ng-include="'app/layout/views/shell/adminMenu.html'"></div>
+
+            <md-content flex layout-padding
+                        ng-class="{'content_wrapper' : space === 'member', 'bg-white main_content': space === 'admin', 'bg-white': space === 'public'}">
+                <div ng-show="loading" class="module-loading" ng-class="{'partial-loading': showPage}">
+                    <div id="loader"></div>
+                </div>
+                <div class="s12" ui-view></div>
+            </md-content>
+        </div>
+    </div>
+</div>
+
+<div ng-if="space !== 'user'" ng-include="'app/layout/views/shell/footer.html'"></div>

@@ -1,0 +1,178 @@
+/* jquery gritter */
+/* line 2, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper {
+  background-image: none !important;
+  box-shadow: 0 2px 10px rgba(50, 50, 50, 0.5);
+  background: rgba(50, 50, 50, 0.92);
+}
+
+/* line 7, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-info {
+  background: rgba(49, 81, 133, 0.92);
+}
+
+/* line 10, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-error {
+  background: rgba(153, 40, 18, 0.92);
+}
+
+/* line 13, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-success {
+  background: rgba(89, 131, 75, 0.92);
+}
+
+/* line 16, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-warning {
+  background: rgba(190, 112, 31, 0.92);
+}
+
+/* line 19, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light {
+  background: rgba(245, 245, 245, 0.95);
+  border: 1px solid #BBB;
+}
+
+/* line 23, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-info {
+  background: rgba(232, 242, 255, 0.95);
+}
+
+/* line 26, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-info .gritter-item {
+  color: #4A577D;
+}
+
+/* line 29, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-error {
+  background: rgba(255, 235, 235, 0.95);
+}
+
+/* line 32, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-error .gritter-item {
+  color: #894A38;
+}
+
+/* line 35, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-success {
+  background: rgba(239, 250, 227, 0.95);
+}
+
+/* line 38, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-success .gritter-item {
+  color: #416131;
+}
+
+/* line 41, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-warning {
+  background: rgba(252, 248, 227, 0.95);
+}
+
+/* line 44, ../../../scss/components/gritter/gritter.scss */
+.gritter-item-wrapper.gritter-light.gritter-warning .gritter-item {
+  color: #946446;
+}
+
+/* line 47, ../../../scss/components/gritter/gritter.scss */
+.gritter-item p {
+  line-height: 1.8;
+}
+
+/* line 50, ../../../scss/components/gritter/gritter.scss */
+.gritter-top,
+.gritter-bottom,
+.gritter-item {
+  background-image: none;
+}
+
+/* line 55, ../../../scss/components/gritter/gritter.scss */
+.gritter-close {
+  left: auto;
+  right: 3px;
+  background-image: none;
+  width: 18px;
+  height: 18px;
+  line-height: 17px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  color: #E17B67;
+}
+
+/* line 67, ../../../scss/components/gritter/gritter.scss */
+.gritter-close:before {
+  font-family: FontAwesome;
+  font-size: 16px;
+  content: "\f00d";
+}
+
+/* line 72, ../../../scss/components/gritter/gritter.scss */
+.gritter-info .gritter-close {
+  color: #FFA500;
+}
+
+/* line 75, ../../../scss/components/gritter/gritter.scss */
+.gritter-error .gritter-close,
+.gritter-success .gritter-close,
+.gritter-warning .gritter-close {
+  color: #FFEA07;
+}
+
+/* line 80, ../../../scss/components/gritter/gritter.scss */
+.gritter-close:hover {
+  color: #FFF !important;
+}
+
+/* line 83, ../../../scss/components/gritter/gritter.scss */
+.gritter-title {
+  text-shadow: none;
+}
+
+/* line 86, ../../../scss/components/gritter/gritter.scss */
+.gritter-light .gritter-item,
+.gritter-light .gritter-bottom,
+.gritter-light .gritter-top,
+.gritter-light .gritter-close {
+  background-image: none;
+  color: #444;
+}
+
+/* line 93, ../../../scss/components/gritter/gritter.scss */
+.gritter-light .gritter-title {
+  text-shadow: none;
+}
+
+/* line 96, ../../../scss/components/gritter/gritter.scss */
+.gritter-light .gritter-close:hover {
+  color: #8A3104 !important;
+}
+
+/* line 99, ../../../scss/components/gritter/gritter.scss */
+.gritter-center {
+  position: fixed;
+  left: 33%;
+  right: 33%;
+  top: 33%;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 106, ../../../scss/components/gritter/gritter.scss */
+  .gritter-center {
+    left: 16%;
+    right: 16%;
+    top: 30%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  /* line 113, ../../../scss/components/gritter/gritter.scss */
+  .gritter-center {
+    left: 30px;
+    right: 30px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  /* line 119, ../../../scss/components/gritter/gritter.scss */
+  .gritter-center {
+    left: 10px;
+    right: 10px;
+  }
+}

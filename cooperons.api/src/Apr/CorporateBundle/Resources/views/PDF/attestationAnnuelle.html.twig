@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div style="font-size:10pt;color:#515151;">
+    <table>
+        <tr>
+            <td style="width:45%; margin-left: 5%">
+                <img src="{{ baseurl }}/bundles/Edtapp/css/images/logo_final.svg" width="150"
+                     height="80" border="0"/>
+            </td>
+            <td style="width:45%;text-align:right;margin-right: 5%"></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td style="width:33%;font-size:8pt;"><br/><br/><br/><br/>
+                <span style="font-size:18pt;font-weight:bold;color:#31328a">ATTESTATION ANNUELLE</span>
+                <br/><br/><br/><br/><br/>
+                <span style="font-weight:bold;color:#3b3b3d">Adresse :</span> 34 rue de la Tombe
+                Issoire<br/>
+                <span style="font-weight:bold;color:#3b3b3d">Code Postal :</span> 75014<br/>
+                <span style="font-weight:bold;color:#3b3b3d">Ville :</span> Paris<br/>
+                <span style="font-weight:bold;color:#3b3b3d">SIRET :</span> 79289635900017
+            </td>
+            <td style="width:33%;"></td>
+            <td style="width:34%;background-color:#31328a;color:#ffffff;font-size:8pt;text-align:right">
+                <br/><br/>Date
+                <br/><strong>{{ dateNow|date('d/m/Y') }}</strong><br/><br/>
+                Salarié<br/>
+                <strong>{{ member.firstName }} {{ member.lastName }}<br/>
+                    {{ member.user.contact.address }}<br/>
+                    {{ member.user.contact.postalCode }} {{ member.user.contact.city }}</strong><br/><br/>
+                Employeur<br/>
+                <strong>{{ corporate.raisonSocial }}<br/>
+                    {{ corporate.address }}</strong><br/>
+                <strong>{{ corporate.postalCode }} {{ corporate.city }}</strong><br/>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <p style="font-size:11pt;font-weight:bold;width:100%;">Récapitulatif des sommes versées conformément …</p>
+    </div>
+    <table cellspacing="0" style="width:100%; margin: 20px 0">
+        <tr style="font-size:11pt;background-color:#31328a;color:#ffffff;font-weight:bold;line-height:25pt;">
+            <th style="width:60%;text-align:left;border-bottom:2pt solid #282971;border-left:2pt solid #31328a;">
+                &nbsp;Opération
+            </th>
+            <th style="width:20%;text-align:left;border-bottom:2pt solid #282971;">&nbsp;Montant</th>
+            <th style="width:20%;text-align:left;border-bottom:2pt solid #282971;border-right:2pt solid #31328a;">
+                &nbsp;Cotisations Sociales
+            </th>
+        </tr>
+        {% for attestation in allAttestations %}
+            <tr style="line-height:25pt;">
+                <td style="text-align:left;border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">
+                    &nbsp;{{ attestation.labelOperation }}
+                </td>
+                <td style="border-bottom:1px solid #bebebe;border-left:1px solid #ffffff;border-right:1px solid #bebebe;">
+                    {{ attestation.totalAvantage|number_format(2,',',' ') }}
+                    €&nbsp;&nbsp;&nbsp;</td>
+                <td class="last"
+                    style="border-bottom:1px solid #bebebe;border-right:1px solid #ffffff;">{{
+                    attestation.cotisation|number_format(2,',',' ') }}
+                    €&nbsp;&nbsp;</td>
+            </tr>
+        {% endfor %}
+
+        <tr style="font-weight:bold;font-size:13pt;background-color:#cacaca;line-height:25pt;color:#31328a;"
+            class="row-total">
+            <td colspan="1" style="border-bottom:2pt solid #a6a6a6;border-left:2pt solid #cacaca;">
+                TOTAL&nbsp;&nbsp;</td>
+            <td class="last"
+                style="border-bottom:2pt solid #a6a6a6;border-right:2pt solid #cacaca;">{{
+                totalAmount|number_format(2, ',', ' ') }}
+                €&nbsp;&nbsp;</td>
+            <td class="last"
+                style="border-bottom:2pt solid #a6a6a6;border-right:2pt solid #cacaca;">{{
+                totalCotisation|number_format(2, ',', ' ') }}
+                €&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;">
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>SMIC Mensuel
+                Brut {{ year }} {{ smic|number_format(2,',',' ') }} €<br/></td>
+            <td style="width:5%;"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+//colors
+$color_athens_gray_approx: #ecf0f1;
+$color_royal_blue_approx: #5659f0;
+$color_bay_of_many_approx: #31328a;
+$magenta_fuchsia_90: rgba(255, 0, 255, 0.9);
+$color_mirage_approx: #181b20;
+$white: white;
+
+//fonts
+$font_0: robotobold;
+
+//@extend-elements
+//original selectors
+//.rangeslider, .rangeslider__fill
+%extend_1 {
+	background: $color_athens_gray_approx;
+	display: block;
+	height: 12px;
+	width: 100%;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 10px;
+}
+
+
+.rangeslider {
+	@extend %extend_1;
+	position: relative;
+	margin-top: 40px;
+}
+.rangeslider__fill {
+	@extend %extend_1;
+	background: $color_royal_blue_approx;
+	position: absolute;
+	top: 0;
+}
+.rangeslider--disabled {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+	opacity: 0.4;
+}
+.rangeslider__handle {
+	background: $color_bay_of_many_approx;
+	cursor: pointer;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	top: -3px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50%;
+	&:active {
+		background-size: 100%;
+	}
+}
+.rangeslider__ruler {
+	cursor: pointer;
+	font-size: .7em;
+	margin: 20px 3px 0;
+	position: relative;
+	top: 100%;
+	text-align: justify;
+}
+.rangeslider__value-bubble {
+	font-family: $font_0;
+	font-size: 14px;
+	background-color: $color_mirage_approx;
+	color: $white;
+	line-height: 23px;
+	width: 35px;
+	display: block;
+	position: absolute;
+	top: -35px;
+	margin-left: -17px;
+	text-align: center;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	&:before {
+		content: "";
+		left: 50%;
+		position: absolute;
+		border-top-color: $color_mirage_approx;
+		border-width: 5px 5px 0;
+		border-style: solid;
+		width: 0;
+		height: 0;
+		bottom: -5px;
+		margin-left: -5px;
+	}
+	&:after {
+		content: "%";
+		vertical-align: super;
+		font-size: 9px;
+	}
+}
+.rangeslider__value-bubble-month {
+	font-family: $font_0;
+	font-size: 14px;
+	background-color: $color_mirage_approx;
+	color: $white;
+	line-height: 23px;
+	width: 35px;
+	display: block;
+	position: absolute;
+	top: -35px;
+	margin-left: -17px;
+	text-align: center;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	&:before {
+		content: "";
+		left: 50%;
+		position: absolute;
+		border-top-color: $color_mirage_approx;
+		border-width: 5px 5px 0;
+		border-style: solid;
+		width: 0;
+		height: 0;
+		bottom: -5px;
+		margin-left: -5px;
+	}
+	&:after {
+		content: "mois";
+		vertical-align: super;
+		font-size: 9px;
+	}
+}
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0 8px $magenta_fuchsia_90;
+}

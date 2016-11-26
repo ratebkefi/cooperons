@@ -1,0 +1,17 @@
+<header class="page-header"><h2>Administration du Programme {{program.label}}</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<div ng-include="'app/program/views/header/header.html'"></div>
+
+<div ng-if="program.isEasy" ng-include="'app/program/views/administration/createEasyMember.html'"></div>
+
+<div ng-include="'app/program/views/administration/filleuls.html'"></div>
+
+<div ng-if="!program.oldProgram && mandataire" ng-controller="mandataire:administrationController">
+    <div ng-include="'app/mandataire/views/administration/administration.html'"></div>
+</div>
+
+<div ng-if="program.status === 'prod'" ng-include="'app/program/views/administration/historyPoints.html'"></div>
+
+

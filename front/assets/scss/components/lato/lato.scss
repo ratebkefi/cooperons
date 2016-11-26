@@ -1,0 +1,111 @@
+$lato-font-path: "font/";
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('#{$lato-font-path}lato-black-webfont.eot');
+    src: url('#{$lato-font-path}lato-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-black-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-black-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-black-webfont.svg#latoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack_italic';
+    src: url('#{$lato-font-path}lato-blackitalic-webfont.eot');
+    src: url('#{$lato-font-path}lato-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-blackitalic-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-blackitalic-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-blackitalic-webfont.svg#latoblack_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url('#{$lato-font-path}lato-bold-webfont.eot');
+    src: url('#{$lato-font-path}lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-bold-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-bold-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-bold-webfont.svg#latobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold_italic';
+    src: url('#{$lato-font-path}lato-bolditalic-webfont.eot');
+    src: url('#{$lato-font-path}lato-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-bolditalic-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-bolditalic-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-bolditalic-webfont.svg#latobold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latohairline';
+    src: url('#{$lato-font-path}lato-hairline-webfont.eot');
+    src: url('#{$lato-font-path}lato-hairline-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-hairline-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-hairline-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-hairline-webfont.svg#latohairline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latohairline_italic';
+    src: url('#{$lato-font-path}lato-hairlineitalic-webfont.eot');
+    src: url('#{$lato-font-path}lato-hairlineitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-hairlineitalic-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-hairlineitalic-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-hairlineitalic-webfont.svg#latohairline_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoitalic';
+    src: url('#{$lato-font-path}lato-italic-webfont.eot');
+    src: url('#{$lato-font-path}lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-italic-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-italic-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-italic-webfont.svg#latoitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url('#{$lato-font-path}lato-light-webfont.eot');
+    src: url('#{$lato-font-path}lato-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-light-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-light-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-light-webfont.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight_italic';
+    src: url('#{$lato-font-path}lato-lightitalic-webfont.eot');
+    src: url('#{$lato-font-path}lato-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-lightitalic-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-lightitalic-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-lightitalic-webfont.svg#latolight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('#{$lato-font-path}lato-regular-webfont.eot');
+    src: url('#{$lato-font-path}lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$lato-font-path}lato-regular-webfont.woff') format('woff'),
+         url('#{$lato-font-path}lato-regular-webfont.ttf') format('truetype'),
+         url('#{$lato-font-path}lato-regular-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

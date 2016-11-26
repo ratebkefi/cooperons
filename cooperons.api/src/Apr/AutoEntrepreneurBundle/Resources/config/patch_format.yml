@@ -1,0 +1,19 @@
+auto_entrepreneur:
+    update_bank:
+        op: bank
+        path: /
+        params: [BIC, IBAN]
+    update_external:
+        op: external
+        path: /
+        params: [externalEmail, externalPassword]
+    activate:
+        op: activate
+        path: /
+    reschedule:
+        op: reschedule
+        path: /
+    quarterly_taxation:
+        op: quarterly
+        path: /
+        params: [amount]

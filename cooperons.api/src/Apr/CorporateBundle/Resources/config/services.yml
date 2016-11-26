@@ -1,0 +1,13 @@
+parameters:
+    apr_corporate.college.class: Apr\CorporateBundle\Manager\CollegeManager
+    apr_corporate.corporate.class: Apr\CorporateBundle\Manager\CorporateManager
+
+services:
+    apr_corporate.college_manager:
+        class: "%apr_corporate.college.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']    
+    apr_corporate.corporate_manager:
+        class: "%apr_corporate.corporate.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+        

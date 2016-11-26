@@ -1,0 +1,13 @@
+<div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <span id="label">{{legend}}</span>
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+    {%for element in elements%}
+        <li>
+            <a class="listitem" {%for attr,value in element.attr %} {{attr}}="{{value}}" {%endfor%}>{{element.label}}</a>
+        </li>
+    {%endfor%}
+    </ul>
+</div>

@@ -1,0 +1,158 @@
+{% extends "AprProgramBundle:Default:baseMarketingNew.html.twig" %}
+{% block content %}
+
+<!-- FAQ -->
+<div class="faq">
+    <div class="widget widget_text">
+        <div class="textwidget">
+            <a class="btn_contact" href="{{path('faq_contract', {'token':token})}}">
+                <i>?</i>
+                <span>FAQ</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /FAQ -->
+
+<div class="wrapper">
+    <!-- header -->
+    <header class="header clear " role="banner">
+        <!-- wrapper -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="#">
+                        <img src="{{ asset('bundles/Edtapp/img/marketing_new/logo.png')}}"  alt="Logo" class="logo-img">
+                    </a>
+                </div>
+                <!-- /logo -->
+            </div>
+        </div>
+        <!-- /wrapper -->
+    </header>
+    <!-- /header -->
+    <div class="border-inset"></div>
+
+    <main role="main">
+        <!-- section -->
+        <section class="home">
+
+            <article  class="container white">
+                <!-- content -->
+
+                <div class="row animated fadeInRight">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <h2>Sécurisez vos relations avec vos auto-entrepreneurs grâce à la Garantie Sociale <strong>Coopérons !</strong></h2>
+                        <p class="center">Gagnez en flexibilité sans compromettre la sécurité juridique de votre entreprise grâce aux <br/> auto-entrepreneurs  <strong>Coopérons!</strong></p>
+                    </div>
+                </div>
+                <!-- /wrapper -->
+
+            </article>
+
+            <article  class="container blue action">
+                <!-- content -->
+
+                <div class="row animated fadeInRight">
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <h2>Vous êtes <br/>
+                            <span class="uppercase">une Entreprise ?</span></h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-7 col-md-7">
+                        <ul>
+                            <li><a href="{{ front_connect_member }}/{{ token }}" target="_blank"  class="link_contact"><i></i><span>Connectez-vous</span></a></li>
+                            <li><h5>&nbsp;ou&nbsp;</h5></li>
+                            <li> <a href="{{ front_create_user }}/{{ token }}" target="_blank"  class="link_sign"><i></i><span>Inscrivez-vous</span></a></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+                <!-- /wrapper -->
+
+            </article>
+
+            <article  class="container white article">
+                <!-- content -->
+
+                <div class="row animated fadeInRight">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <h2 class="regular">Votre premier besoin ? Sécuriser vos relations commerciales avec <br/> vos auto-entrepreneurs</h2><br/>
+                    </div>
+                </div>
+                <div class="row animated fadeInRight">
+                    <div class="col-xs-12 col-sm-7 col-md-7">
+                        <p class="pull-left">Vous désirez faire appel aux compétences d’auto-entrepreneurs extérieurs mais les démarches et l’insécurité liées à ce statut vous freinent ? </p><br/>
+                        <p class="pull-left">Votre auto-entrepreneur va-t-il correctement s’acquitter de ses cotisations sociales ? </p>
+                        <p class="pull-left">Et, ne risque t-il pas de demander, ultérieurement, une requalification du contrat qui vous lie en contrat de travail ? </p>
+                        <p class="pull-left">Le cadre contractuel mis à votre disposition par <strong>Coopérons!</strong>  vous permet de recourir aux services d’auto-entrepreneurs en quelques clics et en toute sérénité.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <img src={{ asset('bundles/Edtapp/img/marketing_new/img1.png')}} class="wp-post-image display-large" alt="img1">
+                    </div>
+                </div>
+                <!-- /wrapper -->
+
+            </article>
+
+
+            <article  class="container white article ">
+                <!-- content -->
+                <div class="row animated fadeInRight">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <h2>Découvrez les avantages de <strong>Coopérons!</strong> pour votre entreprise :</h2>
+                        <h4 class="center"><strong>Coopérons!</strong> est un service de gestion des relations contractuelles inter-entreprises créé dans le but de faciliter les échanges commerciaux entre ses participants :</h4> <br>
+                    </div>
+                </div>
+
+                <div class="row animated fadeInRight">
+
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <img src={{ asset('bundles/Edtapp/img/marketing_new/img2.png')}} class="wp-post-image img-right" alt="img2">
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <ul class="list">
+                            <li>Modèle de contrat de service standard fourni par <strong>Coopérons!</strong> </li>
+                            <li>Garantie du règlement des cotisations sociales trimestrielles de vos auto-entrepreneurs, déclarées
+                                et prélevées directement par <strong>Coopérons!</strong> </li>
+                            <li>Visibilité sur l’activité globale de vos auto-entrepreneurs vous assurant qu’ils disposent de plusieurs clients afin de vous éviter les risques de requalification en contrat de travail</li>
+                            <li>Édition automatique mensuelle des factures de vos auto-entrepreneurs par <strong>Coopérons!</strong> </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /wrapper -->
+
+            </article>
+
+            <article  class="container blue article">
+                <!-- content -->
+                <div class="row animated fadeInRight">
+                    <div class="col-xs-12 col-sm-8 col-md-8">
+                        <h2 class="white_color">Combien ça coûte ?</h2>
+                        <ul class="listwhite">
+                            <li>L’inscription et l’accès au service Coopérons! sont totalement gratuits  </li>
+                            <li>Une commission de 2,75% HT du CA facturée par vos auto-entrepreneurs vous est prélevée par Coopérons!. Cette commission vous permet de bénéficier de la Garantie Sociale Coopérons.</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <img src={{ asset('bundles/Edtapp/img/marketing_new/img6.png')}} class="wp-post-image display-large" alt="img6">
+                    </div>
+
+                </div>
+                <!-- /wrapper -->
+
+            </article>
+
+
+        </section>
+        <!-- /section -->
+    </main>
+
+    <!--?php get_sidebar(); ?-->
+
+
+</div>
+
+
+{% endblock %}

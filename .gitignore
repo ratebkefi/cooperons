@@ -1,0 +1,38 @@
+nbproject
+.idea
+cooperons.api/vendor
+cooperons.api/app/cache
+cooperons.api/app/logs
+cooperons.api/app/var/wkhtmltox
+cooperons.api/app/config/parameters.yml
+cooperons.api/composer.phar
+cooperons.api/web/Uploads/CorporateAccords/*
+cooperons.api/web/Uploads/EasyDocs/*
+cooperons.api/web/Uploads/EmployerAttestations/*
+cooperons.api/web/Uploads/Invoices/*
+cooperons.api/web/Uploads/ProgramLogos/*
+cooperons.api/web/Uploads/GiftOrders/*
+front/bower_components
+front/config/config.js
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+

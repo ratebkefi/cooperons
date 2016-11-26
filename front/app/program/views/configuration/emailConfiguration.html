@@ -1,0 +1,56 @@
+<div class="md-inline-form">
+    <md-content>
+        <form name="forms.formConfig" ng-submit="updateConfiguration(forms.formConfig)"
+              ng-class="{'not_submitted' : !forms.formConfig.$submitted }" novalidate>
+
+            <div ng-if="!program.isEasy">
+                <p class="clearfix block mb-xlg">
+                    Saisissez ici l'URL sur votre site vers laquelle seront redirigées toutes vos invitations.
+                </p>
+
+                <md-input-container class="md-block">
+                    <label>URL</label>
+                    <input type="text" id="landingUrl" name="landingUrl" ng-model="configuration.landingUrl"
+                           required="required" ng-pattern="urlRegex"/>
+                    <md-tooltip md-direction="top">Cette URL doit implémenter l'API pour récupérer le token d'invitation
+                        transmis dans l'email d'invitation.
+                    </md-tooltip>
+                    <div ng-messages="forms.formConfig.landingUrl.$error" ng-if="forms.formConfig.$submitted">
+                        <div for="landingUrl" class="erreurform" ng-message="required">URL requis</div>
+                        <div for="landingUrl" class="erreurform" ng-message="pattern">URL invalide</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <p class="mb-xlg block clearfix">Saisissez ici l'adresse expéditrice de vos emails d'invitation</p>
+
+            <md-input-container class="md-block">
+                <label>Adresse expéditrice</label>
+                <input type="email" name="senderEmail" id="senderEmail" ng-model="configuration.senderEmail"
+                       required="required"/>
+
+                <div ng-messages="forms.formConfig.senderEmail.$error" ng-if="forms.formConfig.$submitted">
+                    <div for="senderEmail" class="erreurform" ng-message="required">Email requis</div>
+                    <div for="senderEmail" class="erreurform" ng-message="email">Email incorrect</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Expéditeur affiché</label>
+                <input type="text" name="senderName" id="senderName" ng-model="configuration.senderName"
+                       required="required"/>
+
+                <div ng-messages="forms.formConfig.senderName.$error" ng-if="forms.formConfig.$submitted">
+                    <div for="senderName" class="erreurform" ng-message="required">Expéditeur requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button type="submit" class="md-raised right md-primary">
+                    <ng-md-icon icon="save" size="16"></ng-md-icon>
+                    <span class="ml-xs">Sauvegarder</span>
+                </md-button>
+            </md-input-container>
+        </form>
+    </md-content>
+
+</div>

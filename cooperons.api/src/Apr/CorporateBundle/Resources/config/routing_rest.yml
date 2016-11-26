@@ -1,0 +1,17 @@
+apr_corporate_rest:
+    resource: Apr\CorporateBundle\ApiController\CorporateController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_colleges_rest:
+    resource: Apr\CorporateBundle\ApiController\CollegeController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_attestation_rest:
+    resource: Apr\CorporateBundle\ApiController\AttestationController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_

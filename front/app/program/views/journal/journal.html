@@ -1,0 +1,77 @@
+<header class="page-header"><h2>Mes Programmes</h2></header>
+
+<md-content layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <h3 class="title-header">Journal API</h3>
+
+            <div class="info-striped">
+                <div class="profile-info-row">
+                    <div class="profile-info-name">Identifiant API</div>
+                    <div class="profile-info-value">{{program.label}}</div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="profile-info-name">Clé API</div>
+                    <div class="profile-info-value">{{ program.apiKey}}</div>
+                </div>
+            </div>
+        </md-card>
+    </div>
+</md-content>
+
+
+<md-card class="mt-lg" ng-if="journals.length">
+    <md-table-container>
+        <table md-table>
+            <thead md-head>
+            <tr md-row>
+                <th md-column><span>URL</span></th>
+                <th md-column><span>Méthode</span></th>
+                <th md-column><span>Date Appel</span></th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="journal in journals">
+                <td md-cell>{{journal.url}}</td>
+                <td md-cell>{{journal.method}}</td>
+                <td md-cell>{{journal.createdDate| date:'dd/MM/yyyy' }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+</md-card>
+
+<md-content ng-if="!journals.length" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="warning" class="orange-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <p class="md-subhead">Pas d'utilisation de votre programme {{program.label}}</p>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+</md-content>
+
+<md-input-container class="md-block">
+
+
+    <md-button aria-label="Réinitialiser" ng-click="initProgramJournal()" class="md-raised md-warn right">
+        <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+        Réinitialiser
+    </md-button>
+    <md-button aria-label="Retour" ui-sref="program.configuration({id: program.id})"
+               class="md-raised md-primary right mr-lg">
+        <md-icon md-font-icon="fa fa-chevron-left"></md-icon>
+        Retour
+    </md-button>
+
+</md-input-container>
+
+<div ng-include="'app/program/views/journal/journalDialogs.html'"></div>

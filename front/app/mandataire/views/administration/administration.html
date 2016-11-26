@@ -1,0 +1,209 @@
+<md-content layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <h3 class="title-header">{{ mandataire.shortLabel}}</h3>
+                    <span flex="" class="flex"></span>
+
+                    <div ng-if="authorizedParty && authorizedParty.id == client.id && !mandataire.liquidationDate">
+                        <md-button ng-if="!waitingPayment" class="md-raised md-primary"
+                                   ui-sref="mandataire.provision({id: mandataire.id})">
+                            <md-icon md-font-icon="fa fa-credit-card"
+                                     ng-class="{'icon-animated-vertical': waitingSettlements.length || mandataire.depot < mandataire.minDepot}"></md-icon>
+                            <span ng-class="{'blink_me': waitingSettlements.length || mandataire.depot < mandataire.minDepot}">Approvisionner</span>
+                        </md-button>
+                        <md-button ng-if="waitingPayment" ng-click="deletePayment(waitingPayment.id)"
+                                   class="md-raised md-primary"> Annuler
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Événement</span></th>
+                        <th md-column><span>Facture</span></th>
+                        <th md-column><span>Montant</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="operation in operations">
+                        <td md-cell>{{operation.createdDate| date:"dd/MM/yyyy"}}</td>
+                        <td width="50%" md-cell>{{operation.description}}</td>
+                        <td md-cell ng-if="operation.invoiceId && operation.invoiceId != operation.lastInvoiceId"
+                            rowspan="{{ operation.nbSettlements}}">
+                            <md-button ng-click="downloadInvoice(operation.invoiceId)" class="md-icon-button launch">
+                                <md-tooltip>Télécharger</md-tooltip>
+                                <md-icon md-font-icon="fa fa-file-pdf-o"></md-icon>
+                            </md-button>
+                        </td>
+                        <td md-cell ng-if="!operation.invoiceId"></td>
+                        <td md-cell>
+                            {{operation.amount| displayPrice}} €
+                        </td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot md-foot>
+                    <tr class="foot_toto">
+                        <td md-cell></td>
+                        <td md-cell></td>
+                        <td md-cell><b>Solde</b></td>
+                        <td md-cell><b>{{mandataire.depot| displayPrice}} €</b></td>
+                    </tr>
+                    <tr ng-if="authorizedParty.mandataire.id === mandataire.id && authorizedParty.autoEntrepreneur"
+                        class="foot_toto">
+                        <td md-cell></td>
+                        <td md-cell></td>
+                        <td md-cell>Dépôts Clients</td>
+                        <td md-cell>{{-authorizedParty.totalDepots | displayPrice}} €</td>
+                    </tr>
+                    <tr ng-if="authorizedParty.mandataire.id === mandataire.id && authorizedParty.autoEntrepreneur"
+                        class="foot_toto">
+                        <td md-cell></td>
+                        <td md-cell></td>
+                        <td md-cell>Provision {{ authorizedParty.provisionRate }} %</td>
+                        <td md-cell>{{ (-provision+authorizedParty.totalDepots) | displayPrice}} €</td>
+                    </tr>
+                    <tr ng-if="authorizedParty.mandataire.id === mandataire.id && authorizedParty.autoEntrepreneur"
+                        class="foot_toto">
+                        <td md-cell></td>
+                        <td md-cell></td>
+                        <td md-cell>A régler</td>
+                        <td md-cell>{{ (mandataire.depot-provision) | displayPrice}} €</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+<div class="hr hr-24 hr-dotted"></div>
+
+<!-- waiting settlements list -->
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row" ng-if="waitingSettlements.length > 0">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span>Commandes en attente</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Événement</span></th>
+                        <th md-column><span>Montant HT</span></th>
+                        <th md-column><span>Montant TTC</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="settlement in waitingSettlements">
+                        <td md-cell>{{ settlement.createdDate|date: 'dd/MM/yyyy'}}</td>
+                        <td md-cell>{{ settlement.description}}
+                            <md-button ng-if="authorizedParty && authorizedParty.id == owner.id"
+                                       ng-click="deleteSettlement(settlement.id)" class="md-icon-button launch">
+                                <md-tooltip md-direction="top">Annuler</md-tooltip>
+                                <md-icon md-font-icon="fa fa-remove"></md-icon>
+                            </md-button>
+                        </td>
+                        <td md-cell><span id="total_ht">{{settlement.amountHt|displayPrice}}</span> €</td>
+                        <td md-cell><span id="total_ttc">{{settlement.amount|displayPrice}}</span> €</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+
+<!-- Records & balances -->
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row"
+            ng-if="authorizedParty.mandataire.id === mandataire.id && authorizedParty.autoEntrepreneur">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span>Comptabilité</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Débit</span></th>
+                        <th md-column><span>Crédit</span></th>
+                        <th md-column><span>Montant</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="record in records">
+                        <td md-cell>{{record.createdDate}}</td>
+                        <td md-cell>
+                                <span>
+                                    <md-tooltip md-direction="top">{{accounts[record.debitAccountFullRef].label}}
+                                    </md-tooltip>
+                                    {{record.debitAccountFullRef}}
+                                </span>
+                        </td>
+                        <td md-cell>
+                                <span>
+                                    <md-tooltip md-direction="top">{{accounts[record.creditAccountFullRef].label}}
+                                    </md-tooltip>
+                                    {{record.creditAccountFullRef}}
+                                </span>
+                        </td>
+                        <td md-cell>{{record.amount|displayPrice }} €</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+
+
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span>Balances</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Identifiant</span></th>
+                        <th md-column><span>Débit</span></th>
+                        <th md-column><span>Crédit</span></th>
+                        <th md-column><span>Compte</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="(ref, account) in accounts" ng-if="account.debit || account.credit">
+                        <td md-cell>{{ref}}</td>
+                        <td md-cell>{{account.debit|displayPrice}} €</td>
+                        <td md-cell>{{account.credit|displayPrice}} €</td>
+                        <td md-cell>{{account.label}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>

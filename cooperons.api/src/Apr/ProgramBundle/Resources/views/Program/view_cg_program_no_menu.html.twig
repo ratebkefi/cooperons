@@ -1,0 +1,17 @@
+{% extends "AprProgramBundle:Default:baseWithoutMenu.html.twig"  %}
+{% block content %}
+    <link  href={{ asset('bundles/Edtapp/css/program.css')}} rel='stylesheet' type='text/css' />
+    <h1>Mes Programmes</h1>
+        <div class="steps-content">
+            <div class="steps-wrapper">
+                <h3 class="title-header">Conditions Générales du Programme de Stimulation {{program.label}}</h3>
+                {% include "AprProgramBundle:Legal:cg_program_defs.html.twig" %}
+                {% include "AprProgramBundle:Legal:cg_program_func_view.html.twig" %}
+                {% include "AprProgramBundle:Legal:cg_program_misc.html.twig" %}
+            </div>
+        </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
+{% endblock %}

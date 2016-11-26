@@ -1,0 +1,14 @@
+<div class="footer-container">© Copyright Coopérons !
+    {% if token is not defined %}
+        {% set token = null %}
+    {% endif %}
+    - <a href="{{path('view_cgu_cooperons_plus', {'token':token})}}">Conditions d'utilisation</a>
+</div>
+<!-- Le javascript
+    ================================================== -->
+    <script src={{ asset('bundles/Edtapp/js/bootstrap.min.js')}} type='text/javascript'></script>
+
+    <script src={{ asset('bundles/Edtapp/js/ace.min.js')}} type='text/javascript'></script>
+    <script src={{ asset('bundles/Edtapp/js/ace-elements.min.js')}} type='text/javascript'></script>
+  </body>
+</html>

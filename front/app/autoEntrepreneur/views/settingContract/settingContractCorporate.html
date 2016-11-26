@@ -1,0 +1,156 @@
+<!-- Page: Contrat -->
+<header class="page-header"><h2>Votre contrat avec {{ settingContractCtr.contract.clientLabel}}</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title class="mb-md doc_pres">
+                <md-card-title-text>
+                    <span class="md-headline text-center red-color">Vos prestations</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="text-left md-inline-form p-sm">
+                <p class=" m-md">Créez ici la liste des prestations fournies dans le cadre de votre contrat avec
+                    {{settingContractCtr.contract.client.label}}.<br/>
+                    Chaque prestation est décrite par son intitulé (requis), le type d'unité (heure, prestation, jour
+                    ...) et un montant unitaire (optionnels).<br/>
+                    Vous pourrez modifier cette liste à tout moment.</p>
+
+                <div ng-repeat="serviceType in settingContractCtr.serviceTypes">
+                    <div class="md-inline-form">
+                        <div class="hr hr-24 dotted"></div>
+                        <md-content layout-padding>
+                            <form name="put_service_type" ng-submit="settingContractCtr.updateServiceType(serviceType)">
+                                <md-input-container class="md-block">
+                                    <label>Intitulé de la prestation</label>
+                                    <input type="text" ng-model="serviceType.label"/>
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <label>Unité</label>
+                                    <input id="unitLabel" type="text" ng-model="serviceType.unitLabel"/>
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <label>Montant Unitaire (€)</label>
+                                    <input id="unitDefaultAmount" type="text" ng-model="serviceType.unitDefaultAmount"
+                                           class="amount-form" placeholder="Pas de montant unitaire défini par défaut"/>
+                                </md-input-container>
+
+                                <md-input-container class="md-block m-auto">
+                                    <md-button aria-label="Supprimer" ng-click="settingContractCtr.removeServiceType(serviceType)"
+                                               class="md-raised md-warn right">
+                                        <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+                                        Supprimer
+                                    </md-button>
+
+                                    <md-button aria-label="Valider" type="submit" class="md-raised md-primary right mr-md">
+                                        <md-icon md-font-icon="fa fa-floppy-o"></md-icon>
+                                        Valider
+                                    </md-button>
+                                </md-input-container>
+                            </form>
+                        </md-content>
+                    </div>
+                </div>
+
+                <div class="md-inline-form mt-md">
+                    <div class="hr hr-24 dotted"></div>
+                    <md-content layout-padding>
+                        <form ng-submit="settingContractCtr.createServiceType()">
+                            <md-input-container class="md-block">
+                                <label>Intitulé de la prestation</label>
+                                <md-tooltip md-direction="top">250 caractères maximum</md-tooltip>
+                                <input id="intitule" type="text" ng-model="settingContractCtr.newServiceType.label"/>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Unité</label>
+                                <input type="text" ng-model="settingContractCtr.newServiceType.unitLabel" id="add_unitLabel"/>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Montant Unitaire (€)</label>
+                                <md-tooltip md-direction="top">Pas de montant unitaire défini par défaut</md-tooltip>
+                                <input type="text" ng-model="settingContractCtr.newServiceType.unitDefaultAmount"
+                                       id="add_unitDefaultAmount" class="amount-form"/>
+                            </md-input-container>
+
+                            <md-input-container class="md-block m-auto">
+                                <md-button aria-label="Valider" type="submit" class="md-raised md-primary right">
+                                    <md-icon md-font-icon="fa fa-plus-circle"></md-icon>
+                                    Ajouter une prestation
+                                </md-button>
+                            </md-input-container>
+
+                        </form>
+                    </md-content>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title class="mb-md">
+                <md-card-title-text>
+                    <span class="md-headline text-center red-color">Dépôt Minimum</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="text-left md-inline-form p-sm">
+                <p class=" m-md">Vous pouvez proposer à votre client de constituer un dépôt servant à régler le montant
+                    de vos prestations au fil de l'eau (et non prestation par prestation).<br/>
+                    Lorsque le Dépôt de votre client sera inférieur à ce montant, votre client devra approvisionner son
+                    Dépôt d'un montant égal à 2 fois ce montant minimum.</p>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Dépôt Minimum (€)</label>
+                        <input id="minDepot" type="text" ng-model="settingContractCtr.contract.minDepot" class="amount-form"/>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-button aria-label="Valider"
+                                   ng-click="settingContractCtr.updateMinDeposit()"
+                                   class="md-raised md-primary right">
+                            <md-icon md-font-icon="fa fa-floppy-o"></md-icon>
+                            Valider
+                        </md-button>
+                    </md-input-container>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline text-center red-color">Prime Recrutement</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="text-left md-inline-form p-sm">
+                <p class=" m-md">
+                    Tous les contrats conclus avec une entreprise vous permettent de percevoir une prime de recrutement
+                    dans le cadre de vos contrats de partenariat commercial.
+                </p>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <md-button aria-label="Valider" ui-sref="contract.legal({'id': contract.id})"
+                               class="md-raised md-primary right">
+                        <md-icon md-font-icon="fa fa-book"></md-icon>
+                        Signer le Contrat
+                    </md-button>
+                </md-input-container>
+
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

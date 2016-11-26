@@ -1,0 +1,226 @@
+<!-- Compte Auto-Entrepreneur page -->
+<cpr-search-users></cpr-search-users>
+<header class="page-header"><h2>Compte Auto-Entrepreneur</h2></header>
+
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="autoEntrepreneur.id">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title class="m-md">
+                <md-card-title-text>
+                    <span class="md-headline red-color">Banque</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <form class="form-horizontal" name="form_bank" ng-class="{'not_submitted' : !form_bank.$submitted }"
+                      ng-submit="updateBank(form_bank, autoEntrepreneur.id)"
+                      novalidate="novalidate">
+                    <md-input-container class="md-block">
+                        <label class="required">IBAN</label>
+                        <input type="text" ng-model="autoEntrepreneur.IBAN" name="IBAN" required="required"/>
+
+                        <div ng-messages="form_bank.IBAN.$error" ng-if="form_bank.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">IBAN requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">BIC</label>
+                        <input type="text" ng-model="autoEntrepreneur.BIC" name="BIC" required="required"/>
+
+                        <div ng-messages="form_bank.BIC.$error" ng-if="form_bank.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">BIC requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <md-button type="submit" class="md-raised md-primary right">
+                            <ng-md-icon icon="save" class="md-icon-left" size="16"></ng-md-icon>
+                            <span>Enregistrer le RIB</span>
+                        </md-button>
+                    </md-input-container>
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title class="m-md">
+                <md-card-title-text>
+                    <span class="md-headline red-color">Net-Entreprises</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <form action="https://www.net-entreprises.fr/auth/pass" id="netEntreprisesAccess" method="post"
+                      target="_blank">
+                    <input type="hidden" name="j_siret" value="{{autoEntrepreneur.SIRET}}">
+                    <input type="hidden" name="j_nom" value="{{autoEntrepreneur.externalLastName}}">
+                    <input type="hidden" name="j_prenom" value="{{autoEntrepreneur.externalFirstName}}">
+                    <input type="hidden" name="j_password" value="{{autoEntrepreneur.externalOldPassword}}">
+                    <input type="hidden" name="rblChoixModeAuth2" value="MDP">
+                </form>
+
+                <form name="post_autoEntrepreneurExternal"
+                      ng-submit="postAutoEntrepreneurExternal(post_autoEntrepreneurExternal, autoEntrepreneur.id)"
+                      ng-class="{'not_submitted' : !post_autoEntrepreneurExternal.$submitted }" novalidate="novalidate">
+
+                    <md-input-container class="md-block" ng-if="!autoEntrepreneur.id">
+                        <label class="required">SIRET</label>
+                        <input type="text" ng-model="autoEntrepreneur.SIRET" name="SIRET" required="required">
+
+                        <div ng-messages="post_autoEntrepreneurExternal.SIRET.$error"
+                             ng-if="post_autoEntrepreneurExternal.$submitted">
+                            <div class="erreurform" ng-message="required">SIRET requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" ng-if="autoEntrepreneur.id">
+                        <label>SIRET</label>
+                        <input type="text" ng-model="autoEntrepreneur.SIRET" readonly>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" ng-if="!autoEntrepreneur.id">
+                        <label class="required">Nom</label>
+                        <input type="text" ng-model="autoEntrepreneur.externalLastName" name="externalLastName"
+                               required="required">
+
+                        <div ng-messages="post_autoEntrepreneurExternal.externalLastName.$error"
+                             ng-if="post_autoEntrepreneurExternal.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Nom requis</div>
+                        </div>
+                        <span ng-if="autoEntrepreneur.id">
+                            {{ autoEntrepreneur.externalLastName}}
+                        </span>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" ng-if="autoEntrepreneur.id">
+                        <label>Nom</label>
+                        <input type="text" ng-model="autoEntrepreneur.externalLastName" readonly>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" ng-if="!autoEntrepreneur.id">
+                        <label class="required">Prénom</label>
+                        <input type="text" ng-model="autoEntrepreneur.externalFirstName" name="externalFirstName"
+                               required="required">
+
+                        <div ng-messages="post_autoEntrepreneurExternal.externalFirstName.$error"
+                             ng-if="post_autoEntrepreneurExternal.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Prénom requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" ng-if="autoEntrepreneur.id">
+                        <label>Prénom</label>
+                        <input type="text" ng-model="autoEntrepreneur.externalFirstName" readonly>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" ng-if="!autoEntrepreneur.id">
+                        <label class="required">Mot de passe (Ancien)</label>
+                        <input type="text" ng-model="autoEntrepreneur.externalOldPassword" name="externalOldPassword"
+                               required="required">
+
+                        <div ng-messages="post_autoEntrepreneurExternal.externalOldPassword.$error"
+                             ng-if="post_autoEntrepreneurExternal.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Ancien mot de passe requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <md-button form="netEntreprisesAccess" type="submit" class="md-raised md-primary right">
+                            <i class="fa fa-flask"></i> Tester
+                        </md-button>
+                    </md-input-container>
+
+                    <hr class="hr hr-32"/>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Email externe</label>
+                        <input type="email" ng-model="autoEntrepreneur.externalEmail" name="externalEmail"
+                               required="required"
+                               ng-title="Ce champ doit être sous la forme suivante nom d'utilisateur@nomdedomaine.extension">
+
+                        <div ng-messages="post_autoEntrepreneurExternal.externalEmail.$error"
+                             ng-if="post_autoEntrepreneurExternal.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Email requis</div>
+                            <div class="erreurform" ng-message="email">Email invalide</div>
+                        </div>
+                    </md-input-container>
+
+
+                    <md-input-container class="md-block">
+                        <label class="required">Mot de passe (Nouveau)</label>
+                        <input type="text" ng-model="autoEntrepreneur.externalPassword" name="externalPassword"
+                               required="required">
+
+                        <div ng-messages="post_autoEntrepreneurExternal.externalPassword.$error"
+                             ng-if="post_autoEntrepreneurExternal.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Nouveau mot de passe requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <div class="control-group" ng-if="!autoEntrepreneur.id">
+                        <h4 class="control-label required mb-xs">Activation</h4>
+
+                        <div class="controls">
+                            <md-radio-group name="typeActivation" ng-model="autoEntrepreneur.typeActivation">
+                                <md-radio-button value="now" class="md-primary">Immédiate</md-radio-button>
+                                <strong>Action Opérateur</strong>
+                                <ul class="list ml-lg">
+                                    <li>obtenir confirmation écrite CA non déclaré = 0</li>
+                                    <li>modifier le RIB sur autoentrepreneur.com</li>
+                                </ul>
+
+                                <md-radio-button value="waitForQuarter" class="md-primary"> En attente</md-radio-button>
+
+                                <strong>Action Opérateur</strong>
+                                <ul class="list ml-lg">
+                                    <li>aucune. Rappel activé début du trimestre prochain suite à la déclaration</li>
+                                </ul>
+
+                            </md-radio-group>
+                        </div>
+                    </div>
+
+
+                    <md-input-container class="md-block">
+                        <md-button type="submit" class="md-raised md-primary right">
+                            <ng-md-icon icon="save" class="md-icon-left" size="16"></ng-md-icon>
+                            <span>Sauvegarder</span>
+                        </md-button>
+                    </md-input-container>
+
+                    <div ng-if="autoEntrepreneur.id && !autoEntrepreneur.activationDate">
+                        <div class="control-group">
+                            <label class="control-label required">Activation</label>
+
+                            <div class="controls">
+                                En attente<br/>
+
+                                <strong>Action Opérateur</strong>
+                                <ul class="list ml-md">
+                                    <li>effectuer la première déclaration de CA trimestrielle sur net-entreprises (sur
+                                        RIB de l'AE)
+                                        avant modification du RIB Coopérons
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <md-input-container class="md-block">
+                            <md-button ng-click="activateAutoEntrepreneur(autoEntrepreneur.id)"
+                                       class="md-raised md-primary right">
+                                <ng-md-icon icon="save" class="md-icon-left" size="16"></ng-md-icon>
+                                <span>Confirmer l'inscription</span>
+                            </md-button>
+                        </md-input-container>
+
+                    </div>
+
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

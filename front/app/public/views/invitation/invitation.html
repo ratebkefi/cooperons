@@ -1,0 +1,77 @@
+<div class="container main_content bg-white">
+    <h1 class="red_title"><span>Bienvenue {{member.firstName}} {{member.lastName}}</span></h1>
+
+    <div ng-include="'app/program/views/header/header.html'"></div>
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-card-image">
+                            <ng-md-icon icon="info" class="green-color md-card-icon" size="48"></ng-md-icon>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text class="md-card-left">
+                    <span class="md-subhead" ng-if="!participate.countAffiliates">Vous ne disposez d'aucun Filleul dans le cadre du programme
+                        <b>{{ program.label}}</b>.
+                    </span>
+                    <span class="md-subhead" ng-if="participate.countAffiliates">
+                        Vous disposez de {{participate.countAffiliates}} Filleuls dans le cadre des programmes de
+                        <b>{{ program.label}}</b>.
+                    </span>
+                        <br/>
+
+                        <div class="md-subhead" ng-include="'app/member/views/member/status.html'"></div>
+                        <md-input-container class="md-block">
+                            <md-button ng-if="member.isUser" href="/" class="md-raised md-primary right mt-md">
+                                Accéder à mon compte Coopérons !
+                                <md-icon md-font-icon="fa fa-share"></md-icon>
+                        </md-input-container>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+
+    </md-content>
+
+    <md-content class="md-padding cloudsponge-widget" layout="row" layout-sm="column" layout-align="center center"
+                layout-wrap ng-if="!collaborator">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <div class="width-95 m-auto text-left">
+                    <p>&nbsp;</p>
+
+                    <p>Je parraine mes amis et connaissances pour gagner des Points (100 Points = 20 €)</p>
+
+                    <p>
+                        {{corporate.raisonSocial}} vous offre :
+                    </p>
+
+                    <div ng-bind-html="htmlOperations"></div>
+                    <p>En plus Vous gagnez les 2/3 de tous les MultiPoints offerts à vos filleuls dans le cadre du
+                        programme
+                        {{program.label}}.</p>
+
+                    <p>Votre filleul gagne 120 MultiPoints ? Vous gagnez automatiquement 80 MultiPoints.</p>
+
+                    <p>Votre filleul gagne 80 MultiPoints ? Vous gagnez automatiquement 53 MultiPoints.</p>
+
+                    <p>Et ainsi de suite sans aucune limite !</p>
+                </div>
+                <div ng-if="hasMailInvitation">
+                    <div ng-if="invitationPlus">
+                        <!-- Injecting invitation plus directive -->
+                        <invitation-plus token="token" invitation-type="standard"></invitation-plus>
+                    </div>
+
+                    <div ng-if="!invitationPlus">
+                        <cloud-sponge token="token" member="member"></cloud-sponge>
+                    </div>
+                </div>
+
+            </md-card>
+        </div>
+    </md-content>
+
+</div>

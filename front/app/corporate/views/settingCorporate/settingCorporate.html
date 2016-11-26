@@ -1,0 +1,92 @@
+<!-- Corporate page -->
+<header class="page-header"><h2>Mon Entreprise</h2></header>
+<div class="md-inline-form">
+    <md-content layout-padding>
+        <form name="setting_corporate" ng-submit="settingCorporateCtr.saveCorporate(setting_corporate)"
+              ng-class="{'not_submitted' : !setting_corporate.$submitted }" class="form-horizontal" novalidate>
+            <md-input-container class="md-block">
+                <label class="required">Raison Sociale</label>
+                <input type="text" ng-model="settingCorporateCtr.corporate.raisonSocial" name="raisonSocial" required="required"/>
+
+                <div ng-messages="setting_corporate.raisonSocial.$error" ng-if="setting_corporate.$submitted">
+                    <div class="erreurform" ng-message="required">Raison sociale requise</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">N° TVA Intracomm</label>
+                <input type="text" ng-model="settingCorporateCtr.corporate.tvaIntracomm" name="tvaIntracomm"
+                       ng-readonly="settingCorporateCtr.idCorporate > 0" pattern="[0-9A-Z]{9,}" required="required">
+
+                <div ng-messages="setting_corporate.tvaIntracomm.$error" ng-if="setting_corporate.$submitted">
+                    <div class="erreurform" ng-message="required">TVA Intracommunautaire requis</div>
+                    <div ng-if="setting_corporate.tvaIntracomm.$error.pattern" class="erreurform">
+                        TVA Intracommunautaire requis (Pays UE)
+                    </div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Adresse</label>
+                <input type="text" ng-model="settingCorporateCtr.corporate.address" name="address" required="required"/>
+
+                <div ng-messages="setting_corporate.address.$error" ng-if="setting_corporate.$submitted">
+                    <div class="erreurform" ng-message="required">Adresse requise</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Adresse Complémentaire</label>
+                <input type="text" ng-model="settingCorporateCtr.corporate.secondAddress" name="secondAddress">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Ville</label>
+                <input type="text" ng-model="settingCorporateCtr.corporate.city" name="city" required="required"/>
+
+                <div ng-messages="setting_corporate.city.$error" ng-if="setting_corporate.$submitted">
+                    <div class="erreurform" ng-message="required">Ville requise</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Code postal</label>
+                <input type="text" ng-model="settingCorporateCtr.corporate.postalCode" name="postalCode" required="required"/>
+
+                <div ng-messages="setting_corporate.postalCode.$error" ng-if="setting_corporate.$submitted">
+                    <div class="erreurform" ng-message="required">Code postal requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container ng-if="settingCorporateCtr.idCorporate == 0" class="md-block">
+                <label class="required">Pays</label>
+                <md-select ng-model="settingCorporateCtr.corporate.country" name="country">
+                    <md-option ng-repeat="country in settingCorporateCtr.countries" ng-value="country.id">
+                        {{country.label}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block mt-xxlg">
+                <label class="required">Téléphone</label>
+                <input type="text" id="corporate_phone" ng-model="settingCorporateCtr.corporate.phone" name="phone"
+                       required="required">
+
+                <div ng-messages="setting_corporate.phone.$error" ng-if="setting_corporate.$submitted">
+                    <div class="erreurform" ng-message="required">Téléphone requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button id="submit_form" type="submit" class="md-raised md-primary right">
+                    <ng-md-icon icon="save" class="md-icon-left" size="16"></ng-md-icon>
+                    <span>Sauvegarder</span>
+                </md-button>
+            </md-input-container>
+        </form>
+    </md-content>
+
+</div>
+
+<div ng-include="'app/corporate/views/settingCorporate/settingCorporateDialogs.html'"></div>
+

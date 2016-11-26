@@ -1,0 +1,129 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>8font12</title>
+<style type="text/css">
+/* Styles specifiques aux client mails */
+#outlook a{padding:0;}
+
+/* Forcer Outlook a fournir un bouton "vue dans le navigateur" */
+body{width:100% !important;}
+
+.ReadMsgBody{width:100%;}
+
+.ExternalClass{width:100%;display:block !important;}
+
+/* Force Hotmail a afficher l'e-mails sur la largeur complete */
+body{-webkit-text-size-adjust:none;}
+
+/* Empecher les plates-formes Webkit de changer les tailles de texte par defaut. */
+.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span{
+	color:black;
+	text-decoration:none !important;
+	border-bottom:none !important;
+	background:none !important;/* Body text color for the New Yahoo.  This example sets the font of Yahoo's Shortcuts to black. */
+}
+
+/* Styles de reinitialisation */
+body{margin:0;padding:0;}
+
+body, html{
+	width:100% !important;
+	padding:0 !important;
+	margin:0 !important;
+}
+
+* {line-height:normal;padding:0 !important;}
+
+table{
+	mso-table-lspace:0pt;
+	mso-table-rspace:0pt;
+	mso-padding-alt:0px 0px 0px 0px;
+}
+
+/* fix extra spacing that appears on aligned tables on outlook 07/10 */
+table td, table tr{border-collapse:collapse;}
+
+img{
+	border:0;
+	line-height:100%;
+	outline:none;
+	text-decoration:none;
+	-ms-interpolation-mode:bicubic;
+	border:none;
+}
+
+a{text-decoration:none;}
+
+p{margin:0;padding:0;}
+
+ul, li{margin:0;padding:0;}
+
+br, strong br, b br, em br, i br {
+	line-height:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height:100% !important;
+	-webkit-font-smoothing:antialiased;
+}
+
+div, p, a, li, td{-webkit-text-size-adjust:none;}
+
+body, #backgroundTable{background-color:#eef4fa;}
+
+ table[class=showblocmobile], tr[class=showblocmobile], td[class=showblocmobile] {
+display:none !important;
+}
+
+/* Mobile-specific Styles */
+@media screen and (min-width: 0px) and (max-width: 480px) {
+	table[class*=hide], td[class*=hide], img[class*=hide], p[class*=hide], span[class*=hide], br[class*=hide],[class*=hide]{
+		display:none !important;
+		width:0px !important;
+		height:0px !important;
+	}
+
+	img[class="w300"], td[class="w300"], tr[class="w300"], table[class="w300"]{width:300px !important;}
+
+	font[class="txt13"]{font-size:14px !important; text-align:left !important;}
+
+}
+</style>
+</head>
+<body yahoo="fix">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left" class="w300" bgcolor="#FFFFFF">
+      <tr>
+          <td width="580" height="85" valign="top" class="w280">
+            <br/><br/>
+            <font style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#6e6e6e;" class="txt13">
+                <strong><u>A L'ATTENTION DE L'EMPLOYEUR DE {{ member.firstName|capitalize }} {{ member.lastName|capitalize }}</strong></u></strong>
+            <br/><br/>
+                Je me permets de vous contacter suite à la demande de <strong>{{ member.firstName }} {{ member.lastName }}</strong> - qui vous a certainement parlé de <i><strong>Coopérons !</strong></i>
+            <br/><br/>
+                En quelques mots, <i><strong>Coopérons !</strong></i> permet à des entreprises de créer leurs réseaux d'apporteurs d'affaires, rémunérés en chèques cadeau Amazon - jusqu'à 1'000 € par trimestre par bénéficiaire.
+            <br/><br/>
+                Conformément à la législation applicable aux rémunérations versées par des tiers, <i><strong>Coopérons !</strong></i> assure toutes les formalités administratives ainsi que le paiement des cotisations sociales applicables.
+            <br/><br/>
+                Nous vous communiquerons chaque année, un état récapitulatif pour l'ensemble des membres de <i><strong>Coopérons !</strong></i> salariés reprenant (i) le montant des chèques cadeau distribués ainsi que (ii) le montant des cotisations sociales versées par <i><strong>Coopérons !</strong></i>
+            <br/><br/>
+                Pour les salariés de votre entreprise, il s'agit d'un moyen d'augmenter réellement leur rémunération - sans aucun coût, et en toute transparence pour vous.
+            <br /><br />
+                <a href="{{ app.request.scheme}}://{{ app.request.host}}{{path('landing_college')}}?tkn={{ invitation.token }}">Cliquez ici pour en savoir plus sur <i><strong>Coopérons !</strong></i></a>
+            <br /><br />
+            En vous remerciant d'avance au nom de <strong>{{ member.firstName }} {{ member.lastName }}</strong> - et de tous vos salariés futurs membres de <i><strong>Coopérons !</strong></i>
+            </font>
+            <br/><br/>
+            <font style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#6e6e6e;" class="txt13">
+                Emmanuel IFERGAN
+                <br />
+                Gérant
+            </font>
+            <br/><br/>
+        </td>
+      </tr>
+   </table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "AprContractBundle:Emails:baseEmailContract.html.twig" %}
+{% block content %}
+    Pour rappel, {{ sponsorMember.label }} reste en attente de la création de votre Compte
+    {% if standByFor == 'corporate' %}Entreprise{% else %}Auto-Entrepreneur{% endif %} - nécessaire pour la création d'un contrat Prestataire avec {% if standByFor == 'corporate' %}votre{% else %}son{% endif %} entreprise.
+    <br/><br/>
+    {% if standByFor == 'corporate' %}
+        Pour cela, il vous suffit de vous rendre dans le menu Mon Entreprise et de cliquer sur le bouton "Nouveau Compte Entreprise".
+    {% else %}
+        Pour cela, merci de nous contacter directement (client@cooperons.com) pour les formalités nécessaires à l'ouverture de votre compte Auto-Entrepreneur.
+    {% endif %}
+    <br/><br/>
+    Une fois que votre Compte {% if standByFor == 'corporate' %}Entreprise{% else %}Auto-Entrepreneur{% endif %} aura été créé, il vous suffira d'inviter {{ sponsorMember.label }} ({{ sponsorMember.email }})
+    {% if standByFor == 'corporate' %}
+        en vous rendant dans l'onglet Prestataires du Menu Mon Entreprise.
+    {% else %}
+        en vous rendant dans l'onglet Clients du Menu Auto-Entrepreneur.
+    {% endif %}
+{% endblock %}

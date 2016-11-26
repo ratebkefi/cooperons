@@ -1,0 +1,17 @@
+apr_program:
+    resource: "Apr/ProgramBundle/Resources/config/patch_format.yml"
+
+apr_user:
+    resource: "Apr/UserBundle/Resources/config/patch_format.yml"
+
+apr_corporate:
+    resource: "Apr/CorporateBundle/Resources/config/patch_format.yml"
+
+apr_mandataire:
+    resource: "Apr/MandataireBundle/Resources/config/patch_format.yml"
+
+apr_contract:
+    resource: "Apr/ContractBundle/Resources/config/patch_format.yml"
+
+apr_autoEntrepreneur:
+    resource: "Apr/AutoEntrepreneurBundle/Resources/config/patch_format.yml"

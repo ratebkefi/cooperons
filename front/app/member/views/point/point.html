@@ -1,0 +1,134 @@
+<!-- Page: list of member's points -->
+<header class="page-header"><h2>Mes Points</h2></header>
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="thumb_up" class="blue-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <div class="md-subhead" ng-include="'app/member/views/member/status.html'"></div>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+</md-content>
+
+
+<div ng-if="allPoints && allPoints != ''" class="md-padding">
+
+    <md-toolbar class="md-table-toolbar md-default mt-lg" ng-if="allPoints && allPoints != ''">
+        <div class="md-toolbar-tools">
+            <div flex></div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block mr-sm" ng-if="allPrograms" flex-gt-sm>
+                    <md-select aria-label="Programme" ng-model="selected.program" ng-change="filterPoints()">
+                        <md-option ng-repeat="programOption in allPrograms" ng-value="programOption">
+                            {{programOption.value}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" ng-if="allYears" flex-gt-sm>
+                    <md-select aria-label="Année" ng-model="selected.year" ng-change="filterPoints()">
+                        <md-option ng-repeat="yearOption in allYears" ng-value="yearOption">
+                            {{yearOption.value}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+
+        </div>
+    </md-toolbar>
+
+    <md-card class="mt-lg md-padding">
+        <span ng-init="soldeNet = 0"></span>
+
+        <md-toolbar class="md-table-toolbar md-default" ng-if="allPoints">
+            <div class="md-toolbar-tools">
+                <span class="text-bold text-sm">Total de vos points :</span>
+
+                <div flex></div>
+                <span class="red-color text-md">{{totalPoints}} Points</span>
+            </div>
+        </md-toolbar>
+
+        <md-table-container ng-if="allPoints">
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column><span>Date</span></th>
+                    <th md-column><span>Programme</span></th>
+                    <th md-column><span>Événement</span></th>
+                    <th md-column><span>Points</span></th>
+                </tr>
+                </thead>
+                <tbody md-body ng-repeat="accountHistoryPoint in allPoints">
+                <tr md-row>
+                    <td md-cell>{{accountHistoryPoint.date}}</td>
+                    <td md-cell>{{accountHistoryPoint.program}}</td>
+                    <td md-cell>{{accountHistoryPoint.description}}</td>
+                    <td md-cell>{{accountHistoryPoint.points}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+    </md-card>
+
+    <md-card class="mt-lg md-padding">
+        <md-toolbar class="md-table-toolbar md-default" ng-if="allAvantages.length > 0">
+            <div class="md-toolbar-tools">
+                <span class="text-bold text-sm">Points convertis :</span>
+
+                <div flex></div>
+                <span class="red-color text-md">{{totalAvantages}} Points</span>
+            </div>
+        </md-toolbar>
+
+        <md-table-container ng-if="allAvantages.length > 0">
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column><span>Date</span></th>
+                    <th md-column><span>Événement</span></th>
+                    <th md-column><span>Points</span></th>
+                </tr>
+                </thead>
+                <tbody md-body ng-repeat="avatange in allAvantages">
+                <tr md-row>
+                    <td md-cell>{{avatange.date}}</td>
+                    <td md-cell>{{avatange.description}}</td>
+                    <td md-cell>{{avatange.points}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+    </md-card>
+
+    <md-content class="mt-md" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-toolbar class="md-table-toolbar md-default" ng-if="allPoints">
+                    <div class="md-toolbar-tools">
+                        <span class="text-bold text-sm">Solde restant à convertir <b
+                                ng-if="filter.year && filter.year != allYears[0].value">pour l'année
+                            {{filter.year}} </b> :</span>
+
+                        <div flex></div>
+                        <label class="label-toto text-md red-color">{{totalPoints
+                            - totalAvantages}} Points</label>
+
+                    </div>
+                </md-toolbar>
+            </md-card>
+
+        </div>
+    </md-content>
+
+
+</div>

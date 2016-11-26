@@ -1,0 +1,414 @@
+{% extends "AprProgramBundle:Default:baseMarketing.html.twig" %}
+{% block content %}
+    <!-- header -->
+    <header class="header clear goToTopFaq " role="banner">
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#">
+                            <img src={{ asset('bundles/Edtapp/img/marketing/logo.png')}} alt="Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <!-- /logo -->
+                </div>
+            </div>
+        </div>
+        <!-- /wrapper -->
+    </header>
+    <!-- /header -->
+
+    <main role="main">
+        <div class="wrapper">
+            <!-- section -->
+            <section>
+                <h1>Foire aux questions: Entreprise organisatrice</h1>
+                <article id="post-48" class="post-48 page type-page status-publish hentry">
+
+                    <div class="qa-faqs qa-category cf animation-fade accordion collapsible">
+                        <div class="qa-category">
+                            <h2 class="faq-catname">A propos de <strong><i>Coopérons !</i></strong></h2>
+                            <div id="qa-faq100" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Qui sommes nous ?</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p>Fondée en 2013, <strong><i>Coopérons !</i></strong> est une jeune entreprise
+                                        de services aux entrepreneurs. <br>
+                                        Nous sommes partis d'un constat simple: pour la plupart des TPE / PME, la recommandation
+                                        client constitue bien souvent la première source de nouveaux clients. <br>
+                                        Malheureusement, ce potentiel reste bien souvent inexploité - principalement à cause
+                                        de la lourdeur administrative liée à la rémunération d'intervenants non-salariés.<br>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="qa-faq101" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Nous contacter</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p> Une question ? Besoin de plus d'information ?<br>
+                                        Que vous soyez membre ou client de <strong><i>Coopérons !</i></strong>,
+                                        Emmanuel Ifergan, fondateur et gérant de <strong><i>Coopérons !</i></strong>
+                                        est joignable par email à:
+                                        <a href="mailto:ei@cooperons.com">ei@cooperons.com.</a><br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qa-category">
+                            <h2 class="faq-catname">Les Points et MultiPoints</h2>
+                            <div id="qa-faq200" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Comment fonctionne un programme de stimulation
+                                        sur <strong><i>Coopérons !</i></strong> ?</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p> Vous souhaitez organiser un programme de stimulation sur <strong><i>Coopérons !</i></strong> ?
+                                        rien de plus simple.<br>
+                                        Tous les programmes de stimulation organisés sur <strong><i>Coopérons !</i></strong>
+                                        permettent aux participants de gagner des Points dans certaines conditions.<br>
+                                        Ces Points, offerts par l'entreprise organisatrice, donnent droit aux participants de recevoir
+                                        des chèques cadeau Amazon chaque trimestre - au taux de 20 € pour 100 Points.<br>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="qa-faq201" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Quelle différence entre Points et MultiPoints ?</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p>
+                                        Les MultiPoints constituent une catégorie de Points particulière conçue pour rémunérer
+                                        les parrains successifs d'un de vos participants - et inciter donc vos participants à étendre votre réseau.<br>
+                                        Ainsi, lorsque vous offrez des MultiPoints à l'un de vos participants, vous vous engagez par
+                                        ailleurs à offrir 2/3 du montant (arrondi à l'entier inférieur) au parrain dudit participant,
+                                        et ainsi de suite de filleul en parrain en appliquant la même règle de calcul.<br>
+                                        Ainsi, lorsque vous offrez 90 MultiPoints à un participant, vous vous engagez à offrir
+                                        60 MultiPoints à son parrain, 40 MultiPoints au parrain du parrain etc ...<br>
+                                        Le système des MultiPoints est conçu pour inciter fortement vos participants à développer
+                                        votre réseau - mais avec des garde-fous importants:</p>
+                                    <p><ul>
+                                        <li> vous gardez toujours la main sur l'inscription de tout nouveau participant à votre programme.
+                                            Vous pouvez donc refuser un nouveau participant à votre programme si vous l'estimez nécessaire;</li>
+                                        <li> mathématiquement, la somme des MultiPoints en remontant une chaîne de parrainage de
+                                            filleul en parrain, est <b><u>toujours inférieure à 3 fois</u></b> le montant de MultiPoints offert au
+                                            participant initial</li>
+                                    </ul></p>
+                                    <p>
+                                    Ainsi, dans le cas précédent, la somme des MultiPoints offerts à toute la chaîne de parrainage
+                                    sera toujours inférieure à 3 x 90 = 270 Points.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="qa-faq202" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Les MultiPoints - n'est-ce pas un système "pyramidal" ?</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p> Il est vrai que la mécanique multi-niveau des MultiPoints peut faire penser aux
+                                        systèmes de vente pyramidale - bien souvent illégaux. Ces systèmes fonctionnent en fait sur
+                                        le paiement par les nouveaux membres de primes, frais d'inscription - partagés entre les
+                                        différents parrains.<br>
+                                        Ces pratiques déloyales ou trompeuses sont sanctionnées par la loi en France.<br>
+                                        Le système proposé par <strong><i>Coopérons !</i></strong> en revanche ne repose pas sur
+                                        le paiement d'une quelconque somme d'argent par ses membres: <strong><u>tous les gains de Points
+                                                et MultiPoints sont effectivement payés par les entreprises organisatrices</u></strong>.<br>
+                                        Il va sans dire que <strong><i>Coopérons !</i></strong> se réserve le droit d'exclure tout
+                                        organisateur d'un programme qui pourrait être qualifié de "pyramidal".<br>
+                                        Le système proposé par <strong><i>Coopérons !</i></strong> est tout à fait similaire
+                                        aux programmes de stimulation commerciale organisés par exemple par les marques automobiles
+                                        auprès de leur réseau de concessionnaires par exemple - avec une mécanique multi-niveau en plus.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="qa-faq203" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Combien coûte la gestion d'un programme de stimulation
+                                        sur <strong><i>Coopérons !</i></strong></a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p>
+                                        Nous avons voulu rendre notre offre le plus accessible possible.<br>
+                                        L'installation, la configuration et les frais d'hébergement d'un programme sont facturés
+                                        au moyen d'un abonnement mensuel - dépendant du mode de fonctionnement choisi:</p>
+                                    <p><ul>
+                                        <li>39 € HT par mois, si vous choisissez le fonctionnement standard;</li>
+                                        <li>79 € HT par mois, si vous choisissez le fonctionnement en mode API.</li>
+                                    </ul></p>
+                                    <p>Nous vous facturons en outre une commission dont le montant HT est égal à 25% de la valeur
+                                    des Points offerts à vos participants (au taux de conversion de 20 € pour 100 Points).<br>
+                                    Cette commission de 25% couvre le réglement par <strong><i>Coopérons !</i></strong> des cotisations
+                                    sociales de 20% dues dans le cadre de la réglementation applicable aux chèques cadeau
+                                        (<a href="http://www.paris.urssaf.fr/images/ref_LCIRC-2012-0000042.pdf" target="blank">circulaire URSAFF téléchargeable ici</a>)- ainsi
+                                    que les frais de gestion administratifs.<br>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="qa-faq204" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Quelle différence y a-t-il entre le fonctionnement en mode standard et
+                                        en mode API ?</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p>
+                                        En mode standard, votre programme est automatiquement structuré autour du concept d'apports
+                                        d'affaires - et uniquement accessible par vous au moyen de l'interface d'administration
+                                        de votre programme.<br>
+                                        En mode API, vous disposez d'une flexibilité bien supérieure: vous définissez vous-même
+                                        les opportunités de gain de Points et MultiPoints, et gérez votre programme (inscription, invitations,
+                                        attribution de points) au moyen de notre API.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="qa-faq205" class="qa-faq">
+                                <h3 class="qa-faq-title">
+                                    <a class="qa-faq-anchor" href="#">Comment régler mes factures ? Qu'est ce mon compte Programme ?</a>
+                                </h3>
+                                <div class="qa-faq-answer">
+                                    <p>
+                                        Lorsque vous créez votre programme de stimulation, en plus du réglement de l'abonnement annuel,
+                                        vous procédez au versement d'un dépôt de 1'000 €.<br>
+                                        Ce dépôt est utilisé pour procéder au réglement de vos achats de Points effectués dans
+                                        le cadre de votre programme de stimulation.<br>
+                                        Lorsque le solde de votre dépôt est insuffisant, vos commandes de Points restent en
+                                        attente jusqu'à ce que vous procédiez à l'approvisionnement de votre compte.<br>
+                                        Enfin, bien sûr, en cas de résiliation, le solde de votre dépôt vous est intégralement remboursé - sans aucun frais.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="qa-faq206" class="qa-faq">
+                            <h3 class="qa-faq-title">
+                                <a class="qa-faq-anchor" href="#">Qu'est-ce que le mode "pré-production" ?</a>
+                            </h3>
+                            <div class="qa-faq-answer">
+                                <p>
+                                    Une fois que vous avez créé votre programme de stimulation, celui-ci n'est pas immédiatement activé: vous disposez
+                                    ainsi de la faculté de tester son fonctionnement sur des participants fictifs, y compris en leur attribuant des Points (fictifs eux aussi).<br>
+                                    Une fois que vous estimez que votre programme est parfaitement configuré, il vous suffit de l'activer dans le menu
+                                    Configuration.<br>
+                                    Notez que pour activer votre programme, vous devrez avoir renseigné l'adresse expéditrice de vos emails d'invitation et -
+                                    dans le cas de la formule standard - chargé le document de présentation (format PDF - < 2 Mo) de votre programme de stimulation.
+                                </p>
+                            </div>
+                        </div>
+                        {% if isEasy %}
+                            <div class="qa-category">
+                                <h2 class="faq-catname">Attribution de Points: les Affaires</h2>
+                                <div id="qa-faq300" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment attribuer des Points à mes apporteurs d'affaires ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            En fonctionnement standard, un programme de stimulation organisé sur <strong><i>Coopérons !</i></strong>
+                                            vise à faire de ses participants de véritables apporteurs d'affaires pour votre entreprise.<br>
+                                            Ainsi, lorsqu'un de vos participants identifie une opportunité d'affaire, et que cette opportunité
+                                            est concrétisée - et réglée - vous vous engagez à verser un montant de Points calculé comme suit:</p>
+                                        <p><ul>
+                                            <li>une Commission Simple: un montant de Points proportionnel calculé sur la base d'un taux
+                                                de commissionnement que vous déterminez lors de la création de votre programme (par défaut fixé à 3%)</li>
+                                            <li>une Commission Multi-Niveau: un montant de <b><u>MultiPoints</u></b> calculé sur la base d'un taux
+                                                de commissionnement que vous déterminez lors de la création de votre programme (par défaut fixé à 3% - minimum 1%)</li>
+                                        </ul></p>
+                                        <p>
+                                        Ces taux sont appliqués à chaque réglement client effectué dans le cadre d'une affaire
+                                        apportée par un de vos participants, que vous confirmez sur l'espace d'administration de votre programme.<br>
+                                        Du fait de la mécanique des MultiPoints et des frais de gestion Coopérons, le coût maximum
+                                        d'une nouvelle affaire est obtenu par la formule suivante:<br>
+                                        (Ts + Tm x 3) x 125%<br>
+                                        où Ts: Taux de Commission Simple, Tm: Taux de Commission Multi-Points.<br>
+                                        Dans la pratique, ce coût sera inférieur à ce coût maximum (uniquement atteint en cas de très longue chaîne de parrainage...).
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq301" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Dans quel cadre contractuel est organisé mon programme de stimulation ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Lors de la création de votre programme, nous mettons à votre disposition des conditions générales
+                                            décrivant le fonctionnement et les règles d'attribution des Points par votre entreprise.<br>
+                                            Ces conditions générales sont établies en fonction des taux
+                                            de Commission Simple et MultiNiveaux que vous aurez préalablement sélectionnés.<br>
+                                            Vous pouvez bien sûr personnaliser et modifier ces conditions générales en fonction des
+                                            spécificités de votre programme si vous l'estimez nécessaire.<br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq302" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment fonctionnent les invitations ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Vos participants peuvent, en se rendant sur leur compte <strong><i>Coopérons !</i></strong> accéder
+                                            au module d'invitation de votre programme.<br>
+                                            Ce module d'invitation leur permet de parrainer simplement de nouveaux membres - auxquels
+                                            seront envoyés un email d'invitation - redirigeant vers une page Web comportant un document de présentation
+                                            décrivant le fonctionnement de votre programme.<br>
+                                            Le contenu de l'email d'invitation, ainsi que le document de présentation (format PDF - < 2 Mo) de votre programme doivent
+                                            être rédigés par vos soins.<br>
+                                            En cas d'interêt de la part d'un membre invité, celui-ci vous contactera par email (ou tout autre moyen) -
+                                            libre à vous de l'inscrire en tant que participant à votre programme ou non.<br>
+                                            A noter: la durée de vie d'une invitation est de 30 jours.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq303" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment sont inscrits les participants ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            La gestion d'un programme d'apport d'affaires sur <strong><i>Coopérons !</i></strong> est exclusivement
+                                            pilotée par vous sur votre espace d'administration.<br>
+                                            Vos participants peuvent uniquement inviter de nouveaux participants à participer à votre programme sur notre
+                                            module d'invitation - en aucun cas ils ne peuvent inscrire eux-mêmes de nouveaux participants.<br>
+                                            La plupart de vos participants seront en fait inscrits suite à une demande de vos équipes commerciales -
+                                            après avoir présenté le fonctionnement de votre programme à leurs interlocuteurs (clients, prospects, partenaires ...).<br>
+                                            Mais vous pourrez aussi bien sûr confirmer les demandes provenant d'invitation de vos participants existants.<br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq304" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Quel est le processus de validation d'une affaire ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Un de vos participants remonte à votre équipe commerciale une opportunité d'affaire intéressante ?
+                                            Pour créer une affaire, il vous suffit de vous rendre sur l'espace d'administration de votre programme,
+                                            et sélectionner le participant concerné.<br>
+                                            Au fur et à mesure du processus commercial (approche, négociation, closing) vous pourrez affiner le montant
+                                            de l'affaire faisant l'objet du commissionnement.<br>
+                                            Une fois l'affaire conclue avec votre prospect, il vous suffira de renseigner le montant HT
+                                            de cette affaire - ce qui constituera le seuil maximum commissionnable pour votre participant.<br>
+                                            Les commissions - et l'achat des Points équivalents - ne seront effectivement versées qu'au fur et à mesure
+                                            des réglements que vous renseignerez dans l'espace d'administration de votre programme.<br>
+                                            Enfin, bien sûr, vous disposez à tout moment - y compris après closing de l'affaire - de la faculté
+                                            d'annuler une affaire en cours: <strong><i>Coopérons !</i></strong> n'a pas vocation à s'immiscer
+                                            dans la gestion de vos relations avec vos participants - dont vous assumez seul la responsabilité.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% else %}
+                            <h2 class="faq-catname">Attribution de Points: les Opérations</h2>
+                            <div class="qa-category">
+                                <div id="qa-faq300" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Où se trouve l'API du service Coopérons Plus ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Vous êtes intéressé par le fonctionnement de notre API ?<br>
+                                            <a href="{{ app.request.getBaseURL() ~ '/api/doc/'}}" target="blank">
+                                            Notre API est disponible ici</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq301" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment attribuer des Points à mes participants ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            En mode API, un programme de stimulation fonctionne au moyen d'opérations que vous
+                                            paramétrez lors de la configuration de votre programme.<br>
+                                            Le code d'identification de chaque opération est un paramètre requis
+                                            de la fonction <font color="blue"><b>API POST /members/<i>$userid</i>/points</b></font> au moyen
+                                            de laquelle vous attribuez des Points / MultiPoints à un participant.<br>
+                                            Vous disposez d'un nombre illimité d'opérations possibles, chaque opération étant définie par:</p>
+                                        <p>
+                                            <ul>
+                                            <li>la nature des points offerts: Points ou MultiPoints (votre programme doit toutefois comporter
+                                            au moins une opération de gain de MultiPoints)</li>
+                                            <li>le montant par défaut si applicable. Ce montant servira à l'API lorsque le montant de Points attribué
+                                            ne sera pas renseigné (paramètre optionnel)</li>
+                                            <li>la clause juridique intégrée aux conditions générales de votre programme décrivant
+                                            la règle d'attribution de Points pour cette opération</li>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq302" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Dans quel cadre contractuel est organisé mon programme de stimulation ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Lors de la création de votre programme, nous mettons à votre disposition un modèle
+                                            de conditions générales décrivant le fonctionnement et les règles d'attribution de Points.<br>
+                                            Vous devez rédiger de votre côté les clauses suivantes - intégrables sur ce modèle de conditions
+                                            générales:</p>
+                                        <p>
+                                            <ul>
+                                            <li>l'article décrivant les principes de fonctionnement de votre Programme</li>
+                                            <li>les clauses d'attribution de Points relatives à chaque Opération</li>
+                                        </ul></p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq303" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment fonctionnent les invitations ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Vos participants peuvent, en se rendant sur leur compte <strong><i>Coopérons !</i></strong> accéder
+                                            au module d'invitation de votre programme.<br>
+                                            Celui-ci est disponible à l'URL: <font color="blue"><b>www.cooperons.com/public/invitation/[TKN]</b></font>,
+                                            où TKN est le token transmis par la fonction <font color="blue"><b>API GET /members/$userid</b></font>
+                                            Ce module d'invitation leur permet de parrainer simplement de nouveaux membres - auxquels
+                                            seront envoyés un email d'invitation - redirigeant vers une URL de votre souhait (landing page).<br>
+                                            Un token d'invitation sera transmis lors du clic par l'utilisateur sur le lien pointant vers cette URL,
+                                            transmis dans le paramètre <b>"tkn"</b> (GET).
+                                            Ce token d'invitation vous permettra:</p>
+                                        <p>
+                                            <ul>
+                                            <li>de récupérer, au moyen de la fonction <font color="blue"><b>API GET /invitations/</b></font>
+                                            les informations relatives au membre concerné (prénom, nom, adresse email, userId du parrain)</li>
+                                            <li>lors de l'inscription éventuelle de ce membre, à la confirmation du parrainage, au moyen de la fonction
+                                                <font color="blue"><b>API POST /members/</b></font>, en passant ce token en paramètre. </li>
+                                        </ul></p>
+                                        <p>
+                                        Vous pouvez par ailleurs paramétrer différents modèles d'emails d'invitation - par exemple en
+                                        fonction du rôle de l'utilisateur concerné dans votre application - et définir l'email d'invitation type
+                                        à utiliser pour chaque participant, au moyen de la fonction <font color="blue"><b>API PUT /members/</b></font><br>
+                                        Enfin, vous pouvez vous-même déclencher l'envoi d'une invitation à un membre au moyen de la fonction
+                                        <font color="blue"><b>API POST /invitations/</b></font><br>
+                                        A noter: la durée de vie d'une invitation est de 30 jours.<br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="qa-faq304" class="qa-faq">
+                                    <h3 class="qa-faq-title">
+                                        <a class="qa-faq-anchor" href="#">Comment sont inscrits les participants ?</a>
+                                    </h3>
+                                    <div class="qa-faq-answer">
+                                        <p>
+                                            Vous inscrivez vos participants au programme au moyen de la fonction <font color="blue"><b>API POST /members/</b></font><br>
+                                            Cette fonction nécessite les paramètres suivants:</p>
+                                        <p>
+                                            <ul>
+                                            <li>une adresse email valide</li>
+                                            <li>l'identifiant unique (Id) dans votre système du participant en question - clé permettant la récupération ultérieure
+                                                des informations du participant (au moyen de la fonction <font color="blue"><b>API GET /members/$userId</b></font>) -
+                                                et notamment de la chaîne de parrainage remontante (filleul->parrain).</li>
+                                        </ul></p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </article>
+            </section>
+        </div>
+    </main>
+{% endblock %}

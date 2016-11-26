@@ -1,0 +1,70 @@
+<md-content class="md-padding" layout-xs="column" layout="row"
+            ng-if="allQuarterlyTaxations && allQuarterlyTaxations != ''">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Charges Trimestrielles</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>AE</span></th>
+                        <th md-column><span>CA</span></th>
+                        <th md-column><span>Montant</span></th>
+                        <th md-column><span>Action</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="(id, quarterlyTaxation) in allQuarterlyTaxations">
+                        <td md-cell>{{quarterlyTaxation.autoEntrepreneur.label}}</td>
+                        <td md-cell>{{quarterlyTaxation.totalIncomeHt|displayPrice}} €</td>
+                        <td md-cell>
+                            <div class="width-80">
+                                <md-tooltip md-direction="top">montant monétaire</md-tooltip>
+                                <input type="text" ng-model="quarterlyTaxation.amount" class="width-80"/> €
+                            </div>
+                        </td>
+                        <td md-cell>
+                            <form action="https://www.net-entreprises.fr/auth/pass" id="netEntreprisesAccess_{{id}}"
+                                  method="post" target="_blank">
+                                <input type="hidden" name="j_siret"
+                                       value="{{quarterlyTaxation.autoEntrepreneur.SIRET}}">
+                                <input type="hidden" name="j_nom"
+                                       value="{{quarterlyTaxation.autoEntrepreneur.externalLastName}}">
+                                <input type="hidden" name="j_prenom"
+                                       value="{{quarterlyTaxation.autoEntrepreneur.externalFirstName}}">
+                                <input type="hidden" name="j_password"
+                                       value="{{quarterlyTaxation.autoEntrepreneur.externalPassword}}">
+                                <input type="hidden" name="rblChoixModeAuth2" value="MDP">
+                            </form>
+                            <md-button aria-label="Déclarer" type="submit" form="netEntreprisesAccess_{{id}}"
+                                       class="md-raised md-primary mr-md">
+                                Déclarer
+                            </md-button>
+                            <md-button aria-label="Reporter"
+                                       ng-click="rescheduleQuarterlyTaxation(quarterlyTaxation.autoEntrepreneur.id)"
+                                       class="md-raised md-primary mr-md">
+                                <ng-md-icon icon="date_range" class="md-icon-left" size="16"></ng-md-icon>
+                                Reporter
+                            </md-button>
+                            <md-button
+                                    ng-click="confirmQuarterlyTaxation(quarterlyTaxation.autoEntrepreneur.id, quarterlyTaxation.amount)"
+                                    aria-label="Payer" type="submit" class="md-raised md-primary">
+                                <ng-md-icon icon="euro_symbol" class="md-icon-left" size="16"></ng-md-icon>
+                                Payer
+                            </md-button>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>

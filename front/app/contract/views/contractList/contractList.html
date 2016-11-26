@@ -1,0 +1,153 @@
+<md-toolbar class="md-theme-light" ng-if="contractListCtr.collaborator">
+    <h2 class="md-toolbar-tools">
+        <span>Vos contrats {{ contractListCtr.labelContract }}</span>
+        <md-button ng-click="contractListCtr.showInvitationDialog()" class="md-icon-button launch">
+            <md-tooltip md-direction="top">Nouveau Contrat</md-tooltip>
+            <md-icon class="red-color" md-font-icon="fa fa-plus"></md-icon>
+        </md-button>
+    </h2>
+</md-toolbar>
+
+<md-toolbar class="md-theme-light" ng-if="!contractListCtr.collaborator && contractListCtr.autoEntrepreneur">
+    <h2 class="md-toolbar-tools">
+        <span> Nouveau {{ contractListCtr.labelContract }}</span>
+        <md-button ng-click="contractListCtr.showInvitationDialog()" class="md-icon-button launch">
+            <md-tooltip md-direction="top">Nouveau Contrat</md-tooltip>
+            <md-icon class="red-color" md-font-icon="fa fa-plus"></md-icon>
+        </md-button>
+    </h2>
+</md-toolbar>
+
+<ul class="collection with-header">
+    <li class="collection-item" ng-repeat="contract in (contractListCtr.contracts | allowContractsActions:contractListCtr.filterContract)">
+        <div class="first-content">
+        <span class="title" id="contract_infos_{{ contract.id }}">
+            {{ contract | contractLabel:contractListCtr.filterContract  }}
+        </span>
+        <span class="label-status title standby">
+            {{ contract | contractStatus }}
+        </span>
+
+        <span ng-if="contractListCtr.autoEntrepreneur && contract.recruitment
+        && contract.owner.autoEntrepreneur.id == contractListCtr.autoEntrepreneur.id && !contract.recruitment.isExpired"
+              class="label-status preprod title">
+            <md-tooltip md-direction="top">{{contract.recruitment.recruiterCorpContract.owner.label}}</md-tooltip>
+                apporté
+        </span>
+        <span class="title" ng-if="contractListCtr.autoEntrepreneur && contract.allActiveRecruitments.length">
+            <span ng-if="contract.client.autoEntrepreneur" class="label-status preprod">
+                <md-tooltip md-direction="top">{{contract.recruitmentGroup}}</md-tooltip>
+                {{ contract.allActiveRecruitments.length }} client<span
+                    ng-if="contract.allActiveRecruitments.length > 1">s</span>
+            </span>
+            <span ng-if="!contract.client.autoEntrepreneur && contract.client.corporate" class="label-status preprod">
+                <md-tooltip md-direction="top">{{contract.recruitmentGroup}}</md-tooltip>
+                {{ contract.allActiveRecruitments.length }} prestataire<span
+                    ng-if="contract.allActiveRecruitments.length > 1">s</span>
+            </span>
+        </span>
+        </div>
+
+        <div class="secondary-content">
+            <md-button ng-click="contractListCtr.signOutContract(contract)" ng-if="contract.actions.delete"
+                       class="md-icon-button launch right actions-delete">
+                <md-tooltip md-direction="top">Résilier</md-tooltip>
+                <ng-md-icon icon="delete"></ng-md-icon>
+            </md-button>
+            <md-button ng-if="contract.actions.resend" ng-click="contractListCtr.reinviteContract(contract)"
+                       class="md-icon-button launch right actions-edit">
+                <md-tooltip md-direction="top">Renvoyer</md-tooltip>
+                <ng-md-icon icon="refresh"></ng-md-icon>
+            </md-button>
+            <md-button ng-if="contract.actions.edit" ui-sref="contract.edit({'id':contract.id})"
+                       class="md-icon-button launch right actions-edit">
+                <md-tooltip md-direction="top">Contrat</md-tooltip>
+                <ng-md-icon icon="book"></ng-md-icon>
+            </md-button>
+            <md-button ng-if="contract.actions.administration" ui-sref="contract.administration({'id':contract.id})"
+                       class="md-icon-button launch right actions-admin">
+                <md-tooltip md-direction="top">Administration</md-tooltip>
+                <ng-md-icon icon="dashboard"></ng-md-icon>
+            </md-button>
+            <md-button ng-if="contract.actions.report" ng-click="recruitmentContract(contract)"
+                       class="md-icon-button launch right actions-admin">
+                <md-tooltip md-direction="top">Apporter un client</md-tooltip>
+                <ng-md-icon icon="person_add"></ng-md-icon>
+            </md-button>
+            <md-button ng-if="contract.actions.newSettlements"
+                       ui-sref="autoEntrepreneur.settingSettlements({'id':contract.id})"
+                       class="md-icon-button launch right actions-admin">
+                <md-tooltip md-direction="top">Nouvelle prestation</md-tooltip>
+                <ng-md-icon icon="person_add"></ng-md-icon>
+            </md-button>
+
+        </div>
+    </li>
+</ul>
+
+<md-content ng-if="contractListCtr.tokenAE && ((contractListCtr.labelContract != 'client' && !contractListCtr.autoEntrepreneur)
+                        || (contractListCtr.labelContract != 'prestataire' && contractListCtr.autoEntrepreneur))"
+            class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="thumb_up" class="blue-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <span class="md-subhead">
+                         Vous gagnez 1% du CA facturé par les Auto-Entrepreneurs que vous parrainez dans le cadre du
+                         programme Coopérons AE.
+                    </span>
+
+                    <md-input-container class="md-block text-right">
+                        <md-button class="md-raised md-primary  mt-md mr-md md-button md-ink-ripple"
+                                   ui-sref="program.cgv({'programId':idProgramAE})">
+                            <ng-md-icon icon="info" size="24"></ng-md-icon>
+                            <span>En savoir plus</span>
+                        </md-button>
+                    </md-input-container>
+
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content ng-if="!contractListCtr.party.status.Contracts.cgu" class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="thumb_up" class="blue-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <span class="md-subhead">
+                         Votre compte Entreprise n'est pas certifié, bénéficiez de tous les services gratuits
+                    de Coopérons en chargeant votre habilitation.
+                    </span>
+
+                    <md-input-container class="md-block text-center">
+                        <md-button class="md-raised md-primary  mt-md mr-md md-button md-ink-ripple"
+                                   ng-href="{{twigRoute.getRoute('landing_contract')}}">
+                            <ng-md-icon icon="info" size="24"></ng-md-icon>
+                            <span>En savoir plus</span>
+                        </md-button>
+                        <md-button class="md-raised md-primary  mt-md mr-md md-button md-ink-ripple"
+                                   ui-sref="corporate.edit({idCorporate : 0})">
+                            <ng-md-icon icon="add_circle" size="24"></ng-md-icon>
+                            <span>Habilitation</span>
+                        </md-button>
+                    </md-input-container>
+
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<div ng-include="'app/contract/views/contractList/contractListDialogs.html'"></div>

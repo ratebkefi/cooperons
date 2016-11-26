@@ -1,0 +1,62 @@
+{% extends "AprMandataireBundle:Emails:baseEmailMandataire.html.twig" %}
+{% block content %}
+    Dans le cadre du {{ mandataire.label }}, nous vous confirmons {% if status == 'cancel' %}l'annulation de {% endif %}votre commande
+    {% if allSettlements|length > 1 %}:
+        <p><ul>
+    {% endif %}
+    {% for settlement in allSettlements %}
+        {% if allSettlements|length > 1 %}
+            <li>
+        {% endif %}
+        {% if settlement.description|slice(0,1) in ['a', 'e', 'i', 'o', 'u']%}d'{%  else %}de {%  endif %}{{ settlement.description }}
+        pour un montant de
+        {% if settlement.amountHt and settlement.amountHt != settlement.amount %}
+            {{settlement.amountHt|number_format(2,',',' ')}} € HT, soit {{settlement.amount|number_format(2,',',' ')}} € TTC.
+        {% else %}
+            {{settlement.amount|number_format(2,',',' ')}} €.
+        {% endif %}
+        {% if allSettlements|length > 1 %}
+            </li>
+        {% endif %}
+    {% endfor %}
+    {% if allSettlements|length > 1 %}
+    </ul></p>
+    {% endif %}
+    <br /><br />
+
+    {% if extraMsg %}
+        <br /><br />
+        {{ extraMsg }}
+    {%  endif %}
+
+    {% if status == 'confirm' or status == 'cancel' %}
+        {% if status != 'cancel' %}
+            Cette commande a été réglée par prélèvement automatique sur votre {{ mandataire.shortLabel }}.
+            <br /><br />
+            Votre facture pour cette commande sera disponible au début du mois prochain sur votre Espace Client.
+            <br/><br/>
+        {% endif %}
+        Le solde de votre {{ mandataire.shortLabel }} s'élève {% if status != 'cancel' %}désormais{% endif %} à {{depot|number_format(2,',',' ')}} €.
+        {% if depot < minDepot %}
+            <br/><br/>
+            Attention, le solde de votre {{ mandataire.shortLabel }} est inférieur au Dépôt Minimum ({{minDepot|number_format(2,',',' ')}} €).
+            <br/><br/>
+            Merci d'approvisionner votre {{ mandataire.shortLabel }} dès que possible afin de ne subir aucune interruption de service.
+        {% endif %}
+    {% else %}
+        <font color="red"><strong>
+            Le solde de votre {{ mandataire.shortLabel }} ({{depot|number_format(2,',',' ')}} €) est insuffisant pour procéder au règlement de cette commande.
+        </strong></font>
+        <br/><br/>
+        Merci d'approvisionner votre {{ mandataire.shortLabel }} dès que possible afin
+        {% if mandataire.contract and mandataire.contract.suspensionDate %}
+            de réactiver votre {{ mandataire.shortLabel }} - qui est désormais suspendu dans l'attente de votre réglement.
+        {% else %}
+            de ne subir aucune interruption de service.
+        {% endif %}
+        <br/><br/>
+        <font color="red"><strong>
+            A défaut de règlement, cette commande sera annulée.
+        </strong></font>
+    {% endif %}
+{% endblock %}

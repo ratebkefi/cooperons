@@ -1,0 +1,323 @@
+//colors
+$color_red_approx: #d00;
+$white: #fff;
+$color_white_lilac_approx: #f7f8fa;
+$color_french_gray_approx: #bbc0ca;
+$color_cadet_blue_approx: #adb3be;
+$color_danube_approx: #5b80ce;
+$color_mystic_approx: #e1e6ea;
+$mercury: #e5e5e5;
+$color_alto_approx: #ddd;
+$color_manatee_approx: #8d939e;
+$color_cornflower_blue_approx: #6aaedf;
+$color_de_york_approx: #87b87f;
+$color_cabaret_approx: #cf3e73;
+$color_texas_rose_approx: #ffb752;
+$color_curious_blue_approx: #2283c5;
+$color_flame_pea_approx: #d15b47;
+$white_25: rgba(255, 255, 255, 0.25);
+$black_25: rgba(0, 0, 0, 0.25);
+
+//@extend-elements
+//original selectors
+//.wysiwyg-toolbar .btn-group .btn, .wysiwyg-toolbar .btn-group .inline .btn
+%extend_1 {
+	float: none;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+	border-width: 2px;
+	margin-left: 1px;
+}
+
+//original selectors
+//.wysiwyg-toolbar .btn-group .btn [class*="icon-"]:first-child, .wysiwyg-toolbar .btn-group .inline .btn [class*="icon-"]:first-child
+%extend_2 {
+	font-size: 14px;
+	width: 25px;
+	max-width: 25px;
+	display: inline-block;
+	border-width: 1px !important;
+}
+
+//original selectors
+//.wysiwyg-toolbar .btn-group .btn.active:after, .wysiwyg-toolbar .btn-group .inline .btn.active:after
+%extend_3 {
+	border-color: transparent;
+	border-style: solid;
+	border-top-color: inherit;
+	border-width: 6px 14px;
+	bottom: -13px;
+	left: 0;
+	right: 0;
+}
+
+//original selectors
+//.wysiwyg-style1 .btn-group .btn, .wysiwyg-style2 .btn-group .btn, .wysiwyg-style1 .btn-group .inline .btn, .wysiwyg-style2 .btn-group .inline .btn
+%extend_4 {
+	margin: 0 !important;
+	background: $white !important;
+	border: none !important;
+	color: $color_cadet_blue_approx !important;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: none !important;
+}
+
+//original selectors
+//.wysiwyg-style1 .btn-group:after, .wysiwyg-style2 .btn-group:after
+%extend_5 {
+	display: block;
+	content: "";
+	position: absolute;
+	left: -2px;
+	width: 0;
+	max-width: 0;
+	top: 6px;
+	bottom: 6px;
+	border-left: 1px solid $color_mystic_approx;
+}
+
+//original selectors
+//.wysiwyg-style2 .btn-group .btn, .wysiwyg-style2 .btn-group .inline .btn
+%extend_6 {
+	margin: 0 1px 0 0 !important;
+	background: $white !important;
+	border: none !important;
+	color: $color_manatee_approx !important;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: none !important;
+}
+
+//original selectors
+//.widget-header .wysiwyg-toolbar .btn-group .btn, .widget-header .wysiwyg-toolbar .btn-group .inline .btn
+%extend_7 {
+	border-color: transparent;
+	background: $white_25 !important;
+	color: $white !important;
+	border-width: 1px;
+}
+
+
+.wysiwyg-editor {
+	max-height: 250px;
+	height: 250px;
+	background-color: $color_white_lilac_approx;
+	border-collapse: separate;
+	border: 1px solid $color_french_gray_approx;
+	padding: 4px;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: content-box;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	outline: none;
+	&:focus {
+		background-color: $white;
+	}
+}
+.wysiwyg-toolbar {
+	line-height: 32px;
+	margin: 0 !important;
+	.dropdown-menu {
+		text-align: left;
+		input[type=text] {
+			margin-left: 8px;
+			margin-bottom: 0;
+			&.form-control {
+				min-width: 150px;
+			}
+		}
+		.btn {
+			margin-right: 8px;
+			margin-left: 1px;
+		}
+	}
+	.btn-group {
+		float: none;
+		font-size: 0;
+		.btn {
+			@extend %extend_1;
+			[class*="icon-"]:first-child {
+				@extend %extend_2;
+			}
+			&.dropdown-toggle [class*="icon-"]:last-child {
+				margin-right: 4px;
+			}
+			&.active:after {
+				@extend %extend_3;
+			}
+		}
+		.inline .btn {
+			@extend %extend_1;
+			[class*="icon-"]:first-child {
+				@extend %extend_2;
+			}
+			&.dropdown-toggle [class*="icon-"]:last-child {
+				margin-right: 4px;
+			}
+			&.active:after {
+				@extend %extend_3;
+			}
+		}
+	}
+	.btn-colorpicker {
+		width: 24px;
+		height: 24px;
+		position: relative;
+		background: $color_de_york_approx;
+		filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$color_cabaret_approx', endcolorstr='$color_texas_rose_approx', gradienttype=0);
+		background: linear-gradient(top, $color_cabaret_approx 10%, $white 20%, $color_curious_blue_approx 30%, $white 40%, $color_de_york_approx 50%, $white 60%, $color_texas_rose_approx 70%, $white 80%, $color_flame_pea_approx 90%, $white 100%);
+	}
+	input[type=file] {
+		position: fixed;
+		z-index: -10;
+		opacity: 0;
+		max-width: 0;
+		max-height: 0;
+		display: block;
+	}
+	.wysiwyg-choose-file {
+		display: inline-block;
+		width: auto;
+		margin: 4px auto 0;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.dropdown-colorpicker .dropdown-menu {
+		top: inherit;
+	}
+}
+.wysiwyg-style1 {
+	.btn-group {
+		position: relative;
+		.btn {
+			@extend %extend_4;
+			&.active {
+				color: $color_danube_approx !important;
+				&:after {
+					display: none;
+				}
+			}
+		}
+		&:after {
+			@extend %extend_5;
+		}
+		.inline .btn {
+			@extend %extend_4;
+			&.active {
+				color: $color_danube_approx !important;
+				&:after {
+					display: none;
+				}
+			}
+		}
+		&:first-child:after {
+			display: none;
+		}
+	}
+	.btn-colorpicker {
+		width: 20px;
+		height: 20px;
+	}
+}
+.wysiwyg-style2 {
+	background-color: $mercury;
+	.btn-group {
+		position: relative;
+		.btn {
+			@extend %extend_4;
+			@extend %extend_6;
+			&.active {
+				color: $color_danube_approx !important;
+				color: $white !important;
+				background: $color_cornflower_blue_approx !important;
+				&:after {
+					display: none;
+				}
+			}
+		}
+		&:after {
+			@extend %extend_5;
+			display: none;
+		}
+		.inline .btn {
+			@extend %extend_4;
+			@extend %extend_6;
+			&.active {
+				color: $color_danube_approx !important;
+				color: $white !important;
+				background: $color_cornflower_blue_approx !important;
+				&:after {
+					display: none;
+				}
+			}
+		}
+		&:first-child:after {
+			display: none;
+		}
+	}
+	+ .wysiwyg-editor {
+		border-color: $color_alto_approx;
+		background-color: $white;
+		border-top: none;
+	}
+}
+@media screen and(-webkit-min-device-pixel-ratio:0) {
+	.wysiwyg-editor {
+		img {
+			display: inline !important;
+		}
+		.ui-wrapper {
+			border: 1px dotted $color_red_approx;
+			overflow: visible !important;
+			display: inline-block !important;
+			vertical-align: middle;
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				right: -3px;
+				bottom: -3px;
+				width: 7px;
+				height: 7px;
+				border: 1px solid $color_red_approx;
+				background-color: $white;
+				z-index: 1;
+			}
+		}
+	}
+}
+.wysiwyg-speech-input {
+	width: 20px !important;
+	color: transparent !important;
+	background: transparent none !important;
+	border: none !important;
+	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+	transform: scale(2.0, 2.0);
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none !important;
+	cursor: pointer;
+	&:focus {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none !important;
+	}
+}
+.widget-header .wysiwyg-toolbar {
+	background-color: transparent;
+	.btn-group {
+		.btn {
+			@extend %extend_7;
+			&.active {
+				background: $black_25 !important;
+			}
+		}
+		.inline .btn {
+			@extend %extend_7;
+			&.active {
+				background: $black_25 !important;
+			}
+		}
+	}
+}
+.widget-body .wysiwyg-editor {
+	border: none;
+}

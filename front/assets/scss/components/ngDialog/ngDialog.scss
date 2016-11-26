@@ -1,0 +1,137 @@
+//colors
+$black_40: rgba(0, 0, 0, 0.4);
+$white: white;
+
+//fonts
+$font_0: Helvetica;
+$font_1: Arial;
+$font_2: sans-serif;
+
+@-webkit-keyframes ngdialog-fadeout {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes ngdialog-fadeout {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@-webkit-keyframes ngdialog-fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes ngdialog-fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.ngdialog {
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+	position: fixed;
+	overflow: auto;
+	z-index: 100;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	* {
+		//Instead of the line below you could use @include box-sizing($bs)
+		box-sizing: inherit;
+		&:before {
+			//Instead of the line below you could use @include box-sizing($bs)
+			box-sizing: inherit;
+		}
+		&:after {
+			//Instead of the line below you could use @include box-sizing($bs)
+			box-sizing: inherit;
+		}
+	}
+        header{
+            background: #31328a;
+            margin: 0 -17px;
+            padding: 10px 40px;
+            margin-top: -17px;
+            border-radius:5px 5px 0 0;
+        }
+        &.ngdialog-theme-default {
+            .ngdialog-content{
+                .ngdialog-close{
+                    &:before{
+                        color: #ffffff;
+                        line-height: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+	&.ngdialog-disabled-animation {
+		animation: none!important;
+		.ngdialog-overlay {
+			animation: none!important;
+		}
+		.ngdialog-content {
+			animation: none!important;
+		}
+	}
+	&.ngdialog-closing {
+		.ngdialog-overlay {
+			animation: ngdialog-fadeout 0.5s;
+		}
+		.ngdialog-content {
+			animation: ngdialog-fadeout 0.5s;
+		}
+	}
+        .dialog{
+            h4{
+                text-align: center;
+                color: #ffffff;
+                font-family: 'robotobold';
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+        }
+        
+}
+.ngdialog-overlay {
+	position: fixed;
+	background: $black_40;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	animation: ngdialog-fadein 0.5s;
+}
+.ngdialog-no-overlay {
+	pointer-events: none;
+}
+.ngdialog-content {
+	background: $white;
+	animation: ngdialog-fadein 0.5s;
+	pointer-events: all;
+}
+.ngdialog-close:before {
+	font-family: $font_0, $font_1, $font_2;
+	content: '\00D7';
+	cursor: pointer;
+}
+html.ngdialog-open {
+	overflow: hidden;
+}
+body.ngdialog-open {
+	overflow: hidden;
+}

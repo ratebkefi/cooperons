@@ -1,0 +1,68 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title class="mb-md doc_pres">
+                <md-card-title-text>
+                    <h3 class="title-header">Document de présentation</h3>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="md-inline-form p-sm">
+                <p>Chargez ici un document (format : PDF) de présentation de votre offre et du programme de
+                    parrainage.</p>
+
+                <form method="post" name="forms.documentForm" class="form-horizontal" ng-submit="uploadDocument()"
+                      novalidate enctype='multipart/form-data'>
+                    <div class="document_file_input" layout="row" layout-padding ng-class="fileClass">
+                        <div layout="column" flex>
+                            <label class="ace-file-input">
+                                <input type="file" name="file" file-model="newDocument.file" ngf-select
+                                       ngf-pattern="'application/pdf'"
+                                       ngf-accept="'application/pdf'" required="required"/>
+
+                        <span class="ace-file-container" data-title="Charger">
+                            <span class="ace-file-name"
+                                  data-title="{{newDocument.file.name|| 'Choisir un fichier ...'}}">
+                                <ng-md-icon icon="file_download" class="ace-icon" size="24"></ng-md-icon>
+                            </span>
+                        </span>
+                                <a class="remove" ng-href="#"><i class="ace-icon fa fa-times"></i></a>
+                            </label>
+
+                            <div ng-if="forms.documentForm.$submitted">
+                                <div class="erreurform md-input-messages-animation" ng-if="!newDocument.file">Fichier
+                                    requis
+                                </div>
+                                <div class="erreurform"
+                                     ng-if="newDocument.file && newDocument.file.type != 'application/pdf'">
+                                    Le document doit être de format PDF
+                                </div>
+                            </div>
+                        </div>
+
+                        <div layout="column" flex="nogrow">
+                            <md-input-container class="md-block no-margin">
+                                <md-button type="submit" id="uploadDoc" class="md-raised md-primary right">
+                                    <ng-md-icon icon="save" size="16"></ng-md-icon>
+                                    <span class="ml-xs">Sauvegarder</span>
+                                </md-button>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </form>
+                <p>
+                    Ce document, consulté par vos futurs membres avant leur inscription doit être clair et mettre en
+                    avant
+                    les
+                    avantages et la cible de votre offre.
+                </p>
+                <iframe src="{{programFile.content}}" type="application/pdf"
+                        style="border: 1px solid black; border-radius: 5px;height: 620px; width: 100%"
+                        webkitallowfullscreen="true" mozallowfullscreen="true">
+
+                </iframe>
+    </div>
+
+    </md-card-content>
+    </md-card>
+    </div>
+</md-content>

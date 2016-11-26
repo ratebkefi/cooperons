@@ -1,0 +1,37 @@
+<header class="page-header"><h2>Conditions Générales du Programme</h2></header>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="steps-content">
+            <div class="steps-wrapper m-md">
+                <h3 class="title-header">Conditions Générales du Programme de Stimulation {{program.label}}</h3>
+
+                <div class="accordion">
+                    <dl ng-repeat="clause in clauses">
+                        <dt>
+                            <a ng-click="clause.show = !clause.show" ng-class="{'is-expanded': clause.show}"
+                               class="accordion-title accordionTitle is-collapsed">
+                                <h4 class="legal-title"> {{clause.key}}. {{clause.title}}
+                                    <i class="fa" ng-class="{'fa-minus': clause.show, 'fa-plus': !clause.show}"></i>
+                                </h4>
+                            </a>
+                        </dt>
+
+                        <dd class="accordion-content accordionItem"
+                            ng-class="{'animateIn is-expanded': clause.show, 'animateOut is-collapsed': !clause.show}"
+                            ng-bind-html="clause.content">
+                        </dd>
+
+                    </dl>
+                </div>
+
+            </div>
+            <div class="steps-footer">
+                <md-button ng-click="editEasySetting()" class="md-raised md-primary right">
+                    <md-icon md-font-icon="fa fa-chevron-left"></md-icon>
+                    Précédent
+                </md-button>
+            </div>
+        </md-card>
+    </div>
+</md-content>

@@ -1,0 +1,11 @@
+{% extends "AprMandataireBundle:Emails:baseEmailMandataire.html.twig" %}
+{% block content %}
+    Dans le cadre du {{ debitedMandataire.label }}, nous vous confirmons le remboursement de votre dépôt d'un montant de
+    {{ amount|number_format(2,',',' ') }} €.
+    <br/><br/>
+    Le solde de ce {{ debitedMandataire.shortLabel }} s'élève désormais à {{debitedDepot|number_format(2,',',' ')}} €.
+    <br/><br/>
+    Dans le cadre du {{ mandataire.label }}, ce remboursement sera déposé sur votre {{ mandataire.shortLabel }}.
+    <br/><br/>
+    Le solde de ce {{ mandataire.shortLabel }} s'élève désormais à {{ depot|number_format(2,',',' ')}} €.
+{% endblock %}

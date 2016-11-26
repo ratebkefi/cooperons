@@ -1,0 +1,11 @@
+/* line 1, ../../../scss/components/forms/select.scss */
+md-select-menu md-content {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white;
+}
+
+/* line 5, ../../../scss/components/forms/select.scss */
+.md-select-value .md-text {
+  display: inline;
+  font-size: 13px;
+}

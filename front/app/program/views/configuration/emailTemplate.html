@@ -1,0 +1,88 @@
+<div class="md-inline-form">
+    <md-content class="no-padding">
+        <form class="form-horizontal" name="forms.formAddMail"
+              ng-submit="saveEmailTemplate(forms.formAddMail, selected.mail)"
+              ng-class="{'not_submitted' : !forms.formAddMail.$submitted }" novalidate>
+            <div ng-show="!program.isEasy">
+
+                <div layout-xs="column" layout-sm="column" layout-gt-sm="row" layout-fill>
+                    <div flex="85">
+                        <md-input-container class="md-block">
+                            <label class="required">Email d'invitation</label>
+                            <md-select ng-show="!selected.mail.new" ng-model="selected.mail" id="allMailInvitations"
+                                       name="allMailInvitations">
+                                <md-option ng-repeat="mailOption in mailInvitations" ng-value="mailOption"
+                                           required="required">
+                                    {{mailOption.codeMail}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div flex="15">
+                        <md-button aria-label="newmail" class="md-fab  md-mini mt-md" ng-click="newMail()">
+                            <md-icon md-font-icon="fa fa-plus"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+
+
+                <md-input-container class="md-block">
+                    <label class="required">Identifiant API</label>
+                    <input type="text" name="codeMail" ng-model="selected.mail.codeMail" id="codeMail"
+                           ng-readonly="!selected.mail.new" required="required"/>
+
+                    <div ng-messages="forms.formAddMail.codeMail.$error" ng-if="forms.formAddMail.$submitted">
+                        <div for="codeMail" class="erreurform" ng-message="required">Code requis</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <md-input-container class="md-block">
+                <label class="required">Sujet de l'email</label>
+                <input type="text" id="subject" name="subject" ng-model="selected.mail.subject" required="required"/>
+
+                <div ng-messages="forms.formAddMail.subject.$error" ng-if="forms.formAddMail.$submitted">
+                    <div for="subject" class="erreurform" ng-message="required">Sujet requis</div>
+                </div>
+            </md-input-container>
+
+            <h4 class="text-bold block red-color">Contenu de l'email</h4>
+
+            <input ng-if="program.isEasy" ng-model="selected.mail.code" value="default" type="hidden">
+
+            <md-input-container class="md-block">
+                <span ng-if="program.isEasy" class="block" ng-bind-html="toTrusted(selected.mail.header)"></span>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <textarea id="content" aria-label="mail" ui-tinymce="tinymceOptions" ng-model="selected.mail.content"
+                          cols="80" rows="50"></textarea>
+            </md-input-container>
+
+            <md-input-container class="md-block" ng-if="program.isEasy" class="clearfix md-block">
+                <label for="signature"></label>
+        <span class="form-field">
+            <span ng-if="program.isEasy" class="block" ng-bind-html="toTrusted(selected.mail.footer)"></span>
+            <br/><br/>
+            <textarea aria-label="signature" ui-tinymce="tinymceOptions" ng-model="selected.mail.signature"
+                      id="signature" name="signature" cols="80" rows="50">
+            </textarea>
+        </span>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button ng-if="!program.isEasy"
+                           ng-disabled="selected.mail.new || (selected.mail.codeMail | lowercase) == 'default'"
+                           ng-class="{'disabled': (selected.mail.new || (selected.mail.codeMail | lowercase) == 'default'), 'md-warn': !(selected.mail.new || (selected.mail.codeMail | lowercase) == 'default')}"
+                           ng-click="removeMailTemplate(selected.mail)" type="button" class="md-raised">
+                    <md-icon md-font-icon="fa fa-trash-o"></md-icon>
+                    Supprimer
+                </md-button>
+                <md-button type="submit" class="md-raised right md-primary">
+                    <ng-md-icon icon="save" size="16"></ng-md-icon>
+                    <span class="ml-xs">Sauvegarder</span>
+                </md-button>
+            </md-input-container>
+        </form>
+    </md-content>
+</div>

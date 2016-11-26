@@ -1,0 +1,54 @@
+<!-- Confirm prestation-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="prestation.confirm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmation de Prestation</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <!--confirm mode-->
+    <md-dialog-content ng-if="(dlgCtr.dlgCtr.contract.mandataire.depot - dlgCtr.contract.totalServiceAmount) > dlgCtr.contract.mandataire.minDepot" >
+        <p>Confirmez-vous la création d'une Prestation pour {{ dlgCtr.contract.client.label }} d'un montant <span
+                    ng-if="dlgCtr.contract.recruitment && !dlgCtr.contract.recruitment.isExpired">(avant Remise Applicable)</span> de
+                {{ dlgCtr.contract.totalServiceAmount }} € ?</p>
+    </md-dialog-content>
+    <md-dialog-content ng-else-if="dlgCtr.contract.mandataire.depot > dlgCtr.contract.totalServiceAmount" >
+        <p>Confirmez-vous la création d'une Prestation pour {{ dlgCtr.contract.client.label }} d'un montant <span
+                    ng-if="dlgCtr.contract.recruitment && !dlgCtr.contract.recruitment.isExpired">(avant Remise Applicable)</span> de
+                {{ dlgCtr.contract.totalServiceAmount }} € ?</p>
+
+            <p>Suite à cette prestation, le montant du Dépôt Contrat sera inférieur au Montant Minimum ({{
+                dlgCtr.contract.mandataire.minDepot|displayPrice }} €) </p>
+
+            <p>Vous ne pourrez plus créer de nouvelle prestation tant que le Dépôt Contrat n'aura pas été approvisionné
+                d'un montant suffisant.</p>
+    </md-dialog-content>
+    
+    <!--standby mode-->
+    <md-dialog-content ng-else >
+      <p>Le montant du Dépôt Contrat ({{ dlgCtr.contract.mandataire.depot|displayPrice }} €) est insuffisant pour cette
+                prestation ({{ dlgCtr.contract.totalServiceAmount }} € <span
+                        ng-if="dlgCtr.contract.recruitment && !dlgCtr.contract.recruitment.isExpired"> - avant Remise Applicable</span>)
+            </p>
+
+            <p>Votre client sera informé de cette prestation en attente de paiement.</p>
+
+            <p>Vous ne pourrez plus créer de nouvelle prestation tant que le Dépôt Contrat n'aura pas été approvisionné
+                d'un montant suffisant.</p> 
+    </md-dialog-content>
+    
+    
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>

@@ -1,0 +1,41 @@
+{% extends "AprProgramBundle:Default:base.html.twig" %}
+{% block content %}
+    <link  href={{ asset('bundles/Edtapp/css/program.css')}} rel='stylesheet' type='text/css' />
+    <h1>Conditions Générales de Vente - Coopérons AE</h1>
+    <div class="separateur_haut"></div>
+    <div class="span12">
+        <p>Le site Internet <a href="http://www.cooperons.com/" target="_blank">www.cooperons.com</a>, ci-après dénommé «<strong>Coopérons !</strong>» propose un service de gestion des relations contractuelles entre des auto-entrepreneurs et leurs clients professionnels.</p>
+        <p>Ce service est fourni par la SARL COOPERONS !, société à responsabilité limitée au capital de 50'000 € immatriculée au Registre du Commerce et des Sociétés sous le numéro RCS 792 896 359 dont le siège social est situé 34, rue de la Tombe Issoire 75014 Paris (« <strong>L'Opérateur</strong> »).</p>
+        <p>Les présentes conditions générales de vente (ci-après dénommées le « <strong>Contrat</strong> ») ont pour objet de déterminer les conditions d'utilisation du Service Coopérons AE, ainsi que vos droits et obligations en tant que Client (« <strong>Vous</strong> »).</p>
+        <p>Vous déclarez en souscrivant au Service Coopérons AE avoir pris connaissance des présentes conditions générales de vente et les accepter expressément sans réserve et/ou modification de quelque nature que ce soit.</p>
+        <h3>1. Définitions</h3>
+        <p><strong>Acceptation</strong> : validation par le Partenaire Prestataire du présent Contrat, effectuée par ce dernier sur son Espace Coopérons !, au moyen de l'onglet "Mes Commerciaux" du menu "Auto-Entrepreneur".</p>
+        <p><strong>Chiffre d'Affaires Cumulé</strong> : montant total des Prestations effectuées par le Partenaire Prestataire au bénéfice du Client Apporté.</p>
+        <p><strong>Client Apporté</strong> : nouvelle Entreprise apportée par le Partenaire Commercial au Partenaire Prestataire conformément à l'article 2 du présent Contrat.</p>
+        <p><strong>Collaborateur</strong> : membre inscrit sur le réseau Coopérons disposant de droits de gestionnaire de Contrats de Prestation Auto-Entrepreneur.</p>
+        <p><strong>Contrat de Prestation Auto-Entrepreneur</strong> : contrat de prestation de services passé entre tout membre inscrit sur le réseau Coopérons en tant qu'Auto-Entrepreneur et une Entreprise.</p>
+        <p><strong>Entreprise</strong> : entreprise inscrite sur le réseau Coopérons dans le cadre d'un compte Entreprise, permettant à ses collaborateurs d'être gestionnaires de Contrats de Prestation Auto-Entrepreneur.</p>
+        <p><strong>Espace Coopérons !</strong> : compte utilisateur sur le réseau Coopérons dont dispose le Partenaire Prestataire, le Partenaire Commercial.</p>
+        <p><strong>Prestation</strong> : prestation effectuée par le Partenaire Prestataire au bénéfice d'une Entreprise dans le cadre d'un Contrat de Prestation Auto-Entrepreneur.</p>
+        <p><strong>Remise</strong> : remise accordée par le Partenaire Prestataire sur chaque Prestation facturée au Client Apporté.</p>
+        <p><strong>Remise Cumulée</strong> : montant total des Remises accordées par le Partenaire Prestataire au Client Apporté.</p>
+        <p><strong>Remise Cumulée Calculée</strong> : montant calculé selon la méthode décrite à l'article 3.3.</p>
+
+        <h3>4. Durée du contrat - Résiliation</h3>
+        <p>Le présent Contrat entre en vigueur à compter de son Acceptation par le Partenaire Prestataire et il se poursuivra pour une durée indéterminée sauf en cas de résiliation comme stipulé ci-dessous.</p>
+        <p>Le Contrat pourra être résilié par l'une des Parties en cliquant sur le bouton "Résilier" relatif au présent Contrat sur l'Espace Coopérons de l'une des Parties.</p>
+        <p>En cas de résiliation du présent Contrat, les dispositions l'article 3 resteront applicables pour tous les Clients Apportés (jusqu'à expiration de leurs durées de commissionnement respectives - conformément à l'article 3.2).</p>
+        <h3>5. Modification</h3>
+        <p>Le Contrat pourra être modifié par le Partenaire Commercial en cliquant sur le bouton "Modifier" relatif au présent Contrat sur son Espace Coopérons.</p>
+        <p>En cas de modification du présent Contrat, les paramètres de calcul utilisés dans le cadre de l'article 3 pour tous les Clients Apportés préalablement à cette modification resteront inchangées.</p>
+        <p>La modification apportée au présent Contrat sera donc applicable aux nouveaux Clients Apportés postérieurement à cette modification.</p>
+        <h3>6. Divers</h3>
+        <p>Le Contrat exprime l'intégralité de l'accord passé entre les Parties et se substitue à tout accord éventuellement intervenu antérieurement entre les Parties pour ce qui concerne les conditions relatives à leur partenariat.</p>
+        <p>Si une ou plusieurs dispositions du Contrat étaient tenues pour nulles ou non valides ou déclarées telles en application d'une loi, d'un règlement ou à la suite d'une décision d'une juridiction compétente, les autres clauses garderont leur force et leur portée.</p>
+        <p>Le fait par l'une des parties de ne pas se prévaloir d'un manquement par l'autre partie à l'une quelconque de ses obligations visée dans le Contrat, ou de tarder à exercer l'un quelconque des droits qu'elle tient du Contrat, ne saurait valoir renonciation définitive à l'exécution de cette disposition ou de toute autre disposition, ou à l'exercice de ce droit ou de tout autre droit.</p>
+        <p>Le Contrat est soumis au droit français. Tous litiges nés de l'interprétation, l'exécution ou la résiliation du Contrat seront soumis aux tribunaux compétents.</p>
+    </div>
+        <div class="pull-right">
+            <a class="btn btn-large btn-primary" href="{{path('agree_cgv_coopae',{'idContract':idContract})}}" id="save"><i class="fa fa-check-circle-o"></i>J'accepte le Contrat</a>
+        </div> &nbsp;
+{% endblock %}

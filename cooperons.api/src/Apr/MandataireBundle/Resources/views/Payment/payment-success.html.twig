@@ -1,0 +1,18 @@
+{% block content %}
+<div class="layout-content">
+    <div class="content_wrapper">
+        {%if code == "" and error == "" %}
+        <br><CENTER>erreur appel response</CENTER><br>
+        executable response non trouve {{path_bin}}
+        {%elseif code != 0 %}
+                <center><b><h2>Erreur appel API de paiement.</h2></center></b>
+                <br><br><br>
+                message erreur : {{error}}<br>
+        {%else%}
+        {{error}}<br>
+        Votre transaction a été effectuée avec succès
+        <br>transaction_id : {{transaction_id}}
+        {%endif%}
+    </div>
+</div>
+{% endblock %}

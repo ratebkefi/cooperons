@@ -1,0 +1,103 @@
+.docs-content{
+    margin: 2% auto;
+    width: 96%;
+}
+
+.docs-content .information, .docs-content .notification, .docs-content .loyalty, .docs-content .rappel{margin:2.73973% 0.73973%;}
+
+table.docs-table{
+    width:100%;
+    text-align:left;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+table.docs-table th,
+table.ui-jqgrid-htable th{
+    background-color:#2f225f;
+    color:#ffffff;
+    font-size:15px;
+    font-family:'robotobold';
+    font-weight:normal;
+    border-left: 1px solid #FFFFFF;
+    border-bottom:1px solid #2f225f;
+    padding:10px;
+}
+
+table.docs-table th:first-child,table.docs-table td:first-child{border-left:0}
+
+table.docs-table td{
+    background-color:#fafafa;
+    border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-bottom:1px solid #c8c8c8;
+    padding:10px;
+}
+
+table.docs-table tr:nth-child(2n) td{background-color:#eeeeee;border-bottom:1px solid #d6d6d6;}
+
+td.docs-table-pdf{text-align:center;}
+
+table.docs-table tfoot .foot_toto{
+    font-family:'latobold';
+    font-size:16px;
+}
+
+table.docs-table tfoot tr .vide{
+    background-color:#ffffff !important;
+    border:none;
+}
+.select_right{
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.select_right span{
+    line-height: 30px;
+    margin-right: 8px;
+}
+.select_right .select-style{
+    float:right;
+}
+.select-style-lefted{float: left;margin-left: 0;margin-right:10px;}
+@media (max-width: 480px) {
+    table.docs-table th{
+        font-size:10px !important;
+        padding:2px !important;
+    }
+    table.docs-table td{
+        font-size:10px !important;
+        padding:2px !important;
+    }
+}
+
+.docs-content .ui-jqgrid-labels th{line-height:47px}
+.ui-jqgrid-labels .ui-jqgrid-sortable{font-weight:normal;}
+.docs-toto{
+    font-size: 18px;
+    font-family:"robotobold";
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+.label-toto{
+    font-size: 16px;
+    display: inline-block;
+    color: #ea2a36;
+    float: right;
+    cursor: text;
+    margin: 0;
+    margin-top: 12px;
+}
+#points-operations{
+    line-height: 30px;
+    font-size: 16px;
+    color: #ea2a36;
+    font-family: "robotoregular","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#validate-credit{float: right}
+
+.action-parrainage{
+    cursor: pointer;
+}

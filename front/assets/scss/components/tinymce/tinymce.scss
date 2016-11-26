@@ -1,0 +1,245 @@
+//colors
+$color_biscay_approx: #1e2665;
+$white: #fff;
+$color_alto_approx: #d9d9d9;
+$color_bay_of_many_approx: #263081;
+$color_cerulean_blue_approx: #3c4bc6;
+$alabaster: #fafafa;
+$color_jacarta_approx: #2d2161;
+$color_port_gore_approx: #211847;
+
+//fonts
+$font_0: latoregular;
+$font_1: Helvetica;
+$font_2: Arial;
+$font_3: sans-serif;
+$font_4: tinymce;
+
+//@extend-elements
+//original selectors
+//.creat_mail .mce-flow-layout, .creat_mail .mce-btn button
+%extend_1 {
+	height: 36px;
+	line-height: 36px;
+	padding: 0 12px;
+	color: $white;
+}
+
+//original selectors
+//.creat_mail .mce-menubtn span, .creat_mail .mce-btn .mce-caret
+%extend_2 {
+	color: $white;
+	margin-right: 5px;
+	line-height: 36px;
+}
+
+//original selectors
+//.mce-menu-item:hover, .mce-menu-item.mce-selected, .mce-menu-item:focus
+%extend_3 {
+	background: none;
+	background-color: $color_biscay_approx;
+	color: $white;
+}
+
+//original selectors
+//.mce-window .mce-foot button:hover, .mce-window .mce-foot button:focus
+%extend_4 {
+	background: $color_jacarta_approx !important;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none !important;
+	border-color: $color_port_gore_approx;
+}
+
+
+.mce-container {
+	font-family: $font_0, $font_1, $font_2, $font_3;
+	* {
+		font-family: $font_0, $font_1, $font_2, $font_3;
+	}
+}
+.mce-widget {
+	font-family: $font_0, $font_1, $font_2, $font_3;
+	* {
+		font-family: $font_0, $font_1, $font_2, $font_3;
+	}
+}
+.mce-reset {
+	font-family: $font_0, $font_1, $font_2, $font_3;
+}
+.mce-ico {
+	font-family: $font_4, $font_2;
+}
+.creat_mail {
+	.mce-stack-layout {
+		border: none;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 2px;
+	}
+	.mce-panel {
+		border: none;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 2px;
+	}
+	.mce-toolbar-grp {
+		background: none;
+		background-color: $color_biscay_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 2px 2px 0 0;
+		padding: 0 10px;
+	}
+	.mce-path-item {
+		color: $white;
+	}
+	.mce-btn {
+		background: none;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+		color: $white;
+		border: none;
+		&:hover {
+			background: none;
+			background-color: $color_biscay_approx;
+		}
+		&:focus {
+			background: none;
+			background-color: $color_biscay_approx;
+		}
+		&.mce-active {
+			background: none;
+			background-color: $color_biscay_approx;
+			&:hover {
+				background: none;
+				background-color: $color_biscay_approx;
+			}
+		}
+		i {
+			//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			text-shadow: 0 0 $color_cerulean_blue_approx;
+		}
+		button {
+			@extend %extend_1;
+			padding: 0 10px;
+		}
+		.mce-caret {
+			@extend %extend_2;
+			border-top: 4px solid $white;
+			margin-top: 16px;
+		}
+	}
+	.mce-ico {
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+		color: $white;
+		font-size: 14px;
+	}
+	.mce-tinymce {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 2px;
+	}
+	.mce-flow-layout-item {
+		margin: 0;
+	}
+	.mce-flow-layout {
+		@extend %extend_1;
+		padding: 0;
+	}
+	.mce-statusbar {
+		display: none;
+	}
+	.mce-container {
+		height: auto !important;
+		* {
+			height: auto !important;
+		}
+	}
+	.mce-widget {
+		height: auto !important;
+		* {
+			height: auto !important;
+		}
+	}
+	.mce-reset {
+		height: auto !important;
+	}
+	div.mce-edit-area {
+		border-left: 1px solid $color_alto_approx !important;
+		border-right: 1px solid $color_alto_approx !important;
+		border-bottom: 1px solid $color_alto_approx !important;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0 0 2px 2px;
+	}
+	.mce-btn-group .mce-btn {
+		border-color: $color_bay_of_many_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0;
+		border-right: 1px solid $color_bay_of_many_approx;
+		border-left: none;
+	}
+	.mce-menubtn span {
+		@extend %extend_2;
+	}
+}
+.mce-menu-item {
+	&:hover {
+		@extend %extend_3;
+		.mce-text {
+			color: $white !important;
+		}
+	}
+	&.mce-selected {
+		@extend %extend_3;
+		.mce-text {
+			color: $white !important;
+		}
+	}
+	&:focus {
+		@extend %extend_3;
+		.mce-text {
+			color: $white !important;
+		}
+	}
+}
+.mce-window {
+	.mce-foot {
+		background: none;
+		background-color: $alabaster;
+		button {
+			font-family: $font_0, $font_1, $font_2, $font_3;
+			background: $color_bay_of_many_approx !important;
+			border-bottom: 2px solid $color_jacarta_approx;
+			font-size: 1.15em;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 2px;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: none;
+			line-height: normal;
+			//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			text-shadow: none;
+			color: $white;
+			&:hover {
+				@extend %extend_4;
+			}
+			&:focus {
+				@extend %extend_4;
+			}
+		}
+	}
+	.mce-container-body {
+		background: none;
+		background-color: $white;
+	}
+	.mce-tab {
+		background-color: $color_biscay_approx;
+		color: $white;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: none;
+		&.mce-active {
+			background-color: $white;
+			color: $color_biscay_approx;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+//urls
+$url_0: url(images/payment_cb.png);
+$url_1: url(images/payment_vs.png);
+$url_2: url(images/payment_mc.png);
+$url_3: url(images/payment_cq.png);
+
+.boutoncondition a {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+        cursor:pointer;
+	&#carte-bleu {
+		background: $url_0 no-repeat;
+		background-size: cover;
+	}
+	&#carte-visa {
+		background: $url_1 no-repeat;
+		background-size: cover;
+	}
+	&#carte-mastercard {
+		background: $url_2 no-repeat;
+		background-size: cover;
+	}
+	&#carte-cheque {
+		background: $url_3 no-repeat;
+		background-size: cover;
+	}
+        img{
+          max-width:60px;  
+        }
+}

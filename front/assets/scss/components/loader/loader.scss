@@ -1,0 +1,206 @@
+//colors
+$color_curious_blue_approx: #3498db;
+$color_cinnabar_approx: #31328a;
+$color_lightning_yellow_approx: #e40a20;
+$color_log_cabin_approx: #eef3fa;
+
+// Media Query Ranges
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 767px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    .loader-section {
+        position: fixed;
+        top: 0;
+        width: 51%;
+        height: 100%;
+        background: $color_log_cabin_approx;
+        z-index: 1000;
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: translateX(0);
+        &.section-left {
+            left: 0;
+        }
+        &.section-right {
+            right: 0;
+        }
+    }
+    &.ng-hide .loader-section {
+        &.section-left {
+            //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+            transform: translateX(-100%);
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        &.section-right {
+            //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+            transform: translateX(100%);
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+    }
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: $color_curious_blue_approx;
+    animation: spin 2s linear infinite;
+    z-index: 1001;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: $color_cinnabar_approx;
+        animation: spin 3s linear infinite;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: $color_lightning_yellow_approx;
+        animation: spin 1.5s linear infinite;
+    }
+}
+@-webkit-keyframes spin {
+    0% {
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: rotate(0deg);
+    }
+    100% {
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: rotate(0deg);
+    }
+    100% {
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: rotate(360deg);
+    }
+}
+.ng-hide {
+    #loader {
+        opacity: 0;
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: all 0.3s ease-out;
+    }
+    #loader-wrapper {
+        visibility: hidden;
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: translateY(-100%);
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: all 0.3s 1s ease-out;
+    }
+}
+
+/**********  CONTENT **************/
+.loader {
+    background-color: #fff;
+    bottom: 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -100;
+}
+
+.loader.active {
+    background-color: rgba(150, 150, 150,1);
+    display: block;
+    opacity: 1;
+    z-index: 99900;
+}
+
+.loader .container {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.loader p {
+    color: #555;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.module-container{
+    position: relative;
+}
+.module-loading {
+    background-color: white;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+}
+
+.module-loading .spin {
+    position: inherit;
+    left: 45%;
+    top: 40%;
+}
+
+.partial-loading{
+    opacity: 0.7!important;
+}
+
+@media #{$small-and-down} {
+    #loader {
+        width: 115px;
+        height: 115px;
+    }   
+}

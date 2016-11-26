@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>8font12</title>
+<style type="text/css">
+/* Styles specifiques aux client mails */
+#outlook a{padding:0;}
+
+/* Forcer Outlook a fournir un bouton "vue dans le navigateur" */
+body{width:100% !important;}
+
+.ReadMsgBody{width:100%;}
+
+.ExternalClass{width:100%;display:block !important;}
+
+/* Force Hotmail a afficher l'e-mails sur la largeur complete */
+body{-webkit-text-size-adjust:none;}
+
+/* Empecher les plates-formes Webkit de changer les tailles de texte par defaut. */
+.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span{
+	color:black;
+	text-decoration:none !important;
+	border-bottom:none !important;
+	background:none !important;/* Body text color for the New Yahoo.  This example sets the font of Yahoo's Shortcuts to black. */
+}
+
+/* Styles de reinitialisation */
+body{margin:0;padding:0;}
+
+body, html{
+	width:100% !important;
+	padding:0 !important;
+	margin:0 !important;
+}
+
+* {line-height:normal;padding:0 !important;}
+
+table{
+	mso-table-lspace:0pt;
+	mso-table-rspace:0pt;
+	mso-padding-alt:0px 0px 0px 0px;
+}
+
+/* fix extra spacing that appears on aligned tables on outlook 07/10 */
+table td, table tr{border-collapse:collapse;}
+
+img{
+	border:0;
+	line-height:100%;
+	outline:none;
+	text-decoration:none;
+	-ms-interpolation-mode:bicubic;
+	border:none;
+}
+
+a{text-decoration:none;}
+
+p{margin:0;padding:0;}
+
+ul, li{margin:0;padding:0;}
+
+br, strong br, b br, em br, i br {
+	line-height:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height:100% !important;
+	-webkit-font-smoothing:antialiased;
+}
+
+div, p, a, li, td{-webkit-text-size-adjust:none;}
+
+body, #backgroundTable{background-color:#eef4fa;}
+
+ table[class=showblocmobile], tr[class=showblocmobile], td[class=showblocmobile] {
+display:none !important;
+}
+
+/* Mobile-specific Styles */
+@media screen and (min-width: 0px) and (max-width: 480px) {
+	table[class*=hide], td[class*=hide], img[class*=hide], p[class*=hide], span[class*=hide], br[class*=hide],[class*=hide]{
+		display:none !important;
+		width:0px !important;
+		height:0px !important;
+	}
+	span[class="br"]{clear:both;display:block}
+
+	img[class="w300"], td[class="w300"], tr[class="w300"], table[class="w300"]{width:300px !important;}
+	img[class="w320"], td[class="w320"], tr[class="w320"], table[class="w320"]{width:320px !important;}
+	img[class="w10"], td[class="w10"], tr[class="w10"], table[class="w10"]{width:10px !important;height:10px !important;}
+	*[class="w10h90"]{width:10px !important; height:100px !important;}
+	*[class="h90"]{height:100px !important;}
+	*[class="w10h80"]{width:10px !important; height:80px !important;}
+	*[class="w280"]{width:280px !important;}
+        *[class="w280h10"]{width:280px !important;height:10px !important;}
+	*[class="w280Padding"]{width:280px !important;padding-right:10px !important;}
+	*[class="w280bg"] {
+	width:300px !important;
+	height:100px !important;
+	background-position:top right !important;
+	background-size:300px 100px;
+	}
+	*[class="w150h36"]{width:127px !important; height:30px !important;}
+	*[class="w130h31"]{width:115px !important; height:28px !important;}
+
+	img[class="w245"], td[class="w245"], tr[class="w245"], table[class="w245"]{width:255px !important;}
+	img[class="w45"], td[class="w45"], tr[class="w45"], table[class="w45"]{width:45px !important;}
+	img[class="w180"], td[class="w180"], tr[class="w180"], table[class="w180"]{width:180px !important;}
+	*[class="w180h20"]{width:280px !important; height:20px !important;}
+	*[class="h20"]{height:20px !important;}
+
+	img[class="w30015"], td[class="w30015"], tr[class="w30015"], table[class="w30015"]{width:300px !important;height:15px !important;}
+	img[class="w30012"], td[class="w30012"], tr[class="w30012"], table[class="w30012"]{width:300px !important;height:12px !important;}
+	img[class="w14939"], td[class="w14939"], tr[class="w14939"], table[class="w14939"]{width:149px !important;height:39px !important;}
+	img[class="w15139"], td[class="w15139"], tr[class="w15139"], table[class="w15139"]{width:151px !important;height:39px !important;}
+	img[class="w30087"], td[class="w30087"], tr[class="w30087"], table[class="w30087"]{width:300px !important;height:87px !important;}
+	img[class="w1028"], td[class="w1028"], tr[class="w1028"], table[class="w1028"]{width:9px !important;height:58px !important;}
+	img[class="w12328"], td[class="w12328"], tr[class="w12328"], table[class="w12328"]{width:116px !important;height:58px !important;}
+	img[class="w16728"], td[class="w16728"], tr[class="w16728"], table[class="w16728"]{width:175px !important;height:58px !important;}
+
+	img[class="num"]{width:45px !important;height:36px !important;}
+
+	font[class="txt13"]{font-size:14px !important; text-align:left !important;}
+	font[class="txt12"]{font-size:12px !important; text-align:left !important;}
+	font[class="txt11"]{font-size:11px !important; text-align:left !important;}
+	font[class="txt9"]{font-size:9px !important; text-align:left !important;}
+
+	 table[class=showblocmobile], tr[class=showblocmobile], td[class=showblocmobile] {
+	display:block !important;
+	}
+	 .showblocmobile {
+	display:block !important;
+	line-height:normal !important;
+	height:auto !important;
+	}
+
+	img[class="logofooter"], td[class="logofooter"]{width:100px !important; height:43px !important;}
+
+}
+</style>
+</head>
+<body style="width:100%;background:#eef3fa;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:normal;" yahoo="fix">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr>
+          <td>
+          <table width="640" border="0" cellspacing="0" cellpadding="0" align="center" class="w300">
+              <tr>
+                <td width="15" height="20" class="w10"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/left_promoteur.jpg')}}" width="20" height="20" alt="" style="display:block" border="0" class="w10"/></td>
+                <td width="610" height="20" valign="middle" class="w280h10"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/top_promoteur.jpg')}}" width="600" height="20" alt="" style="display:block" border="0" class="w280h10"/></td>
+                <td width="15" height="20" class="w10"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/right_promoteur.jpg')}}" width="20" height="20" alt="" style="display:block" border="0" class="w10"/></td>
+           </tr>
+          </table>
+
+          <table width="640" border="0" cellspacing="0" cellpadding="0" align="center" class="w300" bgcolor="#fafafa">
+             <tr>
+                <td width="30" height="139" class="w10h90" valign="bottom" bgcolor="#31328a"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/bg-promoteur-left.jpg')}}" width="30" height="139" alt="" style="display:block" border="0" class="w10h90"/></td>
+                <td width="610" height="139" valign="top" class="w280bg" background="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/bg-promoteur.jpg')}}" style="background-repeat:no-repeat">
+                	<!--[if gte mso 9]>
+                      <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:610px;height:139px;">
+                        <v:fill type="tile" src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/bg-promoteur.jpg')}}" color="#31328a" />
+                        <v:textbox inset="0,0,0,0">
+                      <![endif]-->
+                 <div class="h90">
+                	<img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/logo.png')}}" width="190" height="45" alt="" style="display:block" border="0" class="w150h36"/>
+               		<br/><br class="hide"/><br class="hide"/>
+                	<font style="font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#ffffff;" class="txt13">
+                            <strong>Bonjour {{member.firstName}} {{member.lastName}},</strong>
+                        </font>
+                        <br />
+                	</div>
+                      <!--[if gte mso 9]>
+                        </v:textbox>
+                      </v:rect>
+                      <![endif]-->
+                </td>
+              </tr>
+          </table>
+
+
+          <table width="640" border="0" cellspacing="0" cellpadding="0" align="center" class="w300" bgcolor="#FFFFFF">
+              <tr>
+                <td width="30" height="85" class="w10"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/spacer.gif')}}" width="30" height="65" alt="" style="display:block" class="w10" border="0"/></td>
+                <td width="580" height="85" valign="top" class="w280">
+                    <br/><br/>
+                    <font style=" font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#6e6e6e;" class="txt13">
+                        Nous vous informons de la résiliation du Programme <strong>{{program.label}}</strong> par <strong>{{program.collaborator.corporate.raisonSocial}}</strong>.
+                    </font>
+                    <br /><br />
+                    <font style=" font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#6e6e6e;" class="txt13">
+                        Pour rappel, les Points et MultiPoints gagnés dans le cadre de ce programme vous restent acquis.
+                        En revanche, les parrainages effectués dans le cadre de ce programme seront définitivement supprimés.
+                    </font>
+                    <br /><br />
+                    <font style=" font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#6e6e6e;" class="txt13">
+                        En vous remerciant pour votre confiance.
+                    </font>
+                    <br /><br />
+                    <font style=" font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#6e6e6e;" class="txt13">
+                        Cordialement,
+                    </font>
+                    <br/><br/>
+                    <font style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#6e6e6e;" class="txt13">
+                        <strong><i>Coopérons !</i></strong>
+                        <br/><br/>
+                    </font>
+                </td>
+              </tr>
+          </table>
+
+
+          <table width="640" border="0" cellspacing="0" cellpadding="0" align="center" class="w300" >
+              <tr>
+                <td width="20" height="82" valign="bottom" class="w10h80" bgcolor="#31328a"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/bottom_left_promoteur.jpg')}}" width="20" height="20" alt="" style="display:block" border="0" class="w10"/></td>
+                <td width="10" height="82" valign="middle" bgcolor="#31328a"></td>
+                <td width="590" height="82" valign="middle" class="w280" bgcolor="#31328a">
+                    <table width="575" border="0" align="left" cellpadding="0" cellspacing="0" class="w280">
+                        <tr>
+                            <td width="25" height="82" class="h20"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/icon-mail-promoteur.jpg')}}" width="20" height="20" alt="" border="0"/></td>
+                            <td width="110" height="82" class="w180h20"><font style="color:#27378c; font-family:Arial, Helvetica, sans-serif; font-size:11px;" ><a href="mailto:info@cooperons.com" target="_blank" style="color:#ffffff"> info@cooperons.com</a></font></td>
+                            <td width="440" height="82" class="w130h31" align="right"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/logo-footer.png')}}" width="142" height="34" alt="" border="0" class="w130h31"/></td>
+                        </tr>
+                    </table>
+               </td>
+               <td width="20" height="82" align="left" valign="bottom" bgcolor="#31328a" class="w10h80"><img src="{{ app.request.scheme}}://{{ app.request.host}}{{ asset('bundles/Edtapp/img/mail/bottom_right_promoteur.jpg')}}" width="20" height="20" alt="" border="0" class="w10"/></td>
+       	   </tr>
+          </table>
+
+       </td>
+      </tr>
+   </table>
+</body>
+</html>

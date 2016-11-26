@@ -1,0 +1,7 @@
+<div ng-if="settingContractCtr.filterContract == 'affair:owner'">
+    <div ng-include="'app/autoEntrepreneur/views/settingContract/settingContractProvider.html'"></div>
+</div>
+<div ng-if="settingContractCtr.filterContract == 'default:owner'">
+    <div ng-include="'app/autoEntrepreneur/views/settingContract/settingContractCorporate.html'"></div>
+</div>
+<div ng-include="'app/autoEntrepreneur/views/settingContract/settingContractDialogs.html'"></div>

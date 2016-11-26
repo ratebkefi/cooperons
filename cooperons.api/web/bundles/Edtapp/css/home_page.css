@@ -1,0 +1,43 @@
+.ppites_box{
+	background:url(images/ppites_box.png) no-repeat;
+	padding-left:140px;
+	padding-top:10px;
+	min-height:120px;
+}
+.solde_ppites{
+	background:url(images/ppite.png) no-repeat;
+	padding-left:33px;
+	font-size:18px;
+	line-height:24px;
+	margin:10px 0;
+}
+
+.filleul_box{
+	background:url(images/filleul_box.png) no-repeat;
+	padding-left:140px;
+	min-height:140px;
+}
+
+.with_ae_box{
+	background:url(images/with_ae.png) no-repeat ;
+	padding-left:140px;
+	min-height:140px;
+}
+
+.search_ae_box{
+	background:url(images/search_ae.png) no-repeat;
+	padding-left:140px;
+	min-height:140px;
+}
+
+.filleul_ppites_box{
+	background:url(images/ppites_filleul.png) no-repeat;
+	padding-left:140px;
+	min-height:140px;
+}
+
+.waiting_box{
+	background:url(images/waiting_box.png) no-repeat;
+	padding-left:140px;
+	min-height:120px;
+}

@@ -1,0 +1,113 @@
+<header class="page-header"><h2>Présentation</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="steps-content">
+
+            <wizard-steps ng-if="program || newProgram" class="m-md" program="program" step="1"></wizard-steps>
+
+            <div class="steps-wrapper">
+                <form class="form-horizontal" name="post_program" ng-submit="postProgram(post_program)"
+                      ng-class="{'not_submitted' : !postProgram.$submitted }" novalidate>
+                    <div ng-if="program && program.image != ''" class="uploaded_image program_image">
+                        <image ng-src="{{uploadedFile(program.image.filename)}}"/>
+                    </div>
+
+                    <div class="control-group  m-lg">
+                        <label class="control-label required">Image</label>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="ace-file-input">
+                                    <input ng-if="!program.oldProgram && program.status != 'preprod' && program.status != 'prod' && program.status != 'cancel'"
+                                           type="file" name="image" accept="image/*" file-model="newProgram.image"
+                                           required="required"/>
+                                    <input ng-if="program.oldProgram || program.status == 'preprod' || program.status == 'prod' || program.status == 'cancel'"
+                                           type="file" name="newImage" accept="image/*" file-model="newProgram.newImage"
+                                           disabled="disabled"/>
+
+                            <span class="ace-file-container" data-title="Charger">
+                                <span class="ace-file-name"
+                                      data-title="{{newProgram.image.name|| 'Choisir un fichier ...'}}">
+                                    <ng-md-icon icon="file_download" class="ace-icon" size="24"></ng-md-icon>
+                                </span>
+                            </span>
+                                    <a class="remove" href="#"><i class="ace-icon fa fa-times"></i></a>
+
+                                </label>
+
+                                <div ng-if="post_program.$submitted">
+                                    <div class="erreurform" ng-if="!newProgram.image">Fichier requis</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <md-input-container class="md-block m-lg">
+                        <label class="required">Intitulé du Programme</label>
+                        <input ng-if="!program" ng-model="newProgram.label" type="text" name="label" required>
+                        <input ng-if="program" ng-model="newProgram.label" ng-readonly="true" type="text"
+                               value="{{program.label}}" placeholder="{{program.label}}" class="input-xlarge">
+
+                        <div class="erreurform" ng-if="errors.label"> {{errors.label}}</div>
+
+                        <div ng-if="post_program.$submitted">
+                            <div class="erreurform" ng-if="!newProgram.label">Label requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container ng-if="!program" class="md-block m-lg">
+                        <label class="required">Entreprise</label>
+                        <md-select aria-label="collaborator" ng-model="newProgram.collaborator" name="collaborator"
+                                   required="required">
+                            <md-option ng-if="key > 0" ng-repeat="(key, value) in collaborators" ng-value="key"
+                                       ng-selected="$first">
+                                {{value}}
+                            </md-option>
+                        </md-select>
+                        <div ng-messages="post_program.collaborator.$error" ng-if="postProgram.$submitted"
+                             ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Entreprise requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <input ng-if="!program" type="hidden" ng-model="newProgram.status"
+                           ng-init="newProgram.status = 'new'"/>
+                    <input ng-if="program" type="hidden" ng-model="newProgram.status"
+                           ng-init="newProgram.status = 'edit'"/>
+
+                    <p class="md-block m-lg">
+                        L'intitulé du programme est l'identifiant de votre programme sur Coopérons ! et est repris dans
+                        votre communication et les mentions légales.
+                        Vous devez aussi joindre un logo, image relatif au programme.
+                    </p>
+
+                    <div class="steps-footer">
+                        <div class="steps-info">Étape 1 <span class="steps-glow step1"></span></div>
+                        <md-button
+                                ng-if="!program.oldProgram && program.status != 'preprod' && program.status != 'prod' && program.status != 'cancel'"
+                                type="submit"
+                                class="md-raised md-primary right">
+                            Suivant
+                            <md-icon md-font-icon="fa fa-chevron-right"></md-icon>
+                        </md-button>
+
+                        <md-button
+                                ng-if="program.oldProgram || program.status == 'preprod' || program.status == 'prod' || program.status == 'cancel'"
+                                ui-sref="program.commissioning({isEasy: program.isEasy, id:program.id})"
+                                class="md-raised md-primary right">
+                            Suivant
+                            <md-icon md-font-icon="fa fa-chevron-right"></md-icon>
+                        </md-button>
+
+                    </div>
+                </form>
+            </div>
+
+
+        </md-card>
+    </div>
+</md-content>
+

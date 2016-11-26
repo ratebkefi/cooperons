@@ -1,0 +1,48 @@
+<!-- Filter form -->
+<cpr-search-users search="search"></cpr-search-users>
+
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Utilisateurs</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Membre</span></th>
+                        <th md-column align-rule="center"><span>Actions</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="user in users">
+                        <td md-cell>
+                            {{ user.firstName}} {{user.lastName}}</br>
+                            {{ user.email}} {{ user.contact.phone}}
+                        </td>
+                        <td md-cell>
+                            <md-button ui-sref="admin.autoEntrepreneur({userId: user.id})"
+                                       class="md-icon-button launch actions-program">
+                                <md-tooltip md-direction="top">Créer le compte AE</md-tooltip>
+                                <ng-md-icon icon="person_add" size="28"></ng-md-icon>
+                            </md-button>
+                            <md-button target="_blank" ng-click="connectAsMember(user)"
+                                       class="md-icon-button launch actions-admin">
+                                <md-tooltip md-direction="top">Se connecter en tant que membre</md-tooltip>
+                                <ng-md-icon icon="forward" size="28"></ng-md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+        </md-card>
+    </div>
+</md-content>

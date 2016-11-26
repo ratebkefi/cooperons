@@ -1,0 +1,145 @@
+/* line 15, ../../../scss/modules/program/commission.scss */
+.calcul_commission {
+  border-left: 1px dotted #393aa1;
+  border-right: 1px dotted #393aa1;
+  margin-top: 60px;
+}
+/* line 19, ../../../scss/modules/program/commission.scss */
+.calcul_commission input[type="text"] {
+  height: 19px;
+  line-height: 19px;
+  box-shadow: none;
+  font-family: latoregular;
+  color: #7c8389;
+  border: 1px solid #d9d9d9;
+  border-radius: 0;
+  font-size: 12px;
+  max-width: 110px;
+  margin-top: 5px;
+  padding: 4px;
+  margin-right: 5px;
+}
+/* line 34, ../../../scss/modules/program/commission.scss */
+.calcul_commission input[type="text"]:focus {
+  border: 1px solid #31328a;
+}
+/* line 38, ../../../scss/modules/program/commission.scss */
+.calcul_commission input.test_and_recalc {
+  max-width: 110px;
+  margin-top: -3px;
+  padding: 4px;
+  margin-right: 5px;
+}
+/* line 44, ../../../scss/modules/program/commission.scss */
+.calcul_commission .text_cal span {
+  top: 0;
+  position: relative;
+  right: 5px;
+}
+
+/* line 50, ../../../scss/modules/program/commission.scss */
+.titre_commission {
+  font-family: robotobold;
+  color: #31328a;
+  font-size: 15px;
+  position: relative;
+  margin-top: -10px;
+  display: block;
+  background-color: white;
+  padding-left: 10px;
+}
+/* line 59, ../../../scss/modules/program/commission.scss */
+.titre_commission:before {
+  content: "\f10c";
+  font-family: FontAwesome;
+  font-size: 24px;
+  position: absolute;
+  left: -31px;
+  top: 0;
+  background-color: white;
+}
+
+/* line 69, ../../../scss/modules/program/commission.scss */
+.content_commission {
+  padding: 0 20px;
+  margin-bottom: 40px;
+  border-top: 1px dotted #393aa1;
+}
+/* line 73, ../../../scss/modules/program/commission.scss */
+.content_commission.last {
+  position: relative;
+}
+/* line 75, ../../../scss/modules/program/commission.scss */
+.content_commission.last:after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 1px;
+  height: 10px;
+  right: -1px;
+  top: 0;
+}
+
+/* line 86, ../../../scss/modules/program/commission.scss */
+.txt_commission {
+  padding: 0 20px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+}
+/* line 90, ../../../scss/modules/program/commission.scss */
+.txt_commission:after {
+  content: "";
+  width: 50%;
+  height: 1px;
+  border-bottom: 1px solid #d9d9d9;
+  display: block;
+  margin: 30px auto;
+}
+
+/* line 99, ../../../scss/modules/program/commission.scss */
+.total_commission {
+  font-family: robotobold;
+  color: #424644;
+  font-size: 15px;
+}
+/* line 103, ../../../scss/modules/program/commission.scss */
+.total_commission .commission_member {
+  background-color: #31328a;
+  color: white;
+}
+
+/* line 108, ../../../scss/modules/program/commission.scss */
+.commission_member {
+  background-color: #ecf0f1;
+  border-radius: 20px;
+  color: #31328a;
+  float: right;
+  font-family: robotobold;
+  font-size: 14px;
+  line-height: 30px;
+  margin-right: 10px;
+  min-width: 60px;
+  padding: 0 10px 0 12px;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* line 122, ../../../scss/modules/program/commission.scss */
+.purcent_commission {
+  font-family: robotobold;
+  color: #31328a;
+  font-size: 15px;
+  position: relative;
+  top: -3px;
+  display: inline-block;
+}
+
+/* line 130, ../../../scss/modules/program/commission.scss */
+.mt-sd {
+  margin-top: 7px;
+}
+
+/* line 133, ../../../scss/modules/program/commission.scss */
+h4.total_commission {
+  margin: 2rem 0 2rem 0;
+}

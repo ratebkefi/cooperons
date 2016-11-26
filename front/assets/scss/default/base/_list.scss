@@ -1,0 +1,32 @@
+// LIST
+ ul.list {
+    list-style: none;
+}
+ul.list li {
+    color: #080808;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 22px;
+    margin-left: 10px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    display: block;
+    list-style-position: outside;
+}
+ul.list li:before {
+    content: "\f192";
+    display: inline-block;
+    font-family: "FontAwesome" !important;
+    font-size: 10px !important;
+    position: relative;
+    top: 0;
+    margin-right: 0;
+    display: inline-block;
+    float: left;
+    width: 0px;
+    left: -18px;
+    text-rendering: auto;
+    overflow: visible;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

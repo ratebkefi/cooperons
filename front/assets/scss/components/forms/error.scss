@@ -1,0 +1,22 @@
+md-input-container ng-message,
+md-input-container data-ng-message,
+md-input-container x-ng-message, md-input-container [ng-message],
+md-input-container [data-ng-message], md-input-container [x-ng-message], md-input-container [ng-message-exp],
+md-input-container [data-ng-message-exp],
+md-input-container [x-ng-message-exp],
+md-input-container .md-char-counter {
+    margin-top: 0;
+    padding-top: 0;
+    text-align: left;
+}
+.erreurform{
+    color: rgb(221,44,0);
+     margin-top: 0;
+    padding-top: 0;
+    text-align: left;
+    font-size: 12px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    margin-top: 0;
+    padding-top: 5px;
+}

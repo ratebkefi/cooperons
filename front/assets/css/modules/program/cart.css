@@ -1,0 +1,32 @@
+/* line 7, ../../../scss/modules/program/cart.scss */
+.boutoncondition a {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+/* line 13, ../../../scss/modules/program/cart.scss */
+.boutoncondition a#carte-bleu {
+  background: url(images/payment_cb.png) no-repeat;
+  background-size: cover;
+}
+/* line 17, ../../../scss/modules/program/cart.scss */
+.boutoncondition a#carte-visa {
+  background: url(images/payment_vs.png) no-repeat;
+  background-size: cover;
+}
+/* line 21, ../../../scss/modules/program/cart.scss */
+.boutoncondition a#carte-mastercard {
+  background: url(images/payment_mc.png) no-repeat;
+  background-size: cover;
+}
+/* line 25, ../../../scss/modules/program/cart.scss */
+.boutoncondition a#carte-cheque {
+  background: url(images/payment_cq.png) no-repeat;
+  background-size: cover;
+}
+/* line 29, ../../../scss/modules/program/cart.scss */
+.boutoncondition a img {
+  max-width: 60px;
+}

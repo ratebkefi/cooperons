@@ -1,0 +1,168 @@
+<!-- Cancel sent invitation to create college -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="college.request.cancel">
+     <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmer la sortie du collège Coopérons</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <p>
+                Souhaitez-vous annuler votre demande de rattachement au Collège Coopérons de {{dlgCtr.corporate.raisonSocial}}?
+            </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+         <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- transfer college delegation -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="college.transfer.delegate">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Changement de gestionnaire</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <p>Sélectionnez le nouveau Délégué du Collège Coopérons de {{ dlgCtr.corporate.raisonSocial }}.</p>
+            <md-input-container class="md-block" flex-gt-sm>
+                <md-select aria-label="Programme" ng-model="dlgCtr.newDelegate">
+                    <md-option ng-repeat="collegeOption in dlgCtr.colleges" ng-value="collegeOption">
+                        {{collegeOption | name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+          <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- Confirm inscription in college -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="college.accept">
+   <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmer l'inscription au Collège Coopérons</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <p ng-if="!dlgCtr.corporate.delegate">Vous êtes sur le point de créer le Collège Coopérons de
+                {{dlgCtr.corporate.raisonSocial}}.
+                <br>
+                {{dlgCtr.selectedCollege | name}} en sera le délégué
+            </p>
+
+            <p ng-if="dlgCtr.corporate.delegate">Confirmez-vous que {{dlgCtr.selectedCollege | name}} est bien salarié de
+                {{dlgCtr.corporate.raisonSocial}} ?
+            </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+           <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>  
+</script>
+
+<!-- Reject request to join college  -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="college.cancel">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmer la sortie du Collège Coopérons</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <p>Confirmez-vous que {{dlgCtr.selectedCollege | name}} n'est pas
+                salarié de {{dlgCtr.corporate.raisonSocial}} ?</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+            <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- Reject request to join college  -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="college.leave">
+       <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmer la sortie du Collège Coopérons</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <div ng-if="dlgCtr.selectedCollege.member.id !== dlgCtr.member.id">
+                <p>
+                    Attention: vous êtes sur le point d'exclure un collègue du Collège Coopérons de
+                    {{dlgCtr.corporate.raisonSocial}}.
+                </p>
+
+                <p>
+                    Confirmez-vous que {{dlgCtr.selectedCollege  | name}} n'est
+                    plus salarié de {{dlgCtr.corporate.raisonSocial}} ?
+                </p>
+            </div>
+
+            <div ng-if="dlgCtr.selectedCollege.member.id === dlgCtr.member.id">
+                <p>Attention: vous êtes sur le point de quitter le Collège Coopérons de {{dlgCtr.corporate.raisonSocial}}.</p>
+
+                <p>Confirmez-vous ne plus être salarié de {{dlgCtr.corporate.raisonSocial}} ?</p>
+            </div>
+
+            <p ng-if="dlgCtr.corporate.colleges.length == 1">
+                Suite à cette opération, le Collège Coopérons de {{dlgCtr.corporate.raisonSocial}} sera automatiquement
+                cloturé.
+            </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+           <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>  
+</script>

@@ -1,0 +1,34 @@
+<!-- Filter form -->
+<cpr-search-users></cpr-search-users>
+
+<div id="content">
+    <div ng-controller="admin:mandataireController">
+        <!-- Payments list -->
+        <div ng-include="'app/admin/views/home/payments.html'"></div>
+
+        <!-- Waiting settlements list -->
+        <div ng-include="'app/admin/views/home/settlements.html'"></div>
+
+        <!-- NetBalancePayments list -->
+        <div ng-include="'app/admin/views/home/netBalancePayments.html'"></div>
+        <!-- QuarterlyTaxation list -->
+        <div ng-include="'app/admin/views/home/quarterlyTaxations.html'"></div>
+    </div>
+
+
+    <!-- PendingInvoices list -->
+    <div ng-controller="admin:invoiceController" ng-include="'app/admin/views/home/pendingInvoices.html'"></div>
+
+    <!-- Attestations list -->
+    <div ng-controller="admin:attestationController" ng-include="'app/admin/views/home/attestations.html'"></div>
+
+    <!-- Programs list -->
+    <div ng-controller="admin:programController" ng-include="'app/admin/views/home/programs.html'"></div>
+
+    <!-- Gifts history list -->
+    <div ng-controller="admin:giftOrderController" ng-include="'app/admin/views/home/giftsOrders.html'"></div>
+
+    <!-- Corporates list -->
+    <div ng-controller="admin:corporateController" ng-include="'app/admin/views/home/corporates.html'"></div>
+
+</div>

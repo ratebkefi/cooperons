@@ -1,0 +1,167 @@
+.mce-container, .mce-container *, .mce-widget, .mce-widget *, .mce-reset{
+    font-family: 'latoregular', Helvetica, Arial, sans-serif ;
+}
+.mce-ico {
+    font-family: tinymce,Arial;
+}
+.creat_mail .mce-stack-layout{
+    border:none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.creat_mail .mce-panel{
+    border:none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.creat_mail .mce-toolbar-grp{
+    background:none;
+    background-color:#1e2665;
+    -webkit-border-radius: 2px 2px 0 0;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+}
+.creat_mail .mce-path-item{
+    color:#fff;
+}
+.creat_mail .mce-btn{
+    background:none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow:none;
+    -webkit-text-shadow:none;
+    -moz-text-shadow:none;
+    color:#fff;
+    border:none;
+}
+.creat_mail .mce-btn:hover, .creat_mail .mce-btn:focus, .creat_mail .mce-btn.mce-active, .creat_mail .mce-btn.mce-active:hover{
+    background:none;
+    background-color:#212a70;
+}
+.creat_mail .mce-ico{
+    text-shadow:none;
+    -webkit-text-shadow:none;
+    -moz-text-shadow:none;
+}
+.creat_mail .mce-tinymce {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.creat_mail div.mce-edit-area{
+    border-left:1px solid #d9d9d9 !important;
+    border-right:1px solid #d9d9d9 !important;
+    border-bottom:1px solid #d9d9d9 !important;
+    -webkit-border-radius: 0 0 2px 2px;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
+}
+.creat_mail .mce-btn-group .mce-btn{
+    border-color:#263081;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-right:1px solid #263081 ;
+    border-left:none;
+}
+.creat_mail .mce-flow-layout-item{
+    margin:0px;
+}
+.creat_mail .mce-toolbar-grp {
+    padding:0 10px;
+}
+.creat_mail .mce-ico{
+    color:#fff;
+    font-size: 14px;
+}
+.creat_mail .mce-btn i{
+    text-shadow: 0px 0px #3c4bc6;
+    -webkit-text-shadow: 0px 0px #3c4bc6;
+    -moz-text-shadow: 0px 0px #3c4bc6;
+}
+.creat_mail .mce-flow-layout, .creat_mail .mce-btn button{
+    height:36px;
+    line-height:36px;
+    padding: 0px 12px;
+    color:#fff;
+}
+.creat_mail .mce-flow-layout{
+    padding:0;
+}
+.creat_mail .mce-btn button{
+    padding: 0px 10px;
+}
+.creat_mail .mce-menubtn span, .creat_mail .mce-btn .mce-caret {
+    color: #fff;
+    margin-right: 5px;
+    line-height: 36px;
+}
+.creat_mail .mce-btn .mce-caret{
+    border-top: 4px solid #fff;
+    margin-top: 16px;
+}
+.creat_mail .mce-statusbar{
+    display:none;
+}
+.creat_mail .mce-container,.creat_mail .mce-container *, .creat_mail .mce-widget, .creat_mail .mce-widget *, .creat_mail .mce-reset{
+    height:auto !important;
+}
+.mce-menu-item:hover, .mce-menu-item.mce-selected, .mce-menu-item:focus{
+    background:none;
+    background-color:#1e2665;
+    color:#fff;
+}
+.mce-menu-item:hover .mce-text, .mce-menu-item.mce-selected .mce-text, .mce-menu-item:focus .mce-text{
+    color:#fff !important;
+}
+.mce-window .mce-foot{
+    background:none;
+    background-color: #fafafa;
+}
+.mce-window .mce-container-body{
+    background:none;
+    background-color: #ffffff;
+}
+.mce-window .mce-tab{
+    background-color: #1e2665;
+    color:#fff;
+    text-shadow:none;
+    -webkit-text-shadow:none;
+    -moz-text-shadow:none;
+}
+.mce-window .mce-tab.mce-active{
+    background-color: #ffffff;
+    color:#1e2665;
+}
+.mce-window .mce-foot button{
+    font-family: 'latoregular', Helvetica, Arial, sans-serif ;
+    background: #31328A !important;
+    border-bottom: 2px solid #2D2161;
+    font-size: 1.15em;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    line-height: normal;
+    text-shadow: none;
+    color:#fff;
+}
+.mce-window .mce-foot button:hover, .mce-window .mce-foot button:focus{
+    background: #2D2161 !important;
+    box-shadow: none !important;
+    border-color: #211847;
+}

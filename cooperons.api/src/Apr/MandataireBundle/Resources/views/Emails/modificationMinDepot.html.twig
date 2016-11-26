@@ -1,0 +1,18 @@
+{% extends "AprMandataireBundle:Emails:baseEmailMandataire.html.twig" %}
+{% block content %}
+    Dans le cadre du {{ mandataire.clientLabel }}, nous avons procédé à la modification du Dépôt Minimum de votre {{ mandataire.shortLabel }}.
+    <br /><br />
+
+    {% if extraMsg %}
+        <br /><br />
+        {{ extraMsg }}
+    {%  endif %}
+
+    Celui-ci est désormais fixé à {{mandataire.minDepot|number_format(2,',',' ')}} €.
+    {% if mandataire.depot < mandataire.minDepot %}
+        <br/><br/>
+        Attention, le solde de votre {{ mandataire.shortLabel }} est inférieur au Dépôt Minimum.
+        <br/><br/>
+        Merci d'approvisionner votre {{ mandataire.shortLabel }} dès que possible afin de ne subir aucune interruption de service.
+    {% endif %}
+{% endblock %}

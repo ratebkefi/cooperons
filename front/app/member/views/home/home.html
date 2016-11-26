@@ -1,0 +1,131 @@
+<!-- Home member page-->
+<header class="page-header"><h2>Accueil</h2></header>
+<!-- Injecting infos mandataire directive -->
+<infos-mandataire></infos-mandataire>
+<!--    information-->
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="info" class="green-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <p class="md-subhead"><strong>Bienvenue sur Coopérons ! le réseau de coopération professionnel</strong></p>
+
+                    <p class="md-subhead">Vous souhaitez faire profiter des avantages de <strong><i>Coopérons !</i></strong> à votre
+                        entreprise ?</p>
+
+                    <md-input-container class="md-block text-center">
+                        <md-button  class="md-raised md-primary  mt-md mr-md md-button md-ink-ripple" ng-href="{{backRoute('landing_college', {tkn: tokenPlus})}}" >
+                            <ng-md-icon icon="info" size="24"></ng-md-icon>
+                            <span>En savoir plus</span>
+                        </md-button>
+
+                        <md-button  class="md-raised md-primary mt-md md-button md-ink-ripple" ui-sref="corporate.edit({idCorporate : 0})" >
+                            <ng-md-icon icon="add_circle" size="24"></ng-md-icon>
+                            <span>Offre Liberté</span>
+                        </md-button>
+                    </md-input-container>
+
+                </md-card-title-text>
+
+            </md-card-title>
+
+        </md-card>
+    </div>
+</md-content>
+
+<md-content ng-if="tokenAE" class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="info" class="green-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    
+                    <p class="md-subhead" ><strong>Rejoignez vous-aussi le réseau des Auto-Entrepreneurs Coopérons !</strong></p>
+
+                    <p class="md-subhead" >L'abonnement à l'Offre Entreprise vous est offert - à vie - soit une économie de 79 € HT/mois
+                        !</p>
+                    
+                    
+                     <md-input-container class="md-block text-center">
+                        <md-button  class="md-raised md-primary  mt-md mr-md md-button md-ink-ripple" 
+                                    ng-href="{{twigRoute.getRoute('landing_auto_entrepreneur') + '?tkn=' + tokenAE}}" >
+                            <ng-md-icon icon="info" size="24"></ng-md-icon>
+                            <span>En savoir plus</span>
+                        </md-button>
+
+                        <md-button  class="md-raised md-primary mt-md md-button md-ink-ripple" ui-sref="corporate.edit({idCorporate : 0})" >
+                            <ng-md-icon icon="add_circle" size="24"></ng-md-icon>
+                            <span>Souscrire</span>
+                        </md-button>
+                    </md-input-container>
+
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content ng-if="member.hasAcceptedCGUMember && member.participates.length" class="md-padding" layout-xs="column"
+            layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="info" class="green-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <p class="md-subhead">
+                        Vous êtes actuellement inscrit à {{member.participates.length}} <a ui-sref="member.programs()">programme<span
+                                ng-if="participates.length > 1">s</span> </a>
+                        ( <span ng-repeat="participate in member.participates">
+                            <span ng-if="!$first">,&nbsp;</span>
+                            {{participate.program.label}}
+                        </span> )
+                    </p>
+
+                    <div class="md-subhead" ng-include="'app/member/views/member/status.html'"></div>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column" ng-if="member.hasAcceptedCGUMember && !member.isPreProd && tokenPlus">
+        <md-card>
+            <md-card-title class="new-program mb-md">
+                <md-card-title-text>
+                    <h3 class="title-header blue-color text-center text-uppercase">Coopérons ! Plus</h3>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="text-center p-sm">
+                <div class="width-65 m-auto">
+                    <p><b class="gray">Aidez nous à développer le réseau Coopérons !</b></p>
+
+                    <p>
+                        Vous gagnez 500 MultiPoints (soit l'équivalent de 100 €) lorsqu'un de vos filleuls souscrit à
+                        l'offre Entreprise de <b><i>Coopérons !</i></b>
+                        ou crée son premier programme de parrainage dans le cadre d'un abonnement au service Coopérons
+                        Plus.
+                    </p>
+                </div>
+
+                <!-- Injecting invitation plus directive -->
+                <invitation-plus token="tokenPlus" invitation-type="standard'"></invitation-plus>
+
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

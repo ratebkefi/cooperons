@@ -1,0 +1,126 @@
+<header class="page-header"><h2>{{ settingSettlementCtr.contract.client.label }}</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Nouvelle Prestation</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+            <form id="form-newSettlement" ng-submit="settingSettlementCtr.postSettlementsDialog()" novalidate="novalidate">
+                <md-table-container>
+                    <table md-table>
+                        <thead md-head>
+                        <tr md-row>
+                            <th md-column><span>Intitulé</span></th>
+                            <th md-column><span>Prix Unitaire (€)</span></th>
+                            <th md-column><span>Quantité</span></th>
+                            <th md-column><span>Montant</span></th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+                        <tr md-row ng-repeat="serviceType in settingSettlementCtr.contract.serviceTypes">
+                            <td md-cell>
+                                {{ serviceType.label }}
+                                <span ng-if="serviceType.unitLabel">/({{ serviceType.unitLabel }})</span>
+                            </td>
+                            <td md-cell ng-init="unitDefaultAmount = !serviceType.unitDefaultAmount">
+                                <input ng-if="!unitDefaultAmount" value="{{serviceType.unitDefaultAmount|displayPrice}}"
+                                       type="text" step="0.01" readonly/>
+                                <input ng-else ng-change="settingSettlementCtr.recalculate()" ng-model="serviceType.unitDefaultAmount"
+                                       type="number" step="0.01"/>
+                            </td>
+                            <td md-cell>
+                                <input ng-if="!unitDefaultAmount" ng-change="settingSettlementCtr.recalculate()"
+                                       ng-model="serviceType.quantity" type="number" step="0.05"/>
+                                <input ng-else type="number" step="0.05" readonly/>
+                            </td>
+                            <td md-cell>
+                                <b>{{ serviceType.amount }} €</b>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot md-foot>
+                        <tr md-row>
+                            <td md-cell></td>
+                            <td md-cell></td>
+                            <td md-cell><b>Total</b></td>
+                            <td md-cell><b>{{settingSettlementCtr.contract.totalServiceAmount}} €</b></td>
+                        </tr>
+                        <tr md-row ng-if="settingSettlementCtr.contract.recruitment && !settingSettlementCtr.contract.recruitment.isExpired">
+                            <td md-cell></td>
+                            <td md-cell></td>
+                            <td md-cell><b>Remise Applicable</b></td>
+                            <td md-cell><b>- {{ settingSettlementCtr.contract.remise }} €</b></td>
+                        </tr>
+                        <tr md-row ng-if="settingSettlementCtr.contract.recruitment && !settingSettlementCtr.contract.recruitment.isExpired">
+                            <td md-cell></td>
+                            <td md-cell></td>
+                            <td md-cell><b>Net</b></td>
+                            <td md-cell><b>{{ settingSettlementCtr.contract.netServiceAmount }} €</b></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </md-table-container>
+
+
+                <div ng-if="settingSettlementCtr.contract.recruitment && !contract.recruitment.isExpired" class="m-md">
+                    <h3 class="title-header">Calcul de la Remise (Apport {{ settingSettlementCtr.recruitmentContract.owner.label }})</h3>
+
+                    <p>Avant cette prestation:</p>
+                    <ul class="list">
+                        <li>Chiffre d'Affaires Cumulé: {{ settingSettlementCtr.contract.recruitment.cumulatedBillings }} €</li>
+                        <li>Remise Cumulée (A): {{ contract.recruitment.cumulatedRebate }} €</li>
+                    </ul>
+                    <p>Conformément à votre contrat avec {{ recruitmentContract.owner.label }}:</p>
+                    <ul class="list">
+                        <li>Si le Chiffre d'Affaires Cumulé est inférieur à {{ settingSettlementCtr.recruitmentSettings.range1 }} €: la
+                            Remise Cumulée Calculée sera égale à {{ settingSettlementCtr.recruitmentSettings.rate1 }} % du Chiffre d'Affaires
+                            Cumulé
+                        </li>
+
+                        <li ng-if="settingSettlementCtr.recruitmentSettings.rate2">Si le Chiffre d'Affaires Cumulé est supérieur à {{
+                            settingSettlementCtr.recruitmentSettings.range1 }} € mais inférieur à {{ settingSettlementCtr.recruitmentSettings.range2 }} €: la
+                            Remise Cumulée Calculée sera égale à {{ settingSettlementCtr.recruitmentSettings.rate2 }} % du Chiffre d'Affaires
+                            Cumulé,
+                        <span ng-if="settingSettlementCtr.recruitmentSettings.offset1">
+                         {{ settingSettlementCtr.recruitmentSettings.levelLabel1 }} {{ settingSettlementCtr.recruitmentSettings.offset1|abs }} €
+                        </span>
+                        </li>
+                        <li ng-if="settingSettlementCtr.recruitmentSettings.rateBeyond">Si le Chiffre d'Affaires Cumulé est supérieur à {{
+                            settingSettlementCtr.recruitmentSettings.range2 }} €: la Remise Cumulée Calculée sera égale à {{
+                            settingSettlementCtr.recruitmentSettings.rateBeyond }} % du Chiffre d'Affaires Cumulé,
+                        <span ng-if="settingSettlementCtr.recruitmentSettings.offset1">
+                         {{ settingSettlementCtr.recruitmentSettings.levelLabel2 }} {{ settingSettlementCtr.recruitmentSettings.offset2|abs  }} €
+                        </span>.
+                        </li>
+                    </ul>
+                    <p>Après cette prestation:</p>
+                    <ul class="list">
+                        <li>Chiffre d'Affaires Cumulé: {{ settingSettlementCtr.contract.cumulCACalc }} €</li>
+                        <li>Remise Cumulée (B): {{ settingSettlementCtr.contract.cumulRemiseCalc }} €</li>
+                        <li>Soit une Remise Applicable (B) - (A): {{ settingSettlementCtr.contract.remise }} €</li>
+                    </ul>
+                </div>
+
+                <md-input-container class="md-block">
+                    <md-button type="submit" class="md-raised md-primary right mr-lg">
+                        <md-icon md-font-icon="fa fa-plus-circle"></md-icon>
+                        Créer la Prestation
+                    </md-button>
+                </md-input-container>
+
+
+            </form>
+
+
+        </md-card>
+    </div>
+</md-content>
+
+<div ng-include="'app/autoEntrepreneur/views/settingSettlements/settingSettlementsDialogs.html'"></div>

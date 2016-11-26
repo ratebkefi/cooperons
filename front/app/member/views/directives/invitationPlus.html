@@ -1,0 +1,41 @@
+<div class="md-inline-form">
+    <md-content layout-padding>
+        <form name="send_invitation" ng-submit="sendInvitation(send_invitation)"
+              ng-class="{'not_submitted' : !send_invitation.$submitted }" novalidate>
+            <md-input-container class="md-block">
+                <label>Nom</label>
+                <input type="text" ng-model="invitation.lastName" name="lastName" id="lastName" required/>
+
+                <div ng-messages="send_invitation.lastName.$error" ng-if="send_invitation.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Nom requis</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Prénom</label>
+                <input type="text" ng-model="invitation.firstName" name="firstName" id="firstName" required/>
+
+                <div ng-messages="send_invitation.firstName.$error" ng-if="send_invitation.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Prénom requis</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Saisir adresse filleul</label>
+                <input ng-model="invitation.email" type="email" name="email" id="email" required/>
+
+                <div ng-messages="send_invitation.email.$error" ng-if="send_invitation.$submitted" ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Email requis</div>
+                    <div class="erreurform" ng-message="email">Email incorrect</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-button aria-label="bouton" type="submit" class="md-raised md-primary right">
+                    <ng-md-icon icon="send" size="18"></ng-md-icon>
+                    <span class="ml-xs">Envoyer</span>
+                </md-button>
+            </md-input-container>
+        </form>
+    </md-content>
+
+</div>

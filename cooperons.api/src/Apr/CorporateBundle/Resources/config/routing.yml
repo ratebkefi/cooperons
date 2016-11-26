@@ -1,0 +1,3 @@
+corporate:
+    resource: "@AprCorporateBundle/Controller"
+    type:     annotation

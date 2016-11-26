@@ -1,0 +1,23 @@
+apr_mandataire_rest:
+    resource: Apr\MandataireBundle\ApiController\MandataireController
+    type:     rest
+    prefix: /rest
+    name_prefix:
+
+apr_payment_rest:
+    resource: Apr\MandataireBundle\ApiController\PaymentController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_settlement_rest:
+    resource: Apr\MandataireBundle\ApiController\SettlementController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_invoice_rest:
+    resource: Apr\MandataireBundle\ApiController\InvoiceController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_

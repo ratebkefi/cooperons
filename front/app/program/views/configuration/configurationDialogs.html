@@ -1,0 +1,99 @@
+<!-- #dialog-message -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="activate.program">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmer l'activation du programme {{program.label}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <!-- if not corporate.accordSigned -->
+        <div ng-if="!corporate.accordSigned" class="content">
+            Le programme ne peut être activé en production.<br/><br/>
+            La création du compte Coopérons ! Entreprise n'est pas finalisée.<br/><br/>
+            Nous restons en l'attente du Contrat Cadre signé en 2 exemplaires.<br/><br/>
+        </div>
+        <!-- else program.isEasy and not program.easySetting.document-->
+        <div ng-if="program.isEasy && !document " class="content">
+            Impossible d'activer le programme {{program.label}}: document de présentation manquant. <br/><br/>
+        </div>
+        <!-- else -->
+        <div ng-if="corporate.accordSigned && (!program.isEasy || document)">
+            <div class="content">
+                Confirmer l'activation du programme {{program.label}} ? <br/><br/>
+
+                <div ng-if="program.oldProgram">
+                    <p ng-if="program.isEasy">
+                        Suite à l'activation de vos modifications, les taux de commission applicables aux affaires
+                        en
+                        cours
+                        resteront inchangés.<br/><br/>
+                        Les nouveaux taux de commissionnement seront applicables aux nouvelles affaires.
+                    </p>
+
+                    <p ng-if="!program.isEasy">
+                        Suite à l'activation de vos modifications, tous les participants dont le mail d'invitation
+                        aura
+                        été
+                        supprimé se verront attribuer le nouveau mail d'invitation par défaut.<br/><br/>
+
+                        La clé API restera inchangée.
+                    </p>
+                </div>
+            </div>
+            <p class="content">
+                <i class="fa fa-hand-o-right"></i>
+                Cette étape est irréversible
+            </p>
+        </div>
+        <!-- endif -->
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+         <md-button type="button" ng-click="closeThisDialog()" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button type="button" ng-if="corporate.accordSigned && (!program.isEasy || document)"
+                       ng-click="confirm()" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>
+</script>
+
+<!-- #dialog-message -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="delete.email">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmer la suppression du mail {{mail.codeMail}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+       <!-- if not corporate.accordSigned -->
+        <div class="content">
+            Suite à la suppression, tous les participants auxquels vous avez attribué ce mail d'invitation se verront
+            attribuer le mail d'invitation par défaut.
+        </div>
+        <p class="content">
+            <i class="ace-icon fa fa-hand-o-right bigger-120"></i>
+            Cette étape est irréversible
+        </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+         <md-button type="button" ng-click="closeThisDialog()" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button type="button" ng-click="confirm()" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="delete" size="16"></ng-md-icon>
+                Supprimer
+            </md-button>
+    </md-dialog-actions>
+</script>

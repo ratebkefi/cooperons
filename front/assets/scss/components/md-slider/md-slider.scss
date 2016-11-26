@@ -1,0 +1,53 @@
+md-slider {
+	.md-sign {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: -16px;
+		top: -20px;
+		width: 32px;
+		height: 28px;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: translate3d(0, 0, 0) scale(1) !important;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all 0.2s ease-in-out;
+		&:after {
+			position: absolute;
+			content: '';
+			left: 2px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 16px;
+			top: 19px;
+			border-left: 14px solid transparent;
+			border-right: 14px solid transparent;
+			border-top-width: 16px;
+			border-top-style: solid;
+			opacity: 1;
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: translate3d(0, 0, 0) scale(1) !important;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all 0.2s ease-in-out;
+		}
+	}
+	&.value-purcent .md-sign .md-thumb-text {
+		z-index: 1;
+		font-size: 10px;
+		font-weight: bold;
+		&:after {
+			content: "%";
+			vertical-align: super;
+			font-size: 7px;
+		}
+	}
+	&.value-month .md-sign .md-thumb-text {
+		z-index: 1;
+		font-size: 10px;
+		font-weight: bold;
+		&:after {
+			content: "mois";
+			vertical-align: super;
+			font-size: 7px;
+		}
+	}
+}

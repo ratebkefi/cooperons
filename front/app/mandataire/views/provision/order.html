@@ -1,0 +1,54 @@
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+
+            <md-toolbar ng-if="waitingSettlements.length" class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Commandes en attente</span>
+                </div>
+            </md-toolbar>
+
+            <md-table-container ng-if="waitingSettlements.length">
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Événement</span></th>
+                        <th md-column><span>Montant HT</span></th>
+                        <th md-column><span>Montant TTC</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body ng-repeat="settlement in waitingSettlements">
+                    <tr md-row>
+                        <td md-cell>{{ settlement.createdDate | date:"dd/MM/yyyy"}}</td>
+                        <td md-cell>{{ settlement.description}}</td>
+                        <td md-cell><span id="total_ht">{{settlement.amountHt|displayPrice}}</span> €</td>
+                        <td md-cell><span id="total_ttc">{{settlement.amount|displayPrice}}</span> €</td>
+                    </tr>
+                    </tbody>
+                    <tfoot md-foot>
+                    <tr md-row class="foot_toto">
+                        <td md-cell class="vide"></td>
+                        <td md-cell class="vide"></td>
+                        <td md-cell class="align-right"><b>Total TTC</b></td>
+                        <td md-cell><span id="total_ttc">{{amountTtc|displayPrice}}</span> €</td>
+                    </tr>
+                    <tr md-row class="foot_toto">
+                        <td md-cell class="vide"></td>
+                        <td md-cell class="vide"></td>
+                        <td md-cell class="align-right"><b>Dépôt</b></td>
+                        <td md-cell><span id="depot">{{depot|displayPrice}}</span> €</td>
+                    </tr>
+                    <tr md-row class="foot_toto">
+                        <td md-cell class="vide"></td>
+                        <td md-cell class="vide"></td>
+                        <td md-cell class="align-right"><b>A régler</b></td>
+                        <td md-cell><span id="total">{{total|displayPrice}}</span> €</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </md-table-container>
+
+        </md-card>
+    </div>
+</md-content>

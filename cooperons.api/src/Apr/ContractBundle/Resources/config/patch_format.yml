@@ -1,0 +1,49 @@
+collaborator:
+    invite_contract:
+        op: invite_contract
+        path: /contract
+        params: [typeInvitation, firstName, lastName, email]
+        requirements:
+            #typeInvitation: string
+            email: email
+    resend_invitation:
+        op: re-invite
+        path: /
+    leave_corporate:
+        op: leave
+        path: /
+        params: [transferId: 0]
+        requirements:
+            transferId: integer
+    transfer_contract:
+        op: transfer
+        path: /contract
+        params: [contractId]
+        requirements:
+            contractd: integer
+
+contract:
+    reinvite_contract:
+        op: reinvite
+        path: /invitation
+    reactivate_contract:
+        op: reactivate
+        path: /
+    create_recruitment_contract:
+        op: createRecruitment
+        path: /recruitment
+        params: [customerContractId]
+        requirements:
+            customerContractId: integer
+    publish_contract:
+        op: publish
+        path: /
+    agree_contract:
+        op: agree
+        path: /
+    agree_cgv:
+        op: agreeCgv
+        path: /
+    check_sponsorable:
+        op: check
+        path: /sponsorable

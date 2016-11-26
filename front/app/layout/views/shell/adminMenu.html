@@ -1,0 +1,34 @@
+<!-- START HEADER -->
+<header id="header" class="page-topbar">
+    <nav>
+        <div class="nav-wrapper">
+            <div class="logo-wrapper">
+                <a ui-sref="member.home()" class="brand-logo ">
+                    <img src="assets/images/default/logo.png" alt="Coopérons"/>
+                </a>
+            </div>
+            <ul class="right">
+                <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
+                    <ng-md-icon icon="notifications" size="28"></ng-md-icon>
+                    <md-tooltip>Notifications</md-tooltip>
+                </a>
+                </li>
+                <li><a ui-sref="admin.home()" ui-sref-opts="{reload: true}"
+                       class="waves-effect waves-block waves-light">
+                    <ng-md-icon icon="home" size="28"></ng-md-icon>
+                    <md-tooltip>Accueil</md-tooltip>
+                </a>
+                </li>
+                <!-- Dropdown Trigger -->
+                <li><a href="#" data-activates="chat-out" ng-click="logout()"
+                       class="waves-effect waves-block waves-light chat-collapse">
+                    <ng-md-icon icon="power_settings_new" size="28"></ng-md-icon>
+                    <md-tooltip>Déconnexion</md-tooltip>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end header nav-->
+</header>
+<!-- END HEADER -->

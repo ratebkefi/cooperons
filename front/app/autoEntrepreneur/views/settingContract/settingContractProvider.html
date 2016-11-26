@@ -1,0 +1,124 @@
+<header class="page-header"><h2>Votre contrat avec {{ settingContractCtr.contract.clientLabel}}</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Règles de Commissionnement</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <p class="m-md">
+                Vos commissions dépendront du chiffre d'affaires cumulé sur la période commissionnable. </br>
+                Vous pouvez modifier les règles de commissonnement en déplaçant chacun des curseurs ou en saisissant des
+                paliers différents.
+            </p>
+
+            <div class="text-center"><img src="assets/images/default/step3.png" class="program_image"/></div>
+
+            <div class="calcul_commission width-95 m-auto mt-xlg">
+                <form name="edit_contract" ng-submit="settingContractCtr.updateRecruitmentSettings(edit_contract)"
+                      ng-class="{'not_submitted' : !edit_contract.$submitted }" class="width-100" novalidate>
+                    <div class="content_commission">
+                        <h4 class="titre_commission">
+                            Jusqu'à:
+                            <div class="right text_cal">
+                                <input id="range1" class="test_and_recalc" type="text"
+                                       ng-model="settingContractCtr.recruitmentSettings.range1" name="range1"
+                                       minLength="1" required/>
+                                <span>€</span>
+
+                                <div ng-messages="edit_contract.range1.$error" ng-if="edit_contract.$submitted">
+                                    <div class="erreurform" ng-message="required">Premier seuil requis</div>
+                                    <div class="erreurform" ng-message="minLength">Premier seuil invalide</div>
+                                </div>
+                            </div>
+                        </h4>
+                        <md-slider flex md-discrete class="md-primary value-purcent mt-xlg"
+                                   ng-model="settingContractCtr.recruitmentSettings.rate1"
+                                   ng-click="settingContractCtr.calculateTotalCommission()" step="1"
+                                   min="0" max="20" aria-label="rating">
+                        </md-slider>
+                    </div>
+                    <div class="content_commission">
+                        <h4 class="titre_commission">
+                            De <span id="range1_value">{{settingContractCtr.recruitmentSettings.range1}}</span> € à
+                            <div class="right text_cal">
+                                <input id="range2" class="test_and_recalc"
+                                       type="text" ng-model="settingContractCtr.recruitmentSettings.range2"
+                                       name="range2" minLength="1"
+                                       required/> <span>€</span>
+
+                                <div ng-messages="edit_contract.range2.$error" ng-if="edit_contract.$submitted"
+                                     ng-messages-multiple>
+                                    <div class="erreurform" ng-message="required">Deuxième seuil requis</div>
+                                    <div class="erreurform" ng-message="minLength">Deuxième seuil invalide</div>
+                                </div>
+                            </div>
+                        </h4>
+                        <md-slider flex md-discrete class="md-primary value-purcent mt-xlg"
+                                   ng-model="settingContractCtr.recruitmentSettings.rate2"
+                                   ng-click="settingContractCtr.calculateTotalCommission()" step="1"
+                                   min="0" max="20" aria-label="rating">
+                        </md-slider>
+
+                    </div>
+                    <div class="content_commission">
+                        <h4 class="titre_commission">Taux au delà de
+                        <span id="range2_value">
+                            {{ recruitmentSettings.range2}}
+                        </span> €
+                        </h4>
+                        <md-slider flex md-discrete class="md-primary value-purcent mt-xlg"
+                                   ng-model="settingContractCtr.recruitmentSettings.rateBeyond"
+                                   ng-click="settingContractCtr.calculateTotalCommission()"
+                                   step="1" min="0" max="20" aria-label="rating">
+                        </md-slider>
+
+                    </div>
+                    <div class="txt_commission">Vous pouvez simuler le montant total des commissions dues en saisissant
+                        le montant du CA commissionné de votre prestataire.</br>
+                        <div class="mt-lg">
+                            <input ng-model="settingContractCtr.recruitmentSettings.amount"
+                                   ng-blur="settingContractCtr.simulateTotalCommission()" class="recalc" type="text"
+                                   value="0"/> <span class="purcent_commission">€</span></div>
+
+                    </div>
+                    <div class="content_commission">
+                        <h4 class="titre_commission">Total Commissions
+                            <span ng-model="recruitmentSettings.commissionTotal" class="commission_member">
+                                {{settingContractCtr.recruitmentSettings.commissionTotal}} €
+                            </span>
+                        </h4>
+                    </div>
+                    <p class="txt_commission">
+                        Sélectionnez ci-dessous la durée (en mois) durant laquelle vous pourrez percevoir des
+                        commissions sur les prestations réalisées par votre prestataire
+                        (qui sera décomptée à partir de la date de première prestation).
+
+                        <md-slider flex md-discrete class="md-primary value-month mt-xlg"
+                                   ng-model="settingContractCtr.recruitmentSettings.duration"
+                                   ng-click="settingContractCtr.calculateTotalCommission()"
+                                   step="1" min="0" max="24" aria-label="rating">
+                        </md-slider>
+
+                    </p>
+                    <md-input-container class="md-block">
+                        <md-button type="submit" class="md-raised md-primary right mr-lg">
+                            <md-icon md-font-icon="fa fa-book"></md-icon>
+                            Signer le Contrat
+                        </md-button>
+                    </md-input-container>
+
+                </form>
+            </div>
+
+
+        </md-card>
+    </div>
+</md-content>

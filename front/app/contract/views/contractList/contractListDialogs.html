@@ -1,0 +1,250 @@
+<!-- delete contract-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.signOut">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Résiliation</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="content">
+            <p>Attention: vous êtes sur le point de résilier le contrat avec {{ dlgCtr.contract | contractLabel:dlgCtr.filterContract}}.</p>
+        </div>
+        <div ng-if="dlgCtr.filterContract == 'affair:client' || dlgCtr.filterContract == 'affair:owner'"
+             class="content">
+
+            <p>Les commissions relatives aux contrats de prestation en cours resteront applicables jusqu'à l'expiration
+                de leur période de commissionnement.</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <md-icon md-font-icon="fa fa-times"></md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <md-icon md-font-icon="fa fa-sign-out"></md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.new.disable">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Invitation {{ dlgCtr.invitationTitle }}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>Vous n'avez pas encore bénéficié d'une prestation Auto-Entrepreneur.</p>
+        <p>Votre premier contrat Auto-Entrepreneur doit être créé par votre Auto-Entrepreneur prestataire.</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-right">
+       <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+          <md-icon md-font-icon="fa fa-times"></md-icon>
+                    Annuler
+        </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- new contract dialog-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.new">
+      <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Invitation {{ dlgCtr.invitationTitle }}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    
+    <form name="formInvitationContract" ng-submit="dlgCtr.sendInvitation(formInvitationContract, dlgCtr.invitation)"
+                  ng-class="{'not_submitted' : !formInvitationContract.$submitted }" novalidate>
+        <md-dialog-content>
+                <p>Saisissez ci-dessous les informations de votre {{ dlgCtr.labelContract }}.</p>
+
+                <p>Si celui-ci dispose déjà d'un compte Coopérons !, entrez l'adresse email sous laquelle il ou elle
+                    est enregistré(e).</p>
+
+                <md-input-container class="md-block">
+                    <label>Nom</label>
+                    <input type="text" ng-model="dlgCtr.invitation.lastName" name="lastName" id="lastName" required/>
+
+                    <div ng-messages="formInvitationContract.lastName.$error" ng-if="formInvitationContract.$submitted">
+                        <div class="erreurform" ng-message="required">Nom requis</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Prénom</label>
+                    <input type="text" ng-model="dlgCtr.invitation.firstName" name="firstName" id="firstName" required/>
+
+                    <div ng-messages="formInvitationContract.firstName.$error" ng-if="formInvitationContract.$submitted">
+                        <div class="erreurform" ng-message="required">Prénom requis</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Saisir adresse filleul</label>
+                    <input ng-model="dlgCtr.invitation.email" type="email" name="email" id="email" required/>
+
+                    <div ng-messages="formInvitationContract.email.$error" ng-if="formInvitationContract.$submitted">
+                        <div class="erreurform" ng-message="required">Email requis</div>
+                        <div class="erreurform" ng-message="email">Email incorrect</div>
+                    </div>
+                </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions class="text-center">
+        <md-button ng-click=" dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                        <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                        Annuler
+                    </md-button>
+                    <md-button type="submit" class="md-raised md-primary mr-md">
+                        <ng-md-icon icon="done" size="16"></ng-md-icon>
+                        Confirmer
+                    </md-button>
+    </md-dialog-actions> 
+
+    </form>
+
+</script>
+
+<!-- Not used: confirm add contract-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.confirm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Invitation {{ dlgCtr.labelContract }}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>Confirmez-vous la création d'un contrat {{ dlgCtr.labelContract }} avec {{ dlgCtr.autoEntrepreneur | name}} ?</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+       <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- confirm add contract-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.create">
+   <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Création de contrat {{ dlgCtr.labelContract }}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <div ng-if="dlgCtr.selectedCollaborator" class="content">
+            <p>Sélectionnez ci-dessous l'entreprise de votre {{ dlgCtr.labelContract }}</p>
+            <md-input-container class="md-block">
+                <md-select aria-label="client" ng-model="dlgCtr.selectedCollaborator.id" required="required">
+                    <md-option ng-repeat="(key, value) in dlgCtr.collaborators" ng-value="key">
+                        {{value}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div ng-if="!dlgCtr.selectedCollaborator" class="content">
+            <p>Cet utilisateur est bien inscrit sur Coopérons, mais n'est pas utilisateur d'un compte Entreprise ayant
+                souscrit à l'Offre Entreprise.</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-if="dlgCtr.selectedCollaborator" ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>  
+  
+</script>
+
+
+<!-- recruitment contract-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.recruitment">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Invitation {{ dlgCtr.labelContract }}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>Confirmez-vous la création d'un contrat {{ dlgCtr.labelContract }} avec {{ dlgCtr.autoEntrepreneur | name}} ?</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+       <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>
+
+<!-- confirm add contract-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.create">
+   <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Apporter un client</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+         <div ng-if="dlgCtr.corporateContracts.length" class="content">
+            <p>Sélectionnez ci-dessous l'entreprise de votre client</p>
+            <md-input-container class="md-block">
+                <md-select aria-label="client" ng-model="dlgCtr.selectedContract" required="required">
+                    <md-option ng-repeat="contractOption in dlgCtr.corporateContracts" ng-value="contractOption">
+                        {{contractOption.client.corporate.raisonSocial}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div ng-if="!dlgCtr.corporateContracts.length" class="content">
+            <p>Vous n'avez aucun Client actif. Vous devez au préalable signer un contrat avec un premier Client.</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+         <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-if="dlg.corporateContracts.length" ng-click="dlgCtr.confirm(id)" type="button"
+                       class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>  
+</script>

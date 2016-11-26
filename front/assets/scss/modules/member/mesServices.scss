@@ -1,0 +1,253 @@
+//colors
+$color_gallery_approx: #eeeeee;
+$black: rgb(0, 0, 0);
+$color_bon_jour_approx: #e2e2e2;
+$color_gunsmoke_approx: #7c8389;
+$color_shakespeare_approx: #59b8d3;
+$white: #fff;
+$color_silver_approx: #bebebe;
+$color_tapa_approx: #767676;
+$black_20: rgba(0, 0, 0, 0.2);
+
+//fonts
+$font_0: latobold;
+$font_1: Arial;
+$font_2: Helvetica;
+$font_3: sans-serif;
+
+//urls
+$url_0: url(images/menage_bg.png);
+$url_1: url(images/garderie_bg.png);
+$url_2: url(images/jardinage_bg.png);
+$url_3: url(images/repas_bg.png);
+$url_4: url(images/comptareb.png);
+$url_5: url(images/ui-icons_ffffff_256x240.png);
+
+//@extend-elements
+//original selectors
+//div.row-fluid div.service_client, div.row-fluid [class*="span"]:first-child
+%extend_1 {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	background: $color_gallery_approx $url_0 no-repeat 50% 20%;
+	min-height: 280px;
+	margin-left: 1.5%;
+	margin-bottom: 10px;
+	text-align: center;
+	line-height: normal;
+	float: left;
+}
+
+
+.row-fluid {
+	.span3 {
+		width: 23.125%;
+	}
+	.service_client {
+		&.service_2 {
+			background: $color_gallery_approx $url_1 no-repeat 50% 20%;
+		}
+		&.service_3 {
+			background: $color_gallery_approx $url_2 no-repeat 50% 20%;
+		}
+		&.service_4 {
+			background: $color_gallery_approx $url_3 no-repeat 50% 20%;
+		}
+		h4 {
+			height: 43px;
+			margin: 0 5%;
+			width: 90%;
+			margin-top: 7px;
+			margin-bottom: 100px;
+			white-space: nowrap;
+			float: left;
+		}
+	}
+	.info-container {
+		text-align: center;
+		width: 98%;
+		padding: 1%;
+	}
+}
+.service_client {
+	.row-fluid-container {
+		border: none;
+	}
+	a.btn_cta {
+		width: 66.25%;
+		padding: 5% 10%;
+		margin: 10px 6.875%;
+		display: inline-block;
+		text-align: center;
+	}
+}
+.row-fluid-container {
+	height: 100%;
+	border: 1px solid $black;
+	width: 100%;
+	min-height: 111px;
+	display: inline-block;
+}
+.label_service {
+	float: left;
+	padding: 0 5%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid $color_bon_jour_approx;
+	width: 90%;
+}
+.customer_img {
+	padding: 0;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50%;
+	border: 1px solid $color_gunsmoke_approx;
+	vertical-align: middle;
+	img {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 50%;
+		width: 25px;
+	}
+}
+.customer_name {
+	border: none;
+	font-size: 0.714em;
+	font-family: $font_0, $font_1, $font_2, $font_3;
+	font-weight: normal;
+	text-transform: uppercase;
+	background: none;
+	line-height: normal;
+	text-align: left;
+	padding: 0;
+	margin-left: 4%;
+	white-space: normal;
+	max-width: 77%;
+	vertical-align: middle;
+	a {
+		color: $color_gunsmoke_approx;
+		&:hover {
+			color: $color_shakespeare_approx;
+			text-decoration: none;
+		}
+	}
+}
+.infos_service {
+	border-top: 1px solid $white;
+	height: 70px;
+	line-height: 70px;
+	float: left;
+	width: 90%;
+	padding: 0 5%;
+	padding-top: 10px;
+	span {
+		line-height: 1.2;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.rest_presta {
+		vertical-align: baseline;
+		margin: 4px;
+		padding: 5px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+		font-size: 18px;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 1px 0 $color_silver_approx;
+		background-color: $white;
+		position: relative;
+		span {
+			background: $url_4 repeat-x center center;
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			display: block;
+			height: 2px;
+			left: 0;
+			margin-top: -1px;
+		}
+	}
+}
+.infos_resiliation {
+	height: 55px;
+	float: left;
+	line-height: 55px;
+	padding: 0 5%;
+	width: 90%;
+}
+.plusinfo {
+	position: relative;
+	.bulle_info {
+		display: none;
+		text-align: left;
+		color: $white;
+		background: $color_tapa_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+		padding: 5px 10px;
+		cursor: text;
+		top: -29px;
+		left: -4px;
+		white-space: nowrap;
+		font-size: 11px;
+		span {
+			width: 12px;
+			height: 12px;
+			display: inline-block;
+			background: $url_5 no-repeat -132px -100px;
+			margin-right: 5px;
+		}
+	}
+	&:hover .bulle_info {
+		display: block;
+		position: absolute;
+		z-index: 1000;
+		&:before {
+			border-top: 7px solid $black_20;
+			border-left: 7px solid rgba(0, 0, 0, 0);
+			border-right: 7px solid rgba(0, 0, 0, 0);
+			content: "";
+			display: inline-block;
+			left: 6px;
+			position: absolute;
+			bottom: -7px;
+		}
+		&:after {
+			border-top: 6px solid $color_tapa_approx;
+			border-left: 6px solid rgba(0, 0, 0, 0);
+			border-right: 6px solid rgba(0, 0, 0, 0);
+			content: "";
+			display: inline-block;
+			left: 7px;
+			position: absolute;
+			bottom: -6px;
+		}
+	}
+}
+@media(min-width:480px) and(max-width:768px) {
+	[class*="span"] {
+		width: 47.75% !important;
+	}
+	.uneditable-input[class*="span"] {
+		width: 47.75% !important;
+	}
+	.row-fluid [class*="span"] {
+		width: 47.75% !important;
+	}
+}
+@media(max-width:479px) {
+	[class*="span"] {
+		width: 97% !important;
+	}
+	.uneditable-input[class*="span"] {
+		width: 97% !important;
+	}
+	.row-fluid [class*="span"] {
+		width: 97% !important;
+	}
+}
+div.row-fluid {
+	div.service_client {
+		@extend %extend_1;
+	}
+	[class*="span"]:first-child {
+		@extend %extend_1;
+	}
+}

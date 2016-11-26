@@ -1,0 +1,188 @@
+//colors
+$white: #fff;
+$color_quill_gray_approx: #d5d5d5;
+$color_neon_carrot_approx: #27368b;
+$color_comet_approx: #586272;
+
+//fonts
+$font_0: latoregular;
+$font_1: Helvetica;
+$font_2: Arial;
+$font_3: sans-serif;
+$font_4: FontAwesome;
+
+// Media Query Ranges
+$small-screen: 767px !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+
+.ace-file-input {
+    display: block;
+    font-size: inherit;
+    position: relative !important;
+    left: 0;
+    right: auto;
+    height: 40px;
+    line-height: 28px;
+    .ace-file-container {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background-color: $white;
+        border-bottom: 1px solid $color_quill_gray_approx;
+        cursor: pointer;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: none;
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: all .15s;
+        &:hover {
+            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+            box-shadow: none;
+            border-color: $color_neon_carrot_approx;
+        }
+        &:before {
+            display: inline-block;
+            content: attr(data-title);
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            line-height: 24px;
+            text-align: center;
+            padding: 7px 22px;
+            background-color: #27368b;
+            color: $white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all .3s;
+            font-family: $font_0, $font_1, $font_2, $font_3;
+
+            &:hover{
+                background-color: rgb(63,81,181);
+            }
+        }
+        .ace-file-name {
+            display: inline-block;
+            height: 28px;
+            max-width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            line-height: 48px;
+            color: $color_comet_approx;
+            font-size: 13px;
+            vertical-align: top;
+            position: static;
+            padding-left: 40px;
+            font-family: $font_0, $font_1, $font_2, $font_3;
+            &:after {
+                display: inline-block;
+                content: attr(data-title);
+            }
+        }
+        .ace-icon {
+            display: inline-block;
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 0;
+            line-height: 30px;
+            width: 26px;
+            text-align: center;
+            font-family: $font_4;
+            font-size: 18px;
+            color: $color_comet_approx;
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: all .1s;
+        }
+    }
+    input[type=file] {
+        position: absolute;
+        z-index: -999;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.document_file_input {
+    margin-bottom: 20px;
+    .form-horizontal {
+        margin: 0;
+    }
+    .ace-file-input {
+        margin: 0 0 10px 0;
+    }
+    &.document_hasfile .form-horizontal {
+        width: 83%;
+        display: inline-block;
+    }
+}
+
+@media #{$small-and-down} {
+    .ace-file-input .ace-file-container .ace-file-name {
+        line-height: 45px;
+        font-size: 11px;
+        padding-left: 32px;
+    }
+    .ace-file-input .ace-file-container:before {
+        line-height: 25px;
+        padding: 7px 16px;
+    }
+}
+
+
+@media screen and(-webkit-min-device-pixel-ratio: 0) {
+    .ace-file-input input[type=file] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+}
+.ace-icon {
+    text-align: center;
+}
+.uploaded_image{
+    text-align:center;
+    padding-bottom:15px;
+    border-bottom:1px solid #f2f2f2;
+    margin:20px 0;
+}
+.uploaded_image img{
+    display: block;
+    width: auto;
+    margin: auto;
+    max-width: 200px;
+}
+
+/* document_file_input */
+.document_file_input{margin-bottom:20px;}
+.document_file_input .form-horizontal,
+.document_file_input .ace-file-input{
+    margin-top: 5px;
+}
+.ace-file-input.has-error{
+    position:relative;
+    padding-bottom:25px;
+}
+.document_file_input.document_hasfile .form-horizontal{
+    width:83%;
+    display:inline-block
+}
+
+.hint {
+    position: absolute;
+    left: 5px;
+    right: auto;
+    bottom: -15px;
+    font-size: 14px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    color: grey; 
+}

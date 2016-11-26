@@ -1,0 +1,84 @@
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row" ng-if="membersWithGiftsPending.length && (!allGiftOrders.length ||
+                (allGiftOrders[0].paymentDate &&
+                        (allGiftOrders[0].year != year || allGiftOrders[0].quarter != quarter)))">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md" flex="grow">Chèques Cadeau : Opération {{ labelOperation}}</span>
+
+                    <div flex="noshrink">
+                        <md-button ng-click="commandGiftOrder()" id="order-gift" class="md-raised md-primary">
+                            Commander
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Opération</span></th>
+                        <th md-column><span>Montant</span></th>
+                        <th md-column><span>Action</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="member in membersWithGiftsPending">
+                        <td md-cell>{{member.firstName}} {{member.lastName}}</td>
+                        <td md-cell>{{member.maxAvantage| displayPrice}} €</td>
+                        <td md-cell>{{member.corporateRaisonSocial}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding mt-lg" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md">Chèques Cadeau : Historique</span>
+
+                    <div flex></div>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Membre</span></th>
+                        <th md-column><span>Chèque cadeau</span></th>
+                        <th md-column><span>Employeur</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="giftOrder in allGiftOrders">
+                        <td md-cell>{{ giftOrder.labelOperation}}</td>
+                        <td md-cell>{{ giftOrder.amount | displayPrice}} €</td>
+                        <td md-cell>
+                            <md-button ng-if="!giftOrder.paymentDate" ng-click="confirmGiftOrder(giftOrder)"
+                                       class="md-icon-button launch actions-program">
+                                <md-tooltip md-direction="top">Confirmer</md-tooltip>
+                                <ng-md-icon icon="assignment_turned_in" size="24"></ng-md-icon>
+                            </md-button>
+                            <md-button ng-click="downloadGiftOrder(giftOrder)"
+                                       class="md-icon-button launch actions-program">
+                                <md-tooltip md-direction="top">Télécharger</md-tooltip>
+                                <ng-md-icon icon="file_download" size="24"></ng-md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>

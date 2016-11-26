@@ -1,0 +1,66 @@
+//colors
+$black_20: rgba(0, 0, 0, 0.2);
+$color_celeste_approx: #cccccc;
+$color_fuscous_gray_approx: #545454;
+$white: #fff;
+$color_shakespeare_approx: #59b8d3;
+
+//fonts
+$font_0: robotoregular;
+$font_1: Arial;
+$font_2: Helvetica;
+$font_3: sans-serif;
+
+#jqContextMenu {
+	ul {
+		min-width: 200px;
+		border: 0 !important;
+		padding: 0 !important;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0 5px 1px $black_20;
+	}
+	li {
+		font-family: $font_0, $font_1, $font_2, $font_3;
+		border: 0 !important;
+		border-top: 1px solid $color_celeste_approx !important;
+		line-height: 34px;
+		font-size: 14px;
+		color: $color_fuscous_gray_approx !important;
+		padding: 0 10px !important;
+		position: relative;
+		&:hover {
+			color: $white !important;
+			background-color: $color_shakespeare_approx !important;
+			border: 0 !important;
+			border-top: 1px solid $color_shakespeare_approx !important;
+			span.nbr-cp {
+				background-color: $white;
+				color: $color_shakespeare_approx;
+			}
+		}
+		span {
+			font-size: 14px !important;
+			&.nbr-cp {
+				background-color: $color_shakespeare_approx;
+				color: $white;
+				font-size: 11px !important;
+				width: 16px;
+				height: 16px;
+				line-height: 16px;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 8px;
+				display: inline-block;
+				position: absolute;
+				right: 9px;
+				top: 9px;
+				text-align: center;
+			}
+		}
+		&:first-child {
+			border-top: 0 !important;
+			&:hover {
+				border-top: 0 !important;
+			}
+		}
+	}
+}

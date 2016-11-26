@@ -1,0 +1,196 @@
+/* line 18, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input {
+  display: block;
+  font-size: inherit;
+  position: relative !important;
+  left: 0;
+  right: auto;
+  height: 40px;
+  line-height: 28px;
+}
+/* line 26, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #d5d5d5;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all .15s;
+}
+/* line 40, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container:hover {
+  box-shadow: none;
+  border-color: #27368b;
+}
+/* line 45, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container:before {
+  display: inline-block;
+  content: attr(data-title);
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  line-height: 24px;
+  text-align: center;
+  padding: 7px 22px;
+  background-color: #27368b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all .3s;
+  font-family: latoregular, Helvetica, Arial, sans-serif;
+}
+/* line 62, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container:before:hover {
+  background-color: #3f51b5;
+}
+/* line 66, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container .ace-file-name {
+  display: inline-block;
+  height: 28px;
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 48px;
+  color: #586272;
+  font-size: 13px;
+  vertical-align: top;
+  position: static;
+  padding-left: 40px;
+  font-family: latoregular, Helvetica, Arial, sans-serif;
+}
+/* line 79, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container .ace-file-name:after {
+  display: inline-block;
+  content: attr(data-title);
+}
+/* line 84, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input .ace-file-container .ace-icon {
+  display: inline-block;
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 0;
+  line-height: 30px;
+  width: 26px;
+  text-align: center;
+  font-family: FontAwesome;
+  font-size: 18px;
+  color: #586272;
+  transition: all .1s;
+}
+/* line 100, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input input[type=file] {
+  position: absolute;
+  z-index: -999;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+/* line 111, ../../../scss/components/forms/file-upload.scss */
+.document_file_input {
+  margin-bottom: 20px;
+}
+/* line 113, ../../../scss/components/forms/file-upload.scss */
+.document_file_input .form-horizontal {
+  margin: 0;
+}
+/* line 116, ../../../scss/components/forms/file-upload.scss */
+.document_file_input .ace-file-input {
+  margin: 0 0 10px 0;
+}
+/* line 119, ../../../scss/components/forms/file-upload.scss */
+.document_file_input.document_hasfile .form-horizontal {
+  width: 83%;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 126, ../../../scss/components/forms/file-upload.scss */
+  .ace-file-input .ace-file-container .ace-file-name {
+    line-height: 45px;
+    font-size: 11px;
+    padding-left: 32px;
+  }
+
+  /* line 131, ../../../scss/components/forms/file-upload.scss */
+  .ace-file-input .ace-file-container:before {
+    line-height: 25px;
+    padding: 7px 16px;
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* line 139, ../../../scss/components/forms/file-upload.scss */
+  .ace-file-input input[type=file] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+}
+/* line 148, ../../../scss/components/forms/file-upload.scss */
+.ace-icon {
+  text-align: center;
+}
+
+/* line 151, ../../../scss/components/forms/file-upload.scss */
+.uploaded_image {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f2f2f2;
+  margin: 20px 0;
+}
+
+/* line 157, ../../../scss/components/forms/file-upload.scss */
+.uploaded_image img {
+  display: block;
+  width: auto;
+  margin: auto;
+  max-width: 200px;
+}
+
+/* document_file_input */
+/* line 165, ../../../scss/components/forms/file-upload.scss */
+.document_file_input {
+  margin-bottom: 20px;
+}
+
+/* line 166, ../../../scss/components/forms/file-upload.scss */
+.document_file_input .form-horizontal,
+.document_file_input .ace-file-input {
+  margin-top: 5px;
+}
+
+/* line 170, ../../../scss/components/forms/file-upload.scss */
+.ace-file-input.has-error {
+  position: relative;
+  padding-bottom: 25px;
+}
+
+/* line 174, ../../../scss/components/forms/file-upload.scss */
+.document_file_input.document_hasfile .form-horizontal {
+  width: 83%;
+  display: inline-block;
+}
+
+/* line 179, ../../../scss/components/forms/file-upload.scss */
+.hint {
+  position: absolute;
+  left: 5px;
+  right: auto;
+  bottom: -15px;
+  font-size: 14px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  color: grey;
+}

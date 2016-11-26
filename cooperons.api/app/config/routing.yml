@@ -1,0 +1,46 @@
+login_check:
+    path: rest/login_check
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+apr_mandataire:
+    resource: "@AprMandataireBundle/Resources/config/routing.yml"
+
+apr_program:
+    resource: "@AprProgramBundle/Resources/config/routing.yml"
+
+apr_user:
+    resource: "@AprUserBundle/Resources/config/routing.yml"
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+apr_core:
+    resource: "@AprCoreBundle/Resources/config/routing_rest.yml"
+
+apr_user_rest:
+  type : rest 
+  resource : "@AprUserBundle/Resources/config/routing_rest.yml"
+
+apr_program_rest:
+  type : rest 
+  resource : "@AprProgramBundle/Resources/config/routing_rest.yml"
+
+apr_mandataire_rest:
+    type : rest
+    resource : "@AprMandataireBundle/Resources/config/routing_rest.yml"
+
+apr_corporate_rest:
+    type : rest
+    resource : "@AprCorporateBundle/Resources/config/routing_rest.yml"
+
+rest_contract:
+    type : rest
+    resource : "@AprContractBundle/Resources/config/routing_rest.yml"
+
+apr_auto_entrepreneur_rest:
+    type : rest
+    resource : "@AprAutoEntrepreneurBundle/Resources/config/routing_rest.yml"
+

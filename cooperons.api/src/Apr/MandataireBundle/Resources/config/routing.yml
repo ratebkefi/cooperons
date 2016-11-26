@@ -1,0 +1,3 @@
+program:
+    resource: "@AprMandataireBundle/Controller"
+    type:     annotation

@@ -1,0 +1,36 @@
+//colors
+$color_link_water_approx: #dcebf7;
+$color_aqua_haze_approx: #edf3f4;
+$color_azure_approx: #336199;
+$color_zircon_approx: #f7fbff;
+$color_tuatara_approx: #393939;
+
+.info-striped {
+	border: 1px solid $color_link_water_approx;
+	margin-bottom: 20px;
+	font-size: 13px;
+	.profile-info-name {
+		background-color: $color_aqua_haze_approx;
+		color: $color_azure_approx;
+		display: table-cell;
+		font-weight: 400;
+		padding: 6px 10px 6px 4px;
+		text-align: right;
+		vertical-align: middle;
+		width: 130px;
+	}
+	.profile-info-value {
+		padding-left: 18px;
+		color: $color_tuatara_approx;
+		padding-left: 18px;
+                display: table-cell;
+                line-height: 31px;
+	}
+}
+.profile-info-row {
+    position: relative;
+    border-bottom: 1px solid #dcebf7;
+}
+.profile-info-row:last-child {
+    border-bottom: none;
+}

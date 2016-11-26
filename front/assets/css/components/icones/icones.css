@@ -1,0 +1,87 @@
+/* line 17, ../../../scss/components/icones/icones.scss */
+i {
+  line-height: inherit;
+}
+/* line 20, ../../../scss/components/icones/icones.scss */
+i.left {
+  float: left;
+  margin-right: 15px;
+}
+/* line 24, ../../../scss/components/icones/icones.scss */
+i.right {
+  float: right;
+  margin-left: 15px;
+}
+/* line 28, ../../../scss/components/icones/icones.scss */
+i.tiny {
+  font-size: 1rem;
+}
+/* line 31, ../../../scss/components/icones/icones.scss */
+i.small {
+  font-size: 2rem;
+}
+/* line 34, ../../../scss/components/icones/icones.scss */
+i.medium {
+  font-size: 4rem;
+}
+/* line 37, ../../../scss/components/icones/icones.scss */
+i.large {
+  font-size: 6rem;
+}
+
+/* line 42, ../../../scss/components/icones/icones.scss */
+md-icon[md-font-icon] {
+  line-height: 20px;
+  width: auto;
+  font-size: 18px;
+  color: #424644;
+}
+
+/* line 48, ../../../scss/components/icones/icones.scss */
+.actions-config:hover {
+  color: #6abb4f;
+}
+
+/* line 49, ../../../scss/components/icones/icones.scss */
+.actions-admin:hover {
+  color: #2d2161;
+}
+
+/* line 50, ../../../scss/components/icones/icones.scss */
+.actions-edit:hover {
+  color: #ffad46;
+}
+
+/* line 51, ../../../scss/components/icones/icones.scss */
+.actions-delete:hover {
+  color: #e40a20;
+}
+
+/* line 52, ../../../scss/components/icones/icones.scss */
+.actions-parrainage:hover {
+  color: #892e65;
+}
+
+/* line 53, ../../../scss/components/icones/icones.scss */
+.actions-program:hover {
+  color: #31328a;
+}
+
+/* line 55, ../../../scss/components/icones/icones.scss */
+md-icon[md-font-icon] + span {
+  padding-left: 5px;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 59, ../../../scss/components/icones/icones.scss */
+  ng-md-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* line 63, ../../../scss/components/icones/icones.scss */
+  ng-md-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}

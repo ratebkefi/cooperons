@@ -1,0 +1,48 @@
+<link href="assets/modules/user/css/login.css" rel="stylesheet" type="text/css">
+
+<section class="body-sign">
+    <div class="center-sign">
+        <div class="logo">
+            <img alt="Coopérons" src="assets/images/default/logo_large.png">
+        </div>
+
+        <div class="panel panel-sign">
+            <div class="panel-title-sign mt-xl text-right">
+                <h2 class="title m-none"><i class="fa fa-user mr-xs"></i> Authentification</h2>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Addresse email</label>
+                        <md-icon md-font-icon="fa fa-user" class="name"></md-icon>
+                        <input type="text" ng-model="user.username" name="username"/>
+                    </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block">
+                        <md-icon md-font-icon="fa fa-sign-in" class="name"></md-icon>
+                        <label>Mot de passe</label>
+                        <input type="password" ng-model="user.password" name="password"/>
+                    </md-input-container>
+
+                    <label ng-if="authentication.failed" class="text-error checkbox"><i class="fa fa-times-circle"></i>
+                        {{authentication.message}}
+                    </label>
+
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <a ui-sref="user.forgetPassword()">Mot de passe oublié ?</a>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-button class="md-raised md-primary right" ng-disabled="buttonDisabled"
+                                       ng-click="login()" type="submit">Se connecter
+                            </md-button>
+                        </md-input-container>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center" ng-include="'app/layout/views/shell/footer.html'"></div>
+    </div>
+</section>

@@ -1,0 +1,4 @@
+legal:
+    resource: "@AprCoreBundle/ApiController"
+    type:     annotation
+    prefix:    rest/legal

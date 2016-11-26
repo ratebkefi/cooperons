@@ -1,0 +1,70 @@
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="corporate && !corporate.accordSigned">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="warning" class="orange-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+             <span class="md-subhead">La création du compte Entreprise de {{ corporate.raisonSocial }} n'est pas finalisée. Nous restons
+                    en l'attente du Contrat Cadre signé en 2 exemplaires.</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+</md-content>
+
+<div ng-if="contract">
+
+    <md-content ng-if="settlements.length > 0" class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-card-image">
+                            <ng-md-icon icon="warning" class="orange-color md-card-icon" size="48"></ng-md-icon>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text class="md-card-left">
+                        <span ng-if="contract.program" class="md-subhead">Une commande est en attente de règlement pour le programme {{contract.program.label}}.</span>
+                        <span ng-if="!contract.program" class="md-subhead">Une prestation de {{ contract.ownerLabel }} est en attente de règlement.</span>
+                        <span class="md-subhead">Merci d'approvisionner ce Dépôt Contrat dès que possible afin de ne subir aucune interruption de service.</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+    </md-content>
+
+    <md-content ng-if="!settlements.length && contract.depot < contract.minDepot" class="md-padding" layout-xs="column"
+                layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-card-image">
+                            <ng-md-icon icon="warning" class="orange-color md-card-icon" size="48"></ng-md-icon>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text class="md-card-left">
+                 <span ng-if="contract.program" class="md-subhead">
+                        Le solde du Compte Programme ({{contract.depot | displayPrice}} €) pour le programme
+                        {{contract.program.label}} est inférieur au Dépôt Minimum ({{contract.minDepot | displayPrice}} €).
+                        <br>
+                        Merci d'approvisionner ce Compte Programme dès que possible afin que vos Membres ne subissent
+                        aucune interruption de service.
+                    </span>
+                    <span ng-if="!contract.program" class="md-subhead">
+                        Le solde du Dépôt Contrat ({{contract.depot | displayPrice}} €) de {{ contract.ownerLabel }} est
+                        inférieur au Dépôt Minimum ({{contract.minDepot | displayPrice}} €).
+                        Merci d'approvisionner ce Dépôt Contrat dès que possible afin de ne subir aucune interruption de service.
+                    </span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+    </md-content>
+
+</div>

@@ -1,0 +1,31 @@
+{% include 'AprUserBundle:Form:header.html.twig' with ({'title' : 'Coopérons' }) %}
+
+<div class="large_header main_content">
+    <div class="faq">
+        {% if (token is defined and token != '')%}
+            <a href="{{ path('faq_member', {'token':token}) }}">
+                <i class="fa fa-question-circle"></i>
+            </a>
+        {% endif %}
+
+
+    </div>
+    <a class="logo" title="Coopérons"></a>
+</div>
+<div class="container main_content">
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<script>
+    function inArray(elm, tab) {
+        for (var i = 0; i < tab.length; i++) {
+            if (elm == tab[i]) return true;
+        }
+        return false;
+    }
+</script>
+
+
+{% include 'AprUserBundle:Form:footer.html.twig' %}

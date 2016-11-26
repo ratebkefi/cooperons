@@ -1,0 +1,124 @@
+<!-- Page: list of member's filleuls -->
+<header class="page-header"><h2>Mes Filleuls</h2></header>
+
+<!-- If memebr has filleuls -->
+<md-content ng-if="nbreFilleuls && nbreFilleuls > 0" class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="thumb_up" class="blue-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+               <span class="md-headline" ng-if="nbreFilleuls == 1 || nbreFilleuls > 1" id="msgFilleuls">
+                            <span ng-if="nbreFilleuls == 1">Votre filleul vous a</span>
+                            <span ng-if="nbreFilleuls > 1"> Vos {{nbreFilleuls}} filleuls vous ont </span>
+                            rapporté  
+                            <span ng-if="totalMultipoints">{{totalMultipoints}}</span> 
+                            <span ng-if="!totalMultipoints">0</span>
+                            MultiPoints 
+               </span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+</md-content>
+
+<!-- If memebr has not filleuls -->
+<md-content ng-if="!nbreFilleuls" class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="warning" class="orange-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <span class="md-headline" ng-if="!nbreFilleuls">Actuellement vous n'avez aucun filleul</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+</md-content>
+
+<!-- If member has more than one filleul -->
+<md-content ng-if="filleuls.length" class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <div flex></div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-select aria-label="Programme" ng-model="selected.program" ng-change="filterFilleuls()">
+                                <md-option ng-repeat="programOption in allPrograms" ng-value="programOption">
+                                    {{programOption.value}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-select aria-label="Année" ng-model="selected.year" ng-change="filterFilleuls()">
+                                <md-option ng-repeat="yearOption in allYears" ng-value="yearOption">
+                                    {{yearOption.value}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+
+                </div>
+            </md-toolbar>
+
+
+            <!-- Table of list of filleuls -->
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Nom-Prénom</span></th>
+                        <th md-column><span>Programmes</span></th>
+                        <th md-column><span>Date</span></th>
+                        <th md-column><span>Filleuls</span></th>
+                        <th md-column><span>MultiPoints</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body ng-repeat="filleul in filleuls | limitTo:10">
+                    <tr md-row>
+                        <td md-cell>
+                            {{filleul.lastName}} {{filleul.firstName}}
+                            <span ng-if="!filleul.lastName && !filleul.firstName">{{filleul.email}}</span>
+                        </td>
+                        <td md-cell>
+               <span ng-if="filleul.programs.length > 1" class="programs-ticker">
+                        <marquee>{{filleul.programs.length}} programmes: &nbsp <span
+                                ng-repeat="program in filleul.programs"> {{program}} &nbsp  &nbsp</span></marquee>
+                    </span>
+                            <span ng-if="filleul.programs.length == 1"> {{filleul.programs[0]}}</span>
+                        </td>
+                        <td md-cell>{{filleul.date}}</td>
+                        <td md-cell>{{filleul.filleuls}}</td>
+                        <td md-cell>{{filleul.multipoints}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="text-bold text-sm">Total MultiPoints gagnés par vos filleuls :</span>
+
+                    <div flex></div>
+                    <label class="red-color text-md">
+                        <span ng-if="totalMultipointsFilleuls">{{totalMultipointsFilleuls}}</span>
+                        <span ng-if="!totalMultipointsFilleuls">0</span>
+                    </label>
+                </div>
+            </md-toolbar>
+        </md-card>
+    </div>
+</md-content>
+   

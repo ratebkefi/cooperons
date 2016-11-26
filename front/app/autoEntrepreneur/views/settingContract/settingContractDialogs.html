@@ -1,0 +1,25 @@
+<!-- delete contract-->
+<script type="text/ng-template" class="ngdialog-theme-default" id="contract.edit">
+     <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Modification de contrat</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>Attention: vous êtes sur le point de modifier votre contrat avec {{ dlgCtr.contract.clientLabel}}.</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+       <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="dlgCtr.confirm()" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions> 
+</script>

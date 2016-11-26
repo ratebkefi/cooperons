@@ -1,0 +1,82 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <h3 class="title-header ng-binding">Affaires</h3>
+                </div>
+            </md-toolbar>
+            <form method="post" name="create_affair" ng-class="{'not_submitted' : !create_affair.$submitted }"
+                  ng-submit="createAffair(create_affair, program.id, participate.id)" class="m-md mt-none" novalidate>
+                <md-input-container class="md-block">
+                    <label class="required">Intitulé</label>
+                    <input type="text" id="form_label" name="label" ng-model="affair.label" required="required">
+
+                    <div class="erreurform" ng-if="formErrors.label">{{ formErrors.label }}</div>
+                    <div ng-messages="create_affair.label.$error" ng-if="create_affair.$submitted" ng-messages-multiple>
+                        <div class="erreurform" ng-message="required">Intitulé requis</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block mb-none">
+                    <md-button aria-label="Créer" id="createAffair" type="submit" class="md-raised md-primary right">
+                        <md-icon md-font-icon="fa fa-plus-circle"></md-icon>
+                        Créer
+                    </md-button>
+                </md-input-container>
+            </form>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Affaire</span></th>
+                        <th md-column><span>Etat</span></th>
+                        <th md-column><span>Montant</span></th>
+                        <th md-column><span>Réglements</span></th>
+                        <th md-column><span>Solde restant</span></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="affair in affairs">
+                        <td md-cell>
+                            <md-button aria-label="affair"
+                                       ui-sref="program.affair({programId: program.id, affairId: affair.id})"
+                                       class="md-warn">
+                                {{affair.label}}
+                            </md-button>
+                        </td>
+                        <td md-cell>
+                            <md-button aria-label="affair"
+                                       ui-sref="program.affair({programId: program.id, affairId: affair.id})"
+                                       class="md-warn">
+                                <span ng-if="affair.status == 'paid'">Cloturé</span>
+                                <span ng-if="affair.status == 'approach'">En Approche</span>
+                                <span ng-if="affair.status == 'cancel'">Annulée</span>
+                                <span ng-if="affair.status == 'negotiation'">En Négociation</span>
+                                <span ng-if="affair.status == 'payable'">Réglements</span>
+                            </md-button>
+                        </td>
+                        <td md-cell>
+                            <span ng-if="affair.amount">{{affair.amount |displayPrice}} €</span>
+                            <span ng-if="!affair.amount">0,00 €</span>
+                        </td>
+                        <td md-cell>
+                            {{(affair.amount-affair.remains) |displayPrice}} €
+                        </td>
+                        <td md-cell>
+                            <span ng-if="affair.remains">{{affair.remains  |displayPrice}} €</span>
+                            <span ng-if="!affair.remains">0,00 €</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>

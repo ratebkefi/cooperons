@@ -1,0 +1,137 @@
+//colors
+$color_mine_shaft_approx: #333333;
+$color_silver_chalice_approx: #aaaaaa;
+$sunglow: #ffcc33;
+$color_mercury_approx: #e7e7e7;
+$color_bay_of_many_approx: #31328a;
+$white: #ffffff;
+$color_gunsmoke_approx: #7c8389;
+$color_jacarta_approx: #2d2161;
+$color_cerulean_approx: #01a6dc;
+
+//fonts
+$font_0: latoregular;
+
+.cloudsponge-widget {
+	h3 {
+		font-size: 24px;
+		color: $color_mine_shaft_approx;
+		text-align: center;
+		font-family: $font_0;
+		margin-top: 0;
+		margin: 0;
+	}
+	.title_sub {
+		font-style: italic;
+		font-size: 12px;
+		text-align: center;
+		color: $color_silver_chalice_approx;
+	}
+	a {
+		color: $sunglow;
+		font-weight: bold;
+	}
+}
+.widget-deep-link {
+	width: 50%;
+	margin-bottom: 20px;
+	margin-top: 40px;
+	margin-left: 25%;
+	border-bottom: 1px solid $color_mercury_approx;
+}
+@media(max-width:529px) {
+	.widget-deep-link {
+		width: 100%;
+		margin-left: 0;
+	}
+	#form-cloudsponge {
+		width: 100%;
+		margin-left: 0;
+	}
+	.cloudsponge-widget h3 {
+		line-height: 24px;
+		padding: 10px 0;
+	}
+}
+@media(max-width:379px) {
+	.widget-deep-link .deep-link {
+		padding-left: 45px;
+		height: 34px;
+		line-height: 14px;
+		padding-right: 10px;
+		padding-top: 6px;
+		background-position: 10px 9px;
+		&.yahoo {
+			background-position: 10px -30px;
+		}
+		&.outlook {
+			background-position: 10px -71px;
+		}
+	}
+}
+.cs_links {
+	list-style: none;
+	margin: 0;
+	li {
+		border-top: 1px solid $color_mercury_approx;
+		text-transform: uppercase;
+		padding: 10px 0;
+		a {
+			float: right;
+			color: $color_cerulean_approx;
+			text-transform: initial;
+			font-weight: normal;
+                        cursor: pointer;
+		}
+		img {
+			margin-right: 10px;
+			display: inline-block;
+			width: auto;
+			height: auto;
+		}
+	}
+}
+.cs-contact-form .info {
+	position: absolute;
+	color: $color_bay_of_many_approx;
+	right: 10px;
+	top: 20px;
+	cursor: pointer;
+	font-size: 18px;
+	margin-top: -10px;
+	.infobulle {
+		position: absolute;
+		display: none;
+		border: 1px solid $color_bay_of_many_approx;
+		background: $white;
+		text-align: left;
+		padding: 10px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+		color: $color_gunsmoke_approx;
+		font-size: 12px;
+		bottom: 25px;
+		right: -6px;
+		&:before {
+			content: ' ';
+			position: absolute;
+			right: 10px;
+			bottom: -5px;
+			width: 6px;
+			height: 7px;
+			background-color: $white;
+			border-top: 1px solid $color_bay_of_many_approx;
+			border-left: 1px solid $color_bay_of_many_approx;
+			border-bottom: none;
+			border-right: none;
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: rotate(-135deg);
+		}
+	}
+	&:hover {
+		color: $color_jacarta_approx;
+		.infobulle {
+			display: block;
+		}
+	}
+}

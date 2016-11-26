@@ -1,0 +1,32 @@
+corporate:
+    validate:
+        op: validate
+        path: /
+    cancel:
+        op: cancel
+        path: /
+    create_college:
+        op: create
+        path: /college
+
+college:
+    broadcast_candidate:
+        op: broadcast
+        path: /
+    leave-college:
+        op: leave
+        path: /
+    accept_college:
+        op: accept
+        path: /
+    confirm_college:
+        op: confirm
+        path: /
+    change_delegate:
+        op: change
+        path: /delegate
+
+attestation:
+    validate_yearly_attestations:
+        op: validate
+        path: /

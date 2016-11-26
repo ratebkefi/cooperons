@@ -1,0 +1,57 @@
+/* line 15, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu ul {
+  min-width: 200px;
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+}
+/* line 22, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li {
+  font-family: robotoregular, Arial, Helvetica, sans-serif;
+  border: 0 !important;
+  border-top: 1px solid #cccccc !important;
+  line-height: 34px;
+  font-size: 14px;
+  color: #545454 !important;
+  padding: 0 10px !important;
+  position: relative;
+}
+/* line 31, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li:hover {
+  color: #fff !important;
+  background-color: #59b8d3 !important;
+  border: 0 !important;
+  border-top: 1px solid #59b8d3 !important;
+}
+/* line 36, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li:hover span.nbr-cp {
+  background-color: #fff;
+  color: #59b8d3;
+}
+/* line 41, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li span {
+  font-size: 14px !important;
+}
+/* line 43, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li span.nbr-cp {
+  background-color: #59b8d3;
+  color: #fff;
+  font-size: 11px !important;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
+  display: inline-block;
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  text-align: center;
+}
+/* line 59, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li:first-child {
+  border-top: 0 !important;
+}
+/* line 61, ../../../scss/components/jqContextMenu/jqContextMenu.scss */
+#jqContextMenu li:first-child:hover {
+  border-top: 0 !important;
+}

@@ -1,0 +1,10 @@
+parameters:
+    apr_auto_entrepreneur.auto_entrepreneur.class: Apr\AutoEntrepreneurBundle\Manager\AutoEntrepreneurManager
+
+services:
+    apr_auto_entrepreneur.auto_entrepreneur_manager:
+        class: "%apr_auto_entrepreneur.auto_entrepreneur.class%"
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']    
+
+
+        

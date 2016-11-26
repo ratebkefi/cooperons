@@ -1,0 +1,81 @@
+{% extends "AprProgramBundle:Default:base.html.twig" %}
+{% block content %}
+    <link  href={{ asset('bundles/Edtapp/css/program.css')}} rel='stylesheet' type='text/css' />
+    <h1>Contrat de Partenariat</h1>
+    <div class="separateur_haut"></div>
+    <div class="span12">
+        <p>Entre:</p>
+        <p>{{ contract.owner.description }} (« <strong>Le Partenaire Commercial</strong> »),</p>
+        <p>Et:</p>
+        <p>{{ contract.client.description }} (« <strong>Le Partenaire Prestataire</strong> »),</p>
+        <p>Ci-après dénommées <strong>Les Parties</strong> ».</p>
+        <p>Le présent contrat de partenariat (ci-après dénommé le « <strong>Contrat</strong> ») a pour objet de déterminer les conditions de rémunération de la mise à disposition du réseau commercial du Partenaire Commercial au bénéfice du Partenaire Prestataire.</p>
+        <h3>1. Définitions</h3>
+        <p><strong>Acceptation</strong> : validation par le Partenaire Prestataire du présent Contrat, effectuée par ce dernier sur son Espace Coopérons !, au moyen de l'onglet "Mes Commerciaux" du menu "Auto-Entrepreneur".</p>
+        <p><strong>Chiffre d'Affaires Cumulé</strong> : montant total des Prestations effectuées par le Partenaire Prestataire au bénéfice du Client Apporté (hors Remises accordées).</p>
+        <p><strong>Client Apporté</strong> : nouvelle Entreprise apportée par le Partenaire Commercial au Partenaire Prestataire conformément à l'article 2 du présent Contrat.</p>
+        <p><strong>Collaborateur</strong> : membre inscrit sur le réseau Coopérons disposant de droits de gestionnaire de Contrats de Prestation Auto-Entrepreneur.</p>
+        <p><strong>Contrat de Prestation Auto-Entrepreneur</strong> : contrat de prestation de services passé entre tout membre inscrit sur le réseau Coopérons en tant qu'Auto-Entrepreneur et une Entreprise.</p>
+        <p><strong>Entreprise</strong> : entreprise inscrite sur le réseau Coopérons dans le cadre d'un compte Entreprise, permettant à ses collaborateurs d'être gestionnaires de Contrats de Prestation Auto-Entrepreneur.</p>
+        <p><strong>Espace Coopérons !</strong> : compte utilisateur sur le réseau Coopérons dont dispose le Partenaire Prestataire, le Partenaire Commercial.</p>
+        <p><strong>Prestation</strong> : prestation effectuée par le Partenaire Prestataire au bénéfice d'une Entreprise dans le cadre d'un Contrat de Prestation Auto-Entrepreneur.</p>
+        <p><strong>Remise</strong> : remise accordée par le Partenaire Prestataire sur chaque Prestation facturée au Client Apporté.</p>
+        <p><strong>Remise Cumulée</strong> : montant total des Remises accordées par le Partenaire Prestataire au Client Apporté.</p>
+        <p><strong>Remise Cumulée Calculée</strong> : montant calculé selon la méthode décrite à l'article 3.3.</p>
+        <h3>2. Apport d'un client</h3>
+        <p>Le Partenaire Commercial pourra mettre en relation le Partenaire Prestataire et une Entreprise de son réseau au moyen de l'onglet "Mes Prestataires" du menu "Mon Entreprise" de son Espace Coopérons !.</p>
+        <p>Le Partenaire Prestataire pourra accepter cette mise en relation au moyen de l'onglet "Mes Commerciaux" du menu "Mon Entreprise" - l'Entreprise devenant alors Client Apporté du Partenaire Prestataire.</p>
+        <h3>3. Remise - Durée applicable</h3>
+        <h4>3.1. Remise aux Clients Apportés</h4>
+        <p>Le Partenaire Prestataire s'engage à offrir audit Client Apporté une remise sur le montant de chaque Prestation - dans les conditions définies ci-dessous.</p>
+        <p>L'octroi de cette Remise par le Partenaire Prestataire permettra au Partenaire Commercial de facturer une prestation de recruter du même montant au Client Apporté.</p>
+        <h4>3.2. Durée applicable</h4>
+        <p>La durée durant laquelle le Partenaire Prestataire s'engage à accorder une remise au Client Apporté est égale à {{ contract.recruitmentSettings.duration }} mois à compter de la date de la première Prestation effectuée par le Partenaire Prestataire au bénéfice du Client Apporté.</p>
+        <p>Au delà de cette date, le montant de la Remise sera nul (0 €).</p>
+        <h4>3.3. Calcul de la Remise</h4>
+        <p>Pour chaque Prestation, le montant de la Remise applicable sera calculé comme la différence entre :</p>
+        <ul>
+            <li>la Remise Cumulée Calculée (i.e. après imputation de la Prestation)</li>
+            <li>la Remise Cumulée (i.e. avant imputation de la Prestation)</li>
+        </ul>
+        <p>La Remise Cumulée Calculée sera calculée à partir du Chiffre d'Affaires Cumulé (tenant compte du montant de ladite Prestation) :</p>
+        <ul>
+            <li>Si le Chiffre d'Affaires Cumulé est inférieur à {{ contract.recruitmentSettings.range1 }} €: la Remise Cumulée Calculée sera égale à {{ contract.recruitmentSettings.rate1 }} % du Chiffre d'Affaires Cumulé</li>
+            {% if contract.recruitmentSettings.rate2 %}
+                <li>Si le Chiffre d'Affaires Cumulé est supérieur à {{ contract.recruitmentSettings.range1 }} € mais inférieur à {{ contract.recruitmentSettings.range2 }} €: la Remise Cumulée Calculée sera égale à {{ contract.recruitmentSettings.rate2 }} % du Chiffre d'Affaires Cumulé,
+                    {% if contract.recruitmentSettings.offset1 %}
+                        {% if contract.recruitmentSettings.offset1 > 0 %} et augmentée de {%  else %} et diminuée de {% endif %}{{ contract.recruitmentSettings.offset1|abs }} €
+                    {% endif %}.
+                </li>
+            {% endif %}
+            {% if contract.recruitmentSettings.rateBeyond %}
+                <li>Si le Chiffre d'Affaires Cumulé est supérieur à {{ contract.recruitmentSettings.range2 }} €: la Remise Cumulée Calculée sera égale à {{ contract.recruitmentSettings.rateBeyond }} % du Chiffre d'Affaires Cumulé,
+                    {% if contract.recruitmentSettings.offset2 %}
+                    {% if contract.recruitmentSettings.offset2 > 0 %} et augmentée de {%  else %} et diminuée de {% endif %}{{ contract.recruitmentSettings.offset2|abs  }} €
+                    {% endif %}.
+                </li>
+            {% endif %}
+        </ul>
+        <h3>4. Durée du contrat - Résiliation</h3>
+        <p>Le présent Contrat entre en vigueur à compter de son Acceptation par le Partenaire Prestataire et il se poursuivra pour une durée indéterminée sauf en cas de résiliation comme stipulé ci-dessous.</p>
+        <p>Le Contrat pourra être résilié par l'une des Parties en cliquant sur le bouton "Résilier" relatif au présent Contrat sur l'Espace Coopérons de l'une des Parties.</p>
+        <p>En cas de résiliation du présent Contrat, les dispositions l'article 3 resteront applicables pour tous les Clients Apportés (jusqu'à expiration de leurs durées de commissionnement respectives - conformément à l'article 3.2).</p>
+        <h3>5. Modification</h3>
+        <p>Le Contrat pourra être modifié par le Partenaire Commercial en cliquant sur le bouton "Modifier" relatif au présent Contrat sur son Espace Coopérons.</p>
+        <p>En cas de modification du présent Contrat, les paramètres de calcul utilisés dans le cadre de l'article 3 pour tous les Clients Apportés préalablement à cette modification resteront inchangées.</p>
+        <p>La modification apportée au présent Contrat sera donc applicable aux nouveaux Clients Apportés postérieurement à cette modification.</p>
+        <h3>6. Divers</h3>
+        <p>Le Contrat exprime l'intégralité de l'accord passé entre les Parties et se substitue à tout accord éventuellement intervenu antérieurement entre les Parties pour ce qui concerne les conditions relatives à leur partenariat.</p>
+        <p>Si une ou plusieurs dispositions du Contrat étaient tenues pour nulles ou non valides ou déclarées telles en application d'une loi, d'un règlement ou à la suite d'une décision d'une juridiction compétente, les autres clauses garderont leur force et leur portée.</p>
+        <p>Le fait par l'une des parties de ne pas se prévaloir d'un manquement par l'autre partie à l'une quelconque de ses obligations visée dans le Contrat, ou de tarder à exercer l'un quelconque des droits qu'elle tient du Contrat, ne saurait valoir renonciation définitive à l'exécution de cette disposition ou de toute autre disposition, ou à l'exercice de ce droit ou de tout autre droit.</p>
+        <p>Le Contrat est soumis au droit français. Tous litiges nés de l'interprétation, l'exécution ou la résiliation du Contrat seront soumis aux tribunaux compétents.</p>
+    </div> 
+        <div class="pull-right">
+            {% if displayPublishButton %}
+                <a class="btn btn-large btn-primary" href="{{path('publish_contract',{'idContract':contract.id})}}" id="save"><i class="fa fa-check-circle-o"></i>J'accepte le Contrat</a>
+            {% endif %}
+            {% if displayAgreeButton %}
+                <a class="btn btn-large btn-primary" href="{{path('agree_contract',{'idContract':contract.id})}}" id="save"><i class="fa fa-check-circle-o"></i>J'accepte le Contrat</a>
+            {% endif %}
+        </div> &nbsp;
+{% endblock %}

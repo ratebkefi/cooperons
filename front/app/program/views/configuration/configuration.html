@@ -1,0 +1,87 @@
+<header class="page-header">
+    <h2>Mes Programmes
+        <md-icon class="blue-color" md-font-icon="fa fa-hand-o-right">
+        </md-icon>
+        Configuration
+    </h2>
+</header>
+
+<div ng-include="'app/program/views/header/header.html'" ng-data-program="program"></div>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" ng-if="!(program.isEasy && program.status == 'prod')" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="md-padding">
+            <h3 class="title-header">Configuration <span ng-if="!program.isEasy"> API</span></h3>
+
+            <div ng-if="!program.isEasy">
+                <div class="text-center width-40 config_api m-auto">
+                    <md-button ng-href="{{backRoute('api_doc')}}" target="blank"
+                               class="md-icon-button launch md-auto mb-md">
+                        <md-tooltip md-direction="top">Documentation API</md-tooltip>
+                        <img class="image" alt="Documentation API" src="assets/images/modules/program/doc_api_btn.png"/>
+                    </md-button>
+                    <md-button ui-sref="program.journal({id: program.id})" class="md-icon-button launch md-auto mb-md">
+                        <md-tooltip md-direction="top">Journal API</md-tooltip>
+                        <img class="image" alt="Journal API" src="assets/images/modules/program/journal_api_btn.png"/>
+                    </md-button>
+                </div>
+
+                <div class="info-striped mt-md">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">Identifiant API</div>
+                        <div class="profile-info-value">{{program.label}}</div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">Clé API</div>
+                        <div class="profile-info-value">{{ program.apiKey }}</div>
+                    </div>
+                </div>
+            </div>
+            <p ng-if="program.status == 'preprod'">
+                Votre Programme est actuellement en mode pré-production: vos opérations ne seront visibles que par vous
+                - et
+                seront purgées lors de l'activation du mode Production.
+            </p>
+
+            <div ng-if="program.status == 'preprod'" class="text-center mb-md">
+                <md-button ng-click="resetProgram()" class="md-fab md-chip btn-pink no-padding mr-md">
+                    <md-tooltip md-direction="top">Réinitialiser</md-tooltip>
+                    <ng-md-icon icon="replay" class="white-color md-card-icon height-auto width-auto"
+                                size="40"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="activateProgram(forms.formConfig)" class="md-fab btn-purple no-padding">
+                    <md-tooltip md-direction="top">Activer le mode Production</md-tooltip>
+                    <ng-md-icon icon="open_in_browser" class="white-color md-card-icon height-auto width-auto"
+                                size="40"></ng-md-icon>
+                </md-button>
+            </div>
+
+        </md-card>
+    </div>
+</md-content>
+
+<!-- Document presentation -->
+<div ng-if="program.isEasy" ng-include="'app/program/views/configuration/document.html'"></div>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="creat_mail">
+            <md-card-title class="mb-md">
+                <md-card-title-text>
+                    <h3 class="title-header">Email<span ng-if="!program.isEasy">s</span> d'invitation</h3>
+                </md-card-title-text>
+            </md-card-title>
+
+            <md-card-content class="md-inline-form no-padding">
+                <!-- Invitation email(s) form -->
+                <div ng-include="'app/program/views/configuration/emailConfiguration.html'"></div>
+                <div class="hr hr-24 dotted"></div>
+                <div ng-include="'app/program/views/configuration/emailTemplate.html'"></div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+<div ng-include="'app/program/views/configuration/configurationDialogs.html'"></div>

@@ -1,0 +1,246 @@
+//colors
+$color_iron_approx: #d7d7d7;
+$color_royal_blue_approx: #5659f0;
+$color_deep_cerulean_approx: #0579b4;
+$gray: #808080;
+$color_pink_swan_approx: #bbbbbb;
+$color_matisse_approx: #1575a9;
+
+rzslider {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 12px;
+	margin: 30px 0 15px;
+	vertical-align: middle;
+	span {
+		position: absolute;
+		display: inline-block;
+		white-space: nowrap;
+		&.base {
+			width: 100%;
+			height: 100%;
+			padding: 0;
+		}
+		&.bar {
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			border: 1px solid $color_iron_approx!important;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 4px;
+			background: $color_iron_approx!important;
+			&.selection {
+				z-index: 1;
+				width: 0;
+				background: $color_royal_blue_approx!important;
+				border: 1px solid $color_royal_blue_approx!important;
+			}
+		}
+		&.pointer {
+			background: $color_royal_blue_approx;
+			top: -6px;
+			z-index: 2;
+			width: 22px;
+			height: 24px;
+			cursor: pointer;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 16px;
+			&:hover:after {
+				background: $color_deep_cerulean_approx;
+			}
+		}
+		&.bubble {
+			top: 18px;
+			padding: 1px 3px;
+			color: $gray;
+			cursor: default;
+			font-size: 12px;
+			&.selection {
+				top: 15px;
+			}
+			&.limit {
+				display: none;
+			}
+		}
+	}
+}
+.wrapper {
+	width: 97%;
+}
+.DisableSlider {
+	.EnableSliderToggle {
+		background: $color_pink_swan_approx!important;
+		border: 1px solid $color_pink_swan_approx!important;
+	}
+	.selection {
+		background: $color_pink_swan_approx!important;
+		border: 1px solid $color_pink_swan_approx!important;
+	}
+	.Disabletooltip {
+		display: none;
+	}
+	.DisableCOS {
+		display: none;
+	}
+}
+.EnableSlider {
+	.EnableSliderToggle {
+		background: $color_matisse_approx;
+		border: 1px solid $color_matisse_approx;
+	}
+	.Disabletooltip {
+		display: block;
+	}
+	.DisableCOS {
+		display: block;
+	}
+}
+.disablepointer2 {
+	pointer-events: none;
+}
+.disablepointer3 {
+	border-bottom: 8px solid $gray;
+	pointer-events: none;
+}
+.disablepointer4 {
+	border-top: 8px solid $gray;
+}
+.rzslide-addport {
+	width: 100px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 5px;
+}
+.inputslide-port {
+	float: right;
+	width: 60px;
+	padding: 5px 24px 5px 0;
+	border: 1px solid $gray;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	text-align: center;
+}
+.slidearrow {
+	position: absolute;
+	right: 0;
+	height: 23px;
+	border-left: 1px solid $gray;
+	width: 17%;
+	top: 2px;
+	padding: 2px 3px;
+}
+.rzslide-addevc {
+	width: 100px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 5px;
+}
+.inputslide-evc {
+	float: right;
+	width: 60px;
+	padding: 5px 24px 5px 0;
+	border: 1px solid $gray;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	text-align: center;
+}
+.slidearrow-evc {
+	position: absolute;
+	right: 0;
+	height: 23px;
+	border-left: 1px solid $gray;
+	width: 17%;
+	top: 2px;
+	padding: 2px 3px;
+}
+.rzslider-evc-size {
+	width: 80%;
+}
+.sliderinputbox {
+	width: 100px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 5px;
+}
+.slidervaluebox {
+	float: right;
+	width: 60px;
+	padding: 5px 24px 5px 0;
+	border: 1px solid $gray;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	text-align: center;
+	position: relative;
+}
+.slidervalueincrdecr {
+	position: absolute;
+	right: 13px;
+	height: 23px;
+	border-left: 1px solid $gray;
+	width: 2%;
+	top: 28px;
+	padding: 2px 3px;
+}
+.sliderTextIncrementer {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 8px solid $color_deep_cerulean_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	position: absolute;
+	top: 6px;
+	right: 4px;
+}
+.sliderTextIncrementerDisabled {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 8px solid $gray;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	position: absolute;
+	top: 6px;
+	right: 4px;
+}
+.sliderTextDecrementer {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 8px solid $color_deep_cerulean_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	position: absolute;
+	top: 16px;
+	right: 4px;
+}
+.sliderTextDecrementerDisabled {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 8px solid $gray;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	position: absolute;
+	top: 16px;
+	right: 4px;
+}
+.scaleWrap ul {
+	overflow: hidden;
+	float: left;
+	margin-left: -31px;
+	margin-top: 12px;
+	width: 97.5%;
+	list-style: none;
+	li {
+		float: left;
+		&:last-child {
+			width: 1% !important;
+		}
+	}
+}

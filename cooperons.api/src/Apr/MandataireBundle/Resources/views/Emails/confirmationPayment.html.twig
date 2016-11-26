@@ -1,0 +1,32 @@
+{% extends "AprMandataireBundle:Emails:baseEmailMandataire.html.twig" %}
+{% block content %}
+    Dans le cadre du {{ mandataire.label }}, nous vous confirmons
+
+    {% if payment.amount > 0 %}
+        la bonne réception de votre dépôt d'un montant de {{ payment.amount|number_format(2,',',' ') }} €.
+    {% else %}
+        avoir procédé au réglement par {{ payment.mode }} d'un montant de {{ payment.amount|abs|number_format(2,',',' ') }} €.
+    {% endif %}
+
+    {% if extraMsg %}
+        <br /><br />
+        {{ extraMsg }}
+    {%  endif %}
+
+    <br /><br />
+
+    Le solde de votre {{ mandataire.shortLabel }} s'élève désormais à {{depot|number_format(2,',',' ')}} €.
+
+    {% if payment.amount < 0 %}
+        {% if mandataire.liquidationDate %}
+            Votre {{ mandataire.shortLabel }} est désormais clôturé.
+        {% else %}
+            <br/><br/>
+            {% if mandataire.client.autoEntrepreneur %}
+                Pour rappel, ce solde comprend les Dépôts Contrats de vos clients, ainsi que la provision pour le règlement
+                de vos cotisations trimestrielles.
+                <br/><br/>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endblock %}

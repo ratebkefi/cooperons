@@ -1,0 +1,19 @@
+<span ng-if="contract && contract.program" ng-bind-html="programProvisionFooter">
+</span>
+
+<span ng-if="contract && !contract.program">
+    Conformément au Contrat vous liant avec {{ mandataire.ownerLabel }}, le dépôt effectué sur votre Dépôt Contrat
+    servira à régler vos Prestations.<br>
+    Les frais de transaction applicables seront réglés par remboursement du Dépôt Contrat de {{ mandataire.ownerLabel}}.
+    <br>
+    <span ng-if="contract.recruitment">
+    {{ mandataire.ownerLabel }} ayant été recruté par {{ contract.recruitment.recruitmentContract.ownerLabel }},
+    les commissions de recrutement de {{ contract.recruitment.recruitmentContract.ownerLabel }} seront aussi réglées
+    par remboursement du Dépôt Contrat de {{ mandataire.ownerLabel }}.
+    </span>
+</span>
+
+<span ng-if="!contract">
+    Conformément au Contrat vous liant avec {{ mandataire.ownerLabel }},
+    le dépôt effectué sur votre Compte Mandataire servira à régler vos Prestations.<br>
+</span>

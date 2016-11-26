@@ -1,0 +1,116 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: errors_code.ini }
+
+framework:
+    #esi:             ~
+    translator:    { fallback: %locale% }
+    secret:        %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:  ~
+    fragments:       ~
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    globals:
+        front_connect_member: %front.user.connect%
+        front_create_user: %front.user.create%
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    port:      %mailer_port%
+    auth_mode: %mailer_auth_mode%
+    encryption: %mailer_encryption%
+    spool: { type: memory }
+
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: Apr\UserBundle\Entity\User
+    service:
+        user_manager: apr_user.user_manager
+    registration:
+        form:
+            type: apr_userbundle_user
+    
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        mime_types: {'jsonp': ['application/javascript', 'application/javascript+jsonp']}
+        view_response_listener: true
+        formats:
+            xml: true
+            json: true
+            rss: false
+    routing_loader:
+        default_format: json
+    allowed_methods_listener: true             
+    
+nelmio_api_doc:
+    sandbox:
+        authentication:
+            name: Authorization
+            delivery: header          # `query`, `http`, and `header` are supported
+            type:     bearer         # `basic`, `bearer` are supported
+        entity_to_choice: false     # default is `true`, if `false`, entity collection
+                                    # will not be mapped as choice
+
+lexik_jwt_authentication:
+    private_key_path: %jwt_private_key_path%
+    public_key_path:  %jwt_public_key_path%
+    pass_phrase:      %jwt_key_pass_phrase%
+    token_ttl:        %jwt_token_ttl%
+
+nelmio_cors:
+    paths:
+        '^/rest/':
+            allow_credentials: true
+            allow_origin: ['*']
+            allow_headers: ['*']
+            allow_methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+            max_age: 3600
+
+knp_snappy:
+    temporary_folder: %kernel.cache_dir%/snappy
+    pdf:
+        enabled:    true
+        binary:     %knp_snappy_pdf_binary%
+        options:    [] 

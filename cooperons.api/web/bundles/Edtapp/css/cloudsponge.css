@@ -1,0 +1,207 @@
+/* Cloud Sponge */
+
+.cloudsponge-widget{
+    border: 1px solid #d9d9d9;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    padding:15px 20px 0;
+    padding:3%;
+    margin:2.73972602739726%;/* = 20px/730px */
+}
+
+.cloudsponge-widget h3{
+    font-size:24px;
+    color:#333333;
+    text-align:center;
+    font-family: 'latoregular';
+    margin-top:0;
+    margin:0;
+}
+
+.cloudsponge-widget .title_sub{
+    font-style:italic;
+    font-size:12px;
+    text-align:center;
+    color:#aaaaaa;
+}
+
+.cloudsponge-widget a{
+    color:#ffcc33;
+    font-weight:bold;
+}
+
+.widget-deep-link{
+    width:50%;
+    margin-bottom:20px;
+    margin-top:40px;
+    margin-left:25%;
+    border-bottom:1px solid #e7e7e7;
+}
+
+.erreurform{color:red;}
+
+#form-cloudsponge{
+    text-align:center;
+    width:50%;
+    margin-left:25%;
+    margin-bottom:0;
+}
+
+#form-cloudsponge .cs-contact-form{
+    margin-bottom:10px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#ffffff;
+    position:relative;
+}
+
+#form-cloudsponge .cs-contact-form > div{
+    border:1px solid #e5e5e5;
+    padding:10px 20px;
+    position:relative;
+}
+
+#form-cloudsponge .cs-contact-form > div:first-child{
+    border:1px solid #e7e7e7;
+    padding-right:40px;
+}
+
+#form-cloudsponge label{display:none;}
+
+#form-cloudsponge .input-xlarge{
+    width:100%;
+    border:none;
+    border-radius:0;
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+    padding:0;
+    margin:0;
+    box-shadow:none;
+    font-size:14px;
+    height:20px;
+    line-height:20px;
+}
+
+#form-cloudsponge .btn-primary{
+    background:#31328a;
+    border:none;
+    border-radius:3px;
+    box-shadow:0 2px 0 #2d2161;
+    color:#ffffff;
+    font-size:1.15em;
+    line-height:normal;
+    text-shadow:none;
+    font-family:'latobold';
+    width:100%;
+}
+
+#form-cloudsponge .btn-primary:hover,#form-cloudsponge .btn-primary:focus{
+    background-color:#2d2161;
+}
+
+#form-cloudsponge .cs-contact-form div.erreurform{
+    white-space:pre-wrap;
+    font-size:12px;
+    text-align:left;
+    padding-top:10px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-left:-20px;
+    margin-top:10px;
+    margin-right:-40px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.cs-contact-form .info{
+    position:absolute;
+    color:#31328a;
+    right:10px;
+    top:20px;
+    cursor:pointer;
+    font-size:18px;
+    margin-top:-10px;
+}
+
+.cs-contact-form .info .infobulle{
+    position:absolute;
+    display:none;
+    border:1px solid #31328a;
+    background:#FFFFFF;
+    text-align:left;
+    padding:10px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    color:#7c8389;
+    font-size:12px;
+    bottom:25px;
+    right:-6px;
+}
+
+.cs-contact-form .info:hover{
+    color:#2d2161;
+}
+
+.cs-contact-form .info .infobulle:before{
+    content:' ';
+    position:absolute;
+    right:10px;
+    bottom:-5px;
+    width:6px;
+    height:7px;
+    background-color:#fff;
+    border-top:1px solid #31328a;
+    border-left:1px solid #31328a;
+    border-bottom:none;
+    border-right:none;
+    transform:rotate(-135deg);
+    -webkit-transform:rotate(-135deg);
+    -moz-transform:rotate(-135deg);
+}
+
+.cs-contact-form .info:hover .infobulle{
+    display:block;
+}
+@media (max-width:529px){
+    .widget-deep-link,
+    #form-cloudsponge{
+        width:100%;
+        margin-left:0;
+    }
+    .cloudsponge-widget h3{
+        line-height:24px;
+        padding:10px 0;
+    }
+}
+
+@media (max-width:379px){
+
+    .widget-deep-link .deep-link{
+        padding-left:45px;
+        height:34px;
+        line-height:14px;
+        padding-right:10px;
+        padding-top:6px;
+        background-position:10px 9px;
+    }
+    .widget-deep-link .deep-link.yahoo{background-position:10px -30px}
+    .widget-deep-link .deep-link.outlook{background-position:10px -71px}
+}
+.cs_links{
+    list-style:none;
+    margin:0;
+}
+.cs_links li{
+    border-top:1px solid #e7e7e7;
+    text-transform:uppercase;
+    padding:10px 0;
+}
+.cs_links li a{
+    float:right;
+    color:#01a6dc;
+    text-transform:initial;
+    font-weight:normal;
+}
+.cs_links li img{margin-right:10px;}

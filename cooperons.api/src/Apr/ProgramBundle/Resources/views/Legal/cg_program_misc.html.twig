@@ -1,0 +1,32 @@
+{% block content %}
+    <h4 class="legal-title"><a>4. Clause Limitative de Responsabilité<i class="fa fa-plus-square-o"></i></a></h4>
+    <div class="legal-block" style="display:none;">
+        {% include "AprProgramBundle:Legal:clause4.html.twig" %}
+    </div>
+    <h4 class="legal-title"><a>5. Durée du contrat - Résiliation<i class="fa fa-plus-square-o"></i></a></h4>
+    <div class="legal-block" style="display:none;">
+        {% include "AprProgramBundle:Legal:clause5.html.twig" %}
+    </div>
+    <h4 class="legal-title"><a>6. Modifications<i class="fa fa-plus-square-o"></i></a></h4>
+    <div class="legal-block" style="display:none;">
+        {% include "AprProgramBundle:Legal:clause6.html.twig" %}
+    </div>
+    <h4 class="legal-title"><a>7. Divers<i class="fa fa-plus-square-o"></i></a></h4>
+    <div class="legal-block" style="display:none;">
+        {% include "AprProgramBundle:Legal:clause7.html.twig" %}
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('h4').click(function () {
+                var className = $(this).find('i').attr('class');
+                if (className == 'fa fa-minus-square-o') {
+                    $(this).find('i').attr('class', 'fa fa-plus-square-o');
+                    $(this).next().css('display', 'none');
+                } else {
+                    $(this).find('i').attr('class', 'fa fa-minus-square-o');
+                    $(this).next().css('display', 'block');
+                }
+            });
+        });
+    </script>
+{% endblock %}

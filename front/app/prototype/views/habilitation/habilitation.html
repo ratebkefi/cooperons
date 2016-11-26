@@ -1,0 +1,123 @@
+<header class="page-header"><h2>Habilitation</h2></header>
+
+<md-content class="mt-md" layout-xs="column" layout="row" >
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card layout="row" class="md-padding" >
+            <div flex="40">
+                <h3 class="title-header red-color">Habilitation</h3>
+            </div>
+            <div flex="60">
+                <h3 class="title-header gray">{{selectedHabilitation.collaborator.name}}</h3>
+            </div>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="mt-md" layout-xs="column" layout="row" >
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card  class="md-padding" >
+            <form class="form-horizontal" name="habilitationForm"  ng-class="{'not_submitted' : !habilitationForm.$submitted }" ng-submit="addHabilitation(habilitationForm)" novalidate
+                  enctype='multipart/form-data'>
+
+
+                <div layout-xs="column" layout="row" class="mt-sm">
+                    <div flex="30" class="pt-md">
+                        <strong>Nouvelle habilitation </strong>
+                    </div>
+                    <div flex="50">
+                        <label class="ace-file-input">
+                            <input type="file" name="file" file-model="newHabilitation.file" ng-model="newHabilitation.file"
+                                   ngf-select="" ngf-pattern="'application/pdf'" ngf-accept="'application/pdf'"
+                                   required="required"/>
+                            <span class="ace-file-container" data-title="Nouveau document">
+                                <span class="ace-file-name"
+                                      data-title="{{newHabilitation.file.name|| 'Choisir un document ...'}}">
+                                    <i class=" ace-icon fa fa-cloud-upload"></i>
+                                </span>
+                            </span>
+                        </label>
+                        <div ng-if="habilitationForm.$submitted">
+                            <div class="erreurform" ng-if="!newHabilitation.file">Fichier requis</div>
+                            <div class="erreurform"
+                                 ng-if="newHabilitation.file && newHabilitation.file.type != 'application/pdf'">
+                                Le document doit être de format PDF
+                            </div>
+                        </div>
+                    </div>
+
+                    <div flex="20" class="ml-md">
+                        <md-button aria-label="submit" type="submit" id="uploadDoc"
+                                   class="md-raised md-primary right mtn-xs">
+                            <ng-md-icon icon="save" size="24"></ng-md-icon>
+                            <span>Sauvegarder</span>                              
+                        </md-button>
+                    </div>
+
+                </div>
+
+            </form>
+
+            <div layout-xs="column" layout="row" class="md-padding" >
+                <div flex></div>
+                <md-select aria-label="Programme" ng-show="true" ng-model="selectedHabilitation" class="display-inline mt-sm mr-md" ng-change="selectHabilitation()" >
+                    <md-option ng-repeat="habilitationOption in habilitations| orderBy : 'createdDate' :true" ng-value="habilitationOption"> 
+                        {{habilitationOption.createdDate| date:'dd/MM/yyyy'}}
+                    </md-option>
+                </md-select>
+                <div class="display-inline" >
+                    <h3 class="title-header" ng-if="selectedHabilitation.active">Active</h3>
+                    <h3 class="title-header" ng-if="!selectedHabilitation.active">Inactive</h3>
+                </div>
+            </div>
+
+
+            <div class="clearfix"></div>
+            <iframe src="{{selectedHabilitation.file.content}}"
+                    style="border: 1px solid black; border-radius: 5px;height: 500px; width: 100%"
+                    webkitallowfullscreen="true" mozallowfullscreen="true">
+            </iframe>
+            <div class="clearfix"></div>
+
+
+
+        </md-card>
+    </div>
+</md-content>
+
+
+<md-content class="no-padding mt-md" layout-xs="column" layout="row" >
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span class="red-color text-md" flex="grow">Documents liés</span>
+                </div>
+            </md-toolbar>
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column><span>Document légal</span></th>
+                            <th md-column><span>Date</span></th>
+                            <th md-column><span>Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="legalDocument in selectedHabilitation.legalDocuments">
+                            <td md-cell>{{legalDocument.name}}</td>
+                            <td md-cell>{{legalDocument.createdDate| date:"dd/MM/yyyy"}}</td>
+                            <td md-cell>
+                                <md-button ui-sref="prototype.contrat({contratId: legalDocument.contratId, legalDocumentId: legalDocument.id})"
+                                           class="md-icon-button launch actions-program">
+                                    <md-tooltip md-direction="top">Voir document</md-tooltip>
+                                    <ng-md-icon icon="remove_red_eye" size="28"></ng-md-icon>
+                                </md-button>
+                    </td>
+                    </tr>                    
+                    </tbody>
+                </table>
+            </md-table-container>
+        </md-card>
+    </div>
+</md-content>

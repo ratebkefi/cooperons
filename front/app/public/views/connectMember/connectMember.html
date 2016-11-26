@@ -1,0 +1,97 @@
+<div class="container main_content bg-white">
+    <h2 class="red_title"><span>Bienvenue {{ firstName}} {{ lastName}}</span></h2>
+
+    <div class="margin_left_right">
+        <p class="txt_intro"><strong>Coopérons !</strong> permet aux entreprises de collaborer avec leurs clients,
+            fournisseurs et partenaires pour développer leur activité
+           <span ng-if="program != null">
+            - grâce à des opérations de <a href="#">parrainages</a> vous permettant de gagner jusqu'à <a href="#">1000
+               €</a> de <a href="#">chèques cadeau</a> Amazon par trimestre.
+           </span>
+        </p>
+
+        <div layout="row">
+            <div flex="50" class="mr-lg">
+                <div class="bloc_connect">
+                    <h4 class="title_connect">Vous disposez déjà d'un compte Coopérons !</h4>
+
+                    <p>Connectez-vous dès maintenant pour accéder à vos services.</p>
+
+                    <form name="authenticationForm" ng-submit="connectMember(authenticationForm)" novalidate>
+                        <md-input-container class="md-block">
+                            <label class="required">Email</label>
+                            <input type="email" ng-model="authentication.email" name="email" id="email"
+                                   class="input_connect"
+                                   required>
+
+                            <div ng-messages="authenticationForm.email.$error" ng-if="authenticationForm.$submitted">
+                                <div class="erreurform" ng-message="required">Adresse e-mail requise</div>
+                                <div class="erreurform" ng-message="email">Veuillez entrer une adresse email valide.
+                                </div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label class="required">Mot de passe</label>
+                            <input type="password" name="password" ng-model="authentication.password"
+                                   class="input_connect" required>
+
+                            <div ng-messages="authenticationForm.password.$error" ng-if="authenticationForm.$submitted">
+                                <div class="erreurform" ng-message="required">Mot de passe requis</div>
+                            </div>
+                        </md-input-container>
+
+
+                        <div ng-if="authentication.failed">
+                            <p class="text-error checkbox">
+                                Données d'authentification non valides
+                            </p>
+                        </div>
+
+                        <md-input-container class="md-block" ng-if="authentication.displayCheckboxCGV">
+                            <md-checkbox name="cgv" ng-model="authentication.checkboxCGV" aria-label="Checkbox 1">
+                                En cochant cette case, je reconnais avoir pris connaissance des
+                                <a ng-href="{{backRoute('cgv_program', {'token': token})}}">
+                                    Conditions Générales du Programme de Stimulation {{ program.label|uppercase}}</a> et
+                                je les accepte.
+                            </md-checkbox>
+                            <span ng-if="!authentication.displayCheckboxCGV">&nbsp; </span>
+                        </md-input-container>
+
+                        <md-input-container class="md-block text-center">
+                            <md-button aria-label="bouton" type="submit" class="md-raised md-primary center">
+                                Valider
+                            </md-button>
+                        </md-input-container>
+
+                    </form>
+                </div>
+            </div>
+
+            <div flex="50">
+                <div class="bloc_connect">
+                    <h4 class="title_connect">Vous ne disposez pas encore d'un compte Coopérons !</h4>
+
+                    <p>
+                        Votre inscription sur <strong>Coopérons !</strong>
+                    <span ng-if="program == null">
+                         est nécessaire pour bénéficier de l'ensemble des services offerts par <strong>Coopérons
+                        !</strong>
+                     </span>
+                    <span ng-if="program != null">
+                         est nécessaire pour recevoir les avantages de vos programmes de parrainages
+                     </span></p>
+
+                    <md-input-container class="md-block text-center">
+                        <md-button aria-label="bouton" ui-sref="public.createUser({'token':token})"
+                                   class="md-raised md-primary center">
+                            Je m'inscris
+                        </md-button>
+                    </md-input-container>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

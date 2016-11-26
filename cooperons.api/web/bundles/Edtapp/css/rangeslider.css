@@ -1,0 +1,120 @@
+.rangeslider,
+.rangeslider__fill{
+    background:#ecf0f1;
+    display:block;
+    height:12px;
+    width:100%;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+}
+.rangeslider{
+    position:relative;
+    margin-top:40px;
+}
+.rangeslider--disabled{
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    opacity:0.4;
+}
+.rangeslider__fill{
+    background:#5659f0;
+    position:absolute;
+    top:0;
+}
+.rangeslider__handle{
+    background:#31328a;
+    cursor:pointer;
+    display:inline-block;
+    width:18px;
+    height:18px;
+    position:absolute;
+    top:-3px;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+}
+.rangeslider__handle:active{
+    background-size:100%;
+}
+input[type="range"]:focus + .rangeslider .rangeslider__handle{
+    -moz-box-shadow:0 0 8px rgba(255, 0, 255, 0.9);
+    -webkit-box-shadow:0 0 8px rgba(255, 0, 255, 0.9);
+    box-shadow:0 0 8px rgba(255, 0, 255, 0.9);
+}
+.rangeslider__ruler{
+    cursor:pointer;
+    font-size:.7em;
+    margin:20px 3px 0 3px;
+    position:relative;
+    top:100%;
+    text-align:justify;
+}
+.rangeslider__value-bubble{
+    font-family:"robotobold";
+    font-size:14px;
+    background-color:#181b20;
+    color:white;
+    line-height:23px;
+    width:35px;
+    display:block;
+    position:absolute;
+    top:-35px;
+    margin-left:-17px;
+    text-align:center;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+.rangeslider__value-bubble:before{
+    content:"";
+    left:50%;
+    position:absolute;
+    border-top-color:#181b20;
+    border-width:5px 5px 0;
+    border-style:solid;
+    width:0;
+    height:0;
+    bottom:-5px;
+    margin-left:-5px;
+    
+}
+.rangeslider__value-bubble:after{
+    content:"%";
+    vertical-align:super;
+    font-size:9px;
+}
+
+.rangeslider__value-bubble-month{
+    font-family:"robotobold";
+    font-size:14px;
+    background-color:#181b20;
+    color:white;
+    line-height:23px;
+    width:35px;
+    display:block;
+    position:absolute;
+    top:-35px;
+    margin-left:-17px;
+    text-align:center;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+.rangeslider__value-bubble-month:before{
+    content:"";
+    left:50%;
+    position:absolute;
+    border-top-color:#181b20;
+    border-width:5px 5px 0;
+    border-style:solid;
+    width:0;
+    height:0;
+    bottom:-5px;
+    margin-left:-5px;
+
+}
+.rangeslider__value-bubble-month:after{
+    content:"mois";
+    vertical-align:super;
+    font-size:9px;
+}

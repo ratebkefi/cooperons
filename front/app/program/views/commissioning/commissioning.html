@@ -1,0 +1,27 @@
+<header ng-if="program.isEasy" class="page-header"><h2>Modèle de Commissionnement</h2></header>
+<header ng-if="!program.isEasy" class="page-header"><h2>Modèle de Commissionnement</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="steps-content">
+
+            <wizard-steps ng-if="program" program="program" class="m-md" step="2"></wizard-steps>
+
+            <div ng-if="program.isEasy" ng-include="'app/program/views/commissioning/easyStep.html'"></div>
+            <div ng-if="!program.isEasy" ng-include="'app/program/views/commissioning/apiStep.html'"></div>
+
+            <div class="steps-footer">
+                <div class="steps-info">Étape 2 <span class="steps-glow step3"></span></div>
+
+                <md-button id="next" ng-click="editEasySetting()" class="md-raised md-primary right">
+                    <md-tooltip md-direction="top">Suivant</md-tooltip>
+                    Suivant
+                    <md-icon md-font-icon="fa fa-chevron-right"></md-icon>
+                </md-button>
+            </div>
+
+        </md-card>
+    </div>
+</md-content>

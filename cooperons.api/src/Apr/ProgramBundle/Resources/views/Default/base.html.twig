@@ -1,0 +1,25 @@
+{% include 'AprUserBundle:Form:header.html.twig' with ({'title' : 'Coopérons' }) %}
+
+{% include 'AprProgramBundle:Bootstrap\\Components:navigation_bar.html.twig' %}
+
+{#<link  href={{ asset('bundles/Edtapp/css/backoffice.css')}} rel='stylesheet' type='text/css' />#}
+<link  href={{ asset('bundles/Edtapp/css/ace.css')}} rel='stylesheet' type='text/css' />
+
+<div class="container main_content">
+    {% include 'AprProgramBundle:Bootstrap\\Components:sidebar_navigation.html.twig' with ({"navbar" : nav_bar})%}
+    <div class="content_wrapper">
+        {% block content %}{% endblock %}
+    </div>
+</div> 
+
+<script>
+    function inArray(elm, tab){
+        for(var i=0;i<tab.length;i++){
+            if(elm == tab[i]) return true;
+        } 
+        return false;
+    }
+</script>
+
+
+{% include 'AprUserBundle:Form:footer.html.twig'%}

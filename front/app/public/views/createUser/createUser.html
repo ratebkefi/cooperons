@@ -1,0 +1,256 @@
+<div class="container main_content bg-white">
+    <h2 class="red_title"><span>Formulaire d'inscription</span></h2>
+
+    <div class="separateur_haut"></div>
+    <div class="width-100">
+        <div class="bloc_connect"  ng-if="program">
+            <h3 class="title-header">En vous inscrivant sur <b><i>Coopérons !</i></b></h3>
+            <ul class="create_user-bloc" layout="row">
+                <li id="create_user1" flex class="md-padding">
+                    <div flex layout="row" layout-align="center center" class="md-padding">
+                        <img src="assets/images/modules/member/create_user_sprites1.png" border="0"/>
+                    </div>
+                    Dès que vous gagnez vos pemiers MultiPoints, vous pouvez convertir vos points en chèques cadeau
+                    Amazon au taux de 100 Points pour 20 € - jusqu'à 1'000 € par trimestre !
+                </li>
+                <li id="create_user2" flex class="md-padding">
+                    <div flex layout="row" layout-align="center center" class="md-padding">
+                        <img src="assets/images/modules/member/create_user_sprites2.png" border="0"/>
+                    </div>
+                    Tous les programmes de parrainage disponible sur <b><i>Coopérons !</i></b> vous permettent de gagner
+                    les 2/3 des MultiPoints gagnés par vos filleuls
+                </li>
+                <li id="create_user3" flex class="md-padding">
+                    <div flex layout="row" layout-align="center center" class="md-padding">
+                        <img src="assets/images/modules/member/create_user_sprites3.png" border="0"/>
+                    </div>
+                    Grâce au programme Coopérons Plus, nous vous offrons 500 MultiPoints (soit l'équivalent de 100 €)
+                    lorsqu'un de vos filleuls crée son premier programme de parrainage sur <b><i>Coopérons !</i></b>
+                </li>
+                <li id="create_user4" flex class="md-padding">
+                    <div flex layout="row" layout-align="center center" class="md-padding">
+                        <img src="assets/images/modules/member/create_user_sprites4.png" border="0"/>
+                    </div>
+                    Enfin chaque fois qu'un de vos filleuls (quel que soit le programme) crée son compte sur <b><i>Coopérons
+                    !</i></b>, vous gagnez aussi les 2/3 de ses MultiPoints gagnés dans le cadre du programme Coopérons
+                    Plus
+                </li>
+            </ul>
+        </div>
+        <div class="bloc_connect">
+            <h3 class="title-header">Votre compte <b><i>Coopérons !</i></b></h3>
+
+            <p>Le formulaire ci-dessous vous permettra de disposer dès à présent d'un accès au service <b><i>Coopérons
+                !</i></b>
+            </p>
+
+            <p>
+                Evidemment, vos données sont strictement personnelles et confidentielles - nous ne les partageons avec
+                aucune autre organisation :
+                votre boite aux lettres électronique est déjà assez encombrée comme ça !
+            </p>
+
+            <div class="hr-24">
+                <form name="create_user" ng-submit="createUser(create_user)"
+                      ng-class="{'not_submitted' : !create_user.$submitted }" class="form-horizontal"
+                      novalidate="novalidate">
+
+                    <md-input-container class="md-block">
+                        <label class="required">Prénom</label>
+                        <input type="text" ng-model="user.firstName" name="firstName" ng-readonly="lockFirstName"
+                               required="required">
+
+                        <div ng-messages="create_user.firstName.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Prénom requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Nom</label>
+                        <input type="text" ng-model="user.lastName" name="lastName" ng-readonly="lockLastName" required>
+
+                        <div ng-messages="create_user.lastName.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Nom requis</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Adresse e-mail</label>
+                        <input type="email" ng-readonly="lockEmail" name="email" ng-model="user.email"
+                               title="Ce champ doit être sous la forme suivante nomd'utilisateur@nomdedomaine.extension"
+                               required>
+
+                        <div ng-messages="create_user.email.$error" ng-if="create_user.$submitted">
+                            <div ng-if="errorMessages.email" class="erreurform">{{errorMessages.email}}</div>
+                            <div class="erreurform" ng-message="required">Email requis</div>
+                            <div class="erreurform" ng-message="email">Email incorrect</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Mot de passe</label>
+                        <input type="password" ng-model="user.plainPassword.first" name="plainPassword"
+                               ng-change="confirmPassword(create_user)"
+                               id="plainPassword" required="required" pattern=".{5,75}"
+                               title="Ce champ doit être constitué au moins de 5 caractères et contenir au moins un chiffre , une majuscule et un caractère en minuscule">
+
+                        <div ng-messages="create_user.plainPassword.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">
+                                Mot de passe requis
+                            </div>
+                            <div class="erreurform" ng-message="pattern">Ce champ doit être constitué au moins de 5
+                                caractères et contenir au moins un chiffre , une majuscule et un caractère en minuscule
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Confirmation du mot de passe</label>
+                        <input type="password" name="passwordConfirmation" ng-model="user.plainPassword.second"
+                               ng-change="confirmPassword(create_user)">
+
+                        <div ng-messages="create_user.passwordConfirmation.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Vous devez confirmer votre mot de passe</div>
+                            <div class="erreurform" ng-message="pwCheck">Les deux mots de passe ne sont pas identiques
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <h3 class="title-header">Vos coordonnées </h3>
+
+                    <p>
+                        Afin de nous assurer de la conformité avec la réglementation en vigueur, merci de saisir
+                        ci-dessous les informations permettant
+                        de vous contacter
+                    </p>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Adresse</label>
+                        <input type="text" id="registration_contact_address"
+                               ng-model="contact.address" name="address" required="required" class="input-xlarge">
+
+                        <div ng-messages="create_user.address.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Adresse requise</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Adresse Complémentaire</label>
+                        <input type="text" id="registration_contact_secondAddress" ng-model="contact.secondAddress"
+                               class="input-xlarge">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Ville</label>
+                        <input type="text" id="registration_contact_city"
+                               ng-model="contact.city" name="city" required="required" class="input-xlarge">
+
+                        <div ng-messages="create_user.city.$error" ng-if="create_user.$submitted"
+                             ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Ville requise</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Code postal</label>
+                        <input type="text" id="registration_contact_postalCode"
+                               ng-model="contact.postalCode" name="city" required="required"
+                               class="input-xlarge" ng-minlength="5" pattern="^[0-9]{5}$">
+
+                        <div ng-messages="create_user.city.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Code postal requis</div>
+                            <div class="erreurform" ng-message="minlength">5 chiffres attendus.</div>
+                            <div class="erreurform" ng-message="pattern">Le numéro de code postal doit être
+                                français.
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label class="required">Téléphone</label>
+                        <input type="tel" id="registration_contact_phone"
+                               ng-model="contact.phone" name="phone" required="required"
+                               class="input-xlarge" ng-minlength="10" pattern="^0[1-68][0-9]{8}$">
+
+                        <div ng-messages="create_user.phone.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Téléphone requis</div>
+                            <div class="erreurform" ng-message="minlength">10 chiffres attendus.</div>
+                            <div class="erreurform" ng-message="pattern">Le numéro de téléphone doit être
+                                français.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <input type="hidden" ng-model="token">
+
+                    <md-input-container ng-if="program" class="md-block">
+                        <md-checkbox name="cgv" ng-model="cgv" required aria-label="Checkbox 1">
+                            En cochant cette case, je reconnais avoir pris connaissance des
+                            <a ng-href="{{backRoute('cgu_cooperons', {'token': token})}}"
+                               target="_blank">
+                                Conditions Générales d'Utilisation
+                            </a>
+                            du site cooperons.com et je les accepte.
+                        </md-checkbox>
+                        <div ng-messages="create_user.cgv.$error" ng-if="create_user.$submitted" ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Vous devez accepter les conditions générales
+                                d'utilisation de Coopérons
+                            </div>
+                        </div>
+                    </md-input-container>
+
+
+                    <md-input-container class="md-block" ng-if="!isProgramPlus">
+                        <md-checkbox id="cgvProgram" name="cgvProgram" ng-model="cgvProgram" required
+                                     aria-label="Checkbox 1">
+                            En cochant cette case, je reconnais avoir pris connaissance des
+                            <a ng-href="{{backRoute('cgv_program', {'token': token})}}"
+                               target="_blank">Conditions Générales du Programme de Stimulation {{program.label}}
+                            </a>
+                            et je les accepte.
+                        </md-checkbox>
+                        <div ng-messages="create_user.cgvProgram.$error" ng-if="create_user.$submitted">
+                            <div class="erreurform" ng-message="required">Vous devez accepter les conditions générale de
+                                Stimulation de Coopérons
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block text-center">
+                        <md-button aria-label="bouton" type="submit" id="registration_Valider"
+                                   class="md-raised md-primary right">
+                            Terminer l'inscription
+                        </md-button>
+                    </md-input-container>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-card-image">
+                            <ng-md-icon icon="error" class="red-color md-card-icon" size="48"></ng-md-icon>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text class="md-card-left">
+                        <h3 class="title-header">Attention</h3>
+
+                        <p>Votre compte <b><i>Coopérons !</i></b> est nominatif et unique. Vous ne pouvez pas disposer
+                            de
+                            plusieurs comptes <b><i>Coopérons !</i></b> - ceci afin d'assurer le respect de la
+                            réglementation en
+                            vigueur.</p>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+
+    </md-content>
+
+
+</div>

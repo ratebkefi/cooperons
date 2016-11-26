@@ -1,0 +1,26 @@
+{% extends "AprMandataireBundle:Emails:baseEmailMandataire.html.twig" %}
+{% block content %}
+    Dans le cadre du {{ mandataire.label }}, votre facture en date du {{ invoice.invoicingDate|date('d/m/y') }} d'un
+    montant total de {{ invoice.amountHt|number_format(2, ',', ' ')}} € HT est désormais disponible dans l'espace
+    d'administration de votre {{ mandataire.shortLabel }}.<br /><br /><br />
+    Cette facture récapitulative
+    {% if allSettlements|length > 1 %}:
+        comprend les prestations:<p><ul>
+    {% else %}
+        concerne la prestation
+    {% endif %}
+    {% for settlement in allSettlements %}
+        {% if allSettlements|length > 1 %}
+            <li>
+        {% endif %}
+        {% if settlement.description|slice(0,1) in ['a', 'e', 'i', 'o', 'u']%}d'{%  else %}de {%  endif %}{{ settlement.description }} pour un montant de {{settlement.amountHt|number_format(2,',',' ')}} € HT
+        {% if allSettlements|length > 1 %}
+            ,</li>
+        {% endif %}
+    {% endfor %}
+    {% if allSettlements|length > 1 %}
+    </ul></p>
+    {% else %}.
+    {% endif %}
+    <br />
+{% endblock %}

@@ -1,0 +1,53 @@
+<md-card class="mt-lg">
+    <div class="md-inline-form">
+        <md-content layout-padding>
+            <h3 class="title-header">Nouveau participant</h3>
+
+            <p>Saisissez ci-dessous le nom, prénom et adresse email du nouveau participant au programme {{ program.label
+                }}:</p>
+
+            <form name="post_participate" ng-submit="postParticipate(post_participate)"
+                  ng-class="{'not_submitted' : !post_participate.$submitted }" id="formEasyNewMember" novalidate>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label class="required">Nom</label>
+                        <input type="text" id="form_lastName" name="lastName" ng-model="participate.lastName"
+                               required="required">
+
+                        <div ng-messages="post_participate.lastName.$error" ng-if="post_participate.$submitted"
+                             ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Cette valeur ne doit pas être vide.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label class="required">Prénom</label>
+                        <input type="text" id="form_firstName" name="firstName" ng-model="participate.firstName"
+                               required="required">
+
+                        <div ng-messages="post_participate.firstName.$error" ng-if="post_participate.$submitted"
+                             ng-messages-multiple>
+                            <div class="erreurform" ng-message="required">Cette valeur ne doit pas être vide.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label class="required">Saisir adresse filleul</label>
+                    <input type="email" id="form_email" name="email" ng-model="participate.email" required="required">
+
+                    <div ng-messages="post_participate.email.$error" ng-if="post_participate.$submitted"
+                         ng-messages-multiple>
+                        <div class="erreurform" ng-message="required">Cette valeur ne doit pas être vide.</div>
+                        <div class="erreurform" ng-message="email">Adresse email invalide</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-button type="submit" id="createEasyMember" class="md-raised md-primary right">Valider
+                    </md-button>
+                </md-input-container>
+            </form>
+        </md-content>
+
+    </div>
+
+</md-card>

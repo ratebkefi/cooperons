@@ -1,0 +1,165 @@
+<md-content class="md-padding" layout="row" layout-sm="column" layout-align="center center" layout-wrap
+            ng-if="collegeInvitationCtr.canRejointCollege">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="text-center">
+            <md-card-title>
+                <md-card-title-text>
+                    <h3 class="title-header text-uppercase">Rejoindre un Collège Coopérons</h3>
+                </md-card-title-text>
+            </md-card-title>
+
+            <md-card-content ng-if="collegeInvitationCtr.invitation">
+                <p>Un email de présentation de Coopérons a été envoyé à <strong>{{collegeInvitationCtr  | name}}</strong>
+                    ({{collegeInvitationCtr.invitation.email}}).</p>
+
+                <div layout="row">
+                    <div flex>
+                        <button class="md-raised md-primary left mt-md md-button md-ink-ripple" type="button"
+                                ng-click="collegeInvitationCtr.cancelCollegeInvitation()">
+                            <md-icon md-font-icon="fa fa-trash-o" class="ng-scope md-font fa fa-trash-o material-icons"
+                                     aria-hidden="true"></md-icon>
+                            <span class="ng-scope">Annuler</span>
+
+                            <div class="md-ripple-container"></div>
+                        </button>
+                    </div>
+                    <div flex>
+                        <button class="md-raised md-primary right mt-md md-button md-ink-ripple" type="button"
+                                ng-click="collegeInvitationCtr.resendCollegeInvitation()">
+                            <md-icon md-font-icon="fa fa-paper-plane-o"
+                                     class="ng-scope md-font fa fa-paper-plane-o material-icons"
+                                     aria-hidden="true"></md-icon>
+                            <span class="ng-scope">Renvoyer</span>
+
+                            <div class="md-ripple-container"></div>
+                        </button>
+                    </div>
+                </div>
+            </md-card-content>
+
+            <md-card-content ng-if="!collegeInvitationCtr.college">
+                <div class="md-inline-form" ng-if="!collegeInvitationCtr.searched" id="bloc-siren">
+                    <p>Pour augmenter votre Plafond à 140 € / trimestre ou 1'000 € / trimestre, vous devez être membre
+                        d'un
+                        Collège Coopérons !</p>
+
+                    <p>Saisissez ci-dessous l'identifiant SIREN de votre employeur - constitué des 9 premiers chiffres
+                        de
+                        l'identifiant SIRET affiché sur votre feuille de paie.</p>
+
+                    <form name="searchCorporateForm" ng-submit="collegeInvitationCtr.searchCorporate(searchCorporateForm)" novalidate>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label class="required">SIREN</label>
+                                <input type="text" name="siren" ng-model="collegeInvitationCtr.siren" required
+                                       ng-pattern="/^\d{9}$/"/>
+
+                                <div ng-if="searchCorporateForm.$submitted"
+                                     ng-messages="searchCorporateForm.siren.$error">
+                                    <div class="erreurform" ng-message="pattern">
+                                        L'identifiant SIREN de votre employeur doit être constitué de 9 chiffres
+                                    </div>
+                                    <div class="erreurform" ng-message="required">
+                                        Numéro SIREN requis
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <md-button type="submit" class="md-raised md-primary">Valider</md-button>
+                            </md-input-container>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="md-inline-form" ng-if="collegeInvitationCtr.searched && !collegeInvitationCtr.corporate">
+                    <p>L'entreprise identifiée sous le numéro SIREN <strong>{{collegeInvitationCtr.siren}}</strong> ne
+                        dispose
+                        pas encore d'un
+                        Compte Entreprise.</p>
+
+                    <p>Vous pouvez créer votre Compte Entreprise en cliquant sur le bouton "Nouveau Compte Entreprise"
+                        ci-dessus.</p>
+
+                    <p>Nous pouvons aussi envoyer un email de présentation au responsable administratif de votre
+                        entreprise:</p>
+                    <invitation-plus token="collegeInvitationCtr.tokenPlus" invitation-type="college"
+                                     on-success="collegeInvitationCtr.successCollegeInvitation()"></invitation-plus>
+
+                </div>
+
+            </md-card-content>
+
+
+            <md-card-content
+                    ng-if="collegeInvitationCtr.searched && collegeInvitationCtr.corporate && !collegeInvitationCtr.corporate.delegate">
+                <p>Votre entreprise dispose d'un Compte Entreprise - mais n'a pas encore créé son Collège Coopérons
+                    !</p>
+
+                <p>Souhaitez-vous créer le Collège Coopérons ! de
+                    <strong>{{collegeInvitationCtr.corporate.raisonSocial}}</strong>?</p>
+
+                <div layout="row">
+                    <div flex>
+                        <button class="md-raised md-primary left mt-md md-button md-ink-ripple" type="button"
+                                ng-click="collegeInvitationCtr.cancelSearchCorporate()">
+                            <md-icon md-font-icon="fa fa-trash-o" class="ng-scope md-font fa fa-trash-o material-icons"
+                                     aria-hidden="true"></md-icon>
+                            <span class="ng-scope">Annuler</span>
+
+                            <div class="md-ripple-container"></div>
+                        </button>
+                    </div>
+                    <div flex>
+                        <button class="md-raised md-primary right mt-md md-button md-ink-ripple" type="button"
+                                ng-click="collegeInvitationCtr.rejoinCollege()">
+                            <md-icon md-font-icon="done" class="ng-scope md-font fa fa-check material-icons"
+                                     aria-hidden="true"></md-icon>
+                            <span class="ng-scope">Confirmer</span>
+
+                            <div class="md-ripple-container"></div>
+                        </button>
+                    </div>
+                </div>
+
+
+            </md-card-content>
+
+            <md-card-content
+                    ng-if="collegeInvitationCtr.searched && collegeInvitationCtr.corporate && collegeInvitationCtr.corporate.delegate">
+                <p>Votre entreprise dispose d'un Compte Entreprise.</p>
+
+                <p>Confirmez-vous être salarié de <strong>{{collegeInvitationCtr.corporate.raisonSocial}}</strong>?</p>
+
+                <div layout="row">
+                    <div flex>
+                        <button class="md-raised md-primary left mt-md md-button md-ink-ripple" type="button"
+                                ng-click="collegeInvitationCtr.cancelRejoinCollege()">
+                            <md-icon md-font-icon="fa fa-trash-o" class="ng-scope md-font fa fa-trash-o material-icons"
+                                     aria-hidden="true"></md-icon>
+                            <span class="ng-scope">Annuler</span>
+
+                            <div class="md-ripple-container"></div>
+                        </button>
+                    </div>
+                    <div flex>
+                        <button class="md-raised md-primary right mt-md md-button md-ink-ripple" type="button"
+                                ng-click="collegeInvitationCtr.rejoinCollege()">
+                            <md-icon md-font-icon="done" class="ng-scope md-font fa fa-check material-icons"
+                                     aria-hidden="true"></md-icon>
+                            <span class="ng-scope">Confirmer</span>
+
+                            <div class="md-ripple-container"></div>
+                        </button>
+                    </div>
+                </div>
+
+            </md-card-content>
+
+
+        </md-card>
+    </div>
+
+</md-content>
+
+<div ng-include="'app/corporate/views/collegeInvitation/collegeInvitationDialogs.html'"></div>

@@ -1,0 +1,71 @@
+<div class="steps-wrapper m-lg commissions">
+    <h3 class="title-header">Modèle de Commissionnement</h3>
+
+    <p>
+        Lorsqu'un de vos membres vous apporte une affaire, ce dernier reçoit une commission sous forme de Points
+        et MultiPoints pouvant être convertis en chèques cadeau Amazon.
+        Les Points - comme les MultiPoints - gagnés par vos membres leur donnent droit à 20 € de chèques cadeau pour 100
+        Points / MultiPoints.
+    </p>
+
+    <p class="text-center">
+        <img class="step_image" src="assets/images/default/step3-anim.gif">
+    </p>
+
+    <div class="calcul_commission">
+        <div class="content_commission">
+            <h4 class="titre_commission">Commission Simple (Points)</h4>
+
+            <div layout class="mt-lg">
+                <input type="hidden" ng-model="sliderSimpleRate.value"/>
+                <md-slider flex md-discrete class="md-primary value-purcent mt-lg" ng-model="sliderSimpleRate.value"
+                           ng-click="updateCommissionning()" step="1" min="1" max="20" aria-label="rating">
+                </md-slider>
+            </div>
+        </div>
+        <div class="content_commission">
+            <h4 class="titre_commission">Commission Multi-Niveau (MultiPoints) </h4>
+
+            <div layout class="mt-lg">
+                <input type="hidden" ng-model="sliderMultiRate.value"/>
+                <md-slider flex md-discrete class="md-primary value-purcent mt-lg" ng-model="sliderMultiRate.value"
+                           ng-click="updateCommissionning()" step="1" min="1" max="20" aria-label="rating">
+                </md-slider>
+            </div>
+        </div>
+        <p class="txt_commission">Grâce aux MultiPoints, chaque membre gagne les 2/3 des MultiPoints gagnés par ses
+            fillleuls (cascade multi-niveaux). Par construction, le coût maximum de cette chaîne est toujours limité au
+            triple du montant versé au premier membre de la chaîne. Cette mécanique est conçue pour inciter vos membres
+            à développer votre réseau d'apporteur d'affaires.</p>
+
+        <div class="content_commission">
+            <h4 class="titre_commission"><span class="title">Membre ayant apporté l'affaire (Membre 0)</span><span
+                    id="comm1" class="commission_member"> {{commission.comm1 | number:2}} %</span></h4>
+        </div>
+        <div class="content_commission">
+            <h4 class="titre_commission"><span class="title">Parrain du Membre 0 (Membre 1)</span><span id="comm2"
+                                                                                                        class="commission_member">{{commission.comm2| number:2}} %</span>
+            </h4>
+        </div>
+        <div class="content_commission last">
+            <h4 class="titre_commission"><span class="title">Parrain du Membre 1 (Membre 2 etc ...)</span><span
+                    id="comm3" class="commission_member">{{commission.comm3| number:2}} %</span></h4>
+        </div>
+    </div>
+    <div class="hr hr-12"></div>
+    <h4 class="total_commission"><span class="title">Commissions Membres (limite maximum) - avant frais Coopérons</span><span
+            id="commSomme" class="commission_member">{{commission.commSomme| number:2}} %</span></h4>
+
+    <div class="hr-12"></div>
+    <p>Coopérons vous facture une commission de 25% sur chaque achat de Points / MultiPoints – destinée à couvrir le
+        paiement des charges sociales forfaitaires de 20%.</p>
+
+    <div class="hr hr-12"></div>
+    <h4 class="total_commission"><span class="title">Frais Coopérons (25% - dont charges sociales 20%)</span><span
+            id="commEasy" class="commission_member">{{commission.commEasy| number:2}} %</span></h4>
+
+    <div class="hr hr-12"></div>
+    <h4 class="total_commission"><span class="title">Commissions Membres (limite maximum)</span><span id="commTotal"
+                                                                                                      class="commission_member">{{commission.commTotal| number:2}} %</span>
+    </h4>
+</div>

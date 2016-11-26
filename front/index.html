@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title ng-init="title='Coopérons'" ng-bind="title"></title>
+    <base href="/www/cooperons/front/"/>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="assets/default/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bower_components/toastr/toastr.css" rel="stylesheet" type="text/css"/>
+
+    <!-- components style -->
+    <link href="assets/css/components/ngDialog/ngDialog.css" rel="stylesheet" type="text/css">
+    <link href="bower_components/ng-dialog/css/ngDialog-theme-default.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/angularUiNotification/angularUiNotification.css" rel="stylesheet">
+    <link href="assets/css/components/tinymce/tinymce.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/rzslider/rzslider.css" rel="stylesheet" type="text/css">
+    <link href="bower_components/angular-tooltips/dist/angular-tooltips.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/css/components/icons-material-design/icons-material-design.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/roboto/roboto.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/lato/lato.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/animations/animations.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/loader/loader.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/tables/tables.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/tabs/tabs.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/cards/cards.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/buttons/buttons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/icones/icones.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/checkbox/checkbox.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/forms/forms.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/forms/error.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/forms/file-upload.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/grid/grid.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/sidebar/sidebar.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/page_header/page_header.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/ngDialog/ngDialog.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/ngDialog/ngDialogThemeDefault.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/toolbar/toolbar.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/tooltip/tooltip.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/navbar/navbar.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/select/select.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/label_badge/label_badge.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/collection/collection.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/steps/steps.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/tree/tree.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/accordion/accordion.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/info-striped/info-striped.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/md-slider/md-slider.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/md-dialog/md-dialog.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components/md-datepicker/md-datepicker.css" rel="stylesheet" type="text/css">
+
+    <!-- member space -->
+    <link href="assets/css/modules/member/cloudsponge.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/modules/member/jquery.gritter.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/modules/member/flash.css" rel="stylesheet" type="text/css">
+    <!-- program style -->
+    <link href="assets/css/modules/program/program.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/modules/program/commission.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/modules/program/cart.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/modules/program/parrainage.css" rel="stylesheet" type="text/css">
+    <!-- public style -->
+    <link href="assets/css/modules/public/public.css" rel="stylesheet" type="text/css">
+    <!-- user style -->
+    <link href="assets/css/modules/user/login.css" rel="stylesheet" type="text/css"> 
+
+    <!-- default style -->
+    <link href="assets/css/default/helpers.css" rel='stylesheet' type='text/css'/>
+    <link href="assets/css/default/style.css" rel='stylesheet' type='text/css'/>
+
+</head>
+<body>
+
+<!-- angularjs file -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+     <!-- Angular Material requires Angular.js Libraries -->
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+    <script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript"
+            src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="bower_components/ng-dialog/js/ngDialog.js"></script>
+    <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
+    <script type="text/javascript" src="bower_components/blob-polyfill/Blob.js"></script>
+    <script type="text/javascript" src="bower_components/file-saver.js/FileSaver.js"></script>
+    <script type="text/javascript" src="bower_components/angular-file-saver/dist/angular-file-saver.js"></script>
+    <script type="text/javascript" src="bower_components/lodash/lodash.js"></script>
+    <script type="text/javascript" src='bower_components/restangular/dist/restangular.js'></script>
+    <script type="text/javascript" src='bower_components/angular-jwt/dist/angular-jwt.js'></script>
+    <script type="text/javascript" src="bower_components/tinymce-dist/tinymce.js"></script>
+    <script type="text/javascript" src="bower_components/tinymce-dist/themes/modern/theme.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+    <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script type="text/javascript"
+            src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/toastr/toastr.js"></script>
+    <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+
+    <!-- components file -->
+    <script src="assets/js/components/rzslider/rzslider.js"></script>
+    <script src="assets/js/components/elif/elif.js"></script>
+    <script type="text/javascript" src="assets/js/components/tinymce/translation/fr.js"></script>
+    <script type="text/javascript" src="assets/js/default/translation/messagesFr.js"></script>
+
+    <!-- Loading page-->
+    <div id="loader-wrapper" ng-show="!spaceReady" >
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div id="global" class="container" >
+       
+    <div ng-controller="layout:ShellController" ng-include="'app/layout/views/shell/shell.html'"></div>
+        
+    </div>
+    <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="main.js"></script>
+
+</body>
+</html>

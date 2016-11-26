@@ -1,0 +1,190 @@
+/* line 21, ../../../scss/components/loader/loader.scss */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+/* line 28, ../../../scss/components/loader/loader.scss */
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: #eef3fa;
+  z-index: 1000;
+  transform: translateX(0);
+}
+/* line 37, ../../../scss/components/loader/loader.scss */
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+/* line 40, ../../../scss/components/loader/loader.scss */
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+/* line 45, ../../../scss/components/loader/loader.scss */
+#loader-wrapper.ng-hide .loader-section.section-left {
+  transform: translateX(-100%);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 51, ../../../scss/components/loader/loader.scss */
+#loader-wrapper.ng-hide .loader-section.section-right {
+  transform: translateX(100%);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* line 59, ../../../scss/components/loader/loader.scss */
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #3498db;
+  animation: spin 2s linear infinite;
+  z-index: 1001;
+}
+/* line 73, ../../../scss/components/loader/loader.scss */
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #31328a;
+  animation: spin 3s linear infinite;
+}
+/* line 86, ../../../scss/components/loader/loader.scss */
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #e40a20;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* line 121, ../../../scss/components/loader/loader.scss */
+.ng-hide #loader {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+/* line 126, ../../../scss/components/loader/loader.scss */
+.ng-hide #loader-wrapper {
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: all 0.3s 1s ease-out;
+}
+
+/**********  CONTENT **************/
+/* line 136, ../../../scss/components/loader/loader.scss */
+.loader {
+  background-color: #fff;
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -100;
+}
+
+/* line 149, ../../../scss/components/loader/loader.scss */
+.loader.active {
+  background-color: #969696;
+  display: block;
+  opacity: 1;
+  z-index: 99900;
+}
+
+/* line 156, ../../../scss/components/loader/loader.scss */
+.loader .container {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* line 173, ../../../scss/components/loader/loader.scss */
+.loader p {
+  color: #555;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* line 179, ../../../scss/components/loader/loader.scss */
+.module-container {
+  position: relative;
+}
+
+/* line 182, ../../../scss/components/loader/loader.scss */
+.module-loading {
+  background-color: white;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  position: absolute;
+}
+
+/* line 191, ../../../scss/components/loader/loader.scss */
+.module-loading .spin {
+  position: inherit;
+  left: 45%;
+  top: 40%;
+}
+
+/* line 197, ../../../scss/components/loader/loader.scss */
+.partial-loading {
+  opacity: 0.7 !important;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 202, ../../../scss/components/loader/loader.scss */
+  #loader {
+    width: 115px;
+    height: 115px;
+  }
+}

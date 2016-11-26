@@ -1,0 +1,42 @@
+Bonjour {{ affair.participatesTo.member.firstName }} {{ affair.participatesTo.member.lastName }} <br/><br/>
+
+{%  if affair.status == 'cancel' %}
+    Dans le cadre du programme de parrainage {{ program.label }}, l'affaire {{ affair.label }} a été abandonnée au motif suivant:<br/><br/>
+
+    {{ affair.cancelMsg }}<br/><br/>
+
+{%  else %}
+
+    {% if affair.status == 'approach' %}
+        Dans le cadre du programme de parrainage {{ program.label }}, une nouvelle affaire vous a été attribuée - intitulée <strong>{{ affair.label }}</strong>.<br/><br/>
+
+        Nous vous confirmerons prochainement le montant prévisionnel de cette affaire. <br/><br/>
+        Votre commission pour l'affaire <strong>{{ affair.label }}</strong> sera calculée sur la base de ce montant, au taux de <strong>{{ program.easySetting.simpleRate + program.easySetting.multiRate}} %</strong>
+        ({{ program.easySetting.simpleRate }} % Points / {{ program.easySetting.multiRate }} MultiPoints).<br/><br/>
+    {%  elseif affair.status == 'negotiation' %}
+        Dans le cadre du programme de parrainage {{ program.label }}, votre affaire <strong>{{ affair.label }}</strong> est désormais en cours de négociation - sur la base d'un montant prévisionnel de {{affair.amount|number_format(2,',',' ')}} € HT.<br/><br/>
+
+        En cas de réussite de cette affaire, votre commission totale s'élèvera à
+        {{ maxCommissionPoints.simple.points + maxCommissionPoints.multi.points }} Points ( dont {{ maxCommissionPoints.multi.points }} MultiPoints )
+        - correspondant à un montant de {{maxValuePoints|number_format(2,',',' ')}} €.<br/><br/>
+    {%  elseif affair.status == 'payable' or affair.status == 'paid' %}
+        {% if commission %}
+            Dans le cadre de l'affaire <strong>{{ affair.label }}</strong>, un réglement d'un montant de {{ commission.base }} € a été effectué.<br/><br/>
+
+            Suite à ce réglement, vous avez gagné {{ commissionPoints.simple.points + commissionPoints.multi.points }} Points ( dont {{ commissionPoints.multi.points }} MultiPoints )
+            - correspondant à un montant de {{valuePoints|number_format(2,',',' ')}} €.<br/><br/>
+
+            {% if affair.status == 'paid' %}L'affaire <strong>{{ affair.label }}</strong> est désormais intégralement réglée.<br/><br/>{% endif %}
+        {% else %}
+            Dans le cadre du programme de parrainage {{ program.label }}, votre affaire <strong>{{ affair.label }}</strong> a été conclue pour un montant de {{affair.amount|number_format(2,',',' ')}} € HT.<br/><br/>
+
+            Votre commission totale s'élèvera à {{ maxCommissionPoints.simple.points + maxCommissionPoints.multi.points }} Points ( dont {{ maxCommissionPoints.multi.points }} MultiPoints )
+            - correspondant à un montant de {{maxValuePoints|number_format(2,',',' ')}} € - et vous sera réglée au fur et à mesure des réglements.<br/><br/>
+        {%  endif %}
+    {%  endif %}
+
+    Et n'oubliez pas: vous gagnez 2/3 de tous les MultiPoints gagnés par vos filleuls dans le cadre du programme de parrainage {{ program.label }} !<br/><br/>
+{% endif %}
+
+
+{{ (program.allMailInvitations|first).signature|raw }}

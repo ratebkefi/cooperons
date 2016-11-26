@@ -1,0 +1,21 @@
+md-select-menu md-content {
+    color: rgba(0,0,0,0.87);
+    background-color: rgb(255,255,255);
+}
+.md-select-value .md-text {
+    display: inline;
+    font-size: 13px;
+}
+md-backdrop.md-select-backdrop {
+z-index:103;
+}
+
+.md-select-menu-container {
+z-index:104;
+}
+.md-select-value.md-select-placeholder{
+ z-index:9999;   
+}
+md-select-menu md-content {
+    min-width: 75px;
+}

@@ -1,0 +1,132 @@
+<header class="page-header"><h2>Mon compte</h2></header>
+
+<!-- Account not already activated -->
+<md-content ng-if="user.member && user.mailStatus != 'Active'" class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-media>
+                    <div class="md-card-image">
+                        <ng-md-icon icon="warning" class="orange-color md-card-icon" size="48"></ng-md-icon>
+                    </div>
+                </md-card-title-media>
+                <md-card-title-text class="md-card-left">
+                    <span class="md-headline">En attente de confirmation</span>
+                    <md-input-container class="md-block mb-none">
+                        <md-button ng-click="userResendEmail()" class="md-raised md-primary right">
+                            <md-icon md-font-icon="fa fa-share"></md-icon>
+                            Renvoyer l'email d'activation
+                        </md-button>
+                    </md-input-container>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+</md-content>
+
+<!-- Account activated -->
+<div class="md-inline-form mt-lg" ng-if="user.member && user.mailStatus == 'Active'">
+    <md-content layout-padding>
+        <form name="put_user_account" ng-submit="confirmUpdateUserAccount(put_user_account)"
+              ng-class="{'not_submitted' : !put_user_account.$submitted }" id="form-member" novalidate>
+
+            <md-input-container class="md-block">
+                <label class="required">Adresse e-mail</label>
+                <input ng-model="account.email" name="email" type="email" required="required"
+                       title="Ce champ doit être sous la forme suivante nom d'utilisateur@nomdedomaine.extension">
+
+                <div ng-messages="put_user_account.email.$error" ng-if="put_user_account.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Email requis</div>
+                    <div class="erreurform" ng-message="email">Email incorrect</div>
+                    <div class="erreurform" ng-if="errorMessages.email">{{errorMessages.email}}</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Mot de passe</label>
+                <input ng-model="account.plainPassword" type="password" name="password" required="required">
+
+                <div ng-messages="put_user_account.password.$error" ng-if="put_user_account.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Mot de passe requis</div>
+                    <div class="erreurform" ng-message="minLength">Mot de passe requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Nom</label>
+                <input ng-model="account.lastName" type="text" name="user_lastName" required="required"
+                       title="Ce champ doit être constitué de 3 à 75 caractères">
+
+                <div ng-messages="put_user_account.user_lastName.$error" ng-if="put_user_account.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Nom requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Prénom</label>
+                <input ng-model="account.firstName" type="text" name="firstName" required="required">
+
+                <div ng-messages="put_user_account.firstName.$error" ng-if="put_user_account.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Prénom requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Téléphone</label>
+                <input ng-model="contact.phone" type="text" name="phone" required="required" minlength="10">
+
+                <div ng-messages="put_user_account.phone.$error" ng-if="put_user_account.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Téléphone requis</div>
+                    <div class="erreurform" ng-message="minlength">Téléphone incorrect (10 chiffres)</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Adresse</label>
+                <input ng-model="contact.address" type="text" name="contact_address" required="required">
+
+                <div ng-messages="put_user_account.contact_address.$error" ng-if="put_user_account.$submitted"
+                     ng-messages-multiple>
+                    <div class="erreurform" ng-message="required">Adresse requise</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Adresse Complémentaire</label>
+                <input ng-model="contact.secondAddress" type="text" name="registration[contact][secondAddress]">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Ville</label>
+                <input ng-model="contact.city" type="text" name="contact_city" required="required">
+
+                <div ng-messages="put_user_account.contact_city.$error" ng-if="put_user_account.$submitted">
+                    <div class="erreurform" ng-message="required">Ville requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label class="required">Code postal</label>
+                <input ng-model="contact.postalCode" type="text" name="contact_postalCode" required="required">
+
+                <div ng-messages="put_user_account.contact_postalCode.$error" ng-if="put_user_account.$submitted">
+                    <div class="erreurform" ng-message="required">Code postal requis</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button type="submit" class="md-raised md-primary right">
+                    <md-icon md-font-icon="fa fa-floppy-o"></md-icon>
+                    Valider
+                </md-button>
+            </md-input-container>
+        </form>
+    </md-content>
+
+</div>

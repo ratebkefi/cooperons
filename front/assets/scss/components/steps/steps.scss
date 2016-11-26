@@ -1,0 +1,498 @@
+//colors
+$color_alto_approx: #d9d9d9;
+$color_comet_approx: #586272;
+$color_river_bed_approx: #454d59;
+$color_celeste_approx: #cccccc;
+$white: #ffffff;
+
+$color_bay_of_many_approx: #31328a;
+$mercury: #e5e5e5;
+$color_shakespeare_approx: #57aed1;
+$black_20: rgba(0, 0, 0, 0.2);
+$color_tundora_approx: #444;
+$color_celeste_approx: #ccc;
+$white: #ffffff;
+$color_cararra_approx: #ececec;
+$color_lima_approx: #87ba21;
+$color_glacier_approx: #80afd4;
+$color_comet_approx: #546474;
+$color_pickled_bluewood_approx: #2b3d53;
+
+//fonts
+$font_0: robotoregular;
+$font_1: PT Sans Caption;
+$font_2: sans-serif;
+$font_3: robotoregular;
+$font_4: Arial;
+$font_5: Helvetica;
+$font_6: FontAwesome;
+
+//urls
+$url_0: url(images/progress-bar.jpg);
+
+.steps-content {
+	
+}
+.steps-wrapper {
+	padding: 20px 0 0;
+	min-height: 110px;
+	.form-horizontal {
+		margin: 0;
+		width: auto;
+	}
+}
+.steps-footer {
+	background-color: $color_comet_approx;
+	height: 40px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0 0 4px 4px;
+	border-bottom: 3px solid $color_river_bed_approx;
+	position: relative;
+	margin: 0 -1px;
+	clear: both;
+	.btn-primary {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0 0 4px 0;
+		float: right;
+		top: 0;
+		right: 0;
+		line-height: 36px;
+		padding: 4px 15px 0;
+	}
+	#prev.btn-primary {
+		right: 100px;
+	}
+        .md-button.md-raised{
+            padding: 2px 8px;
+        }
+}
+.steps-info {
+	color: $color_celeste_approx;
+	font-size: 12px;
+	font-style: italic;
+	font-family: $font_0;
+	display: inline-block;
+	line-height: 40px;
+	padding-left: 20px;
+}
+.steps-glow {
+	width: 60px;
+	margin-left: 25px;
+	height: 2px;
+	background-color: $color_river_bed_approx;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 2px;
+	&:after {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		background-color: $white;
+		left: 0;
+		top: -1px;
+		content: "";
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0 5px $white;
+	}
+	&.step2:after {
+		left: 25%;
+	}
+	&.step3:after {
+		left: 50%;
+	}
+	&.step4:after {
+		left: 75%;
+	}
+	&.step5:after {
+		left: 100%;
+	}
+}
+.btn i.fa-chevron-right {
+	margin: 0;
+	margin-left: 8px;
+	vertical-align: text-bottom;
+}
+#prev.btn-primary i.fa-chevron-left {
+	vertical-align: text-bottom;
+}
+
+.checkout-wrap {
+	color: $color_tundora_approx;
+	font-family: $font_1, $font_2;
+	margin: 40px auto;
+	max-width: 1200px;
+	position: relative;
+}
+@media all and(min-width:800px) {
+	.checkout-wrap {
+		margin: 80px auto;
+	}
+	.checkout-bar li.active:after {
+		background-size: 8px 8px;
+		background-color: $color_bay_of_many_approx;
+		content: "";
+		height: 7px;
+		width: 100%;
+		left: 50%;
+		position: absolute;
+		top: -30px;
+		z-index: 0;
+	}
+	ul.checkout-bar {
+		background-size: 35px 35px;
+		background-color: $mercury;
+		height: 7px;
+		margin: 0 auto;
+		padding: 0;
+		position: absolute;
+		width: 100%;
+		max-width: 630px;
+		li {
+			display: inline-block;
+			margin: 30px 0 0;
+			padding: 0;
+			text-align: center;
+			width: 19%;
+			&:before {
+				height: 30px;
+				left: 40%;
+				line-height: 30px;
+				position: absolute;
+				top: -48px;
+				width: 30px;
+				z-index: 99;
+			}
+			&.visited {
+				background: none;
+				&:after {
+					background-size: 35px 35px;
+					background-color: $color_shakespeare_approx;
+					//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+					box-shadow: inset 2px 2px 2px 0 $black_20;
+					content: "";
+					height: 15px;
+					left: 50%;
+					position: absolute;
+					top: -50px;
+					width: 100%;
+					z-index: 99;
+				}
+			}
+		}
+	}
+}
+.wizard-steps {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	display: block;
+	height: 70px;
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	li {
+		width: 28%;
+		float: left;
+		&.active {
+			&:before {
+				border-color: $color_bay_of_many_approx;
+				background: $url_0;
+			}
+			.step {
+				border-color: $color_bay_of_many_approx;
+				background: $url_0;
+			}
+			.title {
+				color: $color_pickled_bluewood_approx;
+				color: $color_bay_of_many_approx;
+				a {
+					color: $color_bay_of_many_approx;
+				}
+			}
+		}
+		&.complete {
+			&:before {
+				border-color: $color_bay_of_many_approx;
+			}
+			.step {
+				border-color: $color_bay_of_many_approx;
+				cursor: default;
+				color: $white;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: transform ease 0.1s;
+				&:before {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					line-height: 30px;
+					text-align: center;
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 100%;
+					content: "\f00c";
+					background-color: $white;
+					z-index: 3;
+					font-family: $font_6;
+					font-size: 17px;
+					color: $color_lima_approx;
+				}
+			}
+			&:hover {
+				.step {
+					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+					transform: scale(1.1);
+					border-color: $color_glacier_approx;
+				}
+				&:before {
+					border-color: $color_glacier_approx;
+				}
+			}
+			.title {
+				color: $color_pickled_bluewood_approx;
+			}
+		}
+		&:first-child {
+			width: 75px;
+			&:before {
+				display: none;
+				width: 100%;
+				max-width: 100%;
+				left: 0;
+			}
+			.step {
+				margin: 7px auto 5px auto;
+			}
+		}
+		.step {
+			width: 35px;
+			height: 35px;
+			border: none;
+			background-color: $mercury;
+			float: right;
+			color: $color_comet_approx;
+			font-size: 15px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 100%;
+			position: relative;
+			z-index: 2;
+			display: inline-block;
+			line-height: 30px;
+			text-align: center;
+			> span:first-child {
+				width: 23px;
+				height: 23px;
+				background-color: $white;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 100%;
+				display: inline-block;
+				margin-top: 6px;
+			}
+		}
+		&.visited {
+			.step {
+				background-color: $color_bay_of_many_approx;
+				> span:first-child {
+					background-color: $color_bay_of_many_approx;
+				}
+			}
+			&:before {
+				background-color: $color_bay_of_many_approx;
+			}
+			.title {
+				color: $color_bay_of_many_approx;
+				a {
+					cursor: pointer;
+					color: $color_bay_of_many_approx;
+				}
+			}
+		}
+		.title {
+			color: $color_celeste_approx;
+			font-size: 12px;
+			font-style: italic;
+			font-family: $font_3;
+			position: absolute;
+			right: -135%;
+			width: 370%;
+			max-width: none;
+			top: 35px;
+			margin-top: 0;
+			line-height: 22px;
+			z-index: 104;
+			display: block;
+			text-align: center;
+			table-layout: fixed;
+			word-wrap: break-word;
+			a {
+				cursor: pointer;
+				color: #31328a;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+		&:before {
+			display: block;
+			content: "";
+			width: 100%;
+			height: 7px;
+			font-size: 0;
+			overflow: hidden;
+			background-color: $mercury;
+			position: relative;
+			top: 20px;
+			z-index: 1;
+		}
+		&:last-child:before {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+.step-content {
+	.step-pane {
+		display: none;
+		min-height: 200px;
+		padding: 4px 8px 12px;
+	}
+	.active {
+		display: block;
+	}
+}
+.wizard-actions {
+	text-align: right;
+}
+@media only screen and(max-width:767px) {
+    .wizard-steps{
+            margin-left: -40px;
+            min-width: 300px;
+       li {
+                width: 25%;
+		.step {
+			width: 30px;
+			height: 30px;
+			line-height: 24px;
+			border-width: 3px;
+                            > span{
+                                &:first-child {
+                                width: 22px;
+                                height: 22px;
+                                background-color: #ffffff;
+                                border-radius: 100%;
+                                display: inline-block;
+                                margin-top: 4px;
+                                margin-left: 0px;
+                            }
+                        }
+		}
+		&:before {
+			border-width: 3px;
+			top: 16px;
+		}
+		&:after {
+			border-width: 3px;
+		}
+		&.complete .step:before {
+			line-height: 24px;
+			font-size: 13px;
+		}
+                .title {
+                            right: -95%;
+                            font-size: 9px;
+                            width: 85px;
+                            word-wrap: normal;
+                            word-break: break-word;
+                            line-height: 13px;
+                }
+	} 
+    }
+	.step-content .step-pane {
+		padding: 4px 4px 6px;
+	}
+}
+ul.checkout-bar {
+	li {
+		color: $color_celeste_approx;
+		display: block;
+		padding: 14px 20px 14px 80px;
+		position: relative;
+		font-style: italic;
+		font-family: $font_3, $font_4, $font_5, $font_2;
+		font-size: 12px;
+		&:before {
+			background: $white;
+			border: 5px solid $mercury;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 50%;
+			color: $white;
+			font-size: 16px;
+			font-weight: 700;
+			left: 20px;
+			line-height: 30px;
+			height: 30px;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			width: 30px;
+			z-index: 999;
+		}
+		&.active {
+			color: $color_bay_of_many_approx;
+			font-style: italic;
+			font-family: $font_3, $font_4, $font_5, $font_2;
+			font-size: 12px;
+			&:before {
+				background: $color_bay_of_many_approx;
+				border-color: $color_bay_of_many_approx;
+				z-index: 99999;
+			}
+		}
+		&.visited {
+			background: $color_cararra_approx;
+			color: $color_shakespeare_approx;
+			z-index: 99999;
+			&:before {
+				background: $color_shakespeare_approx;
+				z-index: 99999;
+			}
+		}
+		&:nth-child(1):before {
+			content: "";
+		}
+		&:nth-child(2):before {
+			content: "";
+		}
+		&:nth-child(3):before {
+			content: "";
+		}
+		&:nth-child(4):before {
+			content: "";
+		}
+		&:nth-child(5):before {
+			content: "";
+		}
+		&:nth-child(6):before {
+			content: "";
+		}
+	}
+	a {
+		color: $color_shakespeare_approx;
+		font-size: 16px;
+		font-weight: 600;
+		text-decoration: none;
+	}
+}
+
+@-webkit-keyframes myanimation {
+	from {
+		left: 0;
+	}
+	to {
+		left: 50%;
+	}
+}

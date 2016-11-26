@@ -1,0 +1,116 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>8font12</title>
+<style type="text/css">
+/* Styles specifiques aux client mails */
+#outlook a{padding:0;}
+
+/* Forcer Outlook a fournir un bouton "vue dans le navigateur" */
+body{width:100% !important;}
+
+.ReadMsgBody{width:100%;}
+
+.ExternalClass{width:100%;display:block !important;}
+
+/* Force Hotmail a afficher l'e-mails sur la largeur complete */
+body{-webkit-text-size-adjust:none;}
+
+/* Empecher les plates-formes Webkit de changer les tailles de texte par defaut. */
+.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span{
+	color:black;
+	text-decoration:none !important;
+	border-bottom:none !important;
+	background:none !important;/* Body text color for the New Yahoo.  This example sets the font of Yahoo's Shortcuts to black. */
+}
+
+/* Styles de reinitialisation */
+body{margin:0;padding:0;}
+
+body, html{
+	width:100% !important;
+	padding:0 !important;
+	margin:0 !important;
+}
+
+* {line-height:normal;padding:0 !important;}
+
+table{
+	mso-table-lspace:0pt;
+	mso-table-rspace:0pt;
+	mso-padding-alt:0px 0px 0px 0px;
+}
+
+/* fix extra spacing that appears on aligned tables on outlook 07/10 */
+table td, table tr{border-collapse:collapse;}
+
+img{
+	border:0;
+	line-height:100%;
+	outline:none;
+	text-decoration:none;
+	-ms-interpolation-mode:bicubic;
+	border:none;
+}
+
+a{text-decoration:none;}
+
+p{margin:0;padding:0;}
+
+ul, li{margin:0;padding:0;}
+
+br, strong br, b br, em br, i br {
+	line-height:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height:100% !important;
+	-webkit-font-smoothing:antialiased;
+}
+
+div, p, a, li, td{-webkit-text-size-adjust:none;}
+
+
+ table[class=showblocmobile], tr[class=showblocmobile], td[class=showblocmobile] {
+display:none !important;
+}
+
+/* Mobile-specific Styles */
+@media screen and (min-width: 0px) and (max-width: 480px) {
+	table[class*=hide], td[class*=hide], img[class*=hide], p[class*=hide], span[class*=hide], br[class*=hide],[class*=hide]{
+		display:none !important;
+		width:0px !important;
+		height:0px !important;
+	}
+
+	*[class="w300"]{width:300px !important;}
+
+	font[class="txt13"]{font-size:14px !important; text-align:left !important;}
+}
+</style>
+</head>
+<body yahoo="fix">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left" class="w300" bgcolor="#FFFFFF">
+    <tr>
+      <td width="580" height="85" valign="top" class="w300">
+        <br/><br/>
+            <strong><u>A L'ATTENTION DU RESPONSABLE ADMINISTRATIF DE <strong> {{ corporate.raisonSocial|upper }}</strong></u></strong>
+        <br/><br/>
+            Nous accusons bonne réception de votre Contrat Cadre - et vous retournons un exemplaire signé.
+        <br/><br/>
+            Nous vous communiquerons dans de prochains emails chaque mouvement (entrée - sortie) du Collège Coopérons de <strong>{{ corporate.raisonSocial }} </strong>.
+        <br/><br/>
+            Enfin, vous recevrez, en début d'année prochaine, un détail des chèques cadeau versés aux membres du Collège Coopérons de <strong> {{ corporate.raisonSocial }} </strong> - ainsi que les cotisations sociales versées par Coopérons.
+        <br/><br/>
+            En vous remerciant pour votre confiance.
+        </font>
+        <br/><br/>
+        <strong><i>Coopérons !</i></strong>
+        <br/><br/>
+      </td>
+    </tr>
+</table>
+</body>
+</html>

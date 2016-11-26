@@ -1,0 +1,105 @@
+<project name="8font12" basedir="." >
+ <!-- Quelques valeurs qui nous seront utiles -->
+ <property name="dir.deploy" value="${basedir}/8font12" />
+ <property name="dir.arch" value="${basedir}/archive" />
+ <tstamp>
+  <format property="datefmt" pattern="yyyyMMddhhmm" locale="fr,FR" />
+ </tstamp>
+
+ <!-- On jarte les repertoires temporaires, des fois qu'ils ne l'auraient pas ete -->
+ <target name="clean">
+  <delete dir="${dir.deploy}"/>
+  <delete dir="${dir.arch}"/>
+  <delete dir="${basedir}/vendor"/>
+  <delete dir="${basedir}/doc"/>
+  <delete dir="${basedir}/app/cache/*"/>
+  <delete dir="${basedir}/app/logs/*"/>
+ </target>
+
+ <!-- On cree les repertoires qui nous seront utiles -->
+ <target name="prepare">
+  <mkdir dir="${dir.deploy}"/>
+  <mkdir dir="${dir.arch}"/>
+ </target>
+
+
+ <!-- On cree le contenu de notre archive, on ne garde que le "propre" :p -->
+ <target name="preparearchive">
+  <copy todir="${dir.deploy}/" includeEmptyDirs="no">
+   <fileset dir="${basedir}" casesensitive="no">
+    <filename regex="(.*\.apache|.*\.bat|.*\.c|.*\.css|.*\.csv|.*\.dat|.*\.default|.*\.dev|.*\.dist|.*\.dot|.*\.editorconfig|.*\.empty|.*\.engine|.*\.gen|.*\.gif|.*\.git|.*\.gitattributes|.*\.gitignore|.*\.gitkeep|.*\.gitmodules|.*\.graffle|.*\.h|.*\.handlebars|.*\.htaccess|.*\.html|.*\.htpasswd|.*\.ico|.*\.idx|.*\.ini|.*\.jpg|.*\.js|.*\.json|.*\.less|.*\.lock|.*\.markdown|.*\.md|.*\.mdown|.*\.mo|.*\.pack|.*\.phar|.*\.php|.*\.pkg|.*\.png|.*\.po|.*\.properties|.*\.res|.*\.rst|.*\.sample|.*\.sass|.*\.scss|.*\.sh|.*\.sql|.*\.tpl|.*\.ts|.*\.twig|.*\.txt|.*\.x|.*\.xlf|.*\.xml|.*\.xsd|.*\.xslt|.*\.yml|.*\.zip|.*\.php.cache|.*console|.*\.svg|.*\.woff|.*\.ttf|.*parmcom.*|.*request|.*response|.*pathfile)$" />
+   </fileset>
+  </copy>
+ </target>
+ 
+<!-- On genere la conf pour l'environnement donne -->
+
+ <target name="confprod">
+<delete file="${dir.deploy}/app/config/parameters.yml"/>
+<copy file="${basedir}/app/config/parameters_PROD.yml" tofile="${dir.deploy}/app/config/parameters.yml"/>	 
+<mkdir dir="${dir.deploy}/app/cache/"/>
+<mkdir dir="${dir.deploy}/app/logs/"/>
+</target>
+
+ <target name="confperprod">
+<delete file="${dir.deploy}/app/config/parameters.yml"/>
+<copy file="${basedir}/app/config/parameters_PREPROD01.yml" tofile="${dir.deploy}/app/config/parameters.yml"/>	 
+<mkdir dir="${dir.deploy}/app/cache/"/>
+<mkdir dir="${dir.deploy}/app/logs/"/>
+</target>
+
+ <!-- Génération de l'archive -->
+ <target name="archive">
+  <tar destfile="${dir.arch}/8font12.${datefmt}.tar.gz"
+   basedir="${dir.deploy}"
+   compression="gzip"
+   longfile="gnu"
+  />
+ </target>
+
+
+ <!-- On recupere les dependances -->
+ <target name="composer">
+  <exec executable="/usr/local/bin/composer" dir="${basedir}" failonerror="true">
+   <arg line="install" />
+  </exec>
+ </target>
+
+ <!-- Dépot de l'archive sur le FTP -->
+ <target name="pushsftp">
+  <scp file="${dir.arch}/8font12.${datefmt}.tar.gz"
+   todir="prod@ftp.edatis.net:/home/"
+   keyfile="/var/hudson/.ssh/id_rsa"
+   trust="true"
+   sftp="true"
+  />
+ </target>
+ 
+  <target name="pushsftppreprod01">
+	<scp file="${dir.arch}/8font12.${datefmt}.tar.gz" 
+	todir="prod@ftp.preprod01.edt02.net:/home/" 
+	keyfile="/var/hudson/.ssh/id_rsa" 
+	trust="true" 
+	sftp="true"/>
+</target>
+
+
+ <!-- Dependances -->
+ <target name="tachescommunes"
+  depends="clean, composer, prepare, preparearchive">
+  <echo level="verbose" message="Done" />
+ </target>
+
+
+ <!-- Target archives par environnement-->
+ <target name="prod"
+  depends="tachescommunes, confprod , archive, pushsftp" >
+  <echo level="info" message="Done" />
+ </target>
+ 
+ <target name="preprod01"
+  depends="tachescommunes, confperprod , archive, pushsftppreprod01" >
+  <echo level="info" message="Done" />
+ </target>
+  
+</project>

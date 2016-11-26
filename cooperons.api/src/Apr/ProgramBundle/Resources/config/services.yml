@@ -1,0 +1,43 @@
+parameters:
+    apr_program.member_manager.class: Apr\ProgramBundle\Manager\MemberManager
+    apr_program.program_manager.class: Apr\ProgramBundle\Manager\ProgramManager
+    apr_program.operation_credit_manager.class: Apr\ProgramBundle\Manager\OperationCreditManager
+    apr_program.participatesto_manager.class: Apr\ProgramBundle\Manager\ParticipatesToManager
+    apr_program.invitation_manager.class: Apr\ProgramBundle\Manager\InvitationManager
+    apr_program.sponsorship_manager.class: Apr\ProgramBundle\Manager\SponsorshipManager
+    apr_program.mails_manager.class: Apr\ProgramBundle\Manager\MailsManager
+    apr_program.account_points_history_manager.class: Apr\ProgramBundle\Manager\AccountPointsHistoryManager
+    apr_program.avantage_manager.class: Apr\ProgramBundle\Manager\AvantageManager
+    apr_program.affair_manager.class: Apr\ProgramBundle\Manager\AffairManager
+
+services:
+    apr_program.member_manager:
+        class : "%apr_program.member_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.program_manager:
+        class : "%apr_program.program_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.operation_credit_manager:
+        class : "%apr_program.operation_credit_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager']    
+    apr_program.participatesto_manager:
+        class : "%apr_program.participatesto_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.invitation_manager:
+        class : "%apr_program.invitation_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.sponsorship_manager:
+        class : "%apr_program.sponsorship_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.mails_manager:
+        class : "%apr_program.mails_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager']  
+    apr_program.account_points_history_manager:
+        class : "%apr_program.account_points_history_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.avantage_manager:
+        class : "%apr_program.avantage_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    apr_program.affair_manager:
+        class : "%apr_program.affair_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']

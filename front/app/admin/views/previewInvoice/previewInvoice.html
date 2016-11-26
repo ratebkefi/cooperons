@@ -1,0 +1,202 @@
+<div style="font-size:10pt;color:#515151;">
+    <table style="width:100%;background-color:#fff;" cellpadding="8">
+        <tr>
+            <td height="10"></td>
+        </tr>
+    </table>
+    <table style="width:100%; background-color: #fff;">
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="width:90%;">
+                <table style="width:100%;">
+                    <tr>
+                        <td style="width:30%;font-size:12pt;">
+                            <img ng-if="ownerIsCooperons" src="assets/images/default/logo.png" border="0"/>
+                            <span ng-else style="font-size:18pt;font-weight:bold;color:#31328a">{{ owner.label}}</span>
+                            <br/><br/><br/><br/><br/>
+
+                            Adresse<br/>
+                            <strong>{{ owner.local.address}}</strong><br/>
+                            <strong>{{ owner.local.postalCode}} {{ owner.local.city}}</strong><br/>
+                            <span ng-if="owner.corporate">
+                                TVA: <strong>{{ owner.corporate.tvaIntracomm}}</strong>
+                                <br/>
+                            </span> 
+                            <span ng-if="owner.autoEntrepreneur">
+                                SIRET:  
+                                <span ng-if="owner.autoEntrepreneur.SIRET">
+                                    <strong>{{ owner.autoEntrepreneur.SIRET}}</strong>
+                                </span> 
+                                <span ng-else>
+                                    En cours de constitution
+                                </span> 
+                                <br/>
+                            </span>
+                        </td>
+                        <td style="width:40%;"></td>
+                        <td style="width:30%;background-color:#31328a;color:#ffffff;font-size:8pt;text-align:right;padding:10px">
+                            <br/><br/>
+                            <span style="font-size:18pt;font-weight:bold">FACTURE</span><b/><br/><br/><br/>
+                            N°: <strong>{{invoice.ref}}</strong><br/><br/>
+                            Date: <strong>{{invoice.invoicingDate|date: 'dd/mm/yy'}}</strong><br/><br/>
+                            <strong>{{ client.label}}</strong><br/>
+                            <strong>{{ client.local.address}}</strong><br/>
+                            <strong>
+                                {{ client.local.postalCode}}
+                                {{ client.local.city}}
+                            </strong>
+                            <br/><br/><br/>
+                            <i>Contact: {{ mandataire.clientMember.firstName}} {{ mandataire.clientMember.lastName}}</i>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+    </table>
+    <table style="width:100%;background-color:#fff;">
+        <tr>
+            <td height="30"></td>
+        </tr>
+    </table>
+    <table style="width:100%;background-color:#fff;">
+        <tr>
+            <td height="30"></td>
+        </tr>
+    </table>
+    <table style="width:100%;background-color: #fff;">
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="width:90%;">
+                <table style="width:100%;text-align:right;" class="tableau">
+                    <tr style="font-size:11pt;background-color:#31328a;color:#ffffff;font-weight:bold;line-height:25pt;">
+                        <th style="width:10%;text-align:left;border-bottom:2pt solid #282971;border-left:2pt solid #31328a;">
+                            &nbsp;Date
+                        </th>
+                        <th style="width:50%;text-align:left;border-bottom:2pt solid #282971;border-left:2pt solid #31328a;">
+                            &nbsp;Description
+                        </th>
+                        <th style="width:10%;text-align:center;border-bottom:2pt solid #282971;">&nbsp;Unités</th>
+                        <th style="width:10%;text-align:left;border-bottom:2pt solid #282971;">&nbsp;Coût unitaire</th>
+                        <th style="width:10%;text-align:left;border-bottom:2pt solid #282971;border-right:2pt solid #31328a;">
+                            &nbsp;Montant HT
+                        </th>
+                        <th style="width:10%;text-align:center;border-bottom:2pt solid #282971;border-right:2pt solid #31328a;">
+                            &nbsp;Taux TVA
+                        </th>
+                    </tr>
+                    <tr ng-repeat="settlement in invoice.allSettlements" style="line-height:25pt;">
+                        <td style="text-align:left;border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">
+                            &nbsp;{{ settlement.createdDate|date:'dd-MM-yy'}}
+                        </td>
+                        <td style="text-align:left;border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">
+                            &nbsp;{{ settlement.description}}
+                        </td>
+                        <td style="border-bottom:1px solid #bebebe;border-left:1px solid #ffffff;border-right:1px solid #bebebe;">
+                            {{ settlement.quantity}}
+                        </td>
+                        <td style="border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">{{
+                            (settlement.unitAmount) | displayPrice}} €
+                        </td>
+                        <td style="border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">{{
+                            (settlement.amountHt) | displayPrice}} €
+                        </td>
+                        <td style="border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">
+                            <span ng-if="summaryTva.amounts">{{ (settlement.rateTva) | displayPrice}} % </span>
+                            <span ng-esle>-</span>
+                        </td>
+                    </tr>
+                    <tr style="font-weight:bold;font-size:13pt;background-color:#cacaca;line-height:25pt;color:#31328a;"
+                        class="row-total">
+                        <td colspan="4" style="border-bottom:2pt solid #a6a6a6;border-left:2pt solid #cacaca;">TOTAL&nbsp;&nbsp;</td>
+                        <td colspan="2" class="last"
+                            style="border-bottom:2pt solid #a6a6a6;border-right:2pt solid #cacaca;">{{
+                            invoice.amountHt|displayPrice}} €&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr ng-if="summaryTva.amounts" ng-repeat="(rate, amount) in summaryTva.amounts"
+                        style="font-size:11pt;background-color:#f2f6f8;line-height:25pt;" class="row-total">
+                        <td colspan="4"
+                            style="border-bottom:1px solid #bebebe;border-left:1px solid #f2f6f8;color:#31328a;">Montant
+                            T.V.A. {{ rate|displayPrice }} %&nbsp;&nbsp;</td>
+                        <td colspan="2" class="last"
+                            style="border-bottom:1px solid #bebebe;border-right:1px solid #f2f6f8;">{{
+                            amount|displayPrice }} €&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr ng-if="summaryTva.amounts"
+                        style="font-weight:bold;font-size:13pt;background-color:#cacaca;line-height:25pt;color:#31328a;"
+                        class="row-total">
+                        <td colspan="4" style="border-bottom:2pt solid #a6a6a6;border-left:2pt solid #cacaca;">Total TTC&nbsp;&nbsp;</td>
+                        <td colspan="2" class="last"
+                            style="border-bottom:2pt solid #a6a6a6;border-right:2pt solid #cacaca;">{{
+                            invoice.amountTtc|displayPrice}} €&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+    </table>
+    <table style="width:100%;background-color: #fff;">
+        <td style="width:5%;"></td>
+        <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;"><br/><br/><br/>TVA non applicable, art.
+            293B du CGI.<br/></td>
+        <td style="width:5%;"></td>
+        </tr>
+        <tr ng-else-if="summaryTva.status == 'intraUE'">
+            <td style="width:5%;"></td>
+            <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;"><br/><br/><br/>Autoliquidation
+                ("Reverse Charge" Art. 194 Directive TVA).<br/></td>
+            <td style="width:5%;"></td>
+        </tr>
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;"><br/><br/><br/>Facture réglée par
+                prélèvement sur votre {{ mandataire.shortLabel}}.<br/>
+                <br/>Nous vous remercions pour votre fidélité.
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="width:90%;"><br/><br/><br/><br/><br/><br/>
+                <table style="width:100%;border:1px solid #bebebe">
+                    <tr>
+                        <td style="width:40%;"></td>
+                        <td style="width:10%;text-align:center;"></td>
+                        <td style="font-size:11pt;font-weight:bold;width:40%;text-align:left;">
+                            Solde
+                            <span ng-if="!invoice.lastInvoice">initial</span>
+                            <span>de votre {{ mandataire.shortLabel}}</span>
+                            <span ng-if="invoice.lastInvoice">au {{ invoice.lastInvoice.invoicingDate|date: 'dd/mm/yy' }}</span>
+                        </td>
+                        <td style="width:10%;text-align:right;">{{ invoice.startBalance|displayPrice}} €</td>
+                    </tr>
+                    <tr ng-repeat="operation in operations">
+                        <td style="width:40%;"></td>
+                        <td style="font-size:9pt;width:10%;text-align:center;">{{operation.createdDate}}</td>
+                        <td style="font-size:9pt;width:40%;text-align:left;">{{operation.description}}</td>
+                        <td style="font-size:9pt;width:10%;text-align:right;">{{operation.amount|displayPrice}} €</td>
+                    </tr>
+                    <tr>
+                        <td style="width:40%;"></td>
+                        <td style="width:10%;"></td>
+                        <td style="font-size:11pt;font-weight:bold;width:40%;text-align:left;">Solde de votre {{
+                            mandataire.shortLabel}}
+                            au {{ invoice.invoicingDate|date: 'dd/MM/yy' }}
+                        </td>
+                        <td style="width:10%;text-align:right;">{{ endBalance|displayPrice}} €</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+        <tr ng-if="!ownerIsCooperons">
+            <td style="width:5%;"></td>
+            <td style="font-size:9pt;width:90%;text-align:center;">
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Facture établie au nom et pour le compte de
+                {{ owner.label}} par:<br/>
+                <br/>SARL COOPERONS - 34 rue de la Tombe Issoire, Paris (75014) - TVA: FR28492222302
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+    </table>
+</div> 

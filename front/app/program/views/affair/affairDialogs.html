@@ -1,0 +1,35 @@
+<!-- Confirm closing affair -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="affair.close">
+     <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Confirmer le closing de {{affair.label}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="dlgCtr.cancel()">
+                <ng-md-icon icon="close" size="24"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="content">
+            Vous êtes sur le point de confirmer une affaire et son montant.<br><br>
+            Conformément aux conditions générales du programme de stimulation, vous vous engagez à attribuer
+            à {{participate.member.firstName}} {{ participate.member.lastName}}
+            un montant en points équivalent à {{easySetting.simpleRate + easySetting.multiRate}} %
+            (dont {{easySetting.multiRate}} % en MultiPoints).
+        </div>
+        <p class="content">
+            <i class="ace-icon fa fa-hand-o-right"></i>
+            Cette étape est irréversible
+        </p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-center">
+         <md-button ng-click="closeThisDialog()" type="button" class="md-raised md-warn">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+            <md-button ng-click="confirm(id)" type="button" class="md-raised md-primary mr-md">
+                <ng-md-icon icon="done" size="16"></ng-md-icon>
+                Confirmer
+            </md-button>
+    </md-dialog-actions>
+</script>

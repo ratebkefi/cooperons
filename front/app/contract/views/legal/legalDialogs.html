@@ -1,0 +1,23 @@
+<!-- Confirm closing affair -->
+<script type="text/ng-template" class="ngdialog-theme-default" id="legalContract.close">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Annuler affaire</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dlgCtr.cancel()" >
+          <ng-md-icon icon="close" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <p>La création du compte Coopérons ! Entreprise n'est pas finalisée</p>
+        <p>Vous ne pouvez donc pas accepter de contrat à ce stade</p>
+        <p>Nous restons en l'attente du contrat cadre signé en 2 exemplaires</p>
+    </md-dialog-content>
+    <md-dialog-actions class="text-right">
+        <md-button ng-click="dlgCtr.cancel()" type="button" class="md-raised md-warn right">
+                <ng-md-icon icon="cancel" size="16"></ng-md-icon>
+                Annuler
+            </md-button>
+    </md-dialog-actions> 
+</script>

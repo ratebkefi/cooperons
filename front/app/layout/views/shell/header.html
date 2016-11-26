@@ -1,0 +1,42 @@
+<!-- START HEADER -->
+<header id="header" class="page-topbar bg-white" ng-class="{'header-public': space === 'public'}"
+        ng-if="space && space !== 'admin'">
+    <nav>
+        <div class="nav-wrapper">
+            <div class="logo-wrapper" ng-if="space && space !== 'admin' && space !== 'public'">
+                <a ui-sref="member.home()" class="brand-logo ">
+                    <img src="assets/images/default/logo.png" alt="Coopérons"/>
+                </a>
+            </div>
+            <div class="logo-wrapper" ng-if="space &&  space === 'public'">
+                <a ui-sref="member.home()" class="brand-logo ">
+                    <img src="assets/images/default/logo_large.png" alt="Coopérons"/>
+                </a>
+            </div>
+            <ul class="right hide-on-med-and-down" ng-if="space && space !== 'admin' && space !== 'public'">
+                <li><a ng-click="FAQ(_token)" class="waves-effect waves-block waves-light toggle-fullscreen">
+                    <i class="mdi-action-group-work"></i>
+                    <md-tooltip>Faq</md-tooltip>
+                </a>
+                </li>
+            </ul>
+
+            <md-button ng-click="reduceMenu()" hide-gt-md
+                       class="right menu_sidebar md-fab md-mini md-primary md-button md-ink-ripple" aria-label="Menu"
+                       ng-if="space && space !== 'admin' && space !== 'public'">
+                <ng-md-icon icon="menu"></ng-md-icon>
+            </md-button>
+
+            <ul class="right hide-on-med-and-down" ng-if="space && space === 'public'">
+                <li><a ng-href="{{backRoute('faq_member', {token: _token})}}"
+                       class="waves-effect waves-block waves-light toggle-fullscreen red-color">
+                    <i class="mdi-action-group-work"></i>
+                    <md-tooltip>Faq</md-tooltip>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end header nav-->
+</header>
+<!-- END HEADER -->

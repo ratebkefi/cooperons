@@ -1,0 +1,155 @@
+/* Markdown Editor */
+.widget-body .md-header{
+  margin-top:-30px;
+  margin-left:9px;
+}
+.widget-body .md-header .btn{
+  border-color:transparent;
+  background:rgba(255, 255, 255, 0.25) !important;
+  color:#FFF !important;
+  text-align:center;
+  padding-left:0;
+  padding-right:0;
+  border-width:1px !important;
+  padding-top:2px;
+  padding-bottom:4px;
+}
+.widget-body .md-header .btn > [class*="icon-"]{
+  font-size:14px;
+  width:25px;
+  max-width:25px;
+  display:inline-block;
+}
+.widget-body .md-header .btn-inverse{
+  background:rgba(0, 0, 0, 0.25) !important;
+  padding-right:5px;
+  margin-left:4px;
+}
+.widget-body .md-preview{
+  padding:8px;
+  min-height:200px;
+}
+.widget-body .md-input{
+  border:none !important;
+  box-shadow:none !important;
+  display:block;
+  margin-bottom:0;
+  background-color:rgba(48, 126, 204, 0.07);
+  padding:8px;
+  width:100%;
+}
+.widget-body .md-input:focus{
+  background-color:#FFF;
+  box-shadow:none !important;
+}
+.editable-container .popover-title{
+  color:#438EB9;
+}
+.editable-click{
+  border-bottom:1px dashed #BBB;
+  cursor:pointer;
+  font-weight:normal;
+}
+img.editable-click{
+  border:1px dotted #BBB;
+}
+.editable-click:hover{
+  border-color:#0088CC;
+  color:#0088CC;
+}
+img.editable-click:hover{
+  opacity:0.75;
+  filter:alpha(opacity=75);
+}
+.editable-buttons,
+.editable-input{
+  display:inline-block;
+}
+.editable-buttons{
+  margin-left:1px;
+}
+.editable-buttons .btn{
+  padding:0;
+  width:28px;
+  line-height:24px;
+  border-width:3px;
+  font-size:12px;
+  margin:0 1px 0 0;
+}
+.editable-buttons .btn > [class*="icon-"]{
+  margin:0;
+}
+.editable-clear-x{
+  cursor:pointer;
+  color:#888;
+  background:none;
+}
+.editable-clear-x:hover{
+  color:#D15B47;
+}
+.editable-clear-x:before{
+  display:inline-block;
+  content:"\f057";
+  font-family:FontAwesome;
+  font-size:15px;
+  position:absolute;
+  margin-top:-9px;
+  width:16px;
+  height:30px;
+  line-height:30px;
+  text-align:center;
+}
+.editable-input .ace-spinner{
+  margin-right:8px;
+}
+.editable-inline .editable-slider{
+  margin-top:10px;
+  margin-right:4px;
+}
+.editable-popup .editable-slider{
+  display:block;
+  margin-bottom:16px;
+  margin-top:4px;
+}
+.editable-slider input{
+  display:none;
+}
+.editable-input .ace-file-input{
+  display:block;
+}
+.editable-image .ace-file-multiple label.selected{
+  border-color:transparent;
+}
+.editable-image + .editable-buttons,
+.editable-wysiwyg + .editable-buttons{
+  display:block;
+  text-align:center;
+  margin-top:8px;
+}
+.editable-wysiwyg{
+  width:95%;
+}
+.editable-wysiwyg .wysiwyg-editor{
+  height:auto;
+  overflow-y:hidden;
+}
+.editableform .input-append.dropdown-menu{
+  display:none;
+}
+.editableform .open .input-append.dropdown-menu{
+  display:block;
+}
+.editable-container .editableform{
+  margin-bottom:10px;
+}
+.editable-inline .editableform{
+  margin-bottom:0;
+}
+.editableform-loading{
+  background:none;
+}
+.editableform-loading [class*="icon-"],
+.editableform-loading .progress{
+  position:relative;
+  top:35%;
+}

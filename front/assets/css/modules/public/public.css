@@ -1,0 +1,115 @@
+/* line 12, ../../../scss/modules/public/public.scss */
+.red_title {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  border: none;
+}
+/* line 18, ../../../scss/modules/public/public.scss */
+.red_title:before {
+  display: block;
+  position: absolute;
+  border-bottom: 2px solid #ea2a36;
+  content: "";
+  width: 100%;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+}
+/* line 28, ../../../scss/modules/public/public.scss */
+.red_title span {
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #ea2a36;
+  line-height: 37px;
+  min-height: 40px;
+  display: inline-block;
+  padding: 0 30px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 5;
+}
+
+/* line 42, ../../../scss/modules/public/public.scss */
+.txt_intro {
+  font-size: 15px;
+  margin: 4em 0;
+}
+
+/* line 46, ../../../scss/modules/public/public.scss */
+.legal-link {
+  text-align: center;
+  margin: 2em 0;
+}
+
+/* line 50, ../../../scss/modules/public/public.scss */
+.bloc_connect {
+  border: 1px solid #cccccc;
+  border-top: 4px solid #ea2a36;
+  padding: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  min-height: 466px;
+}
+/* line 57, ../../../scss/modules/public/public.scss */
+.bloc_connect .btn-primary {
+  text-align: center;
+}
+/* line 60, ../../../scss/modules/public/public.scss */
+.bloc_connect label {
+  display: inline-block;
+  margin: 0;
+  width: 30%;
+}
+/* line 65, ../../../scss/modules/public/public.scss */
+.bloc_connect .form {
+  margin: 0;
+}
+/* line 68, ../../../scss/modules/public/public.scss */
+.bloc_connect input[type="checkbox"] {
+  margin-right: 3px;
+  margin-top: 0;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+/* line 78, ../../../scss/modules/public/public.scss */
+.bloc_connect md-checkbox .md-container {
+  position: absolute;
+  top: 28%;
+}
+
+/* line 84, ../../../scss/modules/public/public.scss */
+.title_connect {
+  color: #ea2a36;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: robotobold, Arial, Helvetica, sans-serif;
+  margin-bottom: 1em;
+}
+
+/* line 91, ../../../scss/modules/public/public.scss */
+.checkbox_txt {
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+@media (min-width: 768px) {
+  /* line 99, ../../../scss/modules/public/public.scss */
+  .btn-subscribe-connect {
+    margin-top: 136px;
+  }
+}
+/* line 103, ../../../scss/modules/public/public.scss */
+input.input_connect {
+  width: 70%;
+  box-sizing: border-box;
+  height: 30px;
+}

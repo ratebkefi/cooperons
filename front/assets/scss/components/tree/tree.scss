@@ -1,0 +1,248 @@
+//colors
+$color_viking_approx: #67b2dd;
+$color_alice_blue_approx: #f0f7fc;
+$white: #fff;
+$color_shakespeare_10_approx: rgba(98, 168, 209, 0.1);
+$color_hippie_blue_approx: #6398b0;
+$color_blue_bayoux_approx: #4d6878;
+$color_champagne_approx: #f9e8ce;
+$alabaster: #fafafa;
+$color_celeste_approx: #ccc;
+$black_5: rgba(0, 0, 0, 0.05);
+$color_tree_poppy_approx: #f9a021;
+$color_alto_approx: #ddd;
+$color_nepal_approx: #8baebf;
+$color_wedgewood_approx: #5084a0;
+
+//fonts
+$font_0: robotoregular;
+
+//@extend-elements
+//original selectors
+//.tree .tree-folder .tree-folder-header >[class*="icon-"]:first-child, .tree .tree-item >[class*="icon-"]:first-child
+%extend_1 {
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	top: -1px;
+}
+
+//original selectors
+//.tree .tree-folder:before, .tree .tree-item:before
+%extend_2 {
+	display: inline-block;
+	content: "";
+	position: absolute;
+	top: 14px;
+	left: -13px;
+	width: 18px;
+	height: 0;
+	border-top: 1px dotted $color_viking_approx;
+	z-index: 1;
+}
+
+//original selectors
+//.tree .tree-item, .tree .tree-folder .tree-folder-header
+%extend_3 {
+	margin: 0;
+	padding: 5px;
+	color: $color_blue_bayoux_approx;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: content-box;
+}
+
+//original selectors
+//.tree .icon-plus[class*="icon-"]:first-child, .tree .icon-minus[class*="icon-"]:first-child
+%extend_4 {
+	border: 1px solid $color_alto_approx;
+	vertical-align: middle;
+	height: 11px;
+	width: 11px;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: content-box;
+	text-align: center;
+	border: 1px solid $color_nepal_approx;
+	line-height: 10px;
+	background-color: $white;
+	position: relative;
+	z-index: 1;
+}
+
+
+.tree {
+	padding-left: 9px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+	&:before {
+		display: inline-block;
+		content: "";
+		position: absolute;
+		top: -20px;
+		bottom: 16px;
+		left: 0;
+		border: 1px dotted $color_viking_approx;
+		border-width: 0 0 0 1px;
+		z-index: 1;
+	}
+	.tree-folder {
+		width: auto;
+		min-height: 20px;
+		cursor: pointer;
+		position: relative;
+		border: 1px solid $white;
+		.tree-folder-header {
+			position: relative;
+			height: 20px;
+			line-height: 20px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 0;
+			@extend %extend_3;
+			&:hover {
+				background-color: $color_alice_blue_approx;
+			}
+			.tree-folder-name {
+				display: inline;
+				z-index: 2;
+				margin-left: 2px;
+			}
+			> [class*="icon-"]:first-child {
+				@extend %extend_1;
+				margin: -2px 0 0 -2px;
+			}
+		}
+		.tree-folder-content {
+			margin-left: 23px;
+			position: relative;
+			&:before {
+				display: inline-block;
+				content: "";
+				position: absolute;
+				z-index: 1;
+				top: -14px;
+				bottom: 16px;
+				left: -14px;
+				border: 1px dotted $color_viking_approx;
+				border-width: 0 0 0 1px;
+			}
+		}
+		&:before {
+			@extend %extend_2;
+		}
+		&:last-child:after {
+			display: inline-block;
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 15px;
+			bottom: 0;
+			left: -15px;
+			border-left: 1px solid $white;
+		}
+	}
+	.tree-item {
+		position: relative;
+		height: 20px;
+		line-height: 20px;
+		cursor: pointer;
+		position: relative;
+		border: 1px solid $white;
+		@extend %extend_3;
+		.tree-item-name {
+			display: inline;
+			z-index: 2;
+			margin-left: 3px;
+			> [class*="icon-"]:first-child {
+				margin-right: 3px;
+			}
+		}
+		&:hover {
+			background-color: $color_alice_blue_approx;
+		}
+		&:before {
+			@extend %extend_2;
+		}
+		> [class*="icon-"]:first-child {
+			@extend %extend_1;
+			margin-top: -1px;
+			color: $color_champagne_approx;
+			width: 13px;
+			height: 13px;
+			line-height: 13px;
+			font-size: 11px;
+			text-align: center;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 3px;
+			//Instead of the line below you could use @include box-sizing($bs)
+			box-sizing: content-box;
+			background-color: $alabaster;
+			border: 1px solid $color_celeste_approx;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 1px 2px $black_5;
+		}
+	}
+	.tree-selected {
+		background-color: $color_shakespeare_10_approx;
+		color: $color_hippie_blue_approx;
+		&:hover {
+			background-color: $color_shakespeare_10_approx;
+		}
+		> [class*="icon-"]:first-child {
+			background-color: $color_tree_poppy_approx;
+			border-color: $color_tree_poppy_approx;
+			color: $white;
+		}
+	}
+	[class*="icon-"][class*="-down"] {
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: rotate(-45deg);
+	}
+	.icon-spin {
+		height: auto;
+	}
+	.tree-loading {
+		margin-left: 36px;
+	}
+	img {
+		display: inline;
+		veritcal-align: middle;
+	}
+	.icon-plus[class*="icon-"]:first-child {
+		@extend %extend_4;
+		&:before {
+			display: block;
+			content: " +";
+			font-family: $font_0;
+			font-size: 16px;
+			position: relative;
+			z-index: 1;
+		}
+	}
+	.icon-minus[class*="icon-"]:first-child {
+		@extend %extend_4;
+		&:before {
+			content: "";
+			display: block;
+			width: 7px;
+			height: 0;
+			border-top: 1px solid $color_blue_bayoux_approx;
+			position: absolute;
+			top: 5px;
+			left: 2px;
+		}
+	}
+	.tree-unselectable .tree-item > [class*="icon-"]:first-child {
+		color: $color_wedgewood_approx;
+		width: 13px;
+		height: 13px;
+		line-height: 13px;
+		font-size: 10px;
+		text-align: center;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0;
+		background-color: transparent;
+		border: none;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+	}
+}

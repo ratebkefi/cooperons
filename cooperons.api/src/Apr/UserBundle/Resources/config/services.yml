@@ -1,0 +1,40 @@
+parameters:
+    apr_user.mailer.class: Apr\UserBundle\Mailer\Mailer
+    apr_user.user.class: Apr\UserBundle\Entity\User
+    apr_user.user_manager.class: Apr\UserBundle\Manager\UserManager
+    apr_user.confirmation.template: AprUserBundle:Registration:email.txt.twig
+    apr_user.resetting.template: AprUserBundle:Resetting:email.txt.twig
+    apr_user.departements_manager.class: Apr\UserBundle\Manager\DepartementsManager
+    apr_user.token_manager.class: Apr\UserBundle\Manager\TokenManager
+    api_user_authenticator.class: Apr\UserBundle\Security\ApiKeyAuthenticator
+    api_user_provider.class: Apr\UserBundle\Security\ApiKeyUserProvider
+
+services:
+    apr_user.mailer:
+        class : '%apr_user.mailer.class%'
+        arguments: ['@service_container', {confirmation.template: '%apr_user.confirmation.template%',resetting.template: '%apr_user.resetting.template%',from_email: {confirmation: '%fos_user.registration.confirmation.from_email%', resetting: '%fos_user.resetting.email.from_email%'}}]
+    
+    apr_user.user_manager: 
+        class: '%apr_user.user_manager.class%'
+        arguments: ['@security.encoder_factory', '@fos_user.util.username_canonicalizer', '@fos_user.util.email_canonicalizer', '@fos_user.object_manager', '%apr_user.user.class%', '@service_container']
+        
+    apr_userbundle_user:
+        class: Apr\UserBundle\Form\Type\UserType
+        tags:
+            - { name: form.type, alias: apr_userbundle_user }
+    
+    apr_user.departements_manager:
+        class : "%apr_user.departements_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager']
+        
+    apr_user.token_manager:
+        class : "%apr_user.token_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+
+    api_user_provider:
+        class: "%api_user_provider.class%"
+        arguments: ["@fos_user.user_manager", "@apr_program.program_manager", "@service_container"]
+        
+    apikey_authenticator:
+        class:     "%api_user_authenticator.class%"
+        arguments: ["@api_user_provider", "@security.http_utils"]

@@ -1,0 +1,24 @@
+{% block content %}
+    <div class="legal-block">
+        <h4 class="legal-title"><a>2. Description du Programme<i class="fa fa-minus-square-o"></i></a></h4>
+        <div class="legal-content" style="display:block;">
+            <textarea name="description" id="description">{{program.description}}</textarea>
+        </div>
+    </div>
+    <div class="legal-block">
+        <h4 class="legal-title"><a>3. Fonctionnement du Programme<i class="fa fa-minus-square-o"></i></a></h4>
+        <div class="legal-content" style="display:block;">
+            <p><strong>Vous gagnez : </strong></p>
+            {% for operation in program.allOperations %}
+                <p>{{operation.label}} :
+                {% if operation.defaultAmount %}
+                    {{operation.defaultAmount}}
+                {% else %}
+                    des
+                {% endif %}
+                {% if operation.isMulti %}MultiPoints{%else%}Points{% endif%}</p>
+                <textarea id="description_op_{{operation.id}}" name="description_op_{{operation.id}}">{{operation.description}}</textarea>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

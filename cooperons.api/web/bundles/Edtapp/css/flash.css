@@ -1,0 +1,39 @@
+.gritter-top, .gritter-bottom, .gritter-item{
+    background-image:none;
+}
+.gritter-info .gritter-close{
+    color:#FFA500;
+}
+.gritter-close{
+    left:auto;
+    right:3px;
+    background-image:none;
+    width:18px;
+    height:18px;
+    line-height:17px;
+    text-align:center;
+    border:2px solid rgba(0, 0, 0, 0);
+    border-radius:16px;
+    color:#E17B67;
+}
+.gritter-title{
+    text-shadow:none;
+}
+.gritter-close, .gritter-close:hover{
+    text-decoration:none;
+}
+.gritter-item-wrapper.gritter-error{
+    background:#ea2a36;
+}
+.gritter-item-wrapper.gritter-warning{
+    background:#31328a;
+}
+.gritter-error .gritter-close{
+    color:#a81e26;
+}
+.gritter-warning .gritter-close{
+    color:#4a57a8;
+}
+.gritter-success .gritter-close{
+    color:#85c295;
+}

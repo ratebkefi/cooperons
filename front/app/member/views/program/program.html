@@ -1,0 +1,129 @@
+<!-- List of member's programs -->
+<header class="page-header"><h2>Mes Programmes</h2></header>
+
+<infos-mandataire></infos-mandataire>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+
+        <ul class="collection with-header" ng-if="programs">
+            <li class="collection-item" ng-repeat="program in programs">
+                <div class="first-content">
+                    <span class="avatar">
+                        <md-tooltip>{{program.label}}</md-tooltip>
+                        <img ng-if="program.image && program.image.filename != ''"
+                             ng-src="{{uploadedFile(program.image.filename)}}"
+                             alt="{{program.label}}"/>
+                        <span ng-if="!program.image || program.image.filename == ''">{{program.label}}</span>
+                    </span>
+                    <span ng-if="program.isCollaborator" class="label-status title {{program.status}}">{{program.statusLabel}}</span>
+
+                    <span ng-if="!program.isCollaborator && program.status == 'preprod'"
+                          class="label-status preprod title">Pré-production</span>
+                </div>
+                <div class="secondary-content program_list">
+                    <md-button ng-if="program.actions.configuration" ui-sref="program.configuration({id: program.id})"
+                               class="md-icon-button launch actions-config left">
+                        <md-tooltip>Configuration</md-tooltip>
+                        <ng-md-icon icon="settings" size="24"></ng-md-icon>
+                    </md-button>
+                    <md-button ng-if="program.actions.configuration" ui-sref="program.administration({id: program.id})"
+                               class="md-icon-button launch actions-admin left actions-admin">
+                        <md-tooltip>Administration</md-tooltip>
+                        <ng-md-icon icon="dashboard" size="24"></ng-md-icon>
+                    </md-button>
+                    <md-button ng-if="program.actions.edit" ng-click="editProgram(program)"
+                               class="md-icon-button launch actions-edit left">
+                        <md-tooltip>Edit</md-tooltip>
+                        <ng-md-icon icon="border_color" size="24"></ng-md-icon>
+                    </md-button>
+                    <md-button ng-if="program.actions.sponsor"
+                               ui-sref="public.invitationParrainage({token: program.isProgramPlus ? tokenPlus : program.token})"
+                               class="md-icon-button launch actions-program left">
+                        <md-tooltip>Parrainage</md-tooltip>
+                        <ng-md-icon icon="supervisor_account" size="24"></ng-md-icon>
+                    </md-button>
+                    <md-button ng-if="program.actions.delete" ng-click="deleteProgram(program)"
+                               class="md-icon-button launch actions-delete left">
+                        <md-tooltip>{{program.oldProgram ? 'Annuler' : 'Supprimer'}}</md-tooltip>
+                        <ng-md-icon ng-if="program.oldProgram" icon="cancel" size="24"></ng-md-icon>
+                        <ng-md-icon ng-if="!program.oldProgram" icon="delete" size="24"></ng-md-icon>
+                    </md-button>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card>
+            <md-card-title class="new-program">
+                <md-card-title-text>
+                    <h3 class="title-header blue-color text-center text-uppercase">Créez votre programme de
+                        parrainage</h3>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="text-center width-65 m-auto">
+                <p>
+                    Vous pouvez dès à présent très facilement créer votre réseau d'apporteurs d'affaires pour votre
+                    entreprise.
+                </p>
+
+                <md-button ng-href="{{backRoute('faq_program', {isEasy: 1, token: _token})}}"
+                           target="_blank" class="md-raised md-primary">
+                    <md-icon md-font-icon="fa fa-info-circle"></md-icon>
+                    En savoir plus
+                </md-button>
+
+                <p>En quelques clics, vous définissez les taux de commissionnement, gérez vos membres et suivez vos
+                    affaires.
+                </p>
+
+                <md-button ng-click="newProgram(true)" class="md-raised md-primary">
+                    <md-icon md-font-icon="fa fa-plus-circle"></md-icon>
+                    Nouveau Programme
+                </md-button>
+
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="program-api">
+            <md-card-title class="new-program">
+                <md-card-title-text>
+                    <h3 class="title-header blue-color text-center text-uppercase">Mode Expert - API Coopérons</h3>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content class="text-center width-65 m-auto">
+                <p>
+                    Vous souhaitez maîtriser complètement les règles d'attribution de point, l'interface graphique, et
+                    le
+                    fonctionnement de votre programme de parrainage ?
+                </p>
+
+                <md-button ng-href="{{backRoute('faq_program', {isEasy: 0, token: _token})}}"
+                           target="_blanck" class="md-raised md-primary">
+                    <md-icon md-font-icon="fa fa-info-circle"></md-icon>
+                    En savoir plus
+                </md-button>
+
+                <p>Obtenez en quelques clics votre clef API vous permettant de connecter votre application à
+                    Coopérons.</p>
+
+                <md-button ng-click="newProgram(false)" class="md-raised md-primary">
+                    <md-icon md-font-icon="fa fa-plus-circle"></md-icon>
+                    Nouveau Programme API
+                </md-button>
+
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+
+
+<div ng-include="'app/member/views/program/programDialogs.html'"></div>

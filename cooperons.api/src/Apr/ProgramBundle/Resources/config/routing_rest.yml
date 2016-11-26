@@ -1,0 +1,41 @@
+apr_program_rest:
+    resource: Apr\ProgramBundle\ApiController\ProgramController
+    type: rest
+    prefix : /rest
+    name_prefix:
+
+apr_gift_order_rest:
+    resource: Apr\ProgramBundle\ApiController\GiftOrderController
+    type:     rest
+    prefix : /rest
+    name_prefix: rest_
+
+apr_participate_rest:
+    resource: Apr\ProgramBundle\ApiController\ParticipateController
+    type:     rest
+    parent:     apr_program_rest
+    name_prefix: rest_
+
+apr_affair_rest:
+    resource: Apr\ProgramBundle\ApiController\AffairController
+    type:     rest
+    parent:     apr_program_rest
+    name_prefix: rest_
+
+apr_easy_setting_rest:
+    resource: Apr\ProgramBundle\ApiController\EasySettingController
+    type:     rest
+    parent:     apr_program_rest
+    name_prefix: rest_
+
+apr_mail_invitation_rest:
+    resource: Apr\ProgramBundle\ApiController\MailInvitationController
+    type:     rest
+    parent:     apr_program_rest
+    name_prefix: rest_
+
+apr_operation_rest:
+    resource: Apr\ProgramBundle\ApiController\OperationController
+    type:     rest
+    parent:     apr_program_rest
+    name_prefix: rest_

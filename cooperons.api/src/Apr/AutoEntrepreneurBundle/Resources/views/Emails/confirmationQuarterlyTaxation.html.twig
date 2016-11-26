@@ -1,0 +1,19 @@
+{% extends "AprMandataireBundle:Emails:baseEmailMandataire.html.twig" %}
+{% block content %}
+    Dans le cadre du {{ mandataire.label }}, nous vous confirmons avoir procédé à la déclaration de votre chiffre d'affaires
+    sur net-entreprises.com, d'un montant de {{ quarterlyTaxation.totalIncomeHt|number_format(2,',',' ') }} €.
+
+    <br /><br />
+
+    Le montant de vos cotisations applicables, tel que calculé par net-entreprises.com s'élève à {{ quarterlyTaxation.amount|number_format(2,',',' ') }} €
+    et sera réglé par prélèvement sur votre {{ mandataire.shortLabel }}.
+
+    <br /><br />
+
+    Suite à cette opération, le solde de votre {{ mandataire.shortLabel }} s'élève désormais à {{depot|number_format(2,',',' ')}} €.
+
+    <br /><br />
+
+    Par ailleurs, suite à ce réglement, le montant de votre provision est réduit à {{ provision|number_format(2,',',' ') }} €: votre prochain
+    règlement hebdomadaire sera donc augmenté en conséquence.
+{% endblock %}

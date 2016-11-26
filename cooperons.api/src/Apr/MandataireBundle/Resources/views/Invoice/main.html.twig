@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body style="margin: 0;">
+<div style="margin: 0 5% ;font-size:10pt;color:#515151;">
+
+    <table style="width:100%">
+        <tr>
+            <td style="width:30%;font-size:12pt;">
+                {% if ownerIsCooperons %}
+                    <img src="{{ baseurl }}/bundles/Edtapp/css/images/logo.png" border="0"/>
+                    <br/><br/><br/><br/>
+                {% else %}
+                    <span style="font-size:18pt;font-weight:bold;color:#31328a">{{ invoice.mandataire.owner.label|upper }}</span>
+                    <br/><br/><br/><br/><br/>
+                {% endif %}
+
+                Adresse<br/>
+                <strong>{{ invoice.mandataire.owner.local.address }}</strong><br/>
+                <strong>{{ invoice.mandataire.owner.local.postalCode }} {{ invoice.mandataire.owner.local.city }}</strong><br/>
+                {% if invoice.mandataire.owner.corporate %}
+                    TVA: <strong>{{ invoice.mandataire.owner.corporate.TVAIntracomm }}</strong><br/>
+                {% elseif invoice.mandataire.owner.autoEntrepreneur %}
+                    SIRET: {% if invoice.mandataire.owner.autoEntrepreneur.SIRET %}
+                    <strong>{{ invoice.mandataire.owner.autoEntrepreneur.SIRET }}</strong>
+                {% else %}
+                    En cours de constitution
+                {% endif %}<br/>
+                {% endif %}
+            </td>
+            <td style="width:40%;"></td>
+            <td style="width:30%;background-color:#31328a;color:#ffffff;font-size:8pt;text-align:right;padding:10px">
+                <br/><br/>
+                <span style="font-size:18pt;font-weight:bold">FACTURE</span><b/><br/><br/><br/>
+                N°: <strong>{{ invoice.ref }}</strong><br/><br/>
+                Date: <strong>{{ invoice.invoicingDate|date('d/m/y') }}</strong><br/><br/>
+                <strong>{{ invoice.mandataire.client.label }}</strong><br/>
+                <strong>{{ invoice.mandataire.client.local.address }}</strong><br/>
+                <strong>{{ invoice.mandataire.client.local.postalCode }} {{ invoice.mandataire.client.local.city }}</strong><br/><br/><br/>
+                <i>Contact: {{ invoice.mandataire.clientMember.label }}</i>
+            </td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" style="width:100%;margin-top: 60px;text-align:right;" class="tableau">
+        <tr style="font-size:11pt;background-color:#31328a;color:#ffffff;font-weight:bold;line-height:25pt;">
+            <th style="width:10%;text-align:left;border-bottom:2pt solid #282971;border-left:2pt solid #31328a;">
+                &nbsp;Date
+            </th>
+            <th style="width:50%;text-align:left;border-bottom:2pt solid #282971;border-left:2pt solid #31328a;">
+                &nbsp;Description
+            </th>
+            <th style="width:10%;text-align:center;border-bottom:2pt solid #282971;">&nbsp;Unités</th>
+            <th style="width:10%;text-align:left;border-bottom:2pt solid #282971;">&nbsp;Coût unitaire</th>
+            <th style="width:10%;text-align:left;border-bottom:2pt solid #282971;border-right:2pt solid #31328a;">
+                &nbsp;Montant HT
+            </th>
+            <th style="width:10%;text-align:center;border-bottom:2pt solid #282971;border-right:2pt solid #31328a;">
+                &nbsp;Taux TVA
+            </th>
+        </tr>
+        {% for settlement in invoice.allSettlements %}
+            <tr style="line-height:25pt;">
+                <td style="text-align:left;border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">
+                    &nbsp;{{ settlement.createdDate|date('d-m-y') }}</td>
+                <td style="text-align:left;border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">
+                    &nbsp;{{ settlement.description }}</td>
+                <td style="border-bottom:1px solid #bebebe;border-left:1px solid #ffffff;border-right:1px solid #bebebe;">{{ settlement.quantity }}</td>
+                <td style="border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">{{ (settlement.unitAmount)|number_format(2, ',', ' ') }}
+                    €
+                </td>
+                <td style="border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">{{ (settlement.amountHt)|number_format(2, ',', ' ') }}
+                    €
+                </td>
+                <td style="border-bottom:1px solid #bebebe;border-right:1px solid #bebebe;">{% if summaryTva.amounts is defined %}{{ (settlement.rateTva)|number_format(2, ',', ' ') }} %{% else %}-{% endif %}</td>
+            </tr>
+        {% endfor %}
+        <tr style="font-weight:bold;font-size:13pt;background-color:#cacaca;line-height:25pt;color:#31328a;"
+            class="row-total">
+            <td colspan="4" style="border-bottom:2pt solid #a6a6a6;border-left:2pt solid #cacaca;">
+                TOTAL&nbsp;&nbsp;</td>
+            <td colspan="2" class="last"
+                style="border-bottom:2pt solid #a6a6a6;border-right:2pt solid #cacaca;">{{ invoice.amountHt|number_format(2, ',', ' ') }}
+                €&nbsp;&nbsp;</td>
+        </tr>
+        {% if summaryTva.amounts is defined %}
+            {% for rate, amount in summaryTva.amounts %}
+                <tr style="font-size:11pt;background-color:#f2f6f8;line-height:25pt;" class="row-total">
+                    <td colspan="4"
+                        style="border-bottom:1px solid #bebebe;border-left:1px solid #f2f6f8;color:#31328a;">
+                        Montant T.V.A. {{ rate|number_format(2, ',', ' ') }} %&nbsp;&nbsp;</td>
+                    <td colspan="2" class="last"
+                        style="border-bottom:1px solid #bebebe;border-right:1px solid #f2f6f8;">{{ amount|number_format(2, ',', ' ') }}
+                        €&nbsp;&nbsp;</td>
+                </tr>
+            {% endfor %}
+            <tr style="font-weight:bold;font-size:13pt;background-color:#cacaca;line-height:25pt;color:#31328a;"
+                class="row-total">
+                <td colspan="4" style="border-bottom:2pt solid #a6a6a6;border-left:2pt solid #cacaca;">Total
+                    TTC&nbsp;&nbsp;</td>
+                <td colspan="2" class="last"
+                    style="border-bottom:2pt solid #a6a6a6;border-right:2pt solid #cacaca;">{{ invoice.amountTtc|number_format(2, ',', ' ') }}
+                    €&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+        {% endif %}
+    </table>
+
+    <table style="width:100%; margin-top: 10px">
+        {% if summaryTva.status == 'autoEntrepreneur' %}
+            <tr>
+                <td style="width:5%;"></td>
+                <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;"><br/><br/><br/>TVA non
+                    applicable, art. 293B du CGI.<br/></td>
+                <td style="width:5%;"></td>
+            </tr>
+        {% elseif summaryTva.status == 'intraUE' %}
+            <tr>
+                <td style="width:5%;"></td>
+                <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;"><br/><br/><br/>Autoliquidation
+                    ("Reverse Charge" Art. 194 Directive TVA).<br/></td>
+                <td style="width:5%;"></td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="font-size:13pt;font-weight:bold;width:90%;text-align:center;"><br/><br/><br/>Facture réglée par
+                prélèvement sur votre {{ invoice.mandataire.shortLabel }}.<br/>
+                <br/>Nous vous remercions pour votre fidélité.
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+        <tr>
+            <td style="width:5%;"></td>
+            <td style="width:90%;"><br/><br/><br/><br/><br/><br/>
+                <table style="width:100%;border:1px solid #bebebe">
+                    <tr>
+                        <td style="width:40%;"></td>
+                        <td style="width:10%;text-align:center;"></td>
+                        <td style="font-size:11pt;font-weight:bold;width:40%;text-align:left;">
+                            Solde {% if not invoice.lastInvoice %}initial{% endif %} de
+                            votre {{ invoice.mandataire.shortLabel }}
+                            {% if invoice.lastInvoice %} au {{ invoice.lastInvoice.invoicingDate|date('d/m/y') }}{% endif %}
+                        </td>
+                        <td style="width:10%;text-align:right;">{{ invoice.startBalance|number_format(2, ',', ' ') }}
+                            €
+                        </td>
+                    </tr>
+                    {% for operation in operations %}
+                        <tr>
+                            <td style="width:40%;"></td>
+                            <td style="font-size:9pt;width:10%;text-align:center;">{{ operation.createdDate }}</td>
+                            <td style="font-size:9pt;width:40%;text-align:left;">{{ operation.description|nl2br }}</td>
+                            <td style="font-size:9pt;width:10%;text-align:right;">{{ operation.amount|number_format(2,',',' ') }}
+                                €
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td style="width:40%;"></td>
+                        <td style="width:10%;"></td>
+                        <td style="font-size:11pt;font-weight:bold;width:40%;text-align:left;">Solde de
+                            votre {{ invoice.mandataire.shortLabel }}
+                            au {{ invoice.invoicingDate|date('d/m/y') }}
+                        </td>
+                        <td style="width:10%;text-align:right;">{{ endBalance|number_format(2, ',', ' ') }} €</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width:5%;"></td>
+        </tr>
+        {% if not ownerIsCooperons %}
+            <tr>
+                <td style="width:5%;"></td>
+                <td style="font-size:9pt;width:90%;text-align:center;">
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Facture établie au nom et pour le compte
+                    de {{ invoice.mandataire.owner.label }} par:<br/>
+                    <br/>SARL COOPERONS - 34 rue de la Tombe Issoire, Paris (75014) - TVA: FR28492222302
+                </td>
+                <td style="width:5%;"></td>
+            </tr>
+        {% endif %}
+    </table>
+</div>
+</body>
+</html>

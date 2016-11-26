@@ -1,0 +1,18 @@
+/*global angular*/
+define([], function() {
+    const config = {
+        index: {
+            version: '1.4',
+            date_maj: '08/04/2016'
+        },
+        backBaseUrl: 'http://cooperons.api/app_dev.php',
+        apiBaseUri: 'http://cooperons.api/app_dev.php/rest',
+        uploadedFilesUrl: 'http://api.cooperons/Uploads',
+        idProgramPlus: 1,
+        idProgramAE: 4,
+        idCorporateCooperons: 1,
+        idPartyCooperons: 1
+    };
+
+    return config;
+});

@@ -1,0 +1,14 @@
+md-toolbar.md-default-theme.md-hue-1:not(.md-menu-toolbar), md-toolbar.md-hue-1:not(.md-menu-toolbar) {
+    background-color: rgb(256,256,256);
+    color: #2f225f;
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: rgb(256,256,256);
+    color: #2f225f;
+}
+md-toolbar.md-default-theme.md-hue-1:not(.md-menu-toolbar) .md-button:not(.md-raised), md-toolbar.md-hue-1:not(.md-menu-toolbar) .md-button:not(.md-raised) {
+    color: #2f225f;
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar) .md-button:not(.md-raised), md-toolbar:not(.md-menu-toolbar) .md-button:not(.md-raised) {
+    color: #2f225f;
+}

@@ -1,0 +1,63 @@
+/* line 11, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification {
+  position: fixed;
+  z-index: 9999;
+  width: 300px;
+  cursor: pointer;
+  transition: all ease .5s;
+  color: #fff;
+  border-radius: 0;
+  background: #337ab7;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+/* line 24, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification.killed {
+  transition: opacity ease 1s;
+  opacity: 0;
+}
+/* line 29, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification > h3 {
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  margin: 10px 10px 0 10px;
+  padding: 0 0 5px 0;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* line 38, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification a {
+  color: #fff;
+}
+/* line 40, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification a:hover {
+  text-decoration: underline;
+}
+/* line 44, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification.warning {
+  color: #fff;
+  background: #f0ad4e;
+}
+/* line 48, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification.error {
+  color: #fff;
+  background: #d9534f;
+}
+/* line 52, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification.success {
+  color: #fff;
+  background: #5cb85c;
+}
+/* line 56, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification.info {
+  color: #fff;
+  background: #5bc0de;
+}
+/* line 60, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification:hover {
+  opacity: .7;
+}
+/* line 63, ../../../scss/components/angularUiNotification/angularUiNotification.scss */
+.ui-notification > .message {
+  margin: 10px;
+}

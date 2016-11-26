@@ -1,0 +1,207 @@
+/* Sign Screens - Wrappers */
+/* line 10, ../../../scss/modules/user/login.scss */
+.body-sign {
+  display: table;
+  margin: 10% auto;
+  max-width: 500px;
+  padding: 0 15px;
+  width: 100%;
+  vertical-align: middle;
+}
+/* line 18, ../../../scss/modules/user/login.scss */
+.body-sign .center-sign {
+  display: table-cell;
+  padding-top: 20px;
+  vertical-align: middle;
+}
+/* line 22, ../../../scss/modules/user/login.scss */
+.body-sign .center-sign .logo {
+  text-align: center;
+}
+/* line 27, ../../../scss/modules/user/login.scss */
+.body-sign .panel-sign {
+  background: transparent;
+}
+/* line 31, ../../../scss/modules/user/login.scss */
+.body-sign .panel-sign .panel-title-sign .title {
+  background-color: #31328a;
+  border-radius: 6px 6px 0 0;
+  color: #FFF;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 22px;
+  padding: 13px 17px;
+  vertical-align: bottom;
+  margin: 0;
+  float: none;
+}
+/* line 45, ../../../scss/modules/user/login.scss */
+.body-sign .panel-sign .panel-body {
+  background: #FFF;
+  border-top: 5px solid #31328a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 33px 33px 15px;
+}
+/* line 53, ../../../scss/modules/user/login.scss */
+.body-sign .text-error {
+  color: #e40a20;
+}
+/* line 57, ../../../scss/modules/user/login.scss */
+.body-sign md-input-container.md-icon-float > md-icon {
+  top: 10px;
+  left: 2px;
+  right: auto;
+  font-size: 18px;
+}
+
+/* Sign Screens - Elements */
+/* line 70, ../../../scss/modules/user/login.scss */
+.body-sign .input-group-icon .input-group-addon i {
+  width: 14px;
+}
+/* line 75, ../../../scss/modules/user/login.scss */
+.body-sign .checkbox-custom {
+  margin-top: 8px;
+}
+/* line 79, ../../../scss/modules/user/login.scss */
+.body-sign .line-thru {
+  display: block;
+  font-size: 12px;
+  position: relative;
+}
+/* line 84, ../../../scss/modules/user/login.scss */
+.body-sign .line-thru span {
+  color: #CCC;
+  position: relative;
+  z-index: 3;
+}
+/* line 90, ../../../scss/modules/user/login.scss */
+.body-sign .line-thru:before {
+  background-color: #FFF;
+  content: '';
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  margin: -5px 0 0 -20px;
+  top: 50%;
+  width: 40px;
+  z-index: 2;
+}
+/* line 102, ../../../scss/modules/user/login.scss */
+.body-sign .line-thru:after {
+  border-bottom: 1px solid #DADADA;
+  content: '';
+  display: block;
+  left: 10%;
+  position: absolute;
+  top: 47%;
+  width: 81%;
+  z-index: 1;
+}
+
+/* Lock Screen */
+/* line 118, ../../../scss/modules/user/login.scss */
+.body-locked {
+  background: url(images/patterns/noisy_net.png) repeat;
+  max-width: none;
+  min-height: 400px;
+}
+/* line 123, ../../../scss/modules/user/login.scss */
+.body-locked.body-locked-inline {
+  background: none;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  min-height: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+/* line 135, ../../../scss/modules/user/login.scss */
+.body-locked .panel-sign {
+  margin: 0 auto;
+  max-width: 400px;
+  padding-top: 40px;
+}
+/* line 140, ../../../scss/modules/user/login.scss */
+.body-locked .panel-sign .panel-body {
+  border-radius: 6px;
+  position: relative;
+}
+/* line 146, ../../../scss/modules/user/login.scss */
+.body-locked .current-user {
+  margin-top: 60px;
+  margin-bottom: 35px;
+}
+/* line 150, ../../../scss/modules/user/login.scss */
+.body-locked .current-user .user-image {
+  border: 5px solid #31328a;
+  border-radius: 150px;
+  height: 150px;
+  left: 50%;
+  position: absolute;
+  margin-left: -75px;
+  top: -75px;
+  width: 150px;
+}
+/* line 161, ../../../scss/modules/user/login.scss */
+.body-locked .current-user .user-name {
+  font-size: 30px;
+  line-height: 36px;
+}
+/* line 166, ../../../scss/modules/user/login.scss */
+.body-locked .current-user .user-email {
+  font-size: 11px;
+  line-height: 14px;
+}
+
+/* Locked Screen - Responsive Landscape */
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  /* line 178, ../../../scss/modules/user/login.scss */
+  .body-locked .panel-sign, .body-locked.body-locked-inline .panel-sign {
+    padding-top: 0;
+  }
+  /* line 182, ../../../scss/modules/user/login.scss */
+  .body-locked .center-sign, .body-locked.body-locked-inline .center-sign {
+    padding-top: 0;
+  }
+  /* line 185, ../../../scss/modules/user/login.scss */
+  .body-locked .center-sign .current-user, .body-locked.body-locked-inline .center-sign .current-user {
+    margin-bottom: 45px;
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+  /* line 190, ../../../scss/modules/user/login.scss */
+  .body-locked .center-sign .current-user .user-image, .body-locked.body-locked-inline .center-sign .current-user .user-image {
+    height: 100px;
+    left: 35px;
+    margin-left: 0;
+    margin-top: 0;
+    top: 15px;
+    width: 100px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 204, ../../../scss/modules/user/login.scss */
+  .body-sign {
+    max-width: 100%;
+  }
+
+  /* line 207, ../../../scss/modules/user/login.scss */
+  .body-sign .center-sign .logo img {
+    width: 90%;
+  }
+}
+/* Lock Screen - Modal */
+/* line 214, ../../../scss/modules/user/login.scss */
+.mfp-lock-screen.mfp-bg {
+  background: #000 url(images/patterns/noisy_net.png) repeat;
+  opacity: 0.99;
+  z-index: 9998;
+}
+/* line 220, ../../../scss/modules/user/login.scss */
+.mfp-lock-screen.mfp-wrap {
+  background: none;
+  z-index: 9999;
+}

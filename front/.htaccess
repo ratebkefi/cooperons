@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .? - [L]
+
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+RewriteRule ^(.*) - [E=BASE:%1]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule .? %{ENV:BASE}/index.html

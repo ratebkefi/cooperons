@@ -1,0 +1,240 @@
+.mes_clients .client_header{min-height:inherit;}
+
+.client_header .customer_img{
+	padding:5px;
+	margin:0 1% 0 3%;
+}
+
+.client_header h4{
+	display:inline-block;
+	max-height:inherit;
+}
+
+.client_header h4 > a{margin-top:10px;}
+
+.tableaupack,
+.choisirduree,
+.boutoncontrat{
+    width:90%;
+	margin:0 5%;
+	float:left;
+	margin-top:20px;
+}
+
+.span1{
+	margin-left:1px;
+	width:13%;
+    font-family:'latoblack';
+}
+
+.span1.selected > div{
+	background-image:url(images/selected_price.png);
+}
+
+.span2{margin-left:0;width:34%;}
+
+.clientpaie{
+    background:#999999; 
+    padding:10px 0px 10px 15px; 
+    color:#FFFFFF;
+    border-bottom:1px solid #4c4c4c;
+    margin:0;
+    font-size:0.85em;
+}
+.clientvide{
+	background:none; 
+	padding:10px 0px 10px 15px; 
+	margin-bottom:1px;
+	margin-top:1px;
+	border-bottom:1px solid #c6c6c6;
+}
+
+.clientheure{
+    background:#dddddd; 
+    padding:10px 0px 10px 15px; 
+    color:#333333;
+    border-bottom:1px solid #c6c6c6;
+    margin:0;
+    font-size:0.85em;
+}
+
+.pricepack,
+.inputpack,
+.priceheure{
+    min-height:40px;
+    color:#FFFFFF;
+    border-bottom:1px solid #4c4c4c;
+    margin:0;
+    text-align:center;
+    font-size:1.3em;
+	line-height:40px;
+	padding:0 2%;
+}
+
+.inputpack{
+    margin-bottom:1px;
+    margin-top:1px;
+	border-bottom:1px solid #c6c6c6;
+}
+
+.priceheure{
+    color:#333333;
+    border-bottom:1px solid #adadad;
+}
+
+.colonne1_couleur_1{background:#898989;}
+
+.colonne1_couleur_2{background:#737373;}
+
+.colonne1_couleur_3{background:#5c5c5c;}
+
+.colonne1_couleur_4{background:#454545;}
+
+.colonne1_couleur_5{background:#2e2e2e;}
+
+.colonne2_couleur_1{background:#f7f7f7;}
+
+.colonne2_couleur_2{background:#ececec;}
+
+.colonne2_couleur_3{background:#e0e0e0;}
+
+.colonne2_couleur_4{background:#d5d5d5;}
+
+.colonne2_couleur_5{background:#c9c9c9;}
+
+.colonne3_couleur_1{background:#d1d1d1;}
+
+.colonne3_couleur_2{background:#c1c1c1;}
+
+.colonne3_couleur_3{background:#b1b1b1;}
+
+.colonne3_couleur_4{background:#a0a0a0;}
+
+.colonne3_couleur_5{background:#8f8f8f;}
+
+.inputpack input{margin:0px;}
+
+.inputpack div.radio{
+	height:21px;
+    width:21px;
+	margin:0;
+	margin-top:-5px;
+}
+
+.inputpack div.radio span{
+	height:21px;
+    width:21px;
+	float:left;
+	background-image:url("images/sprite.png");
+	background-repeat:no-repeat;
+}
+
+.inputpack div.radio span,
+.inputpack div.radio:hover span,
+.inputpack div.radio:focus span,
+.inputpack div.radio:active span,
+.inputpack div.radio.active.focus span{
+	background-position:0 -277px;
+}
+
+.inputpack div.radio span.checked,
+.inputpack div.radio.hover span.checked,
+.inputpack div.radio:focus span.checked,
+.inputpack div.radio:active span.checked,
+.inputpack div.radio.active.focus span.checked{
+	background-position:-105px -277px;
+}
+
+.inputpack .radio input[type="radio"]{
+	margin-left:0;
+	height:21px;
+    width:21px;
+}
+
+.span2_responsive{display:none;}
+
+.choisirduree{
+    padding:20px 0;
+    margin-top:40px;
+    border-top:1px solid #e5e5e5;
+    text-align:left;
+}
+
+.choisirduree .divlabel,
+.choisirduree .divinput{
+    width:50%;
+    float:left
+}
+
+.choisirduree .divlabel label{
+	width:97%;
+	text-align:left;
+	padding:0;
+	margin:0;
+	line-height:30px;
+}
+
+.choisirduree .divinput #duration{width:80%}
+
+.boutoncontrat{
+    text-align:right;
+    padding-top:20px;
+    margin-top:0;
+    margin-bottom:20px;
+    border-top:1px solid #e5e5e5;
+}
+
+.boutoncontrat button.btn_cta{padding:1.5% 6%;}
+
+
+.choisirduree .input-append .add-on{
+    background:url("images/timer_bg.png") no-repeat center center;
+    border-radius:0 3px 3px 0;
+    cursor:pointer;
+    height:19px;
+    margin-bottom:0;
+}
+
+@media (max-width:767px){
+	.span1{
+		width:19.5%;
+		float:left;
+	}
+	
+	.span2{display:none;}
+	
+	.span2_responsive{
+		width:100%; 
+		margin-top:20px;
+		display:inline-block;
+	}
+	.choisirduree{margin-top:20px;}
+	.pricepack, .inputpack, .priceheure {font-size:1.2em;}
+}
+
+@media (max-width:719px){
+	.client_header h4{
+		margin:10px 0;
+		padding-right:3%;
+		width:97%;
+	}
+	
+	.client_header .customer_img{width:43px;}
+	.choisirduree .divlabel label{
+		line-height:normal;
+		width:95%;
+	}
+	
+	.boutoncontrat button.btn_cta{padding:8px 33px;width:182px;}
+}
+
+@media (max-width:479px){
+	.pricepack, .inputpack, .priceheure {font-size:1.1em;}
+	.choisirduree .divlabel label{margin-bottom:5px;;width:100%;}
+	.choisirduree .divlabel,.choisirduree .divinput{width:100%;}
+	.boutoncontrat{text-align:center;}
+}
+
+@media (max-width:319px){
+	.pricepack, .inputpack, .priceheure {font-size:1em;}
+}

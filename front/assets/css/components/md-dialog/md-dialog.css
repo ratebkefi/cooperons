@@ -1,0 +1,44 @@
+/* line 1, ../../../scss/components/md-dialog/md-dialog.scss */
+md-dialog {
+  min-width: 400px;
+}
+
+/* line 4, ../../../scss/components/md-dialog/md-dialog.scss */
+md-dialog md-toolbar.md-default-theme:not(.md-menu-toolbar), md-dialog md-toolbar:not(.md-menu-toolbar) {
+  background-color: #27368b;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* line 8, ../../../scss/components/md-dialog/md-dialog.scss */
+md-dialog md-toolbar.md-default-theme:not(.md-menu-toolbar) .md-button:not(.md-raised), md-dialog md-toolbar:not(.md-menu-toolbar) .md-button:not(.md-raised) {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* line 11, ../../../scss/components/md-dialog/md-dialog.scss */
+md-dialog md-dialog-content {
+  padding: 30px 20px;
+}
+
+/* line 14, ../../../scss/components/md-dialog/md-dialog.scss */
+md-dialog .md-actions, md-dialog md-dialog-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: end;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 32, ../../../scss/components/md-dialog/md-dialog.scss */
+  md-dialog {
+    min-width: 300px;
+  }
+}

@@ -1,0 +1,135 @@
+//colors
+$color_governor_bay_approx: #393aa1;
+$color_bay_of_many_approx: #31328a;
+$white: white;
+$color_alto_approx: #d9d9d9;
+$color_cape_cod_approx: #424644;
+$color_athens_gray_approx: #ecf0f1;
+$color_gunsmoke_approx: #7c8389;
+
+//fonts
+$font_0: robotobold;
+$font_1: FontAwesome;
+$font_2: latoregular;
+
+.calcul_commission {
+	border-left: 1px dotted $color_governor_bay_approx;
+	border-right: 1px dotted $color_governor_bay_approx;
+	margin-top: 60px;
+	input[type="text"] {
+		height: 19px;
+		line-height: 19px;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+		font-family: $font_2;
+		color: $color_gunsmoke_approx;
+		border: 1px solid $color_alto_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0;
+		font-size: 12px;
+		max-width: 110px;
+		margin-top: 5px;
+		padding: 4px;
+		margin-right: 5px;
+		&:focus {
+			border: 1px solid $color_bay_of_many_approx;
+		}
+	}
+	input.test_and_recalc {
+		max-width: 110px;
+		margin-top: -3px;
+		padding: 4px;
+		margin-right: 5px;
+	}
+	.text_cal span {
+		top: 0;
+		position: relative;
+		right: 5px;
+	}
+}
+.titre_commission {
+	font-family: $font_0;
+	color: $color_bay_of_many_approx;
+	font-size: 15px;
+	position: relative;
+	margin-top: -10px;
+	display: block;
+	background-color: $white;
+	padding-left: 10px;
+	&:before {
+		content: "\f10c";
+		font-family: $font_1;
+		font-size: 24px;
+		position: absolute;
+		left: -31px;
+		top: 0;
+		background-color: $white;
+	}
+}
+.content_commission {
+	padding: 0 20px;
+	margin-bottom: 40px;
+	border-top: 1px dotted $color_governor_bay_approx;
+	&.last {
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			background-color: $white;
+			width: 1px;
+			height: 10px;
+			right: -1px;
+			top: 0;
+		}
+	}
+}
+.txt_commission {
+	padding: 0 20px;
+	margin-left: 10px;
+	margin-bottom: 40px;
+	&:after {
+		content: "";
+		width: 50%;
+		height: 1px;
+		border-bottom: 1px solid $color_alto_approx;
+		display: block;
+		margin: 30px auto;
+	}
+}
+.total_commission {
+	font-family: $font_0;
+	color: $color_cape_cod_approx;
+	font-size: 15px;
+	.commission_member {
+		background-color: $color_bay_of_many_approx;
+		color: $white;
+	}
+}
+.commission_member {
+	background-color: #ecf0f1;
+        border-radius: 20px;
+        color: #31328a;
+        float: right;
+        font-family: robotobold;
+        font-size: 14px;
+        line-height: 30px;
+        margin-right: 10px;
+        min-width: 60px;
+        padding: 0 10px 0 12px;
+        text-align: center;
+        margin-top: -5px;
+}
+.purcent_commission {
+	font-family: $font_0;
+	color: $color_bay_of_many_approx;
+	font-size: 15px;
+	position: relative;
+	top: -3px;
+	display: inline-block;
+}
+.mt-sd{
+ margin-top: 7px;   
+}
+h4.total_commission{
+    margin: 2rem 0 2rem 0;
+}

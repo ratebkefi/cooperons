@@ -1,0 +1,10 @@
+<div class="footer-container">
+    Powered by <a ng-href="http://www.fondative.com/" target="_blank">
+    <img src="assets/images/default/logo-fondative.png" alt="Fondative"/></a>
+    © Copyright Coopérons !
+    <span ng-if="space && member && member.hasAcceptedCGUMember">
+        - <a ng-href="{{backRoute('cgu_cooperons', {'token': tokenPlus})}}" target="_blanck">
+        Conditions d'utilisation
+    </a>
+    </span>
+</div>

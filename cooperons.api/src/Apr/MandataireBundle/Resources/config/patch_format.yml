@@ -1,0 +1,22 @@
+mandataire:
+    update_min_deposit:
+        op: replace
+        path: /mindeposit
+        params: [value]
+    confirm_mandataire_invoice:
+        op: confirm
+        path: /invoice
+
+payment:
+    confirm_payment:
+        op: confirm
+        path: /
+        params: [payment]
+        requirements:
+            payment: integer
+    cancel_payment:
+        op: cancel
+        path: /
+        params: [payment]
+        requirements:
+            payment: integer

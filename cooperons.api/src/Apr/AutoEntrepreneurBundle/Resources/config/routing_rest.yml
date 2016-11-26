@@ -1,0 +1,17 @@
+apr_auto_entrepreneur_rest:
+    resource: Apr\AutoEntrepreneurBundle\ApiController\AutoEntrepreneurController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+apr_quarterly_taxation_rest:
+    resource: Apr\AutoEntrepreneurBundle\ApiController\QuarterlyTaxationController
+    type:     rest
+    prefix: /rest
+    name_prefix: rest_
+
+restapr_service_type_rest:
+    resource: Apr\AutoEntrepreneurBundle\ApiController\ServiceTypeController
+    type: rest
+    parent: apr_contract_rest
+    name_prefix: rest
